@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace ConAppsExcercises
 {
@@ -96,6 +97,127 @@ namespace ConAppsExcercises
             }
 
             return stringbuilder.ToString();
+        }
+
+        public IList<int> ArrrayGames()
+        {
+            int[] result = {1,4,9,16,25};
+
+
+
+            return result;
+        }
+
+        public IList<string> GetWeekName()
+        {
+            string[] results = {
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            };
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < results.Length; i++)
+            {
+                sb.Append(results[i]);
+                if (i < results.Length - 2)
+                {
+                    sb.Append(", ");
+                }
+                if (i == results.Length - 2)
+                {
+                    sb.Append(" and ");
+                }
+            }
+            WriteLine(sb.ToString());
+            return results;
+        }
+
+        public IList<Person> GetPeople()
+        {
+            Person[] people = new Person[]
+            {
+                new Person { Name="Kris", Age=11},
+                new Person { Name= "Tom", Age=20}
+            };
+
+            foreach (var item in people)
+            {
+                WriteLine(item.ToString());
+            }
+            return people;
+        }
+
+        public void CopyArray()
+        {
+            int[] myBase = { 1, 4, 9, 16, 2, 5};
+            int[] copy = new int[6];
+
+            myBase.CopyTo(copy, 0);
+
+            foreach (var item in copy)
+            {
+                WriteLine(item);
+            }
+
+            WriteLine($"myBase Equals to Copy? {myBase == copy}");
+        }
+
+        public void UseSingleton()
+        {
+            Singleton s1 = Singleton.Instance;
+            var s2 = Singleton.Instance;
+        }
+
+        public String GetCollapsed(string input)
+        {
+            //group same letters;
+            var gr = input.ToCharArray();
+            var dictionary = new Dictionary<char, int>();
+
+            foreach (var l in gr)
+            {
+                if (!dictionary.ContainsKey(l))
+                {
+                    dictionary[l] = 0;
+                }
+                dictionary[l]++;
+            }
+
+            var results = String.Empty;
+            foreach (var rec in dictionary)
+            {
+                results += rec.Key + rec.Value.ToString();
+            }
+
+
+            return results;
+        }
+
+        public DateTime WorldClock(string myDate, IList<string> timeZones)
+        {
+            //check input parameters => is myDate actually a date?
+            //you have 135 time zones => do you want to convert time for eacho of them?
+            var dt = Convert.ToDateTime(myDate);
+
+            var destTimeZone = "Central European Standard Time";
+            var result = TimeZoneInfo.ConvertTime(dt, TimeZoneInfo.Local, TimeZoneInfo.FindSystemTimeZoneById(destTimeZone));
+
+            return result;
+        }
+
+        public IList<string> GetTimeZoneId()
+        {
+            var results = new List<String>();
+            foreach (var tz in TimeZoneInfo.GetSystemTimeZones())
+            {
+                results.Add(tz.Id);
+            }
+            return results;
         }
     }
 }
