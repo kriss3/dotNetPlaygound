@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
@@ -102,8 +106,6 @@ namespace ConAppsExcercises
         public IList<int> ArrrayGames()
         {
             int[] result = {1,4,9,16,25};
-
-
 
             return result;
         }
@@ -219,5 +221,111 @@ namespace ConAppsExcercises
             }
             return results;
         }
+
+        public IEnumerable<String> StringsArrays()
+        {
+            IList<String> myStrings = new List<string>();
+            string[] myArr = { "a","e","i","o","u","y"};
+            var t = "aeiouy";
+            var res = t.ToCharArray();
+            for (int i = res.Length-1; i>0;i++)
+            {
+                WriteLine(t[i]);
+            }
+
+            return myStrings;
+        }
+
+        public void SwapMinMax()
+        {
+            int[] arr = { 1, 4, 5, 3, 2, 7, 6, 8, 9, 11 };
+            Array.Sort(arr);
+            var min = arr[0];
+            var max = arr[arr.Length -1];
+
+            arr[0] = max;
+            arr[arr.Length - 1] = min;
+        }
+
+        public void SwapString()
+        {
+            var word = "test"; //test => tset
+            var t = word.ToCharArray();
+            var len = t.Length -1;
+            var mid = len / 2;
+
+            for (var i = 0; i <= mid; i++)
+            {
+                var myChar = t[i];
+                t[i] = t[len - i];
+                t[len - i] = myChar;
+            }
+
+            t.ToString();
+        }
+
+        public string GetConnectinString()
+        {
+            return ConfigurationManager.ConnectionStrings["BCIT"].ConnectionString;
+        }
+
+        public IEnumerable<string> GetAllItems()
+        {
+            var result = new List<string>();
+            using (SqlConnection conn = new SqlConnection(GetConnectinString()))
+            {
+                SqlCommand cmd = new SqlCommand("dbo.getItems", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        result.Add(dr.GetString(0));
+                    }
+                }
+            }
+            return result;
+        }
+
+        public string GetItemById(int val)
+        {
+            var result = String.Empty;
+            using (SqlConnection conn = new SqlConnection(GetConnectinString()))
+            {
+                SqlCommand cmd = new SqlCommand("dbo.getItemById", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add("@itemId", SqlDbType.Int).Value = val;
+                //cmd.Parameters.AddWithValue("@itemId", val);
+                
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        result = dr.GetString(1);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public async Task<string> GetPeopleFromWeb()
+        {
+            var baseUrl = $"http://peoplecollectionapi.azurewebsites.net/";
+            HttpClient _ = new HttpClient();
+            var task =  await _.GetStringAsync(new Uri($"{baseUrl}api/people"));
+            return task;
+        }
+
     }
 }

@@ -26,8 +26,7 @@ namespace ConAppsExcercises
 
         protected virtual void NotifyOnCall()
         {
-            if (_shaw != null)
-                _shaw(this, EventArgs.Empty);
+            _shaw?.Invoke(this, EventArgs.Empty);
         }
     }
 }

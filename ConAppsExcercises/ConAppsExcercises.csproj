@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="MethodInjection.cs" />
     <Compile Include="NotificationMethods.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
@@ -52,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
