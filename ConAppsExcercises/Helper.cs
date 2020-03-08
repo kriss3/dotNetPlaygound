@@ -18,7 +18,7 @@ namespace ConAppsExcercises
             var s = word.ToLower();
             char[] test = word.ToLower().ToCharArray();
             Array.Reverse(test);
-            var res = new String(test);
+            var res = new string(test);
 
             return s.Equals(res) ? true : false;
         }
@@ -54,7 +54,7 @@ namespace ConAppsExcercises
         {
             var result = new StringBuilder();
             var inputArr = input.ToCharArray();
-            var vowels = new char[] {'a','o','u','y','e'};
+            var vowels = new char[] {'a','o','u','y','e','i'};
             //wenkola
 
             for (int i = 0; i < inputArr.Length; i++)
@@ -85,7 +85,7 @@ namespace ConAppsExcercises
             var stringbuilder = new StringBuilder();
             for (int start = 0, end = s.Length - 1; start < s.Length; start++)
             {
-                if ("aeiouAEIOU".IndexOf(s[start]) < 0)
+                if ("aeiouAEIOU".IndexOf(s[start]) < 0) // if s[start] retuns -1 meaning not there ...
                 {
                     stringbuilder.Append(s[start]);
                 }
@@ -175,13 +175,13 @@ namespace ConAppsExcercises
             var s2 = Singleton.Instance;
         }
 
-        public String GetCollapsed(string input)
+        public string GetCollapsed(string input)
         {
             //group same letters;
-            var gr = input.ToCharArray();
+            //var gr = input.ToCharArray();
             var dictionary = new Dictionary<char, int>();
 
-            foreach (var l in gr)
+            foreach (var l in input)
             {
                 if (!dictionary.ContainsKey(l))
                 {
@@ -190,7 +190,7 @@ namespace ConAppsExcercises
                 dictionary[l]++;
             }
 
-            var results = String.Empty;
+            var results = string.Empty;
             foreach (var rec in dictionary)
             {
                 results += rec.Key + rec.Value.ToString();

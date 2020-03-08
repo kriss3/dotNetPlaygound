@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppsExcercises", "ConAppsExcercises\ConAppsExcercises.csproj", "{4B6C31BB-1496-4D60-97A8-578FDF631789}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{2718EDCA-38B9-4DE2-B50B-24EE1455A59F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppExcercises_2", "ConsoleApp1\ConAppExcercises_2.csproj", "{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2718EDCA-38B9-4DE2-B50B-24EE1455A59F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2718EDCA-38B9-4DE2-B50B-24EE1455A59F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2718EDCA-38B9-4DE2-B50B-24EE1455A59F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

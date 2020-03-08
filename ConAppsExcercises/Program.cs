@@ -19,7 +19,8 @@ namespace ConAppsExcercises
             //MyEvents();
             //Run();
             //Run2(10);
-            //reverseString("konstantynopolitanczykowna");
+            //var t = "konstantynopolitanczykowna";
+            //reverseString(ref t);
             //removeVowels("HellO");
             //FindDelimiterOccurance("ABCDE", "DC");
             //ReverseSentence("Ala ma kota");
@@ -33,11 +34,57 @@ namespace ConAppsExcercises
             //var res = getMatchingPairs();
             // getMatchingPairs2();
             //IntArrayExcercises();
-            FindElementInSorterArray(3);
+            //FindElementInSorterArray(3);
+            //FindPairs();
+            //ValeyCount();
+            //OddNumbers(2,5);
+            //BreakPalindrom("acca");
+            //MySortingBubble();
+            //GetFibonachiSeq(12);
+            //PrintStarPattern(8);
+            //Run2DArray();
+            //VowelsString();
+            //StrStats();
+            //WorkWithStrings();
+            //IntArray();
+            ReverseWordsInString();
             ReadLine();
         }
 
-        private static void getMatchingPairs2()
+        private static void Run2DArray()
+        {
+            MultiDArray mda = new MultiDArray();
+            mda.RunMultiDArray();
+        }
+
+        private static void PrintStarPattern(int n)
+        {
+            for (int i = n; i > 0; i--)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Write($"*");
+                }
+                WriteLine();
+            }
+        }
+
+        private static void GetFibonachiSeq(int n)
+        {
+            //0,1,1,2,3,5,8,13,21,34,55,89
+            int first = 0;
+            int second = 1;
+            Write($"{first},{second},");
+            for (int i = 2; i < n; i++)
+            {
+                int next = first + second;
+                Write($"{next},");
+                first = second;
+                second = next;
+            }
+        }
+
+        private static void GetMatchingPairs2()
         {
             var k = 10;
             var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 };
@@ -100,11 +147,20 @@ namespace ConAppsExcercises
             h.StringsArrays();
             var tz = h.GetTimeZoneId();
             h.WorldClock("2017-11-25 3:32pm", tz);
+
+            //Helper String statistics
             h.GetCollapsed("yyyaaa");
+
+            //Helper Singleton
             h.UseSingleton();
             var a = h.GetWeekName();
-            var r = h.ReverseVowels("Whyeeko");
+
+
+            var r = h.ReverseVowels("Whyeeko");//a e o u i y
+
             var k = h.GetPresidents();
+
+
             Write(@"Type word to check if Palindrom: ");
             var s = ReadLine();
             if (h.IsPalindrom(s))
@@ -135,10 +191,10 @@ namespace ConAppsExcercises
             }
         }
 
-        private static string reverseString(string testString)
+        private static string reverseString(ref string testString)
         {
             var sb = new StringBuilder();
-            if (!String.IsNullOrEmpty(testString))
+            if (!string.IsNullOrEmpty(testString))
             {
                 var cTest = testString.ToCharArray();
                 for (int i = cTest.Length - 1; i >= 0; i--)
@@ -216,7 +272,6 @@ namespace ConAppsExcercises
             var randVal = new Random();
             var t = randVal.Next(0, arr.Length);
 
-            var results = new int[2];
             for (int i = 0; i < arr.Length; i++)
             {
                 while (true)
@@ -326,9 +381,9 @@ namespace ConAppsExcercises
 
         public static void IntArrayExcercises()
         {
-            int[] myArr = { 1,3, 4,6,7,8};
-            var a = myArr.Length -1;
-            while (a >= 0 )
+            int[] myArr = { 1, 3, 4, 6, 7, 8 };
+            var a = myArr.Length - 1;
+            while (a >= 0)
             {
                 WriteLine(myArr[a]);
                 a--;
@@ -337,14 +392,14 @@ namespace ConAppsExcercises
 
         public static Dictionary<int, int> FindKeyPairsInStaticArray1()
         {
-            var result = new Dictionary<int, int>();
+            Dictionary<int, int> result = new Dictionary<int, int>();
             var k = 10;
-            var current = 0;
+            int current;
             var arr = new int[] { 1, 9 };
             var diff = new List<int>();
             for (var i = 0; i > arr.Length; i++)
             {
-                var temp = arr[i];
+                int temp = arr[i];
                 current = temp;
                 diff.Add(k - temp);
                 var diffVal = k - arr[i];
@@ -389,7 +444,7 @@ namespace ConAppsExcercises
             var k = 10;
             var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1 };
 
-            var diff = new List<int>();
+            var diff = new List<int>(); //the list will store 
             var res = new Dictionary<int, int>();
             for (int i = 0; i < arr.Length; i++)
             {
@@ -408,7 +463,7 @@ namespace ConAppsExcercises
 
         private static void FindElementInSorterArray(int elem2Find)
         {
-            int[] t = { 1,3,5,8,11,4};
+            int[] t = { 1, 3, 5, 8, 11, 4 };
             Array.Sort(t);
             WriteLine();
             var result = Array.FindIndex(t, x => x == elem2Find);
@@ -416,5 +471,233 @@ namespace ConAppsExcercises
 
         }
 
+        private static void FindPairs()
+        {
+            var results = 0;
+            var t = new int[] { 10, 20, 20, 10, 10, 30, 50, 10, 20 };
+
+            //10 10 10 10 20 20 20 30 50 
+            Array.Sort(t);
+
+            for (int i = 0; i < t.Length; i++)
+            {
+                for (int j = i + 1; j < t.Length; j++)
+                {
+                    if (t[i] == t[j])
+                    {
+                        results++;
+                        i += 1;
+                        break;
+                    }
+                }
+            }
+            WriteLine($"Number of matching pairs: {results}");
+        }
+
+        private static void ValeyCount()
+        {
+            var results = 0;
+            /*
+             *  _/\       _
+             *      \     /
+             *       \/\/
+             *        
+             */
+
+            var n = 8; //number of steps;
+            var seaLevel = 0;
+            var path = "UDDDUDUU";
+
+            var res = new List<KeyValuePair<char, char>>();
+            for (int i = 0; i < path.Length; i++)
+            {
+
+
+
+
+                if (i + 1 < path.Length - 1)
+                    res.Add(new KeyValuePair<char, char>(path[i], path[i + 1]));
+            }
+
+            res.ForEach(p => {
+                if (p.Key.Equals('D') && p.Value.Equals('U'))
+                    results++;
+            });
+        }
+
+        private static void OddNumbers(int l, int r)
+        {
+            List<int> result = new List<int>();
+            for (int i = l; i <= r; i++)
+            {
+                if ((i % 2) != 0)
+                    result.Add(i);
+            }
+        }
+
+        private static string BreakPalindrom(string str)
+        {
+            string result = string.Empty;
+            var nStr = string.Empty;
+
+            nStr = str.Replace(str[1], str[str.Length - 1]);
+
+            if (nStr.CompareTo(str) == -1)
+                result = nStr;
+            else if (nStr.CompareTo(str) == 1)
+            {
+                Array.Sort(str.ToArray());
+                result = str.ToString();
+            }
+            else
+                return "IMPOSSIBLE";
+            return result;
+        }
+
+        private static void MySortingBubble()
+        {
+            int[] myArr = new int[] { 5, 1, 4, 2, 8 };
+            var indx = myArr.Length;
+            var move = 0;
+            do
+            {
+                for (int i = 0; i <= myArr.Length - 1; i++)
+                {
+                    if (i + 1 > myArr.Length - 1)
+                        break;
+                    int t1 = myArr[i];
+                    int t2 = myArr[i + 1];
+                    if (t1 > t2)
+                    {
+                        Swap(ref myArr, ref t1, ref t2);
+                        move++;
+                    }
+                    else
+                    {
+                        move--;
+                    }
+                }
+            } while (move > 0);
+
+        }
+        private static void Swap(ref int[] arr, ref int a, ref int b)
+        {
+            var inxT1 = Array.IndexOf(arr, a);
+            var inxT2 = Array.IndexOf(arr, b);
+            arr[inxT1] = b;
+            arr[inxT2] = a;
+        }
+
+        private void FindAnagrams()
+        {
+            /*
+             * I was asked to write a program to find the anagrams in a list and return the list of anagrams.  
+             */
+
+        }
+
+        private void TwoDMatrixOps()
+        {
+            /*
+             * There's an integer materials implemented in two dimensional array. When met a 0 in any position , 
+             * change the whole row and column of that position into 0s  
+             * 
+             */
+        }
+
+        private void Magnitude()
+        {
+            /*interface vs abstract class
+             * keywords: static, read-only, const
+             * TDS protocol
+             * static class and static members
+             * immutable vs non-immutable class (how to make class immutable)
+             * palindrom and its permutations
+             * 
+             * 
+             */
+        }
+
+        private static string VowelsString()
+        {
+            var strArr = "kaliningrad";  //aeoui  //result=> kaliningrad
+
+            var res = new StringBuilder();
+            for (int start = 0, end = strArr.Length - 1; start < strArr.Length; start++)
+            {
+                if ("aeouiAEOUI".IndexOf(strArr[start]) < 0)
+                {
+                    res.Append(strArr[start]);
+                }
+                else
+                {
+                    while (end > 0 && "aeouiAEOUI".IndexOf(strArr[end]) < 0)
+                    {
+                        end--;
+                    }
+                    res.Append(strArr[end]);
+                    end--;
+                }
+            }
+            return res.ToString();
+        }
+
+        private static void StrStats() //a dictionary of char key and number of reoccuring characters;
+        {
+            var strArr = "aabbbccccddddd";
+            var stats = new Dictionary<char, int>();
+            var strCounter = 0;
+            foreach (var item in strArr)
+            {
+                if (!stats.Keys.Contains(item))
+                {
+                    strCounter = 0;
+                    stats.Add(item, ++strCounter);
+                }
+                else
+                {
+                    stats[item] = ++strCounter;
+                }
+            }
+        }
+
+        private static bool WorkWithStrings()
+        {
+            var str = "abba";
+            if (!string.IsNullOrEmpty(str))
+            {
+                return str.SequenceEqual(str.Reverse());
+            }
+            return false;
+        }
+
+        private static void IntArray()
+        {
+            var myArr = new int[]{1,2,3,4,6,7,8,9,10};
+
+            int myArrSum = myArr.Sum();
+            int res = 0;
+            for (int i = myArr.Min(); i <=myArr.Max(); i++)
+            {
+                res += i;
+            }
+
+            var fullRes = res - myArrSum;
+
+        }
+
+        public static void ReverseWordsInString()
+        {
+            string sent = "ala ma kota";
+
+            var res = sent.Split(' ');
+            var sb = new StringBuilder();
+            for (int i = res.Length-1; i>=0; i--)
+            {
+                sb.Append(res[i]);
+                sb.Append(" ");
+            }
+            var result = sb.ToString();
+        }
     }
 }
