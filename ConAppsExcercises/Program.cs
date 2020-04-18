@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using ConAppsExcercises.Models;
 
 namespace ConAppsExcercises
 {
@@ -47,8 +48,47 @@ namespace ConAppsExcercises
             //StrStats();
             //WorkWithStrings();
             //IntArray();
-            ReverseWordsInString();
+            //ReverseWordsInString();
+            LinqQuery();
             ReadLine();
+        }
+
+        private static void LinqQuery()
+        {
+            var o = new List<Order>
+            {
+                new Order 
+                { 
+                    OrderId=0, 
+                    OrderTotal = 1, 
+                    OrderLines = new List<OrderLine>{ 
+                        new OrderLine 
+                        { 
+                            OrderId=1, 
+                            OrderLineId=0, 
+                            ProductName="Prod1", 
+                            Quantity=1
+                        },
+                        new OrderLine
+                        {
+                            OrderId=1,
+                            OrderLineId=1,
+                            ProductName="Prod2",
+                            Quantity=1
+                        }
+                    } 
+                } 
+            };
+
+            var x = o.Select(r => r.OrderLines).ToList();
+
+            //var result1 = o.RemoveAll(lst => lst == 3);
+            foreach (var item in x)
+            {
+                item.RemoveAll(r => r.ProductName.Equals("Prod2"));
+            }
+
+            var res = 3;
         }
 
         private static void Run2DArray()
