@@ -14,7 +14,8 @@ namespace ConAppPbP
             WriteLine("===============");
             WriteLine("===== START =====");
 
-            InputValues();
+            //InputValues();
+            ArrayWork();
 
             ReadLine();
         }
@@ -29,6 +30,24 @@ namespace ConAppPbP
             WriteLine($"String is: {s.Trim()}");
             WriteLine($"Double is: {d:2}");
             WriteLine($"Int is: {i}");
+        }
+
+
+        private static void ArrayWork() {
+
+            int[] myArr = {1,2,3,4,5,6,7,8,9,10};
+
+            for (int i = myArr.Length - 1; i >= 0; i--) {
+                PrintStar(myArr[i]);
+                WriteLine();
+            }
+        
+        }
+
+        private static void PrintStar(int num) {
+            for (int i = 0; i < num; i++) {
+                Write("*");
+            }
         }
     }
 }
