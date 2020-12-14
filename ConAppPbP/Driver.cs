@@ -16,8 +16,8 @@ namespace ConAppPbP
 
             //InputValues();
             //ArrayWork();
-
-            SortAndReverseArray();
+            //SortAndReverseArray();
+            ManualSeak();
 
             ReadLine();
         }
@@ -71,6 +71,53 @@ namespace ConAppPbP
             {
                 Write($"{item} ");
             }
+        }
+
+        private static void ManualSeak()
+        {
+            Write("What number to look for:\t");
+            int find = int.Parse(ReadLine());
+            int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
+            Array.Sort(arr);
+            WriteLine();
+            foreach (var item in arr)
+            {
+                Write($"{item} ");
+            }
+            WriteLine();
+            int low = 0;
+            int high = arr.Length - 1;
+
+            int midIdx = GetMidArrayIdx(low, high);
+
+
+            while (low <= high) {
+                if (arr[midIdx] < find)
+                {
+                    low = midIdx + 1;
+                }
+                else if (arr[midIdx] == find)
+                {
+                    Write($"Element to find: {find} was found on position: {midIdx}");
+                    break;
+                }
+                else {
+                    high = midIdx - 1;
+                }
+                midIdx = (low + high) / 2;
+            }
+
+            if (low > high) {
+                Write($"The number: {find} is not part of the given array.");
+            }
+        }
+
+        private static int GetMidArrayIdx(int low, int high) 
+        {
+            // int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
+            //Sort: 1, 2, 3, 4, 5, 6, 7, 8, 11, 15
+            //add check if arr not empty;
+            return (low + high) / 2;
         }
     }
 }
