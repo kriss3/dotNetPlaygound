@@ -38,6 +38,7 @@ namespace ConAppPbP
             int[] myArr = {1,2,3,4,5,6,7,8,9,10};
 
             for (int i = myArr.Length - 1; i >= 0; i--) {
+                //only drew even number of stars;
                 PrintStar(myArr[i]);
                 WriteLine();
             }
