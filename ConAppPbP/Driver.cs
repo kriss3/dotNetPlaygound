@@ -20,7 +20,10 @@ namespace ConAppPbP
             //ManualSeak();
             //FindDuplicateCharacters();
             //StrReverseWithoutFnct();
-            GetSentenceWordCount();
+            //GetSentenceWordCount();
+            WordLetterCount();
+
+
             ReadLine();
         }
 
@@ -143,6 +146,32 @@ namespace ConAppPbP
             WriteLine($"Number of duplicates: {duplicates.Length} and they are: {duplicates}.");
         }
 
+        private static void WordLetterCount() {
+            string example = "Brzeczyszczykiewicz";
+
+            Dictionary<char, int> result = new Dictionary<char, int>();
+
+            foreach (var item in example)
+            {
+                if (!result.ContainsKey(item))
+                {
+                    result.Add(item, 1);
+                }
+                else {
+                    result[item]++;
+                }
+
+            }
+
+            WriteLine();
+            WriteLine($"Word to analyse is: {example}");
+            foreach (var item in result)
+            {
+                WriteLine($"Letter: {item.Key} occurses {item.Value} times");
+            }
+
+        }
+
         private static void StrReverseWithoutFnct() 
         {
             string example = "PleaseReverseThisString";
@@ -165,5 +194,6 @@ namespace ConAppPbP
             WriteLine($"The sentence: {example} has {result} words.");
             
         }
+
     }
 }
