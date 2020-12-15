@@ -19,8 +19,8 @@ namespace ConAppPbP
             //SortAndReverseArray();
             //ManualSeak();
             //FindDuplicateCharacters();
-            StrReverseWithoutFnct();
-
+            //StrReverseWithoutFnct();
+            GetSentenceWordCount();
             ReadLine();
         }
 
@@ -155,5 +155,15 @@ namespace ConAppPbP
             Write($"The reverse of {example} is: {result}");
         }
 
+        private static void GetSentenceWordCount() 
+        {
+            string example = "Please test this sentence";
+
+            example = example.Trim();
+
+            var result = example.Split(' ').Length;
+            WriteLine($"The sentence: {example} has {result} words.");
+            
+        }
     }
 }
