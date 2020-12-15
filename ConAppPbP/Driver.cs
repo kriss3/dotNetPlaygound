@@ -17,7 +17,8 @@ namespace ConAppPbP
             //InputValues();
             //ArrayWork();
             //SortAndReverseArray();
-            ManualSeak();
+            //ManualSeak();
+            FindDuplicateCharacters();
 
             ReadLine();
         }
@@ -118,6 +119,27 @@ namespace ConAppPbP
             //Sort: 1, 2, 3, 4, 5, 6, 7, 8, 11, 15
             //add check if arr not empty;
             return (low + high) / 2;
+        }
+        private static void FindDuplicateCharacters() 
+        {
+            string tstStr = "Konstantynopolitanczykiewiczowna";
+
+            StringBuilder res = new StringBuilder();
+            StringBuilder duplicates = new StringBuilder();
+
+            foreach (var item in tstStr)
+            {
+                if (res.ToString().IndexOf(item.ToString().ToLower()) == -1)
+                {
+                    res.Append(item);
+                }
+                else {
+                    duplicates.Append(item);
+                }
+            }
+            //Count no of duplicates without removing current reoccuring charactes in duplicates;
+            //improve using dictionary of letter and cout of occurance;
+            WriteLine($"Number of duplicates: {duplicates.Length} and they are: {duplicates}.");
         }
     }
 }
