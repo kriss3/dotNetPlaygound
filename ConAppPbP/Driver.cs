@@ -18,7 +18,8 @@ namespace ConAppPbP
             //ArrayWork();
             //SortAndReverseArray();
             //ManualSeak();
-            FindDuplicateCharacters();
+            //FindDuplicateCharacters();
+            StrReverseWithoutFnct();
 
             ReadLine();
         }
@@ -141,5 +142,18 @@ namespace ConAppPbP
             //improve using dictionary of letter and cout of occurance;
             WriteLine($"Number of duplicates: {duplicates.Length} and they are: {duplicates}.");
         }
+
+        private static void StrReverseWithoutFnct() 
+        {
+            string example = "PleaseReverseThisString";
+            string result = string.Empty;
+            for (int i = example.Length - 1; i >= 0; i--) {
+                result += example[i];
+            }
+
+            WriteLine();
+            Write($"The reverse of {example} is: {result}");
+        }
+
     }
 }
