@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppSerlilogExcercise", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppEvents", "ConAppEvents\ConAppEvents.csproj", "{F7D2CDD0-C8F7-4B48-B85C-6B1FC8EC008F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorPattern", "DecoratorPattern\DecoratorPattern.csproj", "{687B7E59-9850-4935-B223-A259E270B140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorPattern", "DecoratorPattern\DecoratorPattern.csproj", "{687B7E59-9850-4935-B223-A259E270B140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPbP", "ConAppPbP\ConAppPbP.csproj", "{2BF2D176-3C47-486B-BB07-BA81C647425E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{687B7E59-9850-4935-B223-A259E270B140}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{687B7E59-9850-4935-B223-A259E270B140}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{687B7E59-9850-4935-B223-A259E270B140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF2D176-3C47-486B-BB07-BA81C647425E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF2D176-3C47-486B-BB07-BA81C647425E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF2D176-3C47-486B-BB07-BA81C647425E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF2D176-3C47-486B-BB07-BA81C647425E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
