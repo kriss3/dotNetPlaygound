@@ -1,5 +1,5 @@
 # dotNetPlaygound Repository
-Main container for exploration of number of different dotNet concepts in S#. This will be full framework project.
+Main container for exploration of number of different dotNet concepts in C#. This will be full framework project.
 
 ## Description
 This repo is part of the project: Life as a Code. 
