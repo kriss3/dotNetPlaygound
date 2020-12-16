@@ -22,12 +22,13 @@ namespace ConAppPbP
             //StrReverseWithoutFnct();
             //GetSentenceWordCount();
             //WordLetterCount();
-            SwapNumbers();
+            //SwapNumbers();
+            RunSingleton();
 
             ReadLine();
         }
 
-        private static void InputValues() 
+        private static void InputValues()
         {
             string s = ReadLine();
             string d = ReadLine();
@@ -40,27 +41,31 @@ namespace ConAppPbP
         }
 
 
-        private static void ArrayWork() {
+        private static void ArrayWork()
+        {
 
-            int[] myArr = {1,2,3,4,5,6,7,8,9,10};
+            int[] myArr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            for (int i = myArr.Length - 1; i >= 0; i--) {
+            for (int i = myArr.Length - 1; i >= 0; i--)
+            {
                 //only drew even number of stars;
                 PrintStar(myArr[i]);
                 WriteLine();
             }
-        
+
         }
 
-        private static void PrintStar(int num) {
-            for (int i = 0; i < num; i++) {
+        private static void PrintStar(int num)
+        {
+            for (int i = 0; i < num; i++)
+            {
                 Write("*");
             }
         }
 
-        public static void SortAndReverseArray() 
+        public static void SortAndReverseArray()
         {
-            int[] arr = {7,4,6,3,5,8,11,2,15,1};
+            int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
 
             foreach (var item in arr)
             {
@@ -96,7 +101,8 @@ namespace ConAppPbP
             int midIdx = GetMidArrayIdx(low, high);
 
 
-            while (low <= high) {
+            while (low <= high)
+            {
                 if (arr[midIdx] < find)
                 {
                     low = midIdx + 1;
@@ -106,25 +112,27 @@ namespace ConAppPbP
                     Write($"Element to find: {find} was found on position: {midIdx}");
                     break;
                 }
-                else {
+                else
+                {
                     high = midIdx - 1;
                 }
                 midIdx = (low + high) / 2;
             }
 
-            if (low > high) {
+            if (low > high)
+            {
                 Write($"The number: {find} is not part of the given array.");
             }
         }
 
-        private static int GetMidArrayIdx(int low, int high) 
+        private static int GetMidArrayIdx(int low, int high)
         {
             // int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
             //Sort: 1, 2, 3, 4, 5, 6, 7, 8, 11, 15
             //add check if arr not empty;
             return (low + high) / 2;
         }
-        private static void FindDuplicateCharacters() 
+        private static void FindDuplicateCharacters()
         {
             string tstStr = "Konstantynopolitanczykiewiczowna";
 
@@ -137,7 +145,8 @@ namespace ConAppPbP
                 {
                     res.Append(item);
                 }
-                else {
+                else
+                {
                     duplicates.Append(item);
                 }
             }
@@ -146,7 +155,8 @@ namespace ConAppPbP
             WriteLine($"Number of duplicates: {duplicates.Length} and they are: {duplicates}.");
         }
 
-        private static void WordLetterCount() {
+        private static void WordLetterCount()
+        {
             string example = "Brzeczyszczykiewicz";
 
             Dictionary<char, int> result = new Dictionary<char, int>();
@@ -157,7 +167,8 @@ namespace ConAppPbP
                 {
                     result.Add(item, 1);
                 }
-                else {
+                else
+                {
                     result[item]++;
                 }
 
@@ -172,11 +183,12 @@ namespace ConAppPbP
 
         }
 
-        private static void StrReverseWithoutFnct() 
+        private static void StrReverseWithoutFnct()
         {
             string example = "PleaseReverseThisString";
             string result = string.Empty;
-            for (int i = example.Length - 1; i >= 0; i--) {
+            for (int i = example.Length - 1; i >= 0; i--)
+            {
                 result += example[i];
             }
 
@@ -184,7 +196,7 @@ namespace ConAppPbP
             Write($"The reverse of {example} is: {result}");
         }
 
-        private static void GetSentenceWordCount() 
+        private static void GetSentenceWordCount()
         {
             string example = "Please test this sentence";
 
@@ -192,10 +204,11 @@ namespace ConAppPbP
 
             var result = example.Split(' ').Length;
             WriteLine($"The sentence: {example} has {result} words.");
-            
+
         }
 
-        private static void SwapNumbers() {
+        private static void SwapNumbers()
+        {
             Write("Supply value x: ");
             int x = int.Parse(ReadLine());
             Write("Supply value y: ");
@@ -208,8 +221,20 @@ namespace ConAppPbP
             x = x - y;
 
             WriteLine($"Values of x and y after the swap without temp variable, x = {x} and y = {y}");
-        
+
         }
 
+        private static void RunSingleton()
+        {
+            var res1 = SingletonExample.Instance();
+            var res2 = SingletonExample.Instance();
+
+            //Testing
+            if (res1 == res2)
+            {
+                WriteLine($"Objects res1 and res2 of type {res1.GetType().Name} are the same instance");
+            }
+
+        }
     }
 }
