@@ -21,8 +21,8 @@ namespace ConAppPbP
             //FindDuplicateCharacters();
             //StrReverseWithoutFnct();
             //GetSentenceWordCount();
-            WordLetterCount();
-
+            //WordLetterCount();
+            SwapNumbers();
 
             ReadLine();
         }
@@ -193,6 +193,22 @@ namespace ConAppPbP
             var result = example.Split(' ').Length;
             WriteLine($"The sentence: {example} has {result} words.");
             
+        }
+
+        private static void SwapNumbers() {
+            Write("Supply value x: ");
+            int x = int.Parse(ReadLine());
+            Write("Supply value y: ");
+            int y = int.Parse(ReadLine());
+            WriteLine();
+            Write($"Value x: {x} and value y: {y}");
+
+            x = x + y;
+            y = x - y;
+            x = x - y;
+
+            WriteLine($"Values of x and y after the swap without temp variable, x = {x} and y = {y}");
+        
         }
 
     }
