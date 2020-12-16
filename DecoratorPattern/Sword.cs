@@ -28,7 +28,7 @@ namespace DecoratorPattern
          */
         public int getImpactLevel()
         {
-            return tempCharacter.getImpactLevel() + swordAddedImpactLevel;
+            return tempCharacter.GetImpactLevel() + swordAddedImpactLevel;
         }
     }
 }
