@@ -236,5 +236,26 @@ namespace ConAppPbP
             }
 
         }
+
+
+        private static void SimpleLinkedList() 
+        {
+            LinkedList<string> _linkedLst = new LinkedList<string>();
+
+            _linkedLst.AddLast("Kris");
+            _linkedLst.AddLast("Peter");
+            _linkedLst.AddLast("Mat");
+            _linkedLst.AddLast("Aga");
+            _linkedLst.AddLast("Robin");
+            _linkedLst.AddLast("Kris");
+
+            WriteLine("Initial list of LinkedList elements:");
+
+            foreach (var item in _linkedLst)
+            {
+                WriteLine($"The name is: {item}");
+            }
+
+        }
     }
 }
