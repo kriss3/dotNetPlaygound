@@ -14,16 +14,16 @@ namespace ConAppPbP
             WriteLine("===============");
             WriteLine("===== START =====");
 
-            //InputValues();
-            //ArrayWork();
-            //SortAndReverseArray();
-            //ManualSeak();
-            //FindDuplicateCharacters();
-            //StrReverseWithoutFnct();
-            //GetSentenceWordCount();
-            //WordLetterCount();
-            //SwapNumbers();
-            //RunSingleton();
+            InputValues();
+            ArrayWork();
+            SortAndReverseArray();
+            ManualSeak();
+            FindDuplicateCharacters();
+            StrReverseWithoutFnct();
+            GetSentenceWordCount();
+            WordLetterCount();
+            SwapNumbers();
+            RunSingleton();
             SimpleLinkedList();
 
             ReadLine();
