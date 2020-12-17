@@ -11,6 +11,7 @@ namespace ConAppPbP
     {
         static void Main()
         {
+            string answer = "Y";
             WriteLine("===============");
             WriteLine("===== START =====");
 
@@ -26,8 +27,13 @@ namespace ConAppPbP
             RunSingleton();
             SimpleLinkedList();
 
+            do { }
+            while (answer != "Y");
+
+
             ReadLine();
         }
+
 
         private static void InputValues()
         {
