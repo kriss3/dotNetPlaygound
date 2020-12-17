@@ -23,7 +23,8 @@ namespace ConAppPbP
             //GetSentenceWordCount();
             //WordLetterCount();
             //SwapNumbers();
-            RunSingleton();
+            //RunSingleton();
+            SimpleLinkedList();
 
             ReadLine();
         }
@@ -256,6 +257,32 @@ namespace ConAppPbP
                 WriteLine($"The name is: {item}");
             }
 
+            _linkedLst.Remove(_linkedLst.First);
+
+            foreach (var item in _linkedLst)
+            {
+                WriteLine($"The name is: {item}");
+            }
+
+            _linkedLst.RemoveLast();
+
+            foreach (var item in _linkedLst)
+            {
+                WriteLine($"The name is: {item}");
+            }
+
+            var elemToFind = "Peter";
+            var numberOfElemsFound = 0;
+            foreach (var item in _linkedLst)
+            {
+                if (item.Equals(elemToFind)) 
+                {
+                    WriteLine($"Found {elemToFind}...Increment");
+                    numberOfElemsFound++;
+                }
+            }
+
+            WriteLine($"Number of items with Value: {elemToFind} is {numberOfElemsFound}");
         }
     }
 }
