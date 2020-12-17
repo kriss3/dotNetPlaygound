@@ -11,32 +11,67 @@ namespace ConAppPbP
     {
         static void Main()
         {
-            string answer = "Y";
             WriteLine("===============");
             WriteLine("===== START =====");
 
-            InputValues();
-            ArrayWork();
-            SortAndReverseArray();
-            ManualSeak();
-            FindDuplicateCharacters();
-            StrReverseWithoutFnct();
-            GetSentenceWordCount();
-            WordLetterCount();
-            SwapNumbers();
-            RunSingleton();
-            SimpleLinkedList();
+            var funcToRun = DisplayMenu();
 
-            do { }
-            while (answer != "Y");
+            funcToRun();
 
+            //InputValues();
+            //ArrayWork();
+            //SortAndReverseArray();
+            //ManualSeak();
+            //FindDuplicateCharacters();
+            //StrReverseWithoutFnct();
+            //GetSentenceWordCount();
+            //WordLetterCount();
+            //SwapNumbers();
+            //RunSingleton();
+            //SimpleLinkedList();
 
             ReadLine();
         }
 
+        private static Action DisplayMenu() {
+            Action funcToRun = null;
+            var answer = "Y";
+            do
+            {
+                Clear();
+                Write("==================\n");
+                Write("1. Execute InputValues()\n");
+                Write("2. Execute ArrayWork()\n");
+                Write("3. Execute SortAndReverseArray()\n");
+
+                var choice = int.Parse(ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        funcToRun = InputValues;
+                        break;
+                    case 2:
+                        funcToRun = ArrayWork;
+                        break;
+                    case 3:
+                        funcToRun = SortAndReverseArray;
+                        break;
+                    default:
+                        WriteLine("Unknown choice.");
+                        break;
+                }
+
+                WriteLine("Again? [y/n]");
+                answer = ReadLine();
+            }
+            while (ReadLine().ToUpper() == answer);
+
+            return funcToRun;
+        }
 
         private static void InputValues()
         {
+            Clear();
             string s = ReadLine();
             string d = ReadLine();
             string i = ReadLine();
