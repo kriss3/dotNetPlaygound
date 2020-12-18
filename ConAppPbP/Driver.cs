@@ -14,8 +14,9 @@ namespace ConAppPbP
             WriteLine("===============");
             WriteLine("===== START =====");
 
+            CountFactorial();
 
-            PrintStarTraingles(); 
+            //PrintStarTraingles(); 
 
             //var funcToRun = DisplayMenu();
 
@@ -31,7 +32,6 @@ namespace ConAppPbP
             //WordLetterCount();
             //SwapNumbers();
             //RunSingleton();
-            //SimpleLinkedList();
 
             ReadLine();
         }
@@ -361,6 +361,19 @@ namespace ConAppPbP
                 spc--;
             }
 
+        }
+
+        private static void CountFactorial() 
+        {
+            PrintMethodHeader("CountFactorial()");
+            Write("Enter factorial base to count: ");
+            int val = int.Parse(ReadLine());
+            int fac = 1;
+            for (int i = 1; i <= val; i++)
+            {
+                fac *= i;
+            }
+            WriteLine($"The results of factorial of the base: {val} is {fac}");
         }
 
         private static void PrintMethodHeader(string s) 
