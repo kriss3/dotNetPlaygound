@@ -14,9 +14,12 @@ namespace ConAppPbP
             WriteLine("===============");
             WriteLine("===== START =====");
 
-            var funcToRun = DisplayMenu();
 
-            funcToRun();
+            PrintStarTraingles(); 
+
+            //var funcToRun = DisplayMenu();
+
+            //funcToRun();
 
             //InputValues();
             //ArrayWork();
@@ -325,5 +328,30 @@ namespace ConAppPbP
 
             WriteLine($"Number of items with Value: {elemToFind} is {numberOfElemsFound}");
         }
+
+        public static void PrintStarTraingles() 
+        {
+            Clear();
+            Write("Enter number of rows:\t");
+            int rows = int.Parse(ReadLine());
+
+            int spc = rows + 3;
+            for (int i = 1; i <= rows; i++) 
+            {
+                for (int j = spc; j >= 1; j--)
+                {
+                    Write(" ");
+                }
+
+                for (int k = 1; k <= i; k++)
+                {
+                    Write("* ");
+                }
+                Write("\n");
+                spc--;
+            }
+
+        }
+
     }
 }
