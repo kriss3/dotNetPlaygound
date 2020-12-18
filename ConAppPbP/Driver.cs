@@ -75,10 +75,16 @@ namespace ConAppPbP
         private static void InputValues()
         {
             Clear();
+            PrintMethodHeader("Input Values");
+            Write("Enter string: ");
             string s = ReadLine();
+            WriteLine();
+            Write("Enter Double: ");
             string d = ReadLine();
+            WriteLine();
+            Write("Enter Integer:  ");
             string i = ReadLine();
-
+            WriteLine();
 
             WriteLine($"String is: {s.Trim()}");
             WriteLine($"Double is: {d:2}");
@@ -88,7 +94,7 @@ namespace ConAppPbP
 
         private static void ArrayWork()
         {
-
+            PrintMethodHeader("ArrayWork()");
             int[] myArr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             for (int i = myArr.Length - 1; i >= 0; i--)
@@ -102,6 +108,8 @@ namespace ConAppPbP
 
         private static void PrintStar(int num)
         {
+            Clear();
+            PrintMethodHeader("PrintStar()");
             for (int i = 0; i < num; i++)
             {
                 Write("*");
@@ -110,6 +118,8 @@ namespace ConAppPbP
 
         public static void SortAndReverseArray()
         {
+            Clear();
+            PrintMethodHeader("SortAndReverseArray()");
             int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
 
             foreach (var item in arr)
@@ -329,14 +339,14 @@ namespace ConAppPbP
             WriteLine($"Number of items with Value: {elemToFind} is {numberOfElemsFound}");
         }
 
-        public static void PrintStarTraingles() 
+        public static void PrintStarTraingles()
         {
             Clear();
             Write("Enter number of rows:\t");
             int rows = int.Parse(ReadLine());
 
             int spc = rows + 3;
-            for (int i = 1; i <= rows; i++) 
+            for (int i = 1; i <= rows; i++)
             {
                 for (int j = spc; j >= 1; j--)
                 {
@@ -351,6 +361,11 @@ namespace ConAppPbP
                 spc--;
             }
 
+        }
+
+        private static void PrintMethodHeader(string s) 
+        {
+            WriteLine($"========= {s} ==========");
         }
 
     }
