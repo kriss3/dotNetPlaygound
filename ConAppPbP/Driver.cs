@@ -22,16 +22,7 @@ namespace ConAppPbP
 
             //funcToRun();
 
-            //InputValues();
-            //ArrayWork();
-            //SortAndReverseArray();
-            //ManualSeak();
-            //FindDuplicateCharacters();
-            //StrReverseWithoutFnct();
-            //GetSentenceWordCount();
-            //WordLetterCount();
-            //SwapNumbers();
-            //RunSingleton();
+            
 
             ReadLine();
         }
@@ -58,6 +49,27 @@ namespace ConAppPbP
                         break;
                     case 3:
                         funcToRun = SortAndReverseArray;
+                        break;
+                    case 4:
+                        funcToRun = ManualSeak;
+                        break;
+                    case 5: 
+                        funcToRun = FindDuplicateCharacters;
+                        break;
+                    case 6:
+                        funcToRun = StrReverseWithoutFnct;
+                        break;
+                    case 7:
+                        funcToRun = GetSentenceWordCount;
+                        break;
+                    case 8:
+                        funcToRun = WordLetterCount;
+                        break;
+                    case 9:
+                        funcToRun = SwapNumbers;
+                        break;
+                     case 10;
+                        funcToRun = RunSingleton;
                         break;
                     default:
                         WriteLine("Unknown choice.");
