@@ -37,8 +37,11 @@ namespace ConAppPbP
                 Write("11. Execute CountFactorial()\n");
                 Write("12. Execute PrintStarTraingles()\n");
                 Write("13. Execute SimpleLinkedList()\n");
+                Write("=======================\n");
+                Write("Your choice is: ");
 
                 var choice = int.Parse(ReadLine());
+                WriteLine($"Executing: {choice}");
                 switch (choice)
                 {
                     case 1:
@@ -87,10 +90,10 @@ namespace ConAppPbP
 
                 funcToRun();
 
-                WriteLine("Again? [y/n]");
+                Write("Again? [y/n]:\t");
                 answer = ReadLine();
             }
-            while (answer.ToUpper() != "N");
+            while (answer.ToUpper() == "Y");
         }
 
         private static void InputValues()
