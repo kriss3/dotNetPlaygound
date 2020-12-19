@@ -38,6 +38,7 @@ namespace ConAppPbP
                 Write("10. Execute RunSingleton()\n");
                 Write("11. Execute CountFactorial()\n");
                 Write("12. Execute PrintStarTraingles()\n");
+                Write("13. Execute SimpleLinkedList()\n");
 
                 var choice = int.Parse(ReadLine());
                 switch (choice)
@@ -78,6 +79,9 @@ namespace ConAppPbP
                     case 12: 
                         funcToRun = PrintStarTraingles;
                         break;
+                    case 13:
+                        funcToRun = SimpleLinkedList;
+                        break;
                     default:
                         WriteLine("Unknown choice.");
                         break;
@@ -94,7 +98,7 @@ namespace ConAppPbP
         private static void InputValues()
         {
             Clear();
-            PrintMethodHeader("Input Values");
+            PrintMethodHeader("InputValues()");
             Write("Enter string: ");
             string s = ReadLine();
             WriteLine();
@@ -110,9 +114,9 @@ namespace ConAppPbP
             WriteLine($"Int is: {i}");
         }
 
-
         private static void ArrayWork()
         {
+            Clear();
             PrintMethodHeader("ArrayWork()");
             int[] myArr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
@@ -159,6 +163,8 @@ namespace ConAppPbP
 
         private static void ManualSeak()
         {
+            Clear();
+            PrintMethodHeader("ManualSeak()");
             Write("What number to look for:\t");
             int find = int.Parse(ReadLine());
             int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
@@ -208,6 +214,8 @@ namespace ConAppPbP
         }
         private static void FindDuplicateCharacters()
         {
+            Clear();
+            PrintMethodHeader("FindDuplicateCharacters()");
             string tstStr = "Konstantynopolitanczykiewiczowna";
 
             StringBuilder res = new StringBuilder();
@@ -231,6 +239,8 @@ namespace ConAppPbP
 
         private static void WordLetterCount()
         {
+            Clear();
+            PrintMethodHeader("WordLetterCount()");
             string example = "Brzeczyszczykiewicz";
 
             Dictionary<char, int> result = new Dictionary<char, int>();
@@ -259,6 +269,8 @@ namespace ConAppPbP
 
         private static void StrReverseWithoutFnct()
         {
+            Clear();
+            PrintMethodHeader("StrReverseWithoutFnct()");
             string example = "PleaseReverseThisString";
             string result = string.Empty;
             for (int i = example.Length - 1; i >= 0; i--)
@@ -272,17 +284,18 @@ namespace ConAppPbP
 
         private static void GetSentenceWordCount()
         {
+            Clear();
+            PrintMethodHeader("GetSentenceWordCount()");
             string example = "Please test this sentence";
-
             example = example.Trim();
-
             var result = example.Split(' ').Length;
             WriteLine($"The sentence: {example} has {result} words.");
-
         }
 
         private static void SwapNumbers()
         {
+            Clear();
+            PrintMethodHeader("SwapNumbers()");
             Write("Supply value x: ");
             int x = int.Parse(ReadLine());
             Write("Supply value y: ");
@@ -300,6 +313,8 @@ namespace ConAppPbP
 
         private static void RunSingleton()
         {
+            Clear();
+            PrintMethodHeader("RunSingleton()");
             var res1 = SingletonExample.Instance();
             var res2 = SingletonExample.Instance();
 
@@ -308,12 +323,12 @@ namespace ConAppPbP
             {
                 WriteLine($"Objects res1 and res2 of type {res1.GetType().Name} are the same instance");
             }
-
         }
-
 
         private static void SimpleLinkedList() 
         {
+            Clear();
+            PrintMethodHeader("SimpleLinkedList() ");
             LinkedList<string> _linkedLst = new LinkedList<string>();
 
             _linkedLst.AddLast("Kris");
