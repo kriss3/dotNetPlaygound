@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Linq;
 using static System.Console;
 namespace ConAppPbP
 {
@@ -410,6 +410,21 @@ namespace ConAppPbP
                 fac *= i;
             }
             WriteLine($"The results of factorial of the base: {val} is {fac}");
+        }
+
+        private static void NumberReverseOrder() 
+        {
+            Clear();
+            PrintMethodHeader("NumberReverseOrder");
+            Write("Enter number to reverse: ");
+            var input = ReadLine();
+            char[] inputC = input.ToArray();
+            Array.Reverse(inputC);
+
+            foreach (var i in inputC) 
+            {
+                Write(i);
+            }
         }
 
         private static void PrintMethodHeader(string s) 
