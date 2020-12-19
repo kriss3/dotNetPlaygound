@@ -14,16 +14,8 @@ namespace ConAppPbP
             WriteLine("===============");
             WriteLine("===== START =====");
 
-            CountFactorial();
-
-            //PrintStarTraingles(); 
-
-            //var funcToRun = DisplayMenu();
-
-            //funcToRun();
-
-            
-
+            var funcToRun = DisplayMenu();
+            funcToRun();
             ReadLine();
         }
 
@@ -37,6 +29,15 @@ namespace ConAppPbP
                 Write("1. Execute InputValues()\n");
                 Write("2. Execute ArrayWork()\n");
                 Write("3. Execute SortAndReverseArray()\n");
+                Write("4. Execute ManualSeak()\n");
+                Write("5. Execute FindDuplicateCharacters()\n");
+                Write("6. Execute StrReverseWithoutFnct()\n");
+                Write("7. Execute GetSentenceWordCount()\n");
+                Write("8. Execute WordLetterCount()\n");
+                Write("9. Execute SwapNumbers()\n");
+                Write("10. Execute RunSingleton()\n");
+                Write("11. Execute CountFactorial()\n");
+                Write("12. Execute PrintStarTraingles()\n");
 
                 var choice = int.Parse(ReadLine());
                 switch (choice)
@@ -68,8 +69,14 @@ namespace ConAppPbP
                     case 9:
                         funcToRun = SwapNumbers;
                         break;
-                     case 10;
+                    case 10:
                         funcToRun = RunSingleton;
+                        break;
+                    case 11:
+                        funcToRun = CountFactorial;
+                        break;
+                    case 12: 
+                        funcToRun = PrintStarTraingles;
                         break;
                     default:
                         WriteLine("Unknown choice.");
@@ -377,6 +384,7 @@ namespace ConAppPbP
 
         private static void CountFactorial() 
         {
+            Clear();
             PrintMethodHeader("CountFactorial()");
             Write("Enter factorial base to count: ");
             int val = int.Parse(ReadLine());
