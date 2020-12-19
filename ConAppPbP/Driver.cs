@@ -13,13 +13,11 @@ namespace ConAppPbP
         {
             WriteLine("===============");
             WriteLine("===== START =====");
-
-            var funcToRun = DisplayMenu();
-            funcToRun();
+            DisplayMenu();
             ReadLine();
         }
 
-        private static Action DisplayMenu() {
+        private static void DisplayMenu() {
             Action funcToRun = null;
             var answer = "Y";
             do
@@ -87,12 +85,12 @@ namespace ConAppPbP
                         break;
                 }
 
+                funcToRun();
+
                 WriteLine("Again? [y/n]");
                 answer = ReadLine();
             }
             while (ReadLine().ToUpper() == answer);
-
-            return funcToRun;
         }
 
         private static void InputValues()
