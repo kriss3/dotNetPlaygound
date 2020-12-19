@@ -14,7 +14,7 @@ namespace ConAppPbP
             WriteLine("===============");
             WriteLine("===== START =====");
             DisplayMenu();
-            ReadLine();
+            WriteLine("Bye!!");
         }
 
         private static void DisplayMenu() {
@@ -90,7 +90,7 @@ namespace ConAppPbP
                 WriteLine("Again? [y/n]");
                 answer = ReadLine();
             }
-            while (ReadLine().ToUpper() == answer);
+            while (answer.ToUpper() != "N");
         }
 
         private static void InputValues()
