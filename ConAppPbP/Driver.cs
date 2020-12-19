@@ -19,7 +19,7 @@ namespace ConAppPbP
 
         private static void DisplayMenu() {
             Action funcToRun = null;
-            var answer = "Y";
+            string answer;
             do
             {
                 Clear();
@@ -37,6 +37,7 @@ namespace ConAppPbP
                 Write("11. Execute CountFactorial()\n");
                 Write("12. Execute PrintStarTraingles()\n");
                 Write("13. Execute SimpleLinkedList()\n");
+                Write("14. Execute NumberReverseOrder()\n")
                 Write("=======================\n");
                 Write("Your choice is: ");
 
@@ -82,6 +83,9 @@ namespace ConAppPbP
                         break;
                     case 13:
                         funcToRun = SimpleLinkedList;
+                        break;
+                    case 14:
+                        funcToRun = NumberReverseOrder;
                         break;
                     default:
                         WriteLine("Unknown choice.");
