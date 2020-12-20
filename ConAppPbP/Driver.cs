@@ -454,7 +454,6 @@ namespace ConAppPbP
             InsertToBinaryTree(ref root, 72);
         }
 
-
         private static void InsertToBinaryTree(ref Node root, int nodeVal) 
         {
       
@@ -494,6 +493,29 @@ namespace ConAppPbP
                     }
                  }
             }
+        }
+
+        private static void DisplayRightAngleTriangle() 
+        {
+            Clear();
+            PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+               
+            int i, j, rows, k = 1;
+
+            Write("Display the pattern like right angle triangle with number increased by 1:\n");
+            Write("---------------------------------------------------------------------------");
+            Write("\n\n");
+
+            Write("Input number of rows : ");
+            rows = Convert.ToInt32(ReadLine());
+            for (i = 1; i <= rows; i++)
+            {
+                for (j = 1; j <= i; j++) 
+                {
+                    Write("{0} ", k++);
+                }
+                Write("\n");
+            } 
         }
 
         private static void PrintMethodHeader(string s) 
