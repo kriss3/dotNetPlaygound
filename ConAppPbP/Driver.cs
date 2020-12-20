@@ -40,6 +40,7 @@ namespace ConAppPbP
                 Write("13. Execute SimpleLinkedList()\n");
                 Write("14. Execute NumberReverseOrder()\n");
                 Write("15. Execute InsertToBinarchSearch()\n");
+                Write("16. Execute DisplayRightAngleTriangle()\n");
                 Write("=======================\n");
                 Write("Your choice is: ");
 
@@ -91,6 +92,9 @@ namespace ConAppPbP
                         break;
                     case 15:
                         funcToRun = BTSTreeImplementation;
+                        break;
+                    case 16:
+                        funcToRun = DisplayRightAngleTriangle;
                         break;
                     default:
                         WriteLine("Unknown choice.");
