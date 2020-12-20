@@ -13,9 +13,9 @@ namespace ConAppPbP
         public Node Left { get; set; }
         public Node Right { get; set; }
 
-        public void DisplayNode() 
+        public string DisplayNode() 
         {
-            WriteLine($"Data in the current Node: {Data}");
+            return $"Data in the current Node: {Data}";
         }
 
     }

@@ -39,6 +39,7 @@ namespace ConAppPbP
                 Write("12. Execute PrintStarTraingles()\n");
                 Write("13. Execute SimpleLinkedList()\n");
                 Write("14. Execute NumberReverseOrder()\n");
+                Write("15. Execute InsertToBinarchSearch()\n");
                 Write("=======================\n");
                 Write("Your choice is: ");
 
@@ -87,6 +88,9 @@ namespace ConAppPbP
                         break;
                     case 14:
                         funcToRun = NumberReverseOrder;
+                        break;
+                    case 15:
+                        funcToRun = BTSTreeImplementation;
                         break;
                     default:
                         WriteLine("Unknown choice.");
@@ -436,23 +440,22 @@ namespace ConAppPbP
         {
             Clear();
             PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
-
             Node root = null;
-            InsertToBinaryTree(root,50);
-            InsertToBinaryTree(root,17);
-            InsertToBinaryTree(root,23);
-            InsertToBinaryTree(root,12);
-            InsertToBinaryTree(root,19);
-            InsertToBinaryTree(root,54);
-            InsertToBinaryTree(root,9);
-            InsertToBinaryTree(root,14);
-            InsertToBinaryTree(root,67);
-            InsertToBinaryTree(root,76);
-            InsertToBinaryTree(root,72);
+            InsertToBinaryTree(ref root, 50);
+            InsertToBinaryTree(ref root, 17);
+            InsertToBinaryTree(ref root, 23);
+            InsertToBinaryTree(ref root, 12);
+            InsertToBinaryTree(ref root, 19);
+            InsertToBinaryTree(ref root, 54);
+            InsertToBinaryTree(ref root, 9);
+            InsertToBinaryTree(ref root, 14);
+            InsertToBinaryTree(ref root, 67);
+            InsertToBinaryTree(ref root, 76);
+            InsertToBinaryTree(ref root, 72);
         }
 
 
-        public static void InsertToBinaryTree(Node root, int nodeVal) 
+        private static void InsertToBinaryTree(ref Node root, int nodeVal) 
         {
       
             Node newNode = new Node { Data = nodeVal};
@@ -475,30 +478,23 @@ namespace ConAppPbP
                         if (current == null)
                         {
                             parent.Left = newNode;
+                            WriteLine($"Inserted Node with {parent.Left.DisplayNode()}");
                             break;
                         }
-                        else 
+                    }
+                    else
+                    {
+                        current = current.Right;
+                        if (current == null)
                         {
-                            current = current.Right;
-                            if (current == null) 
-                            {
-                                parent.Right = newNode;
-                                break;
-                            }
+                            parent.Right = newNode;
+                            WriteLine($"Inserted Node with {parent.Right.DisplayNode()}");
+                            break;
                         }
                     }
-                }
-
-
+                 }
             }
-
-
-
         }
-
-
-
-      
 
         private static void PrintMethodHeader(string s) 
         {
