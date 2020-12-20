@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static System.Console;
 namespace ConAppPbP
@@ -436,9 +437,68 @@ namespace ConAppPbP
             Clear();
             PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
 
+            Node root = null;
+            InsertToBinaryTree(root,50);
+            InsertToBinaryTree(root,17);
+            InsertToBinaryTree(root,23);
+            InsertToBinaryTree(root,12);
+            InsertToBinaryTree(root,19);
+            InsertToBinaryTree(root,54);
+            InsertToBinaryTree(root,9);
+            InsertToBinaryTree(root,14);
+            InsertToBinaryTree(root,67);
+            InsertToBinaryTree(root,76);
+            InsertToBinaryTree(root,72);
+        }
+
+
+        public static void InsertToBinaryTree(Node root, int nodeVal) 
+        {
+      
+            Node newNode = new Node { Data = nodeVal};
+
+            if (root == null)
+            {
+                root = newNode;
+            }
+            else 
+            {
+                Node current = root;
+                Node parent;
+
+                while (true) 
+                {
+                    parent = current;
+                    if (nodeVal < current.Data)
+                    {
+                        current = current.Left;
+                        if (current == null)
+                        {
+                            parent.Left = newNode;
+                            break;
+                        }
+                        else 
+                        {
+                            current = current.Right;
+                            if (current == null) 
+                            {
+                                parent.Right = newNode;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
 
 
         }
+
+
+
+      
 
         private static void PrintMethodHeader(string s) 
         {
