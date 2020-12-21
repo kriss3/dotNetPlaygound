@@ -13,12 +13,22 @@ namespace TestingUnitTests
         public void Add_AddsCorrectlyTwoNumber_ReturnsNumber() 
         {
             //Arrange
-            var actual = Calculator.Add(10, 10);
+            double expected = 20;
             //Act
-            var expected = 20;
+            var actual = Calculator.Add(10, 10);
             //Assert
             Assert.Equal(expected, actual);
 
+        }
+        [Fact]
+        public void Subtrac_SubtracksCorrectlyTwoNumber_ReturnsNumber()
+        {
+            //Arrange
+            double expected = 20;
+            //Act
+            var actual = Calculator.Subtack(30, 10);
+            //Assert
+            Assert.Equal(expected, actual);
         }
     }
 }
