@@ -21,12 +21,12 @@ namespace TestingUnitTests
 
         }
         [Fact]
-        public void Subtrac_SubtracksCorrectlyTwoNumber_ReturnsNumber()
+        public void Subtrac_SubtractCorrectlyTwoNumber_ReturnsNumber()
         {
             //Arrange
             double expected = 20;
             //Act
-            var actual = Calculator.Subtack(30, 10);
+            var actual = Calculator.Subtact(30, 10);
             //Assert
             Assert.Equal(expected, actual);
         }

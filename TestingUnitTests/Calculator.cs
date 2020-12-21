@@ -13,7 +13,7 @@ namespace TestingUnitTests
             return x + y;
         }
 
-        public static double Subtack(double x, double y)
+        public static double Subtact(double x, double y)
         {
             return x - y;
         }
