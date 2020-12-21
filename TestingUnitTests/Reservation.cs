@@ -1,19 +1,13 @@
-﻿using Microsoft.Win32;using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestingUnitTests
+﻿namespace TestingUnitTests
 {
     public class Reservation
     {
         public User MadeBy { get; set; }
 
-        public bool CanBeCanceledBy(User user) 
+        public bool CanBeCancelledBy(User user)
         {
             bool result;
-            if (user.isAdmin)
+            if (user.IsAdmin)
             {
                 result = true;
             }
