@@ -15,7 +15,7 @@ namespace ConAppsExcercises
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //MyEvents();
             //Run();
@@ -38,17 +38,17 @@ namespace ConAppsExcercises
             //FindElementInSorterArray(3);
             //FindPairs();
             //ValeyCount();
-            //OddNumbers(2,5);
-            //BreakPalindrom("acca");
-            //MySortingBubble();
-            //GetFibonachiSeq(12);
-            //PrintStarPattern(8);
-            //Run2DArray();
-            //VowelsString();
-            //StrStats();
-            //WorkWithStrings();
-            //IntArray();
-            //ReverseWordsInString();
+            OddNumbers(2,5);
+            BreakPalindrom("acca");
+            MySortingBubble();
+            GetFibonachiSeq(12);
+            PrintStarPattern(8);
+            Run2DArray();
+            VowelsString();
+            StrStats();
+            WorkWithStrings();
+            IntArray();
+            ReverseWordsInString();
             LinqQuery();
             ReadLine();
         }
@@ -88,7 +88,7 @@ namespace ConAppsExcercises
                 item.RemoveAll(r => r.ProductName.Equals("Prod2"));
             }
 
-            var res = 3;
+            //var res = 3;
         }
 
         private static void Run2DArray()
@@ -544,8 +544,8 @@ namespace ConAppsExcercises
              *        
              */
 
-            var n = 8; //number of steps;
-            var seaLevel = 0;
+            //var n = 8; //number of steps;
+            //var seaLevel = 0;
             var path = "UDDDUDUU";
 
             var res = new List<KeyValuePair<char, char>>();

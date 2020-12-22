@@ -315,9 +315,9 @@ namespace ConAppPbP
             WriteLine();
             Write($"Value x: {x} and value y: {y}");
 
-            x = x + y;
+            x += y;
             y = x - y;
-            x = x - y;
+            x -= y;
 
             WriteLine($"Values of x and y after the swap without temp variable, x = {x} and y = {y}");
 

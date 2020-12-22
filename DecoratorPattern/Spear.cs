@@ -12,14 +12,14 @@ namespace DecoratorPattern
             WriteLine("Adding Spear");
         }
 
-        public string GetDescription()
+        public override string GetDescription()
         {
-            throw new System.NotImplementedException();
+            return tempCharacter.GetDescription() + ", Spear";
         }
 
-        public int GetImpactLevel()
+        public override int GetImpactLevel()
         {
-            throw new System.NotImplementedException();
+            return tempCharacter.GetImpactLevel() + spearAddedImpactLevel;
         }
     }
 }

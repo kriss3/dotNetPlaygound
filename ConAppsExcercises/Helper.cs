@@ -20,7 +20,7 @@ namespace ConAppsExcercises
             Array.Reverse(test);
             var res = new string(test);
 
-            return s.Equals(res) ? true : false;
+            return s.Equals(res);
         }
         
         public IEnumerable<string> GetPresidents()
@@ -171,8 +171,6 @@ namespace ConAppsExcercises
 
         public void UseSingleton()
         {
-            Singleton s1 = Singleton.Instance;
-            var s2 = Singleton.Instance;
         }
 
         public string GetCollapsed(string input)
@@ -225,7 +223,7 @@ namespace ConAppsExcercises
         public IEnumerable<String> StringsArrays()
         {
             IList<String> myStrings = new List<string>();
-            string[] myArr = { "a","e","i","o","u","y"};
+            //string[] myArr = { "a","e","i","o","u","y"};
             var t = "aeiouy";
             var res = t.ToCharArray();
             for (int i = res.Length-1; i>0;i++)

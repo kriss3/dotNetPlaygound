@@ -21,7 +21,7 @@ namespace ConApp_Excercises_2
     /// </summary>
     abstract class Document
     {
-        private List<Page> _pages = new List<Page>();
+        private readonly List<Page> _pages = new List<Page>();
 
         // Constructor calls abstract Factory method
         public Document()
