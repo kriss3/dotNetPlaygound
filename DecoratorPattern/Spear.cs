@@ -5,7 +5,7 @@ namespace DecoratorPattern
 
     public class Spear : CharacterDecorator
     {
-        private int spearAddedImpactLevel = 50;
+        private readonly int spearAddedImpactLevel = 50;
 
         public Spear(ICharacter newCharacter) : base(newCharacter)
         {

@@ -10,6 +10,7 @@ using System.Data;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using ConAppsExcercises.Models;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace ConAppsExcercises
 {
@@ -17,27 +18,27 @@ namespace ConAppsExcercises
     {
         static void Main()
         {
-            //MyEvents();
-            //Run();
-            //Run2(10);
-            //var t = "konstantynopolitanczykowna";
-            //reverseString(ref t);
-            //removeVowels("HellO");
-            //FindDelimiterOccurance("ABCDE", "DC");
-            //ReverseSentence("Ala ma kota");
-            //CardDeckShuffler();
-            //GetDataFromDb();
-            //Task.Run(async () => await getPeopleFromWeb());
-            //reverseArrayCheck(10);
-            //stringsOperations("pasta");
-            //Shuffle(new int[52]);
-            //getMoreUsers();
-            //var res = getMatchingPairs();
-            // getMatchingPairs2();
-            //IntArrayExcercises();
-            //FindElementInSorterArray(3);
-            //FindPairs();
-            //ValeyCount();
+            MyEvents();
+            Run();
+            Run2(10);
+            var t = "konstantynopolitanczykowna";
+            reverseString(ref t);
+            RemoveVowels("HellO");
+            FindDelimiterOccurance("ABCDE", "DC");
+            ReverseSentence("Ala ma kota");
+            CardDeckShuffler();
+            GetDataFromDb();
+            Task.Run(async () => await getPeopleFromWeb());
+            reverseArrayCheck(10);
+            stringsOperations("pasta");
+            Shuffle(new int[52]);
+            getMoreUsers();
+            var res = GetMatchingPairs();
+            GetMatchingPairs2();
+            IntArrayExcercises();
+            FindElementInSorterArray(3);
+            FindPairs();
+            ValeyCount();
             OddNumbers(2,5);
             BreakPalindrom("acca");
             MySortingBubble();
@@ -145,7 +146,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static Dictionary<int, int> getMatchingPairs()
+        private static Dictionary<int, int> GetMatchingPairs()
         {
             var k = 10;
             var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1 };
@@ -167,7 +168,7 @@ namespace ConAppsExcercises
             return res;
         }
 
-        private static void myEvents()
+        private static void MyEvents()
         {
             NotificationMethods nm = new NotificationMethods();
             nm._shaw += nm__shaw;
@@ -194,12 +195,13 @@ namespace ConAppsExcercises
             //Helper Singleton
             h.UseSingleton();
             var a = h.GetWeekName();
-
+            WriteLine(a);
 
             var r = h.ReverseVowels("Whyeeko");//a e o u i y
+            WriteLine(r);
 
             var k = h.GetPresidents();
-
+            WriteLine(k);
 
             Write(@"Type word to check if Palindrom: ");
             var s = ReadLine();
@@ -223,7 +225,7 @@ namespace ConAppsExcercises
             WriteLine($"This is inside method: {MethodBase.GetCurrentMethod().Name}()");
         }
 
-        private static void run2(int val)
+        private static void Run2(int val)
         {
             for (int i = val; i >= 0; i--)
             {
@@ -246,11 +248,11 @@ namespace ConAppsExcercises
             return sb.ToString();
         }
 
-        private static string[] reverseSentence(string sentence)
+        private static string[] ReverseSentence(string sentence)
         {
             var arr = sentence.ToCharArray();
             var result = new List<string>();
-            var t = String.Empty;
+            var t = string.Empty;
             for (int i = 0; i < arr.Length; i++)
             {
                 var temp = arr[i];
@@ -261,16 +263,16 @@ namespace ConAppsExcercises
                 else
                 {
                     result.Add(t);
-                    t = String.Empty;
+                    t = string.Empty;
                 }
             }
             result.Add(t);
-            t = String.Empty;
+            t = string.Empty;
             result.ForEach(x => WriteLine(x));
             return result.ToArray();
         }
 
-        private static void removeVowels(string cTest)
+        private static void RemoveVowels(string cTest)
         {
             var test = cTest.Where(c => "aeiouAEIOU".Contains(c)).Distinct();
 
@@ -284,7 +286,7 @@ namespace ConAppsExcercises
 
         }
 
-        private static long findDelimiterOccurance(string s1, string s2)
+        private static long FindDelimiterOccurance(string s1, string s2)
         {
             var s1Arr = s1.ToCharArray();
             var s2Arr = s2.ToCharArray();
@@ -305,7 +307,7 @@ namespace ConAppsExcercises
             return res + 1;
         }
 
-        private static void cardDeckShuffler()
+        private static void CardDeckShuffler()
         {
             var arr = new int[] { 2, 5, 6 };
 
@@ -331,7 +333,7 @@ namespace ConAppsExcercises
 
         }
 
-        private static void getDataFromDb()
+        private static void GetDataFromDb()
         {
             var hp = new Helper();
             var res = hp.GetAllItems();

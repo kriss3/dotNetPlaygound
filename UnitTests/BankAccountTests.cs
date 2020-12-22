@@ -11,7 +11,7 @@ namespace UnitTests
         public void TestExceptionThrowing()
         {
             //setup
-            BankAccount ba = new BankAccount("Kris", 0);
+            BankAccount ba = new("Kris", 0);
             //init
             try
             {
