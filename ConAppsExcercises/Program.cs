@@ -22,17 +22,17 @@ namespace ConAppsExcercises
             Run();
             Run2(10);
             var t = "konstantynopolitanczykowna";
-            reverseString(ref t);
+            ReverseString(ref t);
             RemoveVowels("HellO");
             FindDelimiterOccurance("ABCDE", "DC");
             ReverseSentence("Ala ma kota");
             CardDeckShuffler();
             GetDataFromDb();
-            Task.Run(async () => await getPeopleFromWeb());
-            reverseArrayCheck(10);
-            stringsOperations("pasta");
+            Task.Run(async () => await GetPeopleFromWeb());
+            ReverseArrayCheck(10);
+            StringsOperations("pasta");
             Shuffle(new int[52]);
-            getMoreUsers();
+            GtMoreUsers();
             var res = GetMatchingPairs();
             GetMatchingPairs2();
             IntArrayExcercises();
@@ -233,7 +233,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static string reverseString(ref string testString)
+        private static string ReverseString(ref string testString)
         {
             var sb = new StringBuilder();
             if (!string.IsNullOrEmpty(testString))
@@ -313,6 +313,7 @@ namespace ConAppsExcercises
 
             var randVal = new Random();
             var t = randVal.Next(0, arr.Length);
+            WriteLine(t);
 
             for (int i = 0; i < arr.Length; i++)
             {
@@ -338,19 +339,20 @@ namespace ConAppsExcercises
             var hp = new Helper();
             var res = hp.GetAllItems();
             var item = hp.GetItemById(35902);
+            WriteLine(item);
         }
 
-        private static async Task getPeopleFromWeb()
+        private static async Task GetPeopleFromWeb()
         {
             var hp = new Helper();
             var t = await hp.GetPeopleFromWeb();
+            WriteLine(t);
         }
 
-        private static void reverseArrayCheck(int index)
+        private static void ReverseArrayCheck(int index)
         {
             var myArr = new int[index];
-            var elements = myArr.Length;
-
+            
             for (int i = 0; i < myArr.Length; i++)
             {
                 myArr[i] = i + 1;
@@ -362,7 +364,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static void stringsOperations(string val)
+        private static void StringsOperations(string val)
         {
             var t = val.Length;
             for (int i = 0; i < val.Length; i++)
@@ -401,7 +403,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static List<int> getMoreUsers()
+        private static List<int> GtMoreUsers()
         {
             var result = new List<int>();
 
@@ -460,7 +462,7 @@ namespace ConAppsExcercises
         }
 
         // solution
-        private static void getMatchingPairs03()
+        private static void GetMatchingPairs03()
         {
             var k = 10;
             var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 };
@@ -579,8 +581,7 @@ namespace ConAppsExcercises
 
         private static string BreakPalindrom(string str)
         {
-            string result = string.Empty;
-            var nStr = string.Empty;
+            string result, nStr;
 
             nStr = str.Replace(str[1], str[str.Length - 1]);
 
@@ -599,7 +600,6 @@ namespace ConAppsExcercises
         private static void MySortingBubble()
         {
             int[] myArr = new int[] { 5, 1, 4, 2, 8 };
-            var indx = myArr.Length;
             var move = 0;
             do
             {
@@ -725,7 +725,7 @@ namespace ConAppsExcercises
             }
 
             var fullRes = res - myArrSum;
-
+            WriteLine(fullRes);
         }
 
         public static void ReverseWordsInString()
@@ -740,6 +740,7 @@ namespace ConAppsExcercises
                 sb.Append(" ");
             }
             var result = sb.ToString();
+            WriteLine(result);
         }
     }
 }

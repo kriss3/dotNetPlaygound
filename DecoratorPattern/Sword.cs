@@ -26,7 +26,7 @@ namespace DecoratorPattern
          * Returns impact level for the Barbarian with sword.
          * @return int as impact level for the character.
          */
-        public int getImpactLevel()
+        public override int GetImpactLevel()
         {
             return tempCharacter.GetImpactLevel() + swordAddedImpactLevel;
         }
