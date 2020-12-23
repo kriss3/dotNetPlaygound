@@ -529,19 +529,29 @@ namespace ConAppPbP
         {
             Clear();
             PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
-            Method1(100);
-            Method2(25);
-
+            callMethods();
+            WriteLine();
         }
 
-        private static async Task Method1(int numOfRounds) 
+        private static async void callMethods() 
         {
+            Task<int> task = Method1(100);
+            Method2(25);
+            int count = await task;
+            Method3(count);
+        }
+
+        private static async Task<int> Method1(int numOfRounds) 
+        {
+            int count = 0;
             await Task.Run(()=> {
                 for (int i = 0; i < numOfRounds; i++)
                 {
                     WriteLine(" Method 1 executed...");
+                    count++;
                 }
             });
+            return count;
         }
 
         public static void Method2(int numOfRounds)
@@ -550,6 +560,11 @@ namespace ConAppPbP
             {
                 WriteLine(" Method 2 executed");
             }
+        }
+
+        private static void Method3(int numOfRounds)
+        {
+            WriteLine($"Total count is " + numOfRounds);
         }
 
         private static void PrintMethodHeader(string s) 
