@@ -39,6 +39,7 @@ namespace ConAppPbP
                 Write("14. Execute NumberReverseOrder()\n");
                 Write("15. Execute InsertToBinarchSearch()\n");
                 Write("16. Execute DisplayRightAngleTriangle()\n");
+                Write("17. Execute DisplayRightAngleTriangle()\n");
                 Write("=======================\n");
                 Write("Your choice is: ");
 
@@ -93,6 +94,9 @@ namespace ConAppPbP
                         break;
                     case 16:
                         funcToRun = DisplayRightAngleTriangle;
+                        break;
+                    case 17:
+                        funcToRun = ExecuteAsyncAwait;
                         break;
                     default:
                         WriteLine("Unknown choice.");
@@ -518,6 +522,14 @@ namespace ConAppPbP
                 }
                 Write("\n");
             } 
+        }
+
+        private static void ExecuteAsyncAwait() 
+        {
+            Clear();
+            PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+
+
         }
 
         private static void PrintMethodHeader(string s) 
