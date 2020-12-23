@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using static System.Console;
 namespace ConAppPbP
 {
@@ -528,8 +529,27 @@ namespace ConAppPbP
         {
             Clear();
             PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+            Method1(100);
+            Method2(25);
 
+        }
 
+        private static async Task Method1(int numOfRounds) 
+        {
+            await Task.Run(()=> {
+                for (int i = 0; i < numOfRounds; i++)
+                {
+                    WriteLine(" Method 1 executed...");
+                }
+            });
+        }
+
+        public static void Method2(int numOfRounds)
+        {
+            for (int i = 0; i < numOfRounds; i++)
+            {
+                WriteLine(" Method 2 executed");
+            }
         }
 
         private static void PrintMethodHeader(string s) 
