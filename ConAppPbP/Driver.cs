@@ -571,6 +571,12 @@ namespace ConAppPbP
             WriteLine($"Total count is " + numOfRounds);
         }
 
+        private static void EnTermsOfEvenNumber() 
+        {
+            Clear();
+            PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+        }
+
         private static void PrintMethodHeader(string s) 
         {
             WriteLine($"========= {s} ==========");
