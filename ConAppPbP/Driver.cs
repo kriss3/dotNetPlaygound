@@ -575,6 +575,22 @@ namespace ConAppPbP
         {
             Clear();
             PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+
+            Write("\n\n");
+            Write("Calculate n terms of even natural number and their sum:\n");
+            Write("---------------------------------------------------------");
+            Write("\n\n");
+
+            int n, sum =0;
+            Write("Input number of terms : ");
+            n = Convert.ToInt32(ReadLine());
+            Write("\nThe even numbers are :");
+            for (int i = 1; i <= n; i++)
+            {
+                Write("{0} ", 2 * i);
+                sum += 2 * i;
+            }
+            Write($"\nThe Sum of even Natural Number upto {n} terms : {sum} \n");
         }
 
         private static void PrintMethodHeader(string s) 
