@@ -41,6 +41,7 @@ namespace ConAppPbP
                 Write("15. Execute InsertToBinarchSearch()\n");
                 Write("16. Execute DisplayRightAngleTriangle()\n");
                 Write("17. Execute DisplayRightAngleTriangle()\n");
+                Write("18. Execute DisplayRightAngleTriangle()\n");
                 Write("=======================\n");
                 Write("Your choice is: ");
 
@@ -98,6 +99,9 @@ namespace ConAppPbP
                         break;
                     case 17:
                         funcToRun = ExecuteAsyncAwait;
+                        break;
+                    case 18:
+                        funcToRun = EnTermsOfEvenNumber;
                         break;
                     default:
                         WriteLine("Unknown choice.");
