@@ -587,7 +587,7 @@ namespace ConAppPbP
             Write("\nThe even numbers are :");
             for (int i = 1; i <= n; i++)
             {
-                Write("{0} ", 2 * i);
+                Write($"{2 * i} ");
                 sum += 2 * i;
             }
             Write($"\nThe Sum of even Natural Number upto {n} terms : {sum} \n");
