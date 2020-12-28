@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -42,6 +44,7 @@ namespace ConAppPbP
                 Write("16. Execute DisplayRightAngleTriangle()\n");
                 Write("17. Execute DisplayRightAngleTriangle()\n");
                 Write("18. Execute DisplayRightAngleTriangle()\n");
+                Write("19. Execute RunObservable()");
                 Write("=======================\n");
                 Write("Your choice is: ");
 
@@ -102,6 +105,9 @@ namespace ConAppPbP
                         break;
                     case 18:
                         funcToRun = EnTermsOfEvenNumber;
+                        break;
+                    case 19:
+                        funcToRun = RunObservable;
                         break;
                     default:
                         WriteLine("Unknown choice.");
@@ -591,6 +597,44 @@ namespace ConAppPbP
                 sum += 2 * i;
             }
             Write($"\nThe Sum of even Natural Number upto {n} terms : {sum} \n");
+        }
+
+        private static void RunObservable()
+        {
+            WriteLine($"Running method: {MethodBase.GetCurrentMethod().Name}");
+            var obs = new ObservableCollection<string>();
+            obs.CollectionChanged += obs_CollectionChanged;
+            obs.Add("Adam");
+            obs.Add("Eve");
+            obs.Add("Clive");
+            obs.Add("Anne");
+            obs.Remove("Adam");
+            obs.Add("John");
+            obs.Add("Peter");
+            obs.Add("Hannah");
+            obs.Clear();
+        }
+
+        private static void obs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            WriteLine("Action type: " + e.Action);
+            if (e.NewItems != null)
+            {
+                WriteLine("Items added: ");
+                foreach (var item in e.NewItems)
+                {
+                    WriteLine(item);
+                }
+            }
+
+            if (e.OldItems != null)
+            {
+                WriteLine("Items removed ");
+                foreach (var item in e.OldItems)
+                {
+                    WriteLine(item);
+                }
+            }
         }
 
         private static void PrintMethodHeader(string s) 
