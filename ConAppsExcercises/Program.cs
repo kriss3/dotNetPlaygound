@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Reflection;
-using static System.Console;
-using System.Data.SqlClient;
 using System.Data;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using ConAppsExcercises.Models;
-using System.Runtime.InteropServices.WindowsRuntime;
+
+
+using static System.Console;
+using Microsoft.Identity.Client;
 
 namespace ConAppsExcercises
 {
@@ -18,41 +18,100 @@ namespace ConAppsExcercises
     {
         static void Main()
         {
-            MyEvents();
-            Run();
-            Run2(10);
-            var t = "konstantynopolitanczykowna";
-            ReverseString(ref t);
-            RemoveVowels("HellO");
-            FindDelimiterOccurance("ABCDE", "DC");
-            ReverseSentence("Ala ma kota");
-            CardDeckShuffler();
-            GetDataFromDb();
-            Task.Run(async () => await GetPeopleFromWeb());
-            ReverseArrayCheck(10);
-            StringsOperations("pasta");
-            Shuffle(new int[52]);
-            GtMoreUsers();
-            var res = GetMatchingPairs();
-            GetMatchingPairs2();
-            IntArrayExcercises();
-            FindElementInSorterArray(3);
-            FindPairs();
-            ValeyCount();
-            OddNumbers(2,5);
-            BreakPalindrom("acca");
-            MySortingBubble();
-            GetFibonachiSeq(12);
-            PrintStarPattern(8);
-            Run2DArray();
-            VowelsString();
-            StrStats();
-            WorkWithStrings();
-            IntArray();
-            ReverseWordsInString();
-            LinqQuery();
+            //MyEvents();
+            //Run();
+            //Run2(10);
+            //var t = "konstantynopolitanczykowna";
+            //ReverseString(ref t);
+            //RemoveVowels("HellO");
+            //FindDelimiterOccurance("ABCDE", "DC");
+            //ReverseSentence("Ala ma kota");
+            //CardDeckShuffler();
+            //GetDataFromDb();
+            //Task.Run(async () => await GetPeopleFromWeb());
+            //ReverseArrayCheck(10);
+            //StringsOperations("pasta");
+            //Shuffle(new int[52]);
+            //GtMoreUsers();
+            //var res = GetMatchingPairs();
+            //GetMatchingPairs2();
+            //IntArrayExcercises();
+            //FindElementInSorterArray(3);
+            //FindPairs();
+            //ValeyCount();
+            //OddNumbers(2,5);
+            //BreakPalindrom("acca");
+            //MySortingBubble();
+            //GetFibonachiSeq(12);
+            //PrintStarPattern(8);
+            //Run2DArray();
+            //VowelsString();
+            //StrStats();
+            //WorkWithStrings();
+            //IntArray();
+            //ReverseWordsInString();
+            //LinqQuery();
+            //Compare2List();
+            //StringPaddingAndSubstring();
+
+            CallAzureService();
             ReadLine();
         }
+
+        private static void CallAzureService()
+        {
+            var clientId = "";
+            var clientSecret = "";
+            var authority = "";
+
+            IConfidentialClientApplication app;
+            app = ConfidentialClientApplicationBuilder.Create(clientId)
+                                                      .WithClientSecret(clientSecret)
+                                                      .WithAuthority(new Uri(authority))
+                                                      .Build();
+
+        }
+
+        private static void StringPaddingAndSubstring()
+        {
+            string transName = "C";
+            string companyCode = "0";
+            string systemCode = "SM";
+            string constract = "0000000610001";
+            string companyName = "MyNewCompanyName";
+
+            //StringBuilder has Append
+            //String has PadRight/PadLeft
+            StringBuilder sb = new StringBuilder(transName.PadRight(2));
+            sb.Append(companyCode.PadRight(3));
+            sb.Append(constract.PadRight(20));
+            sb.Append(systemCode.PadRight(42));
+            sb.Append(companyName);
+            
+            sb.ToString();
+            
+        }
+
+        private static void Compare2List()
+        {
+            //theirs
+            var firstList = new List<string> { "" };
+            //the once that have Access; mine
+            var secondList = new List<string> { "04009", "04010", "04011", "04012" }; 
+
+            //should return true if both have the same elements
+            //var result = firstList.Where(le1 => secondList.Any(le2=>le2 == le1)).ToList();
+            hasAccess(firstList, secondList);
+
+        }
+
+        private static bool hasAccess(List<string> theirs, List<string> mine) 
+        {
+            //test2.Where(t2 => !test1.Any(t1 => t2.Contains(t1)));
+            var res = theirs.Intersect(mine).Count() == theirs.Count();
+            return res;
+        }
+
 
         private static void LinqQuery()
         {

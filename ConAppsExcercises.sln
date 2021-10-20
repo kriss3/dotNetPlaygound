@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPbP", "ConAppPbP\ConA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingUnitTests", "TestingUnitTests\TestingUnitTests.csproj", "{FB9EB451-AF42-4567-BA60-9AB74649C395}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait", "AsyncAwait\AsyncAwait.csproj", "{97FA9B6E-39AA-41E0-BE23-6EFCEB836536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppDelegates", "ConAppDelegates\ConAppDelegates.csproj", "{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{FB9EB451-AF42-4567-BA60-9AB74649C395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB9EB451-AF42-4567-BA60-9AB74649C395}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB9EB451-AF42-4567-BA60-9AB74649C395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97FA9B6E-39AA-41E0-BE23-6EFCEB836536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FA9B6E-39AA-41E0-BE23-6EFCEB836536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FA9B6E-39AA-41E0-BE23-6EFCEB836536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FA9B6E-39AA-41E0-BE23-6EFCEB836536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
