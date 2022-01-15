@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Data;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Text.Json;
 using ConAppsExcercises.Models;
 
 
@@ -14,6 +15,13 @@ using Microsoft.Identity.Client;
 
 namespace ConAppsExcercises
 {
+    public class Dependent
+    {
+        public string PolicyNumber { get; set; }
+        public string DivisionNumber { get; set; }
+        public string Category { get; set; }
+    }
+
     class Program
     {
         static void Main()
@@ -53,23 +61,69 @@ namespace ConAppsExcercises
             //LinqQuery();
             //Compare2List();
             //StringPaddingAndSubstring();
-
-            CallAzureService();
+            //var result = CallAzureService();
+            //CapitalizeEveryOtherCharter();
+            //PaddingWithZeros();
+            SerializeUsingMsLibrary();
             ReadLine();
         }
 
-        private static void CallAzureService()
+        private static void SerializeUsingMsLibrary()
         {
-            var clientId = "";
-            var clientSecret = "";
+            string _example = @"{""PolicyNumber"":""1000007897"",
+                                                ""DivisionNumber"":""0001"",
+                                                ""Category"":""Spouse"" }";
+
+            var result = JsonSerializer.Deserialize<Dependent>(_example);
+            WriteLine($"Policy Number: {result.PolicyNumber}\nDivision Number: {result.DivisionNumber}\nCategory: {result.Category}");
+        }
+
+        private static void PaddingWithZeros()
+        {
+            int numberOfAvailSpaces = 2;
+            int value = 2;
+            string result = $"{value.ToString().PadLeft(numberOfAvailSpaces, '0')}";
+            WriteLine($"The DB2 value is {result} but the code will deal with value: {value}");
+        }
+
+        private static void CapitalizeEveryOtherCharter()
+        {
+            string example = "this is my example";
+            var sb = new StringBuilder();
+            foreach (var item in example)
+            {
+                int itemIndex = example.IndexOf(item);
+                if (itemIndex == 0)
+                {
+                    sb.Append(example[itemIndex].ToString().ToLower());
+                    continue;
+                }
+                    
+                if ((itemIndex % 2) != 0)
+                    sb.Append(example[itemIndex].ToString().ToUpper());
+                else
+                    sb.Append(example[itemIndex].ToString().ToLower());
+            }
+            var result = sb.ToString();
+        }
+
+        private static string CallAzureService()
+        {
+            var clientId = "3f5a81f6-2cfd-4707-8b5e-8e75dea6f481";
+            var clientSecret = "dUq7Q~O~_BNUj8XvD8RtHef0pxxBp4VNmBLu.";
             var authority = "";
+            var tenantId = "e1718b18-1c6b-4d85-a073-8331407107ce";
+            var appIDUri = "api://3f5a81f6-2cfd-4707-8b5e-8e75dea6f481/User.Read/.default";
 
             IConfidentialClientApplication app;
             app = ConfidentialClientApplicationBuilder.Create(clientId)
                                                       .WithClientSecret(clientSecret)
-                                                      .WithAuthority(new Uri(authority))
                                                       .Build();
 
+            var scopes = new[] { appIDUri };
+            var result = app.AcquireTokenForClient(scopes).ExecuteAsync().ConfigureAwait(false);
+            string jwt = result.GetAwaiter().GetResult().AccessToken;
+            return jwt;
         }
 
         private static void StringPaddingAndSubstring()
@@ -111,7 +165,6 @@ namespace ConAppsExcercises
             var res = theirs.Intersect(mine).Count() == theirs.Count();
             return res;
         }
-
 
         private static void LinqQuery()
         {
