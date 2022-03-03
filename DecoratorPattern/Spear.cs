@@ -1,16 +1,25 @@
-﻿namespace DecoratorPattern
+﻿using static System.Console;
+
+namespace DecoratorPattern
 {
 
-    public class Spear : ICharacter
+    public class Spear : CharacterDecorator
     {
-        public string GetDescription()
+        private readonly int spearAddedImpactLevel = 50;
+
+        public Spear(ICharacter newCharacter) : base(newCharacter)
         {
-            throw new System.NotImplementedException();
+            WriteLine("Adding Spear");
         }
 
-        public int GetImpactLevel()
+        public override string GetDescription()
         {
-            throw new System.NotImplementedException();
+            return tempCharacter.GetDescription() + ", Spear";
+        }
+
+        public override int GetImpactLevel()
+        {
+            return tempCharacter.GetImpactLevel() + spearAddedImpactLevel;
         }
     }
 }

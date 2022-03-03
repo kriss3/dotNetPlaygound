@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2BF2D176-3C47-486B-BB07-BA81C647425E}</ProjectGuid>
+    <ProjectGuid>{97FA9B6E-39AA-41E0-BE23-6EFCEB836536}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConAppPbP</RootNamespace>
-    <AssemblyName>ConAppPbP</AssemblyName>
+    <RootNamespace>AsyncAwait</RootNamespace>
+    <AssemblyName>AsyncAwait</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Driver.cs" />
-    <Compile Include="Node.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingletonExample.cs" />
+    <Compile Include="WebsiteDataModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

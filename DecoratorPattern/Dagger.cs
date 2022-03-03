@@ -1,16 +1,25 @@
-﻿
+﻿using static System.Console;
+
 namespace DecoratorPattern
 {
-    public class Dagger : ICharacter
+    public class Dagger : CharacterDecorator
     {
-        public string GetDescription()
+        private readonly int daggerAddedImpactLevel = 10;
+
+        public Dagger(ICharacter newCharacter) : base(newCharacter)
         {
-            throw new System.NotImplementedException();
+            WriteLine("Making Barbarian");
+            WriteLine("Adding Dagger");
         }
 
-        public int GetImpactLevel()
+        public override string GetDescription()
         {
-            throw new System.NotImplementedException();
+            return tempCharacter.GetDescription() + ", Dagger"; ;
+        }
+
+        public override int GetImpactLevel()
+        {
+            return tempCharacter.GetImpactLevel() + daggerAddedImpactLevel;
         }
     }
 }

@@ -2,38 +2,47 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Reflection;
-using static System.Console;
-using System.Data.SqlClient;
 using System.Data;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Text.Json;
 using ConAppsExcercises.Models;
+
+
+using static System.Console;
+using Microsoft.Identity.Client;
 
 namespace ConAppsExcercises
 {
+    public class Dependent
+    {
+        public string PolicyNumber { get; set; }
+        public string DivisionNumber { get; set; }
+        public string Category { get; set; }
+    }
+
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //MyEvents();
             //Run();
             //Run2(10);
             //var t = "konstantynopolitanczykowna";
-            //reverseString(ref t);
-            //removeVowels("HellO");
+            //ReverseString(ref t);
+            //RemoveVowels("HellO");
             //FindDelimiterOccurance("ABCDE", "DC");
             //ReverseSentence("Ala ma kota");
             //CardDeckShuffler();
             //GetDataFromDb();
-            //Task.Run(async () => await getPeopleFromWeb());
-            //reverseArrayCheck(10);
-            //stringsOperations("pasta");
+            //Task.Run(async () => await GetPeopleFromWeb());
+            //ReverseArrayCheck(10);
+            //StringsOperations("pasta");
             //Shuffle(new int[52]);
-            //getMoreUsers();
-            //var res = getMatchingPairs();
-            // getMatchingPairs2();
+            //GtMoreUsers();
+            //var res = GetMatchingPairs();
+            //GetMatchingPairs2();
             //IntArrayExcercises();
             //FindElementInSorterArray(3);
             //FindPairs();
@@ -49,8 +58,112 @@ namespace ConAppsExcercises
             //WorkWithStrings();
             //IntArray();
             //ReverseWordsInString();
-            LinqQuery();
+            //LinqQuery();
+            //Compare2List();
+            //StringPaddingAndSubstring();
+            //var result = CallAzureService();
+            //CapitalizeEveryOtherCharter();
+            //PaddingWithZeros();
+            SerializeUsingMsLibrary();
             ReadLine();
+        }
+
+        private static void SerializeUsingMsLibrary()
+        {
+            string _example = @"{""PolicyNumber"":""1000007897"",
+                                                ""DivisionNumber"":""0001"",
+                                                ""Category"":""Spouse"" }";
+
+            var result = JsonSerializer.Deserialize<Dependent>(_example);
+            WriteLine($"Policy Number: {result.PolicyNumber}\nDivision Number: {result.DivisionNumber}\nCategory: {result.Category}");
+        }
+
+        private static void PaddingWithZeros()
+        {
+            int numberOfAvailSpaces = 2;
+            int value = 2;
+            string result = $"{value.ToString().PadLeft(numberOfAvailSpaces, '0')}";
+            WriteLine($"The DB2 value is {result} but the code will deal with value: {value}");
+        }
+
+        private static void CapitalizeEveryOtherCharter()
+        {
+            string example = "this is my example";
+            var sb = new StringBuilder();
+            foreach (var item in example)
+            {
+                int itemIndex = example.IndexOf(item);
+                if (itemIndex == 0)
+                {
+                    sb.Append(example[itemIndex].ToString().ToLower());
+                    continue;
+                }
+                    
+                if ((itemIndex % 2) != 0)
+                    sb.Append(example[itemIndex].ToString().ToUpper());
+                else
+                    sb.Append(example[itemIndex].ToString().ToLower());
+            }
+            var result = sb.ToString();
+        }
+
+        private static string CallAzureService()
+        {
+            var clientId = "3f5a81f6-2cfd-4707-8b5e-8e75dea6f481";
+            var clientSecret = "dUq7Q~O~_BNUj8XvD8RtHef0pxxBp4VNmBLu.";
+            var authority = "";
+            var tenantId = "e1718b18-1c6b-4d85-a073-8331407107ce";
+            var appIDUri = "api://3f5a81f6-2cfd-4707-8b5e-8e75dea6f481/User.Read/.default";
+
+            IConfidentialClientApplication app;
+            app = ConfidentialClientApplicationBuilder.Create(clientId)
+                                                      .WithClientSecret(clientSecret)
+                                                      .Build();
+
+            var scopes = new[] { appIDUri };
+            var result = app.AcquireTokenForClient(scopes).ExecuteAsync().ConfigureAwait(false);
+            string jwt = result.GetAwaiter().GetResult().AccessToken;
+            return jwt;
+        }
+
+        private static void StringPaddingAndSubstring()
+        {
+            string transName = "C";
+            string companyCode = "0";
+            string systemCode = "SM";
+            string constract = "0000000610001";
+            string companyName = "MyNewCompanyName";
+
+            //StringBuilder has Append
+            //String has PadRight/PadLeft
+            StringBuilder sb = new StringBuilder(transName.PadRight(2));
+            sb.Append(companyCode.PadRight(3));
+            sb.Append(constract.PadRight(20));
+            sb.Append(systemCode.PadRight(42));
+            sb.Append(companyName);
+            
+            sb.ToString();
+            
+        }
+
+        private static void Compare2List()
+        {
+            //theirs
+            var firstList = new List<string> { "" };
+            //the once that have Access; mine
+            var secondList = new List<string> { "04009", "04010", "04011", "04012" }; 
+
+            //should return true if both have the same elements
+            //var result = firstList.Where(le1 => secondList.Any(le2=>le2 == le1)).ToList();
+            hasAccess(firstList, secondList);
+
+        }
+
+        private static bool hasAccess(List<string> theirs, List<string> mine) 
+        {
+            //test2.Where(t2 => !test1.Any(t1 => t2.Contains(t1)));
+            var res = theirs.Intersect(mine).Count() == theirs.Count();
+            return res;
         }
 
         private static void LinqQuery()
@@ -88,7 +201,7 @@ namespace ConAppsExcercises
                 item.RemoveAll(r => r.ProductName.Equals("Prod2"));
             }
 
-            var res = 3;
+            //var res = 3;
         }
 
         private static void Run2DArray()
@@ -145,7 +258,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static Dictionary<int, int> getMatchingPairs()
+        private static Dictionary<int, int> GetMatchingPairs()
         {
             var k = 10;
             var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1 };
@@ -167,7 +280,7 @@ namespace ConAppsExcercises
             return res;
         }
 
-        private static void myEvents()
+        private static void MyEvents()
         {
             NotificationMethods nm = new NotificationMethods();
             nm._shaw += nm__shaw;
@@ -194,12 +307,13 @@ namespace ConAppsExcercises
             //Helper Singleton
             h.UseSingleton();
             var a = h.GetWeekName();
-
+            WriteLine(a);
 
             var r = h.ReverseVowels("Whyeeko");//a e o u i y
+            WriteLine(r);
 
             var k = h.GetPresidents();
-
+            WriteLine(k);
 
             Write(@"Type word to check if Palindrom: ");
             var s = ReadLine();
@@ -223,7 +337,7 @@ namespace ConAppsExcercises
             WriteLine($"This is inside method: {MethodBase.GetCurrentMethod().Name}()");
         }
 
-        private static void run2(int val)
+        private static void Run2(int val)
         {
             for (int i = val; i >= 0; i--)
             {
@@ -231,7 +345,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static string reverseString(ref string testString)
+        private static string ReverseString(ref string testString)
         {
             var sb = new StringBuilder();
             if (!string.IsNullOrEmpty(testString))
@@ -246,11 +360,11 @@ namespace ConAppsExcercises
             return sb.ToString();
         }
 
-        private static string[] reverseSentence(string sentence)
+        private static string[] ReverseSentence(string sentence)
         {
             var arr = sentence.ToCharArray();
             var result = new List<string>();
-            var t = String.Empty;
+            var t = string.Empty;
             for (int i = 0; i < arr.Length; i++)
             {
                 var temp = arr[i];
@@ -261,16 +375,16 @@ namespace ConAppsExcercises
                 else
                 {
                     result.Add(t);
-                    t = String.Empty;
+                    t = string.Empty;
                 }
             }
             result.Add(t);
-            t = String.Empty;
+            t = string.Empty;
             result.ForEach(x => WriteLine(x));
             return result.ToArray();
         }
 
-        private static void removeVowels(string cTest)
+        private static void RemoveVowels(string cTest)
         {
             var test = cTest.Where(c => "aeiouAEIOU".Contains(c)).Distinct();
 
@@ -284,7 +398,7 @@ namespace ConAppsExcercises
 
         }
 
-        private static long findDelimiterOccurance(string s1, string s2)
+        private static long FindDelimiterOccurance(string s1, string s2)
         {
             var s1Arr = s1.ToCharArray();
             var s2Arr = s2.ToCharArray();
@@ -305,12 +419,13 @@ namespace ConAppsExcercises
             return res + 1;
         }
 
-        private static void cardDeckShuffler()
+        private static void CardDeckShuffler()
         {
             var arr = new int[] { 2, 5, 6 };
 
             var randVal = new Random();
             var t = randVal.Next(0, arr.Length);
+            WriteLine(t);
 
             for (int i = 0; i < arr.Length; i++)
             {
@@ -331,24 +446,25 @@ namespace ConAppsExcercises
 
         }
 
-        private static void getDataFromDb()
+        private static void GetDataFromDb()
         {
             var hp = new Helper();
             var res = hp.GetAllItems();
             var item = hp.GetItemById(35902);
+            WriteLine(item);
         }
 
-        private static async Task getPeopleFromWeb()
+        private static async Task GetPeopleFromWeb()
         {
             var hp = new Helper();
             var t = await hp.GetPeopleFromWeb();
+            WriteLine(t);
         }
 
-        private static void reverseArrayCheck(int index)
+        private static void ReverseArrayCheck(int index)
         {
             var myArr = new int[index];
-            var elements = myArr.Length;
-
+            
             for (int i = 0; i < myArr.Length; i++)
             {
                 myArr[i] = i + 1;
@@ -360,7 +476,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static void stringsOperations(string val)
+        private static void StringsOperations(string val)
         {
             var t = val.Length;
             for (int i = 0; i < val.Length; i++)
@@ -399,7 +515,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static List<int> getMoreUsers()
+        private static List<int> GtMoreUsers()
         {
             var result = new List<int>();
 
@@ -458,7 +574,7 @@ namespace ConAppsExcercises
         }
 
         // solution
-        private static void getMatchingPairs03()
+        private static void GetMatchingPairs03()
         {
             var k = 10;
             var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 };
@@ -544,8 +660,8 @@ namespace ConAppsExcercises
              *        
              */
 
-            var n = 8; //number of steps;
-            var seaLevel = 0;
+            //var n = 8; //number of steps;
+            //var seaLevel = 0;
             var path = "UDDDUDUU";
 
             var res = new List<KeyValuePair<char, char>>();
@@ -577,8 +693,7 @@ namespace ConAppsExcercises
 
         private static string BreakPalindrom(string str)
         {
-            string result = string.Empty;
-            var nStr = string.Empty;
+            string result, nStr;
 
             nStr = str.Replace(str[1], str[str.Length - 1]);
 
@@ -597,7 +712,6 @@ namespace ConAppsExcercises
         private static void MySortingBubble()
         {
             int[] myArr = new int[] { 5, 1, 4, 2, 8 };
-            var indx = myArr.Length;
             var move = 0;
             do
             {
@@ -723,7 +837,7 @@ namespace ConAppsExcercises
             }
 
             var fullRes = res - myArrSum;
-
+            WriteLine(fullRes);
         }
 
         public static void ReverseWordsInString()
@@ -738,6 +852,7 @@ namespace ConAppsExcercises
                 sb.Append(" ");
             }
             var result = sb.ToString();
+            WriteLine(result);
         }
     }
 }

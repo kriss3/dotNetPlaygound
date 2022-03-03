@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2BF2D176-3C47-486B-BB07-BA81C647425E}</ProjectGuid>
+    <ProjectGuid>{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConAppPbP</RootNamespace>
-    <AssemblyName>ConAppPbP</AssemblyName>
+    <RootNamespace>ConAppDelegates</RootNamespace>
+    <AssemblyName>ConAppDelegates</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Driver.cs" />
-    <Compile Include="Node.cs" />
+    <Compile Include="Photo.cs" />
+    <Compile Include="PhotoFilters.cs" />
+    <Compile Include="PhotoProcessor.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingletonExample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
