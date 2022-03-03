@@ -64,8 +64,45 @@ namespace ConAppsExcercises
             //var result = CallAzureService();
             //CapitalizeEveryOtherCharter();
             //PaddingWithZeros();
-            SerializeUsingMsLibrary();
+            //SerializeUsingMsLibrary();
+            FizzBuzzAttempt();
+            
             ReadLine();
+        }
+
+        private static void FizzBuzzAttempt()
+        {
+            var n = 15; // 1,2,Fizz,4,Buzz
+            var results = new Dictionary<int, string>();
+            for (int i = 1; i <=n; i++)
+            {
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    results.Add(i, "FizzBuzz");
+                }
+                else if (i % 3 == 0)
+                {
+                    results.Add(i, "Fizz");
+                }
+                else if (i % 5 == 0)
+                {
+                    results.Add(i, "Buzz");
+                }
+                else {
+                    results.Add(i, i.ToString());
+                }
+            }
+
+            // in case we want to return just an array
+            var arr1 = results.Values.ToArray(); 
+            var myResult = new StringBuilder(results.Keys.Count);
+            foreach (var item in results.Values)
+            {
+                 myResult.Append($"{item},");
+            }
+
+            Write(myResult.ToString().TrimEnd(','));
+
         }
 
         private static void SerializeUsingMsLibrary()
