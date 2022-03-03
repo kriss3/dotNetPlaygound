@@ -66,9 +66,9 @@ namespace ConAppsExcercises
             //PaddingWithZeros();
             //SerializeUsingMsLibrary();
             //FizzBuzzAttempt();
-            FuncDelegateExample();
+            //FuncDelegateExample();
             ActionDelegateExample();
-            PredicateDelegateExample();
+            //PredicateDelegateExample();
 
             ReadLine();
         }
@@ -80,7 +80,8 @@ namespace ConAppsExcercises
 
         private static void ActionDelegateExample()
         {
-            throw new NotImplementedException();
+            Action<int> printAValue = i => WriteLine($"The parameter passed to the Actin Del is: {i}");
+            printAValue(10);
         }
 
         private static void FuncDelegateExample()
