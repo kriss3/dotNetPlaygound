@@ -65,11 +65,39 @@ namespace ConAppsExcercises
             //CapitalizeEveryOtherCharter();
             //PaddingWithZeros();
             //SerializeUsingMsLibrary();
-            FizzBuzzAttempt();
-            
+            //FizzBuzzAttempt();
+            FuncDelegateExample();
+            ActionDelegateExample();
+            PredicateDelegateExample();
+
             ReadLine();
         }
 
+        private static void PredicateDelegateExample()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void ActionDelegateExample()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void FuncDelegateExample()
+        {
+            Func<int, int, int> myResult = myDelegateFnct;
+
+            var res = myResult(5, 5);
+
+            WriteLine($"Func can take 0 to 16 params and returns a value: {res}");
+        }
+
+
+
+        private static int myDelegateFnct(int val1, int val2) 
+        {
+            return val1 + val2;
+        }
         private static void FizzBuzzAttempt()
         {
             var n = 15; // 1,2,Fizz,4,Buzz
