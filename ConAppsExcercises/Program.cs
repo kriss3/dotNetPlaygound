@@ -73,17 +73,25 @@ namespace ConAppsExcercises
             ReadLine();
         }
 
+        //Takes params and returns a boolean
+        //This example will return true for any function taking int param and that param is > 10;
         private static void PredicateDelegateExample()
         {
-            throw new NotImplementedException();
+            Predicate<int> predicate = (val) => {
+                if (val > 10)
+                    return true;
+                return false;
+            };  
         }
 
+        //Does not return a value take up to 16 params (equivalant to void function)
         private static void ActionDelegateExample()
         {
-            Action<int> printAValue = i => WriteLine($"The parameter passed to the Actin Del is: {i}");
+            Action<int> printAValue = (i) => WriteLine($"The parameter passed to the Actin Delegate is: {i}");
             printAValue(10);
         }
 
+        //takes up to 16 params and MUST return a value
         private static void FuncDelegateExample()
         {
             Func<int, int, int> myResult = myDelegateFnct;
