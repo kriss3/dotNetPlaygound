@@ -24,7 +24,7 @@ namespace ConAppsExcercises
 
     class Program
     {
-        static void Main()
+        static async Task Main()
         {
             //MyEvents();
             //Run();
@@ -68,11 +68,21 @@ namespace ConAppsExcercises
             //FizzBuzzAttempt();
             //FuncDelegateExample();
             //ActionDelegateExample();
-            PredicateDelegateExample();
+            //PredicateDelegateExample();
+            LongProcess();
 
             ReadLine();
         }
 
+        private static async void LongProcess() 
+        {
+            WriteLine("This is the beginning of the long process");
+            await Task.Delay(4000);
+            WriteLine("Long process Completed.");
+
+        }
+        
+        
         //Takes params and returns a boolean
         //This example will return true for any function taking int param and that param is > 10;
         private static void PredicateDelegateExample()
@@ -87,7 +97,7 @@ namespace ConAppsExcercises
             Write($"Is the value entered greater than 10? : {predicate(valueReceived)}");
         }
 
-        //Does not return a value take up to 16 params (equivalant to void function)
+        //Does not return a value take 0 up to 16 params (equivalant to void function)
         private static void ActionDelegateExample()
         {
             Action<int> printAValue = (i) => WriteLine($"The parameter passed to the Actin Delegate is: {i}");
@@ -98,13 +108,9 @@ namespace ConAppsExcercises
         private static void FuncDelegateExample()
         {
             Func<int, int, int> myResult = myDelegateFnct;
-
             var res = myResult(5, 5);
-
             WriteLine($"Func can take 0 to 16 params and returns a value: {res}");
         }
-
-
 
         private static int myDelegateFnct(int val1, int val2) 
         {
