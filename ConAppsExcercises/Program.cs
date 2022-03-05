@@ -67,8 +67,8 @@ namespace ConAppsExcercises
             //SerializeUsingMsLibrary();
             //FizzBuzzAttempt();
             //FuncDelegateExample();
-            ActionDelegateExample();
-            //PredicateDelegateExample();
+            //ActionDelegateExample();
+            PredicateDelegateExample();
 
             ReadLine();
         }
@@ -81,7 +81,10 @@ namespace ConAppsExcercises
                 if (val > 10)
                     return true;
                 return false;
-            };  
+            };
+            Write("Enter a digit: ");
+            int valueReceived = int.Parse(ReadLine());
+            Write($"Is the value entered greater than 10? : {predicate(valueReceived)}");
         }
 
         //Does not return a value take up to 16 params (equivalant to void function)
