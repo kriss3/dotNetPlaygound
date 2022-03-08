@@ -69,12 +69,12 @@ namespace ConAppsExcercises
             //FuncDelegateExample();
             //ActionDelegateExample();
             //PredicateDelegateExample();
-            LongProcess();
+            await LongProcess();
 
             ReadLine();
         }
 
-        private static async void LongProcess() 
+        private static async Task LongProcess() 
         {
             WriteLine("This is the beginning of the long process");
             await Task.Delay(4000);
