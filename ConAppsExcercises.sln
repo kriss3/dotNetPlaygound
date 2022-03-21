@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28917.182
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppsExcercises", "ConAppsExcercises\ConAppsExcercises.csproj", "{4B6C31BB-1496-4D60-97A8-578FDF631789}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait", "AsyncAwait\AsyncAwait.csproj", "{97FA9B6E-39AA-41E0-BE23-6EFCEB836536}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppDelegates", "ConAppDelegates\ConAppDelegates.csproj", "{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithStrings", "ConAppPlayingWithStrings\ConAppPlayingWithStrings.csproj", "{5CCE949D-63C6-445C-8383-836CC09CEDD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{726C3E82-D09C-4AE3-9129-BB99FEF9E47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCE949D-63C6-445C-8383-836CC09CEDD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCE949D-63C6-445C-8383-836CC09CEDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCE949D-63C6-445C-8383-836CC09CEDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCE949D-63C6-445C-8383-836CC09CEDD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
