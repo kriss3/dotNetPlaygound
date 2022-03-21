@@ -53,7 +53,7 @@ namespace ConAppsExcercises
             //GetFibonachiSeq(12);
             //PrintStarPattern(8);
             //Run2DArray();
-            //VowelsString();
+            VowelsString();
             //StrStats();
             //WorkWithStrings();
             //IntArray();
