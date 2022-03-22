@@ -32,7 +32,7 @@ namespace ConAppPlayingWithStrings
             return res.ToString();
         }
 
-        private static void StrStats() //a dictionary of char key and number of reoccuring characters;
+        private void StrStats() //a dictionary of char key and number of reoccuring characters;
         {
             var strArr = "aabbbccccddddd";
             var stats = new Dictionary<char, int>();
@@ -51,5 +51,14 @@ namespace ConAppPlayingWithStrings
             }
         }
 
+        public bool IsReversedStringTheSame()
+        {
+            var str = "abba";
+            if (!string.IsNullOrEmpty(str))
+            {
+                return str.SequenceEqual(str.Reverse());
+            }
+            return false;
+        }
     }
 }
