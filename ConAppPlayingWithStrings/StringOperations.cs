@@ -51,6 +51,7 @@ namespace ConAppPlayingWithStrings
             }
         }
 
+        //Comparing reversed string
         public bool IsReversedStringTheSame()
         {
             var str = "abba";
@@ -59,6 +60,22 @@ namespace ConAppPlayingWithStrings
                 return str.SequenceEqual(str.Reverse());
             }
             return false;
+        }
+
+        //Reverse words in the string
+        public string ReverseWordsInString()
+        {
+            string sent = "ala ma kota";
+
+            string[] res = sent.Split(' ');
+            StringBuilder sb = new StringBuilder();
+            for (int i = res.Length - 1; i >= 0; i--)
+            {
+                sb.Append(res[i]);
+                sb.Append(" ");
+            }
+            string result = sb.ToString();
+            return result;
         }
     }
 }

@@ -23,5 +23,10 @@ namespace ConAppPlayingWithStrings
         {
             WriteLine($"The string provided and reversed is the same: {Sop.IsReversedStringTheSame()}");
         }
+
+        private static void ReverseWordsInString()
+        {
+            WriteLine($"The reversed string is: {Sop.ReverseWordsInString()}");
+        }
     }
 }
