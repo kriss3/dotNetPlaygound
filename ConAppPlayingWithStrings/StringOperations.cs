@@ -32,7 +32,7 @@ namespace ConAppPlayingWithStrings
             return res.ToString();
         }
 
-        private void StrStats() //a dictionary of char key and number of reoccuring characters;
+        public  void StrStats() //a dictionary of char key and number of reoccuring characters;
         {
             var strArr = "aabbbccccddddd";
             var stats = new Dictionary<char, int>();
@@ -76,6 +76,27 @@ namespace ConAppPlayingWithStrings
             }
             string result = sb.ToString();
             return result;
+        }
+
+        //Using Padding and Subtring for a given string
+        public void StringPaddingAndSubstring()
+        {
+            string transName = "C";
+            string companyCode = "0";
+            string systemCode = "SM";
+            string constract = "0000000610001";
+            string companyName = "MyNewCompanyName";
+
+            //StringBuilder has Append
+            //String has PadRight/PadLeft
+            StringBuilder sb = new StringBuilder(transName.PadRight(2));
+            sb.Append(companyCode.PadRight(3));
+            sb.Append(constract.PadRight(20));
+            sb.Append(systemCode.PadRight(42));
+            sb.Append(companyName);
+
+            sb.ToString();
+
         }
     }
 }
