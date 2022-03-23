@@ -28,5 +28,10 @@ namespace ConAppPlayingWithStrings
         {
             WriteLine($"The reversed string is: {Sop.ReverseWordsInString()}");
         }
+
+        private static void ShowStringPaddingAndSubstring()
+        {
+            Sop.StringPaddingAndSubstring();
+        }
     }
 }
