@@ -11,7 +11,8 @@ namespace ConAppPlayingWithStrings
             WriteLine("Hello World!");
             Sop = new StringOperations();
             //VowelsStringOperation();
-            CompareStrings();
+            //CompareStrings();
+            FindAnagrams();
         }
 
         private static void VowelsStringOperation() 
@@ -32,6 +33,11 @@ namespace ConAppPlayingWithStrings
         private static void ShowStringPaddingAndSubstring()
         {
             Sop.StringPaddingAndSubstring();
+        }
+
+        private static void FindAnagrams() 
+        {
+            Sop.FindAnagrams();
         }
     }
 }
