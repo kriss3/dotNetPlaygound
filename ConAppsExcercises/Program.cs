@@ -53,11 +53,8 @@ namespace ConAppsExcercises
             //GetFibonachiSeq(12);
             //PrintStarPattern(8);
             //Run2DArray();
-            VowelsString();
-            //StrStats();
-            //WorkWithStrings();
             //IntArray();
-            //ReverseWordsInString();
+            ReverseWordsInString();
             //LinqQuery();
             //Compare2List();
             //StringPaddingAndSubstring();
@@ -207,26 +204,6 @@ namespace ConAppsExcercises
             var result = app.AcquireTokenForClient(scopes).ExecuteAsync().ConfigureAwait(false);
             string jwt = result.GetAwaiter().GetResult().AccessToken;
             return jwt;
-        }
-
-        private static void StringPaddingAndSubstring()
-        {
-            string transName = "C";
-            string companyCode = "0";
-            string systemCode = "SM";
-            string constract = "0000000610001";
-            string companyName = "MyNewCompanyName";
-
-            //StringBuilder has Append
-            //String has PadRight/PadLeft
-            StringBuilder sb = new StringBuilder(transName.PadRight(2));
-            sb.Append(companyCode.PadRight(3));
-            sb.Append(constract.PadRight(20));
-            sb.Append(systemCode.PadRight(42));
-            sb.Append(companyName);
-            
-            sb.ToString();
-            
         }
 
         private static void Compare2List()
@@ -855,59 +832,6 @@ namespace ConAppsExcercises
              */
         }
 
-        private static string VowelsString()
-        {
-            var strArr = "kaliningrad";  //aeoui  //result=> kaliningrad
-
-            var res = new StringBuilder();
-            for (int start = 0, end = strArr.Length - 1; start < strArr.Length; start++)
-            {
-                if ("aeouiAEOUI".IndexOf(strArr[start]) < 0)
-                {
-                    res.Append(strArr[start]);
-                }
-                else
-                {
-                    while (end > 0 && "aeouiAEOUI".IndexOf(strArr[end]) < 0)
-                    {
-                        end--;
-                    }
-                    res.Append(strArr[end]);
-                    end--;
-                }
-            }
-            return res.ToString();
-        }
-
-        private static void StrStats() //a dictionary of char key and number of reoccuring characters;
-        {
-            var strArr = "aabbbccccddddd";
-            var stats = new Dictionary<char, int>();
-            var strCounter = 0;
-            foreach (var item in strArr)
-            {
-                if (!stats.Keys.Contains(item))
-                {
-                    strCounter = 0;
-                    stats.Add(item, ++strCounter);
-                }
-                else
-                {
-                    stats[item] = ++strCounter;
-                }
-            }
-        }
-
-        private static bool WorkWithStrings()
-        {
-            var str = "abba";
-            if (!string.IsNullOrEmpty(str))
-            {
-                return str.SequenceEqual(str.Reverse());
-            }
-            return false;
-        }
-
         private static void IntArray()
         {
             var myArr = new int[]{1,2,3,4,6,7,8,9,10};
@@ -921,21 +845,6 @@ namespace ConAppsExcercises
 
             var fullRes = res - myArrSum;
             WriteLine(fullRes);
-        }
-
-        public static void ReverseWordsInString()
-        {
-            string sent = "ala ma kota";
-
-            var res = sent.Split(' ');
-            var sb = new StringBuilder();
-            for (int i = res.Length-1; i>=0; i--)
-            {
-                sb.Append(res[i]);
-                sb.Append(" ");
-            }
-            var result = sb.ToString();
-            WriteLine(result);
         }
     }
 }
