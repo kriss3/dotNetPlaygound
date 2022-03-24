@@ -98,5 +98,42 @@ namespace ConAppPlayingWithStrings
             sb.ToString();
 
         }
+
+        public void  FindAnagrams()
+        {
+            /*
+             * I was asked to write a program to find the anagrams in a list and return the list of anagrams.  
+                An anagram is a word or phrase formed by rearranging the letters of a different word
+                or phrase, typically using all the original letters exactly once.
+                For example, the word anagram itself can be rearranged into nag a ram, 
+                also the word binary into brainy and the word adobe into abode.
+             */
+
+            List<string> words = new() { "adobe", "binary", "abode", "brainy", "apap" };
+
+            List<string> result = new List<string>();
+
+            //Can I group elements of the list<string> by its length;
+            var pr = words
+                .GroupBy(w => w.Length)
+                .ToDictionary(k => k.Key, v => v.ToList())
+                .Where(c => c.Value.Count == 2);
+
+            foreach (var item in pr.AsEnumerable())
+            {
+                //string to compare int he Value
+                List<string> ls = item.Value;
+                var temp = new List<string>();
+                ls.ForEach(w => {
+                    var x = w.OrderBy(l => l).ToString();
+                    temp.Add(x);
+                });
+                if (temp[0].SequenceEqual(temp[1])) 
+                {
+                    result.Add(temp[0]);
+                }
+            }
+
+        }
     }
 }

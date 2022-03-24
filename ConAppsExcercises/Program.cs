@@ -54,7 +54,6 @@ namespace ConAppsExcercises
             //PrintStarPattern(8);
             //Run2DArray();
             //IntArray();
-            ReverseWordsInString();
             //LinqQuery();
             //Compare2List();
             //StringPaddingAndSubstring();
@@ -800,14 +799,6 @@ namespace ConAppsExcercises
             var inxT2 = Array.IndexOf(arr, b);
             arr[inxT1] = b;
             arr[inxT2] = a;
-        }
-
-        private void FindAnagrams()
-        {
-            /*
-             * I was asked to write a program to find the anagrams in a list and return the list of anagrams.  
-             */
-
         }
 
         private void TwoDMatrixOps()
