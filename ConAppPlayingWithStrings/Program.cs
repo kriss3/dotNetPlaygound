@@ -12,7 +12,8 @@ namespace ConAppPlayingWithStrings
             Sop = new StringOperations();
             //VowelsStringOperation();
             //CompareStrings();
-            FindAnagrams();
+            //FindAnagrams();
+            SortAndRemoveDuplicatesFromString();
         }
 
         private static void VowelsStringOperation() 
@@ -38,6 +39,12 @@ namespace ConAppPlayingWithStrings
         private static void FindAnagrams() 
         {
             Sop.FindAnagrams();
+        }
+
+        private static void SortAndRemoveDuplicatesFromString() 
+        {
+            //string example = "aacbkimp"
+            WriteLine($"The result of the string operation: {Sop.SortAndRemoveStringWord()}");
         }
     }
 }

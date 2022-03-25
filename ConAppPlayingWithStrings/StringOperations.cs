@@ -133,7 +133,14 @@ namespace ConAppPlayingWithStrings
                     result.Add(temp[0]);
                 }
             }
+            //to be continued... add test cases...
+        }
 
+        public string SortAndRemoveStringWord() 
+        {
+            string example = "aacbkimp"; //abcikmp
+            string result = string.Concat(example.OrderBy(c => c).Distinct());
+            return result;      
         }
     }
 }
