@@ -9,18 +9,11 @@ using System.Diagnostics;
 using System.Text.Json;
 using ConAppsExcercises.Models;
 
-
 using static System.Console;
 using Microsoft.Identity.Client;
 
 namespace ConAppsExcercises
 {
-    public class Dependent
-    {
-        public string PolicyNumber { get; set; }
-        public string DivisionNumber { get; set; }
-        public string Category { get; set; }
-    }
 
     class Program
     {
