@@ -270,7 +270,7 @@ namespace ConAppsExcercises
         public IEnumerable<string> GetAllItems()
         {
             var result = new List<string>();
-            using (SqlConnection conn = new SqlConnection(GetConnectinString()))
+            using (var conn = new SqlConnection(GetConnectinString()))
             {
                 SqlCommand cmd = new SqlCommand("dbo.getItems", conn)
                 {
