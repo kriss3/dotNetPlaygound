@@ -13,7 +13,7 @@ namespace AsyncAwait
     {
         static void Main(string[] args)
         {
-            DoAsync dc = new DoAsync();
+            DoAsync dc = new();
             dc.RunDownloadSync();
             Console.ReadLine();
         }
@@ -37,7 +37,7 @@ namespace AsyncAwait
         private WebsiteDataModel DownloadWebsite(string site)
         {
             var wdm = new WebsiteDataModel();
-            HttpClient wc = new HttpClient();
+            HttpClient wc = new();
 
             wdm.WebsiteUrl = site;
             wdm.WebsiteData = wc.GetAsync(site).Result.ToString();
