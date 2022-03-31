@@ -258,7 +258,7 @@ namespace ConAppsExcercises
 
         private static void Run2DArray()
         {
-            MultiDArray mda = new MultiDArray();
+            MultiDArray mda = new();
             mda.RunMultiDArray();
         }
 
@@ -334,19 +334,19 @@ namespace ConAppsExcercises
 
         private static void MyEvents()
         {
-            NotificationMethods nm = new NotificationMethods();
-            nm._shaw += nm__shaw;
+            NotificationMethods nm = new();
+            nm._shaw += ShowMethodHandler;
             nm.Name = "Kris";
         }
 
-        private static void nm__shaw(object sender, EventArgs args)
+        private static void ShowMethodHandler(object sender, EventArgs args)
         {
             WriteLine($"Name property has changed...");
         }
 
         public static void Run()
         {
-            Helper h = new Helper();
+            Helper h = new();
             h.SwapMinMax();
             h.SwapString();
             h.StringsArrays();
@@ -600,7 +600,7 @@ namespace ConAppsExcercises
 
         public static Dictionary<int, int> FindKeyPairsInStaticArray1()
         {
-            Dictionary<int, int> result = new Dictionary<int, int>();
+            Dictionary<int, int> result = new();
             var k = 10;
             int current;
             var arr = new int[] { 1, 9 };
@@ -735,7 +735,7 @@ namespace ConAppsExcercises
 
         private static void OddNumbers(int l, int r)
         {
-            List<int> result = new List<int>();
+            List<int> result = new();
             for (int i = l; i <= r; i++)
             {
                 if ((i % 2) != 0)

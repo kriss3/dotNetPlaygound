@@ -122,7 +122,7 @@ namespace ConAppsExcercises
                 "Sunday"
             };
 
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             for (int i = 0; i < results.Length; i++)
             {
                 sb.Append(results[i]);
@@ -262,7 +262,7 @@ namespace ConAppsExcercises
             t.ToString();
         }
 
-        public string GetConnectinString()
+        public static string GetConnectinString()
         {
             return ConfigurationManager.ConnectionStrings["BCIT"].ConnectionString;
         }
@@ -272,7 +272,7 @@ namespace ConAppsExcercises
             var result = new List<string>();
             using (var conn = new SqlConnection(GetConnectinString()))
             {
-                SqlCommand cmd = new SqlCommand("dbo.getItems", conn)
+                SqlCommand cmd = new("dbo.getItems", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -294,9 +294,9 @@ namespace ConAppsExcercises
         public string GetItemById(int val)
         {
             var result = String.Empty;
-            using (SqlConnection conn = new SqlConnection(GetConnectinString()))
+            using (SqlConnection conn = new(GetConnectinString()))
             {
-                SqlCommand cmd = new SqlCommand("dbo.getItemById", conn)
+                SqlCommand cmd = new("dbo.getItemById", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -320,7 +320,7 @@ namespace ConAppsExcercises
         public async Task<string> GetPeopleFromWeb()
         {
             var baseUrl = $"http://peoplecollectionapi.azurewebsites.net/";
-            HttpClient _ = new HttpClient();
+            HttpClient _ = new();
             var task =  await _.GetStringAsync(new Uri($"{baseUrl}api/people"));
             return task;
         }
