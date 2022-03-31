@@ -14,11 +14,12 @@ using Microsoft.Identity.Client;
 
 namespace ConAppsExcercises
 {
-
     class Program
     {
         static async Task Main()
         {
+            
+          
             //MyEvents();
             //Run();
             //Run2(10);
