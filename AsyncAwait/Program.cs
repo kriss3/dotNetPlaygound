@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,10 +37,10 @@ namespace AsyncAwait
         private WebsiteDataModel DownloadWebsite(string site)
         {
             var wdm = new WebsiteDataModel();
-            WebClient wc = new WebClient();
+            HttpClient wc = new HttpClient();
 
             wdm.WebsiteUrl = site;
-            wdm.WebsiteData = wc.DownloadString(site);
+            wdm.WebsiteData = wc.GetAsync(site).Result.ToString();
 
             return wdm;
         }
