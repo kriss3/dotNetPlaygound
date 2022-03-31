@@ -11,6 +11,7 @@ using ConAppsExcercises.Models;
 
 using static System.Console;
 using Microsoft.Identity.Client;
+using Microsoft.Extensions.Configuration;
 
 namespace ConAppsExcercises
 {
@@ -18,7 +19,7 @@ namespace ConAppsExcercises
     {
         static async Task Main()
         {
-            
+            Setup();
           
             //MyEvents();
             //Run();
@@ -62,6 +63,14 @@ namespace ConAppsExcercises
             await LongProcess();
 
             ReadLine();
+        }
+
+        private static List<KeyValuePair<string, string>> Setup() 
+        {
+            IConfiguration config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json").Build();
+            var keyValuePairs = config.AsEnumerable().ToList();
+            return keyValuePairs;
         }
 
         private static async Task LongProcess() 
