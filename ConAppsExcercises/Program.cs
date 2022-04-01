@@ -46,12 +46,10 @@ namespace ConAppsExcercises
             //BreakPalindrom("acca");
             //MySortingBubble();
             //GetFibonachiSeq(12);
-            //PrintStarPattern(8);
             //Run2DArray();
             //IntArray();
             //LinqQuery();
             //Compare2List();
-            //StringPaddingAndSubstring();
             //var result = CallAzureService();
             //CapitalizeEveryOtherCharter();
             //PaddingWithZeros();
@@ -270,18 +268,6 @@ namespace ConAppsExcercises
         {
             MultiDArray mda = new();
             mda.RunMultiDArray();
-        }
-
-        private static void PrintStarPattern(int n)
-        {
-            for (int i = n; i > 0; i--)
-            {
-                for (int j = 1; j <= i; j++)
-                {
-                    Write($"*");
-                }
-                WriteLine();
-            }
         }
 
         private static void GetFibonachiSeq(int n)
