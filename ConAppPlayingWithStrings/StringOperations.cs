@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace ConAppPlayingWithStrings
 {
@@ -141,6 +142,19 @@ namespace ConAppPlayingWithStrings
             string example = "aacbkimp"; //abcikmp
             string result = string.Concat(example.OrderBy(c => c).Distinct());
             return result;      
+        }
+
+        //Prints a star patters on the screen;
+        public void PrintStarPattern(int n)
+        {
+            for (int i = n; i > 0; i--)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Write($"*");
+                }
+                WriteLine();
+            }
         }
     }
 }
