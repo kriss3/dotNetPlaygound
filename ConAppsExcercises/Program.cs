@@ -59,10 +59,29 @@ namespace ConAppsExcercises
             //ActionDelegateExample();
             //PredicateDelegateExample();
             //await LongProcess();
-            CountNumberOfValleys();
+            //CountNumberOfValleys();
+            JumpOverThurnderHeads();
 
             ReadLine();
         }
+
+        //Attempt to solve another HackerRank puzzle
+        //givena and array of 0...1, find the shortest path avoiding 1 and jumping on 0 only;
+        private static void JumpOverThurnderHeads() 
+        {
+            int numberOfJumps = 7;
+            short[] clouds = { 0, 0, 1, 0, 0, 1, 0 };
+            int shortestPath = FindShortestPath(clouds);
+            WriteLine($"For given number of numps: {numberOfJumps} the" +
+                $"shortest path is: {shortestPath}");
+        }
+
+        private static int FindShortestPath(short[] cloudArray)
+        {
+            int result = 0;
+            return result;
+        }
+
 
         //Hackerrank = countNumber of valleys
         //SeaLevel, walker always ends up at level 0;
