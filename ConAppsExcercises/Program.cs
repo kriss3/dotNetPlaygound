@@ -19,8 +19,8 @@ namespace ConAppsExcercises
     {
         static async Task Main()
         {
-            Setup();
-          
+            //Setup();
+
             //MyEvents();
             //Run();
             //Run2(10);
@@ -58,9 +58,57 @@ namespace ConAppsExcercises
             //FuncDelegateExample();
             //ActionDelegateExample();
             //PredicateDelegateExample();
-            await LongProcess();
+            //await LongProcess();
+            CountNumberOfValleys();
 
             ReadLine();
+        }
+
+        //Hackerrank = countNumber of valleys
+        //SeaLevel, walker always ends up at level 0;
+        private static void CountNumberOfValleys()
+        {
+            int numberOfSteps = 8;
+            string path = "UDDDUDUU";
+            int result = CountingValleys(numberOfSteps, path);
+            WriteLine($"Number of Steps: {numberOfSteps} with the paths: {path}, " +
+                $"the number of values is: {result}");
+        }
+
+        public static int CountingValleys(int steps, string path) 
+        {
+            //8 steps and path is: DD UUUU DD
+            int countOfValleys = 0;
+            int level = 0;
+            bool newBelow = false;
+
+            for (int i = 0; i < path.Length; i++)
+            {
+                if (path[i] == 'D')
+                {
+                    level--;
+                    if (level == -1)
+                    {
+                        newBelow = true;
+                    }
+                    if (level < -1) 
+                    {
+                        newBelow = false;
+                    }
+                }
+                else if (path[i] == 'U') 
+                {
+                    level++;
+                    if (level > 0)
+                    {
+                        newBelow = false;
+                    }
+                }
+                    
+                if (level < 0 && newBelow)
+                    countOfValleys++;
+            }
+            return countOfValleys;
         }
 
         private static List<KeyValuePair<string, string>> Setup() 
