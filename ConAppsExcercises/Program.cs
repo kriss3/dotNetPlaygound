@@ -70,16 +70,26 @@ namespace ConAppsExcercises
         private static void JumpOverThurnderHeads() 
         {
             int numberOfJumps = 7;
-            short[] clouds = { 0, 0, 1, 0, 0, 1, 0 };
+            List<int> clouds = new() { 0, 0, 1, 0, 0, 1, 0 };
             int shortestPath = FindShortestPath(clouds);
-            WriteLine($"For given number of numps: {numberOfJumps} the" +
+            WriteLine($"For given number of numps: {numberOfJumps} the " +
                 $"shortest path is: {shortestPath}");
         }
 
-        private static int FindShortestPath(short[] cloudArray)
+        private static int FindShortestPath(List<int> c)
         {
-            int result = 0;
-            return result;
+            int sum = 0;
+
+            for (int i = 0; i < c.Count -1; i++)
+            {
+                if (c[i] == 0)
+                {
+                    i++;
+                }
+                sum++;
+            }
+
+            return sum;
         }
 
 
