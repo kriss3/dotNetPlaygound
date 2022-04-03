@@ -60,9 +60,40 @@ namespace ConAppsExcercises
             //PredicateDelegateExample();
             //await LongProcess();
             //CountNumberOfValleys();
-            JumpOverThurnderHeads();
+            //JumpOverThurnderHeads();
+            FindNumberOfAsInAString();
 
             ReadLine();
+        }
+
+        private static void FindNumberOfAsInAString()
+        {
+            //var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
+            long n = 30;
+            string s = "abaabaabaabaabaabaabaabaabaabaabaabaaba";
+            int count = 0;
+            
+            //n is reasonable
+            if (n < int.MaxValue)
+            {
+                int v = Convert.ToInt32(n);
+                for (int i = 0; i <= v-1; i++)
+                {
+                    if (s[i] == 'a')
+                        count++;
+                }
+            }
+            else //n is too large, need to split the string array
+            {
+                var myStrings = stringSplitByMaxInt(s);
+            }
+        }
+
+        private static IEnumerable<string> stringSplitByMaxInt(string s)
+        {
+            var partLength = int.MaxValue;
+            for (var i = 0; i < s.Length; i += partLength)
+                yield return s.Substring(i, Math.Min(partLength, s.Length - i));
         }
 
         //Attempt to solve another HackerRank puzzle
