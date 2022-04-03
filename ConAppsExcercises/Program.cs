@@ -70,7 +70,7 @@ namespace ConAppsExcercises
         {
             //var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
             long n = 30;
-            string s = "abaabaabaabaabaabaabaabaabaabaabaabaaba";
+            string s = "abaabaabaabaabaabaabaabaabaabaabaabaaba";  //this string can be infinite, index can be larger than int32;
             int count = 0;
             
             //n is reasonable
