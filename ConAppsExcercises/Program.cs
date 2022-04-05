@@ -61,7 +61,8 @@ namespace ConAppsExcercises
             //await LongProcess();
             //CountNumberOfValleys();
             //JumpOverThurnderHeads();
-            FindNumberOfAsInAString();
+            //FindNumberOfAsInAString();
+            PrintFactorial();
 
             ReadLine();
         }
@@ -943,6 +944,26 @@ namespace ConAppsExcercises
 
             var fullRes = res - myArrSum;
             WriteLine(fullRes);
+        }
+
+
+        private static void PrintFactorial() 
+        {
+            var x = 5;
+            
+            do
+            {
+                Write($"{x}\t");
+            }
+            while (x < 5);
+            var res = DoFactorial(x);
+            WriteLine($"Result of Factorial of {x} is: {res}.");
+        }
+
+        private static int DoFactorial(int n) 
+        {
+            if (n == 0) return 1; 
+            return n * DoFactorial(n - 1); 
         }
     }
 }
