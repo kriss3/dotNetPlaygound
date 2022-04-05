@@ -85,7 +85,17 @@ namespace ConAppsExcercises
             }
             else //n is too large, need to split the string array
             {
+                int numberOfFound = 0;
+                int numberOfN = int.MaxValue;
                 var myStrings = stringSplitByMaxInt(s);
+                foreach (string word in myStrings)
+                {
+                    numberOfFound = word.Take(numberOfN).Where(let => let == 'a').ToList().Count;
+                    if (n > numberOfN)
+                    {
+                        numberOfN = (int)(n - numberOfN);
+                    }
+                }
             }
         }
 
