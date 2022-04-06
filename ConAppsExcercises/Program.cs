@@ -70,17 +70,24 @@ namespace ConAppsExcercises
         private static void FindNumberOfAsInAString()
         {
             //var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
-            long n = 10;
-            string s = "aba";  //this string can be infinite, index can be larger than int32;
+            long n = 1000000000000;
+            string s = "a";  //this string can be infinite, index can be larger than int32;
+
+
+            if (s.Length < n && n < int.MaxValue)
+            {
+                s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
+            }
+            else {
+                //very large n > int.MaxValue
+                var stringTimes = n / int.MaxValue; //maxInt value can fit 456 times in n;
+            }
 
 
             long count = 0;
             long counter = 0;
             var toListChar = s.ToList();
-
-            if(s.Length < n)
-                //copy string multiple times;
-
+            
             foreach (char c in toListChar) 
             {
                 if (counter == n)
