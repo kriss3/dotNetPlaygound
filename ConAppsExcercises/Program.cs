@@ -61,8 +61,8 @@ namespace ConAppsExcercises
             //await LongProcess();
             //CountNumberOfValleys();
             //JumpOverThurnderHeads();
-            //FindNumberOfAsInAString();
-            PrintFactorial();
+            FindNumberOfAsInAString();
+            //PrintFactorial();
 
             ReadLine();
         }
@@ -70,33 +70,24 @@ namespace ConAppsExcercises
         private static void FindNumberOfAsInAString()
         {
             //var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
-            long n = 30;
-            string s = "abaabaabaabaabaabaabaabaabaabaabaabaaba";  //this string can be infinite, index can be larger than int32;
-            int count = 0;
-            
-            //n is reasonable
-            if (n < int.MaxValue)
+            long n = 10;
+            string s = "aba";  //this string can be infinite, index can be larger than int32;
+
+
+            long count = 0;
+            long counter = 0;
+            var toListChar = s.ToList();
+
+            if(s.Length < n)
+                //copy string multiple times;
+
+            foreach (char c in toListChar) 
             {
-                int v = Convert.ToInt32(n);
-                for (int i = 0; i <= v-1; i++)
-                {
-                    if (s[i] == 'a')
-                        count++;
-                }
-            }
-            else //n is too large, need to split the string array
-            {
-                int numberOfFound = 0;
-                int numberOfN = int.MaxValue;
-                var myStrings = stringSplitByMaxInt(s);
-                foreach (string word in myStrings)
-                {
-                    numberOfFound = word.Take(numberOfN).Where(let => let == 'a').ToList().Count;
-                    if (n > numberOfN)
-                    {
-                        numberOfN = (int)(n - numberOfN);
-                    }
-                }
+                if (counter == n)
+                    break;
+                if (c == 'a')
+                    count++;
+                counter++;
             }
         }
 
@@ -950,14 +941,17 @@ namespace ConAppsExcercises
         private static void PrintFactorial() 
         {
             var x = 5;
-            
+            var input = x;
+            var res = DoFactorial(x);
+
             do
             {
                 Write($"{x}\t");
+                x--;
             }
-            while (x < 5);
-            var res = DoFactorial(x);
-            WriteLine($"Result of Factorial of {x} is: {res}.");
+            while (x > 0);
+            
+            WriteLine($"Result of Factorial of {input} is: {res}.");
         }
 
         private static int DoFactorial(int n) 
