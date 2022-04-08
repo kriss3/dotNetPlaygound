@@ -117,6 +117,21 @@ namespace ConAppsExcercises
                 yield return s.Substring(i, Math.Min(partLength, s.Length - i));
         }
 
+        private static int MinStepsToEquilizeIntArray() 
+        {
+            int result = 0;
+            //initial thought: create given array statistics and order by most, same elements
+            // int[] a = {3, 3, 2, 1, 3}; answer: 2 => remove value: 2 and 1 
+            /*
+             * [element, count]
+             * [3, 3]
+             * [2, 1]
+             * [1, 1]
+             */
+  
+            return result;
+        }
+
         //Attempt to solve another HackerRank puzzle
         //givena and array of 0...1, find the shortest path avoiding 1 and jumping on 0 only;
         private static void JumpOverThurnderHeads() 
