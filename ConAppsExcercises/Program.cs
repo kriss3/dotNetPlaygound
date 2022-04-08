@@ -72,7 +72,7 @@ namespace ConAppsExcercises
             //var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
             long n = 1000000000000;
             string s = "a";  //this string can be infinite, index can be larger than int32;
-
+            var maxStringArray = new List<string>();
 
             if (s.Length < n && n < int.MaxValue)
             {
@@ -80,7 +80,19 @@ namespace ConAppsExcercises
             }
             else {
                 //very large n > int.MaxValue
-                var stringTimes = n / int.MaxValue; //maxInt value can fit 456 times in n;
+                while (n > int.MaxValue) 
+                {
+                    n = int.MaxValue;
+                    s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
+                    maxStringArray.Add(s);
+                   
+                    n = -int.MaxValue;
+                }
+            }
+
+            if (maxStringArray.Count > 0)
+            {
+                //find all 'a' and add it to the sum in all arrays
             }
 
 
