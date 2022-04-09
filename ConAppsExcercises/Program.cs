@@ -130,7 +130,7 @@ namespace ConAppsExcercises
              * [1, 1]
              */
 
-            int[] a = {3, 3, 2, 1, 3};
+            int[] a = { 3, 3,2, 1, 3 };
             Dictionary<int, int> res = new Dictionary<int, int>();
             foreach (var num in a)
             {
@@ -146,8 +146,9 @@ namespace ConAppsExcercises
                 }
             }
 
-            var sortDictinaryByValue = res.OrderByDescending(x => x.Value);
-            result = res.Count -1;// return a sum of values of the all records except the first one;
+            var sortDictinaryByValue = res.OrderByDescending(x => x.Value).ToDictionary(x => x.Key);
+            res.Remove(sortDictinaryByValue.Keys.First());
+            result = res.Values.Sum();
 
             return result;
         }
