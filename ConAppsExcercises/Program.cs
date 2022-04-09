@@ -61,8 +61,9 @@ namespace ConAppsExcercises
             //await LongProcess();
             //CountNumberOfValleys();
             //JumpOverThurnderHeads();
-            FindNumberOfAsInAString();
+            //FindNumberOfAsInAString();
             //PrintFactorial();
+            MinStepsToEquilizeIntArray();
 
             ReadLine();
         }
@@ -128,7 +129,26 @@ namespace ConAppsExcercises
              * [2, 1]
              * [1, 1]
              */
-  
+
+            int[] a = {3, 3, 2, 1, 3};
+            Dictionary<int, int> res = new Dictionary<int, int>();
+            foreach (var num in a)
+            {
+                if (!res.ContainsKey(num))
+                {
+                    res.Add(num, 1);
+                }
+                else
+                {
+                    var currentCount = res[num];
+                    currentCount++;
+                    res[num] = currentCount;
+                }
+            }
+
+            var sortDictinaryByValue = res.OrderByDescending(x => x.Value);
+            result = res.Count -1;// return a sum of values of the all records except the first one;
+
             return result;
         }
 
