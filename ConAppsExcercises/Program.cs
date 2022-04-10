@@ -61,9 +61,9 @@ namespace ConAppsExcercises
             //await LongProcess();
             //CountNumberOfValleys();
             //JumpOverThurnderHeads();
-            //FindNumberOfAsInAString();
+            FindNumberOfAsInAString();
             //PrintFactorial();
-            MinStepsToEquilizeIntArray();
+            //MinStepsToEquilizeIntArray();
 
             ReadLine();
         }
@@ -87,13 +87,17 @@ namespace ConAppsExcercises
                     s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
                     maxStringArray.Add(s);
                    
-                    n = -int.MaxValue;
+                    n -= int.MaxValue;
                 }
+                maxStringArray.Add(string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n))));
             }
 
             if (maxStringArray.Count > 0)
             {
-                //find all 'a' and add it to the sum in all arrays
+                foreach (var arr in maxStringArray)
+                {
+                    //do the same as below to find all 'a' letters;
+                }
             }
 
 
@@ -118,6 +122,7 @@ namespace ConAppsExcercises
                 yield return s.Substring(i, Math.Min(partLength, s.Length - i));
         }
 
+        //This is done and works
         private static int MinStepsToEquilizeIntArray() 
         {
             int result = 0;
