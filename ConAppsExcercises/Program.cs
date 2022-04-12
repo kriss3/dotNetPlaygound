@@ -33,7 +33,6 @@ namespace ConAppsExcercises
             //GetDataFromDb();
             //Task.Run(async () => await GetPeopleFromWeb());
             //ReverseArrayCheck(10);
-            //StringsOperations("pasta");
             //Shuffle(new int[52]);
             //GtMoreUsers();
             //var res = GetMatchingPairs();
@@ -694,29 +693,7 @@ namespace ConAppsExcercises
             }
         }
 
-        private static void StringsOperations(string val)
-        {
-            var t = val.Length;
-            for (int i = 0; i < val.Length; i++)
-            {
-                Debug.WriteLine(val[i]);
-            }
-            Debug.WriteLine("");
-            for (var m = val.Length - 1; m >= 0; m--)
-            {
-                Debug.WriteLine(val[m]);
-            }
-            Debug.WriteLine("");
-            for (var m = (val.Length - 1) / 2; m >= 0; m--)
-            {
-                Debug.WriteLine(val[m]);
-            }
-            Debug.WriteLine("");
-            Debug.WriteLine(val.Count());
-            Debug.WriteLine(val.Length);
-            var k = val.OrderBy(x => x.ToString());
-        }
-
+        
         static public void Shuffle(int[] deck)
         {
             for (int i = 0; i < deck.Length; i++)
