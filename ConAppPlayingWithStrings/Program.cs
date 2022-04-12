@@ -14,7 +14,14 @@ namespace ConAppPlayingWithStrings
             //CompareStrings();
             //FindAnagrams();
             //SortAndRemoveDuplicatesFromString();
-            PrintStarPattern();
+            //PrintStarPattern();
+            WorkingWithStrings();
+        }
+
+        private static void WorkingWithStrings()
+        {
+            string myParam = "spppssp";
+            Sop.StringsOperations(myParam);
         }
 
         private static void VowelsStringOperation() 
