@@ -158,7 +158,7 @@ namespace ConAppPlayingWithStrings
             }
         }
 
-        private static void StringsOperations(string val)
+        public void StringsOperations(string val)
         {
             var t = val.Length;
             for (int i = 0; i < val.Length; i++)
