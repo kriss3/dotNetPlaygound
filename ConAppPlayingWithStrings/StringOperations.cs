@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -156,5 +157,29 @@ namespace ConAppPlayingWithStrings
                 WriteLine();
             }
         }
+
+        private static void StringsOperations(string val)
+        {
+            var t = val.Length;
+            for (int i = 0; i < val.Length; i++)
+            {
+                Debug.WriteLine(val[i]);
+            }
+            Debug.WriteLine("");
+            for (var m = val.Length - 1; m >= 0; m--)
+            {
+                Debug.WriteLine(val[m]);
+            }
+            Debug.WriteLine("");
+            for (var m = (val.Length - 1) / 2; m >= 0; m--)
+            {
+                Debug.WriteLine(val[m]);
+            }
+            Debug.WriteLine("");
+            Debug.WriteLine(val.Count());
+            Debug.WriteLine(val.Length);
+            var k = val.OrderBy(x => x.ToString());
+        }
+
     }
 }
