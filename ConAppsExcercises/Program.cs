@@ -70,13 +70,15 @@ namespace ConAppsExcercises
         private static void FindNumberOfAsInAString()
         {
             //var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
-            long n = 1000000000000;
+            long n = 2000000000;  //2147483646
             string s = "a";  //this string can be infinite, index can be larger than int32;
             var maxStringArray = new List<string>();
 
             if (s.Length < n && n < int.MaxValue)
             {
                 s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
+                var rs = s.Count();
+                var result = CountOfAs(s, n);
             }
             else {
                 //very large n > int.MaxValue
@@ -89,22 +91,35 @@ namespace ConAppsExcercises
                     n -= int.MaxValue;
                 }
                 maxStringArray.Add(string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n))));
+                long res = 0;
+                foreach (string item in maxStringArray)
+                {
+                    var temp = CountOfAs(item, n);
+                    res += temp;
+                }
             }
+
+            
 
             if (maxStringArray.Count > 0)
             {
                 foreach (var arr in maxStringArray)
                 {
                     //do the same as below to find all 'a' letters;
+                    
+                   
                 }
             }
 
+           
+        }
 
+        private static long CountOfAs(string s, long n)
+        {
             long count = 0;
             long counter = 0;
             var toListChar = s.ToList();
-            
-            foreach (char c in toListChar) 
+            foreach (char c in toListChar)
             {
                 if (counter == n)
                     break;
@@ -112,6 +127,7 @@ namespace ConAppsExcercises
                     count++;
                 counter++;
             }
+            return count;
         }
 
         private static IEnumerable<string> stringSplitByMaxInt(string s)
