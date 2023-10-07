@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
 using System;
 using System.Data.SqlClient;
@@ -41,7 +42,7 @@ namespace ConAppSerlilogExcercise
             Log.Information("In static Run() mothd");
             Log.Warning("This is warning Message");
             // Get normal filepath of this assembly's permanent directory
-            var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath;
+            var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).LocalPath;
             var user = Environment.UserName;
             Log.Information("Current user is: {UserName}", user);
             Log.Information("Current app path is: {0}", path);
@@ -60,15 +61,22 @@ namespace ConAppSerlilogExcercise
             options.PrimaryKey = options.TimeStamp;
             options.TimeStamp.NonClusteredIndex = true;
 
+            // how do I use MSSqlServerSinkOptions
+
+            var sinkOptions = new MSSqlServerSinkOptions
+            {
+                TableName = serilogTbl,
+                AutoCreateSqlTable = true,
+                BatchPostingLimit = 1000,
+                EagerlyEmitFirstEvent = true,
+                SchemaName = "dbo",
+            };
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .WriteTo.Console()
-                .WriteTo.MSSqlServer(
-                    connectionString: logDB,
-                    tableName: serilogTbl,
-                    columnOptions: options,
-                    autoCreateSqlTable: true
-                    )
+                .WriteTo
+                .MSSqlServer(connectionString: logDB, sinkOptions: sinkOptions, columnOptions: options)
                 .CreateLogger();
         }
     }
