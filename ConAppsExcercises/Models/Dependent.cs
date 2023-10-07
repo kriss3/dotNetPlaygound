@@ -1,4 +1,4 @@
-﻿namespace ConAppsExcercises.Models
+﻿namespace ConAppsExercises.Models
 {
     public class Dependent
     {
