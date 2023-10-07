@@ -374,11 +374,11 @@ namespace ConAppsExcercises
 
         private static string CallAzureService()
         {
-            var clientId = "3f5a81f6-2cfd-4707-8b5e-8e75dea6f481";
-            var clientSecret = "dUq7Q~O~_BNUj8XvD8RtHef0pxxBp4VNmBLu.";
+            var clientId = "";
+            var clientSecret = "";
             var authority = "";
-            var tenantId = "e1718b18-1c6b-4d85-a073-8331407107ce";
-            var appIDUri = "api://3f5a81f6-2cfd-4707-8b5e-8e75dea6f481/User.Read/.default";
+            var tenantId = "";
+            var appIDUri = "";
 
             IConfidentialClientApplication app;
             app = ConfidentialClientApplicationBuilder.Create(clientId)
