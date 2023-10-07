@@ -27,9 +27,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppRedis", "ConAppRedis\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppDu", "ConAppDu\ConAppDu.csproj", "{9DA12681-44BC-4C37-B5D2-DBCAE489C29A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaPort", "JavaPort\JavaPort.csproj", "{B087D99C-E371-4FA8-BAEE-3FC289452B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JavaPort", "JavaPort\JavaPort.csproj", "{B087D99C-E371-4FA8-BAEE-3FC289452B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaClient", "JavaClient\JavaClient.csproj", "{B1A5C627-307B-442D-86D7-559CE371C20B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JavaClient", "JavaClient\JavaClient.csproj", "{B1A5C627-307B-442D-86D7-559CE371C20B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppLogic", "ConAppLogic\ConAppLogic.csproj", "{C4B7A3E1-1117-41CA-A0F3-74C14C3E628F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithAsb", "PlayingWithAsb\PlayingWithAsb.csproj", "{B2463D4F-65A1-4295-95FA-538D938E89C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithAsbReceiver", "PlayingWithAsbReceiver\PlayingWithAsbReceiver.csproj", "{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +99,18 @@ Global
 		{B1A5C627-307B-442D-86D7-559CE371C20B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1A5C627-307B-442D-86D7-559CE371C20B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1A5C627-307B-442D-86D7-559CE371C20B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B7A3E1-1117-41CA-A0F3-74C14C3E628F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B7A3E1-1117-41CA-A0F3-74C14C3E628F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B7A3E1-1117-41CA-A0F3-74C14C3E628F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B7A3E1-1117-41CA-A0F3-74C14C3E628F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2463D4F-65A1-4295-95FA-538D938E89C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2463D4F-65A1-4295-95FA-538D938E89C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2463D4F-65A1-4295-95FA-538D938E89C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2463D4F-65A1-4295-95FA-538D938E89C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

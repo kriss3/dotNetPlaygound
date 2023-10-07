@@ -22,6 +22,7 @@ namespace JavaPort
             {
                 // load the Class
                 java.lang.Class cl = java.lang.Class.forName("com.kws.User", true, loader);
+                
 
                 // Create a Object via Java reflection
                 object obj = cl.newInstance();
