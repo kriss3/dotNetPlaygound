@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-namespace ConAppsExcercises
+namespace ConAppsExercises
 {
     public interface IServiceBroker
     {

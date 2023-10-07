@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConAppsExcercises
+namespace ConAppsExercises
 {
     //can be public, private, protected, internal protected
     public class Person

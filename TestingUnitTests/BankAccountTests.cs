@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-using ConAppsExcercises;
+using ConAppsExercises;
 
 namespace TestingUnitTests 
 {
@@ -27,8 +27,8 @@ namespace TestingUnitTests
                 Assert.Contains(e.Message, "Balance is 0");
                 return;
             }
-            //asert
-            Assert.True(false, "No exception was thrown.");
+            //assert
+            Assert.Fail("No exception was thrown.");
         }
     }
 
