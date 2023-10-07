@@ -77,8 +77,8 @@ namespace ConAppsExcercises
             if (s.Length < n && n < int.MaxValue)
             {
                 s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
-                var rs = s.Count();
-                var result = CountOfAs(s, n);
+                _ = s.Length;
+                _ = CountOfAs(s, n);
             }
             else {
                 //very large n > int.MaxValue
@@ -252,8 +252,8 @@ namespace ConAppsExcercises
         {
             IConfiguration config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json").Build();
-            var keyValuePairs = config.AsEnumerable().ToList();
-            return keyValuePairs;
+            IEnumerable<KeyValuePair<string, string>> keyValuePairs = config.AsEnumerable();
+            return keyValuePairs.ToList();
         }
 
         private static async Task LongProcess() 
