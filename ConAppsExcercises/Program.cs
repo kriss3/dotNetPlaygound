@@ -382,8 +382,8 @@ class Program
 
         IConfidentialClientApplication app;
         app = ConfidentialClientApplicationBuilder.Create(clientId)
-                                                  .WithClientSecret(clientSecret)
-                                                  .Build();
+            .WithClientSecret(clientSecret)
+            .Build();
 
         var scopes = new[] { appIDUri };
         var result = app.AcquireTokenForClient(scopes).ExecuteAsync().ConfigureAwait(false);
