@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace ConAppsExercises;
 
+
 class Program
 {
     static Task Main()
@@ -151,7 +152,7 @@ class Program
          */
 
         int[] a = { 3, 3,2, 1, 3 };
-        Dictionary<int, int> res = new Dictionary<int, int>();
+        Dictionary<int, int> res = new();
         foreach (var num in a)
         {
             if (!res.ContainsKey(num))
@@ -372,24 +373,7 @@ class Program
         var result = sb.ToString();
     }
 
-    private static string CallAzureService()
-    {
-        var clientId = "";
-        var clientSecret = "";
-        var authority = "";
-        var tenantId = "";
-        var appIDUri = "";
-
-        IConfidentialClientApplication app;
-        app = ConfidentialClientApplicationBuilder.Create(clientId)
-            .WithClientSecret(clientSecret)
-            .Build();
-
-        var scopes = new[] { appIDUri };
-        var result = app.AcquireTokenForClient(scopes).ExecuteAsync().ConfigureAwait(false);
-        string jwt = result.GetAwaiter().GetResult().AccessToken;
-        return jwt;
-    }
+    
 
     private static void Compare2List()
     {
@@ -400,11 +384,11 @@ class Program
 
         //should return true if both have the same elements
         //var result = firstList.Where(le1 => secondList.Any(le2=>le2 == le1)).ToList();
-        hasAccess(firstList, secondList);
+        HasAccess(firstList, secondList);
 
     }
 
-    private static bool hasAccess(List<string> theirs, List<string> mine) 
+    private static bool HasAccess(List<string> theirs, List<string> mine) 
     {
         //test2.Where(t2 => !test1.Any(t1 => t2.Contains(t1)));
         var res = theirs.Intersect(mine).Count() == theirs.Count();
@@ -427,7 +411,7 @@ class Program
                         ProductName="Prod1", 
                         Quantity=1
                     },
-                    new OrderLine
+                    new()
                     {
                         OrderId=1,
                         OrderLineId=1,
