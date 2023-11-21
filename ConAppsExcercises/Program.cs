@@ -49,7 +49,6 @@ class Program
         //IntArray();
         //LinqQuery();
         //Compare2List();
-        //var result = CallAzureService();
         //CapitalizeEveryOtherCharter();
         //PaddingWithZeros();
         //SerializeUsingMsLibrary();
@@ -512,8 +511,8 @@ class Program
     public static void Run()
     {
         Helper h = new();
-        h.SwapMinMax();
-        h.SwapString();
+        Helper.SwapMinMax();
+        Helper.SwapString();
         h.StringsArrays();
         var tz = h.GetTimeZoneId();
         h.WorldClock("2017-11-25 3:32pm", tz);
@@ -526,17 +525,17 @@ class Program
         var a = h.GetWeekName();
         WriteLine(a);
 
-        var r = h.ReverseVowels("Whyeeko");//a e o u i y
+        var r = Helper.ReverseVowels("Whyeeko");//a e o u i y
         WriteLine(r);
 
-        var k = h.GetPresidents();
+        var k = Helper.GetPresidents();
         WriteLine(k);
 
-        Write(@"Type word to check if Palindrom: ");
+        Write(@"Type word to check if Palindrome: ");
         var s = ReadLine();
-        if (h.IsPalindrom(s))
+        if (Helper.IsPalindrome(s))
         {
-            WriteLine($"Word {s} is palindrom");
+            WriteLine($"Word {s} is palindrome");
         }
         else
         {
@@ -615,7 +614,7 @@ class Program
 
     }
 
-    private static long FindDelimiterOccurance(string s1, string s2)
+    private static long FindDelimiterOccurrence(string s1, string s2)
     {
         var s1Arr = s1.ToCharArray();
         var s2Arr = s2.ToCharArray();
@@ -946,14 +945,14 @@ class Program
          */
     }
 
-    private void Magnitude()
+    private static void Magnitude()
     {
         /*interface vs abstract class
          * keywords: static, read-only, const
          * TDS protocol
          * static class and static members
          * immutable vs non-immutable class (how to make class immutable)
-         * palindrom and its permutations
+         * palindrome and its permutations
          * 
          * 
          */

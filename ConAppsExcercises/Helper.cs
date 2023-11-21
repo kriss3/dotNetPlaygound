@@ -14,7 +14,7 @@ namespace ConAppsExercises;
 
 public class Helper
 {
-    public bool IsPalindrom(string word)
+    public static bool IsPalindrome(string word)
     {
         var s = word.ToLower();
         char[] test = word.ToLower().ToCharArray();
@@ -24,7 +24,7 @@ public class Helper
         return s.Equals(res);
     }
     
-    public IEnumerable<string> GetPresidents()
+    public static IEnumerable<string> GetPresidents()
     {
         var presidents = new LinkedList<string>();
         presidents.AddLast("JFK");
@@ -39,7 +39,7 @@ public class Helper
         return presidents;
     }
 
-    public IEnumerable<string> GetNames()
+    public static IEnumerable<string> GetNames()
     {
         var st = new Stack<string>();
         return st;
@@ -64,9 +64,9 @@ public class Helper
             {
                 for (var k = inputArr.Length - 1; k >= 0; k--)
                 {
-                    if (vowels.Contains(inputArr[inputArr.Length - 1]))
+                    if (vowels.Contains(inputArr[^1]))
                     {
-                        var lastVowel = inputArr[inputArr.Length - 1];
+                        var lastVowel = inputArr[^1];
                         inputArr[i] = lastVowel;
                         result.Append(inputArr[i]);
                         break;
@@ -81,14 +81,14 @@ public class Helper
         return result.ToString();
     }
 
-    public string ReverseVowels(string s)
+    public static string ReverseVowels(string s)
     {
-        var stringbuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         for (int start = 0, end = s.Length - 1; start < s.Length; start++)
         {
-            if ("aeiouAEIOU".IndexOf(s[start]) < 0) // if s[start] retuns -1 meaning not there ...
+            if ("aeiouAEIOU".IndexOf(s[start]) < 0) // if s[start] returns -1 meaning not there ...
             {
-                stringbuilder.Append(s[start]);
+                stringBuilder.Append(s[start]);
             }
             else
             {
@@ -96,12 +96,12 @@ public class Helper
                 {
                     end--;
                 }
-                stringbuilder.Append(s[end]);
+                stringBuilder.Append(s[end]);
                 end--;
             }
         }
 
-        return stringbuilder.ToString();
+        return stringBuilder.ToString();
     }
 
     public IList<int> ArrrayGames()
@@ -235,18 +235,18 @@ public class Helper
         return myStrings;
     }
 
-    public void SwapMinMax()
+    public static void SwapMinMax()
     {
         int[] arr = { 1, 4, 5, 3, 2, 7, 6, 8, 9, 11 };
         Array.Sort(arr);
         var min = arr[0];
-        var max = arr[arr.Length -1];
+        var max = arr[^1];
 
         arr[0] = max;
-        arr[arr.Length - 1] = min;
+        arr[^1] = min;
     }
 
-    public void SwapString()
+    public static void SwapString()
     {
         var word = "test"; //test => tset
         var t = word.ToCharArray();
@@ -325,28 +325,4 @@ public class Helper
         var task =  await _.GetStringAsync(new Uri($"{baseUrl}api/people"));
         return task;
     }
-
-    static string CallAzureService()
-    {
-        var clientId = "";
-        var clientSecret = "";
-        var authority = "";
-        var tenantId = "";
-        var appIDUri = "";
-
-        IConfidentialClientApplication app;
-        app = ConfidentialClientApplicationBuilder
-            .Create(clientId)
-            .WithClientSecret(clientSecret)
-            .Build();
-
-        var scopes = new[] { appIDUri };
-        var result = app
-            .AcquireTokenForClient(scopes)
-            .ExecuteAsync();
-
-        string jwt = result.GetAwaiter().GetResult().AccessToken;
-        return jwt;
-    }
-
 }

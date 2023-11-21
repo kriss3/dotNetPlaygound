@@ -6,8 +6,8 @@ namespace PlayingWithAsbReceiver;
 
 internal class Program
 {
-    const string ASB_CONN_STRING = "Endpoint=sb://kws-servicebus-test.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=BQeTTMtmpwBExkO3Bc4czG9yuyEt3wW76514patMHwc=";
-    const string QUEUE_NAME = "testqueue";
+    const string ASB_CONN_STRING = "";
+    const string QUEUE_NAME = "";
 
     static void Main(string[] args)
     {

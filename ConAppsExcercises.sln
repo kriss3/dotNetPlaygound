@@ -33,9 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JavaClient", "JavaClient\Ja
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppLogic", "ConAppLogic\ConAppLogic.csproj", "{C4B7A3E1-1117-41CA-A0F3-74C14C3E628F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithAsb", "PlayingWithAsb\PlayingWithAsb.csproj", "{B2463D4F-65A1-4295-95FA-538D938E89C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayingWithAsb", "PlayingWithAsb\PlayingWithAsb.csproj", "{B2463D4F-65A1-4295-95FA-538D938E89C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithAsbReceiver", "PlayingWithAsbReceiver\PlayingWithAsbReceiver.csproj", "{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayingWithAsbReceiver", "PlayingWithAsbReceiver\PlayingWithAsbReceiver.csproj", "{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppSimpleLib", "ConAppSimpleLib\ConAppSimpleLib.csproj", "{CE3B10CB-DE40-49EA-AA0A-7E10AB83DEFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF79EFA7-A7BC-4242-A8D8-158A0E07B75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE3B10CB-DE40-49EA-AA0A-7E10AB83DEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE3B10CB-DE40-49EA-AA0A-7E10AB83DEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE3B10CB-DE40-49EA-AA0A-7E10AB83DEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE3B10CB-DE40-49EA-AA0A-7E10AB83DEFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
