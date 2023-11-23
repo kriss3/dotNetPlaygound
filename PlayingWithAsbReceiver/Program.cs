@@ -1,5 +1,4 @@
 ﻿using Azure.Messaging.ServiceBus;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace PlayingWithAsbReceiver;

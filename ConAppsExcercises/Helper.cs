@@ -45,13 +45,13 @@ public class Helper
         return st;
     }
 
-    public IEnumerable<string> GetValue()
+    public static IEnumerable<string> GetValue()
     {
         var q = new Queue<string>();
         return q;
     }
 
-    public string ReverseStringWithVowelsOnly(string input)
+    public static string ReverseStringWithVowelsOnly(string input)
     {
         var result = new StringBuilder();
         var inputArr = input.ToCharArray();
@@ -104,16 +104,16 @@ public class Helper
         return stringBuilder.ToString();
     }
 
-    public IList<int> ArrrayGames()
+    public IList<int> ArrayGames()
     {
-        int[] result = {1,4,9,16,25};
+        int[] result = [1, 4, 9, 16, 25];
 
         return result;
     }
 
-    public IList<string> GetWeekName()
+    public static IList<string> GetWeekName()
     {
-        string[] results = {
+        string[] results = [
             "Monday",
             "Tuesday",
             "Wednesday",
@@ -121,7 +121,7 @@ public class Helper
             "Friday",
             "Saturday",
             "Sunday"
-        };
+        ];
 
         StringBuilder sb = new();
         for (int i = 0; i < results.Length; i++)
@@ -140,13 +140,13 @@ public class Helper
         return results;
     }
 
-    public IList<Person> GetPeople()
+    public static IList<Person> GetPeople()
     {
-        Person[] people = new Person[]
-        {
+        Person[] people =
+        [
             new Person { Name="Kris", Age=11},
             new Person { Name= "Tom", Age=20}
-        };
+        ];
 
         foreach (var item in people)
         {
@@ -155,7 +155,7 @@ public class Helper
         return people;
     }
 
-    public void CopyArray()
+    public static void CopyArray()
     {
         int[] myBase = { 1, 4, 9, 16, 2, 5};
         int[] copy = new int[6];
@@ -170,11 +170,11 @@ public class Helper
         WriteLine($"myBase Equals to Copy? {myBase == copy}");
     }
 
-    public void UseSingleton()
+    public static void UseSingleton()
     {
     }
 
-    public string GetCollapsed(string input)
+    public static string GetCollapsed(string input)
     {
         //group same letters;
         //var gr = input.ToCharArray();
@@ -255,10 +255,12 @@ public class Helper
 
         for (var i = 0; i <= mid; i++)
         {
-            var myChar = t[i];
-            t[i] = t[len - i];
-            t[len - i] = myChar;
+            (t[len - i], t[i]) = (t[i], t[len - i]);
         }
+
+        //var myChar = t[i];
+        //t[i] = t[len - i];
+        //t[len - i] = myChar;
 
         t.ToString();
     }
