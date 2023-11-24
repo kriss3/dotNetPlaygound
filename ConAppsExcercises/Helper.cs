@@ -1,5 +1,4 @@
-﻿using Microsoft.Identity.Client;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -157,7 +156,7 @@ public class Helper
 
     public static void CopyArray()
     {
-        int[] myBase = { 1, 4, 9, 16, 2, 5};
+        int[] myBase = [1, 4, 9, 16, 2, 5];
         int[] copy = new int[6];
 
         myBase.CopyTo(copy, 0);
@@ -178,15 +177,16 @@ public class Helper
     {
         //group same letters;
         //var gr = input.ToCharArray();
-        var dictionary = new Dictionary<char, int>();
+        Dictionary<char, int> dictionary = [];
 
         foreach (var l in input)
         {
-            if (!dictionary.ContainsKey(l))
+            if (!dictionary.TryGetValue(l, out int value))
             {
-                dictionary[l] = 0;
+                value = 0;
+                dictionary[l] = value;
             }
-            dictionary[l]++;
+            dictionary[l] = ++value;
         }
 
         var results = string.Empty;
@@ -199,19 +199,19 @@ public class Helper
         return results;
     }
 
-    public DateTime WorldClock(string myDate, IList<string> timeZones)
+    public static DateTime WorldClock(string myDate, IList<string> timeZones)
     {
         //check input parameters => is myDate actually a date?
         //you have 135 time zones => do you want to convert time for eacho of them?
         var dt = Convert.ToDateTime(myDate);
 
-        var destTimeZone = "Central European Standard Time";
-        var result = TimeZoneInfo.ConvertTime(dt, TimeZoneInfo.Local, TimeZoneInfo.FindSystemTimeZoneById(destTimeZone));
+        var destinationTimeZone = "Central European Standard Time";
+        var result = TimeZoneInfo.ConvertTime(dt, TimeZoneInfo.Local, TimeZoneInfo.FindSystemTimeZoneById(destinationTimeZone));
 
         return result;
     }
 
-    public IList<string> GetTimeZoneId()
+    public static IList<string> GetTimeZoneId()
     {
         var results = new List<String>();
         foreach (var tz in TimeZoneInfo.GetSystemTimeZones())
@@ -221,7 +221,7 @@ public class Helper
         return results;
     }
 
-    public IEnumerable<String> StringsArrays()
+    public static IEnumerable<string> StringsArrays()
     {
         IList<String> myStrings = new List<string>();
         //string[] myArr = { "a","e","i","o","u","y"};
@@ -237,7 +237,7 @@ public class Helper
 
     public static void SwapMinMax()
     {
-        int[] arr = { 1, 4, 5, 3, 2, 7, 6, 8, 9, 11 };
+        int[] arr = [ 1, 4, 5, 3, 2, 7, 6, 8, 9, 11 ];
         Array.Sort(arr);
         var min = arr[0];
         var max = arr[^1];
@@ -265,15 +265,15 @@ public class Helper
         t.ToString();
     }
 
-    public static string GetConnectinString()
+    public static string GetConnectionString()
     {
         return ConfigurationManager.ConnectionStrings["BCIT"].ConnectionString;
     }
 
-    public IEnumerable<string> GetAllItems()
+    public static IEnumerable<string> GetAllItems()
     {
         List<string> result = new();
-        using (SqlConnection conn = new(GetConnectinString()))
+        using (SqlConnection conn = new(GetConnectionString()))
         {
             SqlCommand cmd = new("dbo.getItems", conn)
             {
@@ -294,10 +294,10 @@ public class Helper
         return result;
     }
 
-    public string GetItemById(int val)
+    public static string GetItemById(int val)
     {
         var result = String.Empty;
-        using (SqlConnection conn = new(GetConnectinString()))
+        using (SqlConnection conn = new(GetConnectionString()))
         {
             SqlCommand cmd = new("dbo.getItemById", conn)
             {
@@ -320,7 +320,7 @@ public class Helper
         return result;
     }
 
-    public async Task<string> GetPeopleFromWeb()
+    public static async Task<string> GetPeopleFromWeb()
     {
         var baseUrl = $"http://peoplecollectionapi.azurewebsites.net/";
         HttpClient _ = new();

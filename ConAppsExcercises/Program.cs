@@ -27,7 +27,7 @@ class Program
         //var t = "konstantynopolitanczykowna";
         //ReverseString(ref t);
         //RemoveVowels("HellO");
-        //FindDelimiterOccurance("ABCDE", "DC");
+        //FindDelimiterOccurrence("ABCDE", "DC");
         //ReverseSentence("Ala ma kota");
         //CardDeckShuffler();
         //GetDataFromDb();
@@ -37,14 +37,14 @@ class Program
         //GtMoreUsers();
         //var res = GetMatchingPairs();
         //GetMatchingPairs2();
-        //IntArrayExcercises();
+        //IntArrayExercises();
         //FindElementInSorterArray(3);
         //FindPairs();
-        //ValeyCount();
+        //ValleyCount();
         //OddNumbers(2,5);
-        //BreakPalindrom("acca");
+        //BreakPalindrome("acca");
         //MySortingBubble();
-        //GetFibonachiSeq(12);
+        //GetFibonacciSeq(12);
         //Run2DArray();
         //IntArray();
         //LinqQuery();
@@ -58,10 +58,10 @@ class Program
         //PredicateDelegateExample();
         //await LongProcess();
         //CountNumberOfValleys();
-        //JumpOverThurnderHeads();
+        //JumpOverThunderHeads();
         FindNumberOfAsInAString();
         //PrintFactorial();
-        //MinStepsToEquilizeIntArray();
+        //MinStepsToEqualizeIntArray();
 
         ReadLine();
         return Task.CompletedTask;
@@ -150,37 +150,37 @@ class Program
          * [1, 1]
          */
 
-        int[] a = { 3, 3,2, 1, 3 };
-        Dictionary<int, int> res = new();
+        int[] a = [ 3, 3,2, 1, 3 ];
+        Dictionary<int, int> res = [];
         foreach (var num in a)
         {
-            if (!res.ContainsKey(num))
+            if (!res.TryGetValue(num, out int value))
             {
                 res.Add(num, 1);
             }
             else
             {
-                var currentCount = res[num];
+                var currentCount = value;
                 currentCount++;
                 res[num] = currentCount;
             }
         }
 
-        var sortDictinaryByValue = res.OrderByDescending(x => x.Value).ToDictionary(x => x.Key);
-        res.Remove(sortDictinaryByValue.Keys.First());
+        var sortDictionaryByValue = res.OrderByDescending(x => x.Value).ToDictionary(x => x.Key);
+        res.Remove(sortDictionaryByValue.Keys.First());
         result = res.Values.Sum();
 
         return result;
     }
 
     //Attempt to solve another HackerRank puzzle
-    //givena and array of 0...1, find the shortest path avoiding 1 and jumping on 0 only;
-    private static void JumpOverThurnderHeads() 
+    //given a and array of 0...1, find the shortest path avoiding 1 and jumping on 0 only;
+    private static void JumpOverThunderHeads() 
     {
         int numberOfJumps = 7;
-        List<int> clouds = new() { 0, 0, 1, 0, 0, 1, 0 };
+        List<int> clouds = [ 0, 0, 1, 0, 0, 1, 0 ];
         int shortestPath = FindShortestPath(clouds);
-        WriteLine($"For given number of numps: {numberOfJumps} the " +
+        WriteLine($"For given number of Jumps: {numberOfJumps} the " +
             $"shortest path is: {shortestPath}");
     }
 
@@ -402,7 +402,7 @@ class Program
             { 
                 OrderId=0, 
                 OrderTotal = 1, 
-                OrderLines = new List<OrderLine>{ 
+                OrderLines = [ 
                     new() 
                     { 
                         OrderId=1, 
@@ -417,7 +417,7 @@ class Program
                         ProductName="Prod2",
                         Quantity=1
                     }
-                } 
+                ] 
             } 
         };
 
@@ -456,7 +456,7 @@ class Program
     private static void GetMatchingPairs2()
     {
         var k = 10;
-        var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 };
+        int[] arr = [ 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 ];
         var diff = new List<int>();
         var res = new Dictionary<int, int>();
         foreach (var item in arr)
@@ -513,16 +513,16 @@ class Program
         Helper h = new();
         Helper.SwapMinMax();
         Helper.SwapString();
-        h.StringsArrays();
-        var tz = h.GetTimeZoneId();
-        h.WorldClock("2017-11-25 3:32pm", tz);
+        Helper.StringsArrays();
+        var tz = Helper.GetTimeZoneId();
+        Helper.WorldClock("2017-11-25 3:32pm", tz);
 
         //Helper String statistics
-        h.GetCollapsed("yyyaaa");
+        Helper.GetCollapsed("yyyaaa");
 
         //Helper Singleton
-        h.UseSingleton();
-        var a = h.GetWeekName();
+        Helper.UseSingleton();
+        var a = Helper.GetWeekName();
         WriteLine(a);
 
         var r = Helper.ReverseVowels("Whyeeko");//a e o u i y
@@ -664,16 +664,15 @@ class Program
 
     private static void GetDataFromDb()
     {
-        var hp = new Helper();
-        var res = hp.GetAllItems();
-        var item = hp.GetItemById(35902);
+        Helper.GetAllItems();
+        var item = Helper.GetItemById(35902);
         WriteLine(item);
     }
 
     private static async Task GetPeopleFromWeb()
     {
         var hp = new Helper();
-        var t = await hp.GetPeopleFromWeb();
+        var t = await Helper.GetPeopleFromWeb();
         WriteLine(t);
     }
 
@@ -729,9 +728,9 @@ class Program
         return result;
     }
 
-    public static void IntArrayExcercises()
+    public static void IntArrayExercises()
     {
-        int[] myArr = { 1, 3, 4, 6, 7, 8 };
+        int[] myArr = [ 1, 3, 4, 6, 7, 8 ];
         var a = myArr.Length - 1;
         while (a >= 0)
         {
@@ -742,7 +741,7 @@ class Program
 
     public static Dictionary<int, int> FindKeyPairsInStaticArray1()
     {
-        Dictionary<int, int> result = new();
+        Dictionary<int, int> result = [];
         var k = 10;
         int current;
         var arr = new int[] { 1, 9 };
@@ -771,7 +770,7 @@ class Program
     private static void GetMatchingPairs03()
     {
         var k = 10;
-        var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 };
+        int[] arr = [ 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 ];
         var diff = new List<int>();
         var res = new Dictionary<int, int>();
         foreach (var item in arr)
@@ -792,7 +791,7 @@ class Program
     private static Dictionary<int, int> GetMatchingPairs04()
     {
         var k = 10;
-        var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1 };
+        int[] arr = [ 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1 ];
 
         var diff = new List<int>(); //the list will store 
         var res = new Dictionary<int, int>();
@@ -813,7 +812,7 @@ class Program
 
     private static void FindElementInSorterArray(int elem2Find)
     {
-        int[] t = { 1, 3, 5, 8, 11, 4 };
+        int[] t = [ 1, 3, 5, 8, 11, 4 ];
         Array.Sort(t);
         WriteLine();
         var result = Array.FindIndex(t, x => x == elem2Find);
