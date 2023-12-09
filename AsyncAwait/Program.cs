@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 using static System.Console;
@@ -11,14 +14,30 @@ class Program
     public static async Task Main(string[] args)
     {
         DoAsync dc = new();
-        await dc.RunDownloadSync();
+        //await dc.RunDownloadSync();
+
+        var monkeys = await dc.GetMonkeysAsync();
+
         ReadLine();
     }
 }
 
 
-class DoAsync 
+class DoAsync
 {
+    public async Task<IEnumerable<Monkey>> GetMonkeysAsync()
+    {
+        try
+        {
+            return await LocalData.GetLocalMonkeys();
+        }
+        catch (Exception ex)
+        {
+            WriteLine(ex.Message);
+            return new List<Monkey>();
+        }
+    }
+
     public async Task RunDownloadSync()
     {
         var sites = PrepData();
@@ -62,5 +81,39 @@ class DoAsync
 
         return output;
     }
-
 }
+
+public static class LocalData
+{
+    public static async ValueTask<IEnumerable<Monkey>> GetLocalMonkeys()
+    {
+        HttpClient client = GetLocalClient();
+        static HttpClient GetLocalClient() => new()
+        {
+            BaseAddress = new Uri("https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/monkeydata.json"),
+            DefaultRequestHeaders =
+        {
+            Accept = { new MediaTypeWithQualityHeaderValue("application/json")}
+        }
+        };
+
+        var response = await client.GetAsync(client.BaseAddress);
+
+        IEnumerable<Monkey> result = new List<Monkey>();
+        if (response.IsSuccessStatusCode) 
+        {
+            result = await response.Content.ReadFromJsonAsync<IEnumerable<Monkey>>();
+        }
+
+        return result;
+    }
+}
+
+public record Monkey(
+    string Name, 
+    string Location, 
+    string Details, 
+    string Image, 
+    int Population, 
+    double Latitude, 
+    double Longitude);
