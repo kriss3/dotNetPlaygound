@@ -5,7 +5,6 @@ using System.Text;
 using System.Reflection;
 using System.Data;
 using System.Threading.Tasks;
-using System.Diagnostics;
 using System.Text.Json;
 using ConAppsExercises.Models;
 
@@ -14,6 +13,7 @@ using Microsoft.Identity.Client;
 using Microsoft.Extensions.Configuration;
 
 namespace ConAppsExercises;
+
 
 class Program
 {
@@ -27,7 +27,7 @@ class Program
         //var t = "konstantynopolitanczykowna";
         //ReverseString(ref t);
         //RemoveVowels("HellO");
-        //FindDelimiterOccurance("ABCDE", "DC");
+        //FindDelimiterOccurrence("ABCDE", "DC");
         //ReverseSentence("Ala ma kota");
         //CardDeckShuffler();
         //GetDataFromDb();
@@ -37,19 +37,18 @@ class Program
         //GtMoreUsers();
         //var res = GetMatchingPairs();
         //GetMatchingPairs2();
-        //IntArrayExcercises();
+        //IntArrayExercises();
         //FindElementInSorterArray(3);
         //FindPairs();
-        //ValeyCount();
+        //ValleyCount();
         //OddNumbers(2,5);
-        //BreakPalindrom("acca");
+        //BreakPalindrome("acca");
         //MySortingBubble();
-        //GetFibonachiSeq(12);
+        //GetFibonacciSeq(12);
         //Run2DArray();
         //IntArray();
         //LinqQuery();
         //Compare2List();
-        //var result = CallAzureService();
         //CapitalizeEveryOtherCharter();
         //PaddingWithZeros();
         //SerializeUsingMsLibrary();
@@ -59,10 +58,10 @@ class Program
         //PredicateDelegateExample();
         //await LongProcess();
         //CountNumberOfValleys();
-        //JumpOverThurnderHeads();
+        //JumpOverThunderHeads();
         FindNumberOfAsInAString();
         //PrintFactorial();
-        //MinStepsToEquilizeIntArray();
+        //MinStepsToEqualizeIntArray();
 
         ReadLine();
         return Task.CompletedTask;
@@ -151,37 +150,37 @@ class Program
          * [1, 1]
          */
 
-        int[] a = { 3, 3,2, 1, 3 };
-        Dictionary<int, int> res = new Dictionary<int, int>();
+        int[] a = [ 3, 3,2, 1, 3 ];
+        Dictionary<int, int> res = [];
         foreach (var num in a)
         {
-            if (!res.ContainsKey(num))
+            if (!res.TryGetValue(num, out int value))
             {
                 res.Add(num, 1);
             }
             else
             {
-                var currentCount = res[num];
+                var currentCount = value;
                 currentCount++;
                 res[num] = currentCount;
             }
         }
 
-        var sortDictinaryByValue = res.OrderByDescending(x => x.Value).ToDictionary(x => x.Key);
-        res.Remove(sortDictinaryByValue.Keys.First());
+        var sortDictionaryByValue = res.OrderByDescending(x => x.Value).ToDictionary(x => x.Key);
+        res.Remove(sortDictionaryByValue.Keys.First());
         result = res.Values.Sum();
 
         return result;
     }
 
     //Attempt to solve another HackerRank puzzle
-    //givena and array of 0...1, find the shortest path avoiding 1 and jumping on 0 only;
-    private static void JumpOverThurnderHeads() 
+    //given a and array of 0...1, find the shortest path avoiding 1 and jumping on 0 only;
+    private static void JumpOverThunderHeads() 
     {
         int numberOfJumps = 7;
-        List<int> clouds = new() { 0, 0, 1, 0, 0, 1, 0 };
+        List<int> clouds = [ 0, 0, 1, 0, 0, 1, 0 ];
         int shortestPath = FindShortestPath(clouds);
-        WriteLine($"For given number of numps: {numberOfJumps} the " +
+        WriteLine($"For given number of Jumps: {numberOfJumps} the " +
             $"shortest path is: {shortestPath}");
     }
 
@@ -373,24 +372,7 @@ class Program
         var result = sb.ToString();
     }
 
-    private static string CallAzureService()
-    {
-        var clientId = "";
-        var clientSecret = "";
-        var authority = "";
-        var tenantId = "";
-        var appIDUri = "";
-
-        IConfidentialClientApplication app;
-        app = ConfidentialClientApplicationBuilder.Create(clientId)
-                                                  .WithClientSecret(clientSecret)
-                                                  .Build();
-
-        var scopes = new[] { appIDUri };
-        var result = app.AcquireTokenForClient(scopes).ExecuteAsync().ConfigureAwait(false);
-        string jwt = result.GetAwaiter().GetResult().AccessToken;
-        return jwt;
-    }
+    
 
     private static void Compare2List()
     {
@@ -401,11 +383,11 @@ class Program
 
         //should return true if both have the same elements
         //var result = firstList.Where(le1 => secondList.Any(le2=>le2 == le1)).ToList();
-        hasAccess(firstList, secondList);
+        HasAccess(firstList, secondList);
 
     }
 
-    private static bool hasAccess(List<string> theirs, List<string> mine) 
+    private static bool HasAccess(List<string> theirs, List<string> mine) 
     {
         //test2.Where(t2 => !test1.Any(t1 => t2.Contains(t1)));
         var res = theirs.Intersect(mine).Count() == theirs.Count();
@@ -420,7 +402,7 @@ class Program
             { 
                 OrderId=0, 
                 OrderTotal = 1, 
-                OrderLines = new List<OrderLine>{ 
+                OrderLines = [ 
                     new() 
                     { 
                         OrderId=1, 
@@ -428,14 +410,14 @@ class Program
                         ProductName="Prod1", 
                         Quantity=1
                     },
-                    new OrderLine
+                    new()
                     {
                         OrderId=1,
                         OrderLineId=1,
                         ProductName="Prod2",
                         Quantity=1
                     }
-                } 
+                ] 
             } 
         };
 
@@ -474,7 +456,7 @@ class Program
     private static void GetMatchingPairs2()
     {
         var k = 10;
-        var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 };
+        int[] arr = [ 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 ];
         var diff = new List<int>();
         var res = new Dictionary<int, int>();
         foreach (var item in arr)
@@ -529,31 +511,31 @@ class Program
     public static void Run()
     {
         Helper h = new();
-        h.SwapMinMax();
-        h.SwapString();
-        h.StringsArrays();
-        var tz = h.GetTimeZoneId();
-        h.WorldClock("2017-11-25 3:32pm", tz);
+        Helper.SwapMinMax();
+        Helper.SwapString();
+        Helper.StringsArrays();
+        var tz = Helper.GetTimeZoneId();
+        Helper.WorldClock("2017-11-25 3:32pm", tz);
 
         //Helper String statistics
-        h.GetCollapsed("yyyaaa");
+        Helper.GetCollapsed("yyyaaa");
 
         //Helper Singleton
-        h.UseSingleton();
-        var a = h.GetWeekName();
+        Helper.UseSingleton();
+        var a = Helper.GetWeekName();
         WriteLine(a);
 
-        var r = h.ReverseVowels("Whyeeko");//a e o u i y
+        var r = Helper.ReverseVowels("Whyeeko");//a e o u i y
         WriteLine(r);
 
-        var k = h.GetPresidents();
+        var k = Helper.GetPresidents();
         WriteLine(k);
 
-        Write(@"Type word to check if Palindrom: ");
+        Write(@"Type word to check if Palindrome: ");
         var s = ReadLine();
-        if (h.IsPalindrom(s))
+        if (Helper.IsPalindrome(s))
         {
-            WriteLine($"Word {s} is palindrom");
+            WriteLine($"Word {s} is palindrome");
         }
         else
         {
@@ -632,7 +614,7 @@ class Program
 
     }
 
-    private static long FindDelimiterOccurance(string s1, string s2)
+    private static long FindDelimiterOccurrence(string s1, string s2)
     {
         var s1Arr = s1.ToCharArray();
         var s2Arr = s2.ToCharArray();
@@ -682,16 +664,15 @@ class Program
 
     private static void GetDataFromDb()
     {
-        var hp = new Helper();
-        var res = hp.GetAllItems();
-        var item = hp.GetItemById(35902);
+        Helper.GetAllItems();
+        var item = Helper.GetItemById(35902);
         WriteLine(item);
     }
 
     private static async Task GetPeopleFromWeb()
     {
         var hp = new Helper();
-        var t = await hp.GetPeopleFromWeb();
+        var t = await Helper.GetPeopleFromWeb();
         WriteLine(t);
     }
 
@@ -747,9 +728,9 @@ class Program
         return result;
     }
 
-    public static void IntArrayExcercises()
+    public static void IntArrayExercises()
     {
-        int[] myArr = { 1, 3, 4, 6, 7, 8 };
+        int[] myArr = [ 1, 3, 4, 6, 7, 8 ];
         var a = myArr.Length - 1;
         while (a >= 0)
         {
@@ -760,7 +741,7 @@ class Program
 
     public static Dictionary<int, int> FindKeyPairsInStaticArray1()
     {
-        Dictionary<int, int> result = new();
+        Dictionary<int, int> result = [];
         var k = 10;
         int current;
         var arr = new int[] { 1, 9 };
@@ -789,7 +770,7 @@ class Program
     private static void GetMatchingPairs03()
     {
         var k = 10;
-        var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 };
+        int[] arr = [ 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1, 3 ];
         var diff = new List<int>();
         var res = new Dictionary<int, int>();
         foreach (var item in arr)
@@ -810,7 +791,7 @@ class Program
     private static Dictionary<int, int> GetMatchingPairs04()
     {
         var k = 10;
-        var arr = new int[] { 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1 };
+        int[] arr = [ 5, 1, 2, 4, 9, 3, 6, 7, 8, 3, 5, 1 ];
 
         var diff = new List<int>(); //the list will store 
         var res = new Dictionary<int, int>();
@@ -831,7 +812,7 @@ class Program
 
     private static void FindElementInSorterArray(int elem2Find)
     {
-        int[] t = { 1, 3, 5, 8, 11, 4 };
+        int[] t = [ 1, 3, 5, 8, 11, 4 ];
         Array.Sort(t);
         WriteLine();
         var result = Array.FindIndex(t, x => x == elem2Find);
@@ -963,14 +944,14 @@ class Program
          */
     }
 
-    private void Magnitude()
+    private static void Magnitude()
     {
         /*interface vs abstract class
          * keywords: static, read-only, const
          * TDS protocol
          * static class and static members
          * immutable vs non-immutable class (how to make class immutable)
-         * palindrom and its permutations
+         * palindrome and its permutations
          * 
          * 
          */

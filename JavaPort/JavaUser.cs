@@ -12,11 +12,11 @@ namespace JavaPort
 {
     public class JavaUser
     {
-        public string GetName()
+        public static string GetName()
         {
             URL url = new(@"file:Library/demo.jar");
-            URL[] urls = { url };
-            URLClassLoader loader = new URLClassLoader(urls);
+            URL[] uRLs = { url };
+            URLClassLoader loader = new(uRLs);
 
             try
             {
@@ -32,11 +32,11 @@ namespace JavaPort
 
                 //Create a object via C# reflection
                 Type type = ikvm.runtime.Util.getInstanceTypeFromClass(cl);
-
+                
                 // create an instance of that type
-                object instance = Activator.CreateInstance(type);
+                object instance = Activator.CreateInstance(type)!;
                 var mth = type.GetMethod("GetUser");
-                string res = mth.Invoke(instance, null).ToString();
+                string res = mth!.Invoke(instance, null)!.ToString()!;
                 WriteLine($"Method Invoked with value: {res}");
             }
             catch (Exception ex)

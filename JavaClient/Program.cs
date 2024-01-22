@@ -3,4 +3,4 @@ using JavaPort;
 
 WriteLine("Hello, World!");
 JavaUser x = new();
-WriteLine(x.GetName());
+WriteLine(value: x.GetName());
