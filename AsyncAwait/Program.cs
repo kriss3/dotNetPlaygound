@@ -11,12 +11,12 @@ namespace AsyncAwait;
 
 class Program
 {
-    public static async Task Main(string[] args)
+    public static async Task Main()
     {
-        DoAsync dc = new();
+        DoAsync __ = new();
         //await dc.RunDownloadSync();
 
-        var monkeys = await dc.GetMonkeysAsync();
+        var _ = await DoAsync.GetMonkeysAsync();
 
         ReadLine();
     }
@@ -25,7 +25,7 @@ class Program
 
 class DoAsync
 {
-    public async Task<IEnumerable<Monkey>> GetMonkeysAsync()
+    public static async Task<IEnumerable<Monkey>> GetMonkeysAsync()
     {
         try
         {
@@ -34,11 +34,11 @@ class DoAsync
         catch (Exception ex)
         {
             WriteLine(ex.Message);
-            return new List<Monkey>();
+            return [];
         }
     }
 
-    public async Task RunDownloadSync()
+    public static async Task RunDownloadSync()
     {
         var sites = PrepData();
 
@@ -67,17 +67,17 @@ class DoAsync
             () => WriteLine($"{wdm.WebsiteUrl} downloaded: {wdm.WebsiteData.Length} characters long."));
     }
 
-    private static IEnumerable<string> PrepData()
+    private static List<string> PrepData()
     {
-        List<string> output = new List<string>
-        {
+        List<string> output =
+        [
             "http://www.yahoo.com",
             "http://www.google.com",
             "http://www.microsoft.com",
             "http://www.cnn.com",
             "http://www.codeproject.com",
             "http://www.stackoverflow.com"
-        };
+        ];
 
         return output;
     }
@@ -99,7 +99,7 @@ public static class LocalData
 
         var response = await client.GetAsync(client.BaseAddress);
 
-        IEnumerable<Monkey> result = new List<Monkey>();
+        IEnumerable<Monkey> result = [];
         if (response.IsSuccessStatusCode) 
         {
             result = await response.Content.ReadFromJsonAsync<IEnumerable<Monkey>>();
