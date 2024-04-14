@@ -1,8 +1,14 @@
-﻿namespace ConAppPlayingWithLambda;
+﻿using ConAppPlayingWithLambda.Model;
+using static System.Console;
+
+namespace ConAppPlayingWithLambda;
 
 public class Program
 {
-	static async Task Main() => await Task.Run(() => Console.WriteLine("Lambda Expressions"));
+	static async Task Main() => await Task.Run(() =>
+	{
+		WriteLine("Lambda Expressions");
+	});
 
 	public static List<UdfCurrency> GetUdfCurrencies()
 	{
@@ -37,18 +43,6 @@ public class Program
 		new MxCurrency { Code = "SEK", Description = "Swedish Krona" }
 		];
 	}
-}
-
-public class MxCurrency 
-{
-	public string? Code { get; set; }
-    public string? Description { get; set; }
-}
-
-public class UdfCurrency 
-{
-    public string? Code { get; set; }
-    public string? Description { get; set; }
 }
 
 
