@@ -10,8 +10,11 @@ public class Program
 	{
 		WriteLine("Lambda Expressions");
 
-		ShowCollection(GetUdfCurrencies());
-		ShowCollection(GetMxCurrencies());
+		ShowUdfCurrency(GetUdfCurrencies());
+		WriteLine();
+		ShowMxCollection(GetMxCurrencies());
+
+		WriteLine("Showing Results...");
 
 		var res = Helpers.GetUdfCurrenciesWithDescriptions(GetMxCurrencies(), GetUdfCurrencies());
 		foreach (var item in res)
@@ -54,18 +57,17 @@ public class Program
 		];
 	}
 
-	public static void ShowCollection<T>(IEnumerable<T> dataBag)
+
+	private static void ShowUdfCurrency(List<UdfCurrency> udfCurrencies)
 	{
-			
-		foreach (var item in dataBag)
-		{
-			PropertyInfo[] properties = typeof(T).GetProperties();
-			foreach (var prop in properties)
-			{
-				WriteLine($"{prop.Name}\t{prop.GetValue(item)}");
-			}
-		}
+		udfCurrencies.ForEach((item) => WriteLine($"{item.Code}\t{item.Description}"));
 	}
+
+	private static void ShowMxCollection(List<MxCurrency> mxCurrencies)
+	{
+		mxCurrencies.ForEach((item) => WriteLine($"{item.Code}\t{item.Description}"));
+	}
+
 }
 
 
