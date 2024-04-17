@@ -8,6 +8,12 @@ public class Program
 	static async Task Main() => await Task.Run(() =>
 	{
 		WriteLine("Lambda Expressions");
+		var res = Helpers.GetUdfCurrenciesWithDescriptions(GetMxCurrencies(), GetUdfCurrencies());
+		
+		foreach (var item in res)
+		{
+			WriteLine($"{item.Code}\t{item.Description}");
+		}
 	});
 
 	public static List<UdfCurrency> GetUdfCurrencies()
