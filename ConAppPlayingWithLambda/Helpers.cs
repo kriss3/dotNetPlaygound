@@ -25,4 +25,22 @@ public static class Helpers
 		}
 		return results;
 	}
+
+	//LINQ Where
+	public static IEnumerable<int> FilterCollection() 
+	{
+		return [];
+	}
+
+	//LINQ Project
+	public static IEnumerable<int> ReshapeCollection()
+	{
+		return [];
+	}
+
+	//LINQ Order Collection members
+	public static IEnumerable<int> OrderMemberCollection()
+	{
+		return [];
+	}
 }
