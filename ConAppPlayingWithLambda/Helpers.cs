@@ -43,4 +43,22 @@ public static class Helpers
 	{
 		return [];
 	}
+
+	private static List<MxCurrency> GetMxCurrencies()
+	{
+		return
+		[
+			new() { Code = "USD", Description = "United States Dollar" },
+			new() { Code = "EUR", Description = "Euro" },
+			new() { Code = "GBP", Description = "British Pound" },
+			new() { Code = "JPY", Description = "Japanese Yen" },
+			new() { Code = "CAD", Description = "Canadian Dollar" },
+			new() { Code = "AUD", Description = "Australian Dollar" },
+			new() { Code = "CHF", Description = "Swiss Franc" },
+			new() { Code = "CNY", Description = "Chinese Yuan" },
+			new() { Code = "SEK", Description = "Swedish Krona" },
+			new() { Code = "NZD", Description = "New Zealand Dollar" }
+		];
+	}
+
 }
