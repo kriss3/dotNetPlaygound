@@ -39,12 +39,14 @@ public static class Helpers
 	}
 
 	//LINQ Order Collection members
-	public static IEnumerable<int> OrderMemberCollection()
+	public static IEnumerable<MxCurrency> OrderMemberCollection()
 	{
-		return [];
+		return GetMxCurrencies()
+			.OrderBy(x => x.Code)
+			.ThenBy(x => x.Description).ToList();
 	}
 
-	private static List<MxCurrency> GetMxCurrencies()
+	private static IEnumerable<MxCurrency> GetMxCurrencies()
 	{
 		return
 		[
