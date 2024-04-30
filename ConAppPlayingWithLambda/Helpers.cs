@@ -27,13 +27,13 @@ public static class Helpers
 	}
 
 	//LINQ Where
-	public static IEnumerable<int> FilterCollection() 
+	public static IEnumerable<MxCurrency> FilterCollection() 
 	{
 		return [];
 	}
 
 	//LINQ Project
-	public static IEnumerable<int> ReshapeCollection()
+	public static IEnumerable<MxCurrency> ReshapeCollection()
 	{
 		return [];
 	}
