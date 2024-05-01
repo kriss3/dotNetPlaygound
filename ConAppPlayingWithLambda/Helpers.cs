@@ -33,9 +33,12 @@ public static class Helpers
 	}
 
 	//LINQ Project
-	public static IEnumerable<MxCurrency> ReshapeCollection()
+	public static MxCurrency ReshapeCollection()
 	{
-		return [];
+		//using select new or just Select...
+		var rec = GetMxCurrencies().ToList();
+		return rec.Select(x => new MxCurrency { Code = x.Code, Description = x.Description }).FirstOrDefault() 
+			?? new MxCurrency();
 	}
 
 	//LINQ Order Collection members
