@@ -29,7 +29,7 @@ public static class Helpers
 	//LINQ Where
 	public static IEnumerable<MxCurrency> FilterCollection() 
 	{
-		return [];
+		return GetMxCurrencies().Where(r => r.Code == "NZD");
 	}
 
 	//LINQ Project
