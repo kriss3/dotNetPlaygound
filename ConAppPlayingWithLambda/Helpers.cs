@@ -9,7 +9,7 @@ namespace ConAppPlayingWithLambda;
 public static class Helpers
 {
 	public static IEnumerable<UdfCurrency> GetUdfCurrenciesWithDescriptions(
-		List<MxCurrency> mxCurrencies, List<UdfCurrency> udfCurrencies) 
+		List<MxCurrency> mxCurrencies, List<UdfCurrency> udfCurrencies)
 	{
 		List<UdfCurrency> results = [];
 
@@ -27,7 +27,7 @@ public static class Helpers
 	}
 
 	//LINQ Where
-	public static IEnumerable<MxCurrency> FilterCollection() 
+	public static IEnumerable<MxCurrency> FilterCollection()
 	{
 		return GetMxCurrencies().Where(r => r.Code == "NZD");
 	}
@@ -37,7 +37,7 @@ public static class Helpers
 	{
 		//using select new or just Select...
 		var rec = GetMxCurrencies().ToList();
-		return rec.Select(x => new MxCurrency { Code = x.Code, Description = x.Description }).FirstOrDefault() 
+		return rec.Select(x => new MxCurrency { Code = x.Code, Description = x.Description }).FirstOrDefault()
 			?? new MxCurrency();
 	}
 
@@ -64,6 +64,25 @@ public static class Helpers
 			new() { Code = "SEK", Description = "Swedish Krona" },
 			new() { Code = "NZD", Description = "New Zealand Dollar" }
 		];
+	}
+
+	private static readonly IEnumerable<Person> people = [];
+
+	// Select gets a list of lists of phone numbers
+	private static readonly IEnumerable<IEnumerable<PhoneNumber>> phoneLists =
+		people.Select(p => p.PhoneNumbers!);
+
+	// SelectMany flattens it to just a list of phone numbers.
+	private static readonly IEnumerable<PhoneNumber>
+		phoneNumbers = people.SelectMany(p => p.PhoneNumbers!);
+
+
+	private static IEnumerable<object> GetFlattenedCollection(IEnumerable<Person> people)
+	{
+		var directory = people
+		   .SelectMany(p => p.PhoneNumbers!,
+					   (parent, child) => new { parent.Name, child.Number });
+		return directory;
 	}
 }
 
