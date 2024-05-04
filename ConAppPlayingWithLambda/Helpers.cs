@@ -65,5 +65,18 @@ public static class Helpers
 			new() { Code = "NZD", Description = "New Zealand Dollar" }
 		];
 	}
+}
 
+
+// Types:
+
+public class PhoneNumber
+{
+	public string? Number { get; set; }
+}
+
+public class Person
+{
+	public IEnumerable<PhoneNumber>? PhoneNumbers { get; set; }
+	public string? Name { get; set; }
 }
