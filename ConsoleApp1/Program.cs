@@ -1,73 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using static System.Console;
 
-namespace ConApp_Excercises_2
+namespace ConApp_Exercises_2;
+
+class Program
 {
-	class Program
+	static void Main()
 	{
-		static void Main()
-		{
-			WriteLine("Hello World!");
-			Document[] d = new Document[2];
-			d[0] = new Resume();
-			d[1] = new Report();
-			ReadLine();
-		}
+		WriteLine("Hello World!");
+		Document[] d = [new Resume(), new Report()];
+		ReadLine();
+	}
+}
+
+/// <summary>
+/// The 'Creator' abstract class
+/// </summary>
+abstract class Document
+{
+	private readonly List<Page> _pages = new List<Page>();
+
+	// Constructor calls abstract Factory method
+	public Document()
+	{
+		this.CreatePages();
 	}
 
-	/// <summary>
-	/// The 'Creator' abstract class
-	/// </summary>
-	abstract class Document
+	public List<Page> Pages
 	{
-		private readonly List<Page> _pages = new List<Page>();
-
-		// Constructor calls abstract Factory method
-		public Document()
-		{
-			this.CreatePages();
-		}
-
-		public List<Page> Pages
-		{
-			get { return _pages; }
-		}
-
-		// Factory Method
-		public abstract void CreatePages();
+		get { return _pages; }
 	}
 
-	/// <summary>
-	/// The 'Product' abstract class
-	/// </summary>
-	abstract class Page {  }
+	// Factory Method
+	public abstract void CreatePages();
+}
 
-	/// <summary>
-	/// A 'ConcreteProduct' class
-	/// </summary>
-	class SkillsPage : Page
+/// <summary>
+/// The 'Product' abstract class
+/// </summary>
+abstract class Page {  }
+
+/// <summary>
+/// A 'ConcreteProduct' class
+/// </summary>
+class SkillsPage : Page
+{
+	public void WhatAmIm()
 	{
-		public void WhatAmIm()
-		{
-			WriteLine($"I am SkillsPage");
-		}
+		WriteLine($"I am SkillsPage");
 	}
+}
 
-	internal class Resume : Document
+internal class Resume : Document
+{
+	public override void CreatePages()
 	{
-		public override void CreatePages()
-		{
-			Pages.Add(new SkillsPage());
-		}
+		Pages.Add(new SkillsPage());
 	}
+}
 
-	internal class Report : Document
+internal class Report : Document
+{
+	public override void CreatePages()
 	{
-		public override void CreatePages()
-		{
-			Pages.Add(new SkillsPage());
-		}
+		Pages.Add(new SkillsPage());
 	}
-
 }

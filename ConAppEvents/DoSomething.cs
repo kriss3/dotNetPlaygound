@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace ConAppEvents;
 
-namespace ConAppEvents
+public delegate void Notify();
+public class DoSomething
 {
-    public delegate void Notify();
-    public class DoSomething
+    public event Notify DoSomethingCompleted;
+
+    public void StartDoSomething() 
     {
-        public event Notify DoSomethingCompleted;
+        OnCompleted();
+    }
 
-        public void StartDoSomething() 
-        {
-            OnCompleted();
-        }
-
-        protected virtual void OnCompleted() 
-        {
-            DoSomethingCompleted?.Invoke();
-        }
+    protected virtual void OnCompleted() 
+    {
+        DoSomethingCompleted?.Invoke();
     }
 }

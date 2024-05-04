@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConAppDu.Persistance.Data.Models;
+namespace ConAppDu.Persistence.Data.Models;
 
 public record MetrcPersistance
 {
