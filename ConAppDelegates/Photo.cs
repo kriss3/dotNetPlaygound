@@ -1,15 +1,11 @@
-﻿namespace ConAppDelegates
+﻿namespace ConAppDelegates;
+
+public class Photo 
 {
-    public class Photo 
+	public static Photo Load(string path) => new();
+
+	public static void Save() 
     {
-        public static Photo Load(string path) 
-        {
-            return new Photo();
-        }
 
-        public void Save() 
-        {
-
-        }
     }
 }
