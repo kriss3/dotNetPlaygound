@@ -1,5 +1,4 @@
 ﻿using ConAppPlayingWithLambda.Model;
-using System.Reflection;
 using static System.Console;
 
 namespace ConAppPlayingWithLambda;
