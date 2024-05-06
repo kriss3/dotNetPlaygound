@@ -1,24 +1,24 @@
 ﻿using System;
+using static System.Console;
 
-namespace ConAppEvents
+namespace ConAppEvents;
+
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main()
-        {
-            Console.WriteLine("Handling events!!!");
+        WriteLine("Handling events!!!");
 
-            DoSomething ds = new DoSomething();
+        DoSomething ds = new DoSomething();
 
-            ds.DoSomethingCompleted += Ds_DoSomethingCompleted;
-            //some code here and only when we ready we can call it...
+        ds.DoSomethingCompleted += Ds_DoSomethingCompleted;
+        //some code here and only when we ready we can call it...
 
-            ds.StartDoSomething();
-        }
+        ds.StartDoSomething();
+    }
 
-        private static void Ds_DoSomethingCompleted()
-        {
-            Console.WriteLine("DoSomething Happend!!!");
-        }
+    private static void Ds_DoSomethingCompleted()
+    {
+        WriteLine("DoSomething Happened!!!");
     }
 }
