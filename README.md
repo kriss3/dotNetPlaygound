@@ -12,3 +12,4 @@ algorithms, data structures, core dotNet ideas.
 I wanted to get more familiar with the latest additions to this functional feature of the language  
 Minor update to the project. Lambda can now accept two connection and spit fully populated one.
 Add new examples of extension to specificaly target object transformation inside code block. That exercise will help with creation of ad-hoc extension methods. 
+Current work: upgrading each project to a dotnet 8 and C# 10/12 syntax 
