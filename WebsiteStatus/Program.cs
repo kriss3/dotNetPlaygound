@@ -21,6 +21,7 @@ public class Program
 
 			var builder = Host.CreateApplicationBuilder(args);
 			builder.Services.AddHostedService<Worker>();
+			builder.Logging.AddSerilog();
 
 			var host = builder.Build();
 			host.Run();
@@ -30,5 +31,9 @@ public class Program
 			Log.Fatal($"There was a problem starting the service. Error:{ex.Message}");
 			return;
 		}
+		finally
+		{
+			Log.CloseAndFlush();
+		}	
 	}
 }
