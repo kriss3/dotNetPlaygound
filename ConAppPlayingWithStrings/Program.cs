@@ -8,7 +8,7 @@ namespace ConAppPlayingWithStrings
     internal class Program
     {
         private static StringOperations Sop { get; set; }
-        static void Main(string[] args)
+        static void Main()
         {
             WriteLine("Hello World!");
             Sop = new StringOperations();
