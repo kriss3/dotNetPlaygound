@@ -6,6 +6,7 @@ This repository is part of the project: Life as a Code.
 Frequent development of verity of dotNet concepts.
 Focus on C# 101 including practicing new concepts but not limited to 
 algorithms, data structures, core dotNet ideas.
+Adding a new project. Experimenting with Service Worker. The simple project will monitor website (google) health status. It will run on period and report status to the console and a log file.
 
 ## Change Log:
 04/15 Added a new project: playing with lambda. I wanted to have a playground for extension methods with some twists to it.
