@@ -16,4 +16,4 @@ Current work: upgrading each project to a dotnet 8 and C# 10/12 syntax
 Next step: modeling using functional C#. Code examples from ROP Railway Oriented Programming. I would like to to master creating primitive times with built in validation (let's get away from using strings) 
 Adding a new project. Experimenting with Service Worker. The simple project will monitor website (google) health status. It will run on period and report status to the console and a log file.
 Log library: Serilog, Added Windows service library to implement this background worker as a win service  
-Will add a mf file for this project with commands to install service, start it and destroy their service 
+Will add a.md file for this project with commands to install service, start it and destroy their service 
