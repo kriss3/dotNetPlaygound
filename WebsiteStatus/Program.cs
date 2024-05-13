@@ -7,14 +7,12 @@ public class Program
 {
 	public static void Main(string[] args)
 	{
+		GetLogger();
+		Run(args);
+	}
 
-		Log.Logger = new LoggerConfiguration()
-			.MinimumLevel.Debug()
-			.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-			.Enrich.FromLogContext()
-			.WriteTo.File(@"C:\temp\WebsiteStatus\HealthCheck.txt")
-			.CreateLogger();
-
+	private static void Run(string[] args)
+	{
 		try
 		{
 			Log.Information("Starting up the service");
@@ -34,6 +32,16 @@ public class Program
 		finally
 		{
 			Log.CloseAndFlush();
-		}	
+		}
+	}
+
+	private static void GetLogger()
+	{
+		Log.Logger = new LoggerConfiguration()
+					.MinimumLevel.Debug()
+					.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+					.Enrich.FromLogContext()
+					.WriteTo.File(@"C:\temp\WebsiteStatus\HealthCheck.txt")
+					.CreateLogger();
 	}
 }
