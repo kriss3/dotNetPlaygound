@@ -21,8 +21,11 @@ public class Program
 			Log.Information("Starting up the service");
 
 			var builder = Host.CreateApplicationBuilder(args);
-			builder.Services.AddHostedService<Worker>();
-			builder.Logging.AddSerilog();
+				
+			builder.Services.AddHostedService<Worker>()
+				.AddWindowsService();
+			builder.Logging
+				.AddSerilog();
 
 			var host = builder.Build();
 			host.Run();
