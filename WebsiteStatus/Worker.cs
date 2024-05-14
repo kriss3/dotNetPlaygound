@@ -21,7 +21,7 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
 	{
 		while (!stoppingToken.IsCancellationRequested)
 		{
-			var result = await client!.GetAsync("https://www.google.ca");
+			var result = await client!.GetAsync("https://www.google.ca", stoppingToken);
 			if (result.IsSuccessStatusCode)
 			{
 				_logger.LogInformation("The website is up {StatusCode}", result.StatusCode);

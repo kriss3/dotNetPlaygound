@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using Serilog;
 using Serilog.Events;
 
@@ -5,6 +6,8 @@ namespace WebsiteStatus;
 
 public class Program
 {
+
+
 	public static void Main(string[] args)
 	{
 		GetLogger();

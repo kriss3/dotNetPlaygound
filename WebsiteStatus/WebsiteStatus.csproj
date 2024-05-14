@@ -15,4 +15,9 @@
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ApiClient\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
 </Project>
