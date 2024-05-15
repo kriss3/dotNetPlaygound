@@ -84,6 +84,16 @@ public static class Helpers
 					   (parent, child) => new { parent.Name, child.Number });
 		return directory;
 	}
+
+	private static IEnumerable<Person[]> GetChunks(IEnumerable<Person> people)
+	{
+		var peopleCount = people.Count();
+		if (peopleCount > 2) 
+		{
+			return people.Chunk(2);
+		}
+		return people.Chunk(1);
+	}
 }
 
 
