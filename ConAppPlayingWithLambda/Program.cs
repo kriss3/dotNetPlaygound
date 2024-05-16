@@ -67,6 +67,18 @@ public class Program
 		mxCurrencies.ForEach((item) => WriteLine($"{item.Code}\t{item.Description}"));
 	}
 
+	private static void ShowCollectionChunks(List<MxCurrency> mxCurrencies) 
+	{
+		// use LINQ Chunk extension
+		var chunks = mxCurrencies.Chunk(3);
+		// print to console each chunk and separate by a line of * using LINQ method
+		chunks.ToList().ForEach(chunk =>
+		{
+			chunk.ToList().ForEach(item => WriteLine($"{item.Code}\t{item.Description}"));
+			WriteLine(new string('*', 20));
+		});
+	}
+
 }
 
 
