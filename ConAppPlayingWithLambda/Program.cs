@@ -12,6 +12,8 @@ public class Program
 		ShowUdfCurrency(GetUdfCurrencies());
 		WriteLine();
 		ShowMxCollection(GetMxCurrencies());
+		WriteLine();
+		ShowCollectionChunks(GetMxCurrencies());
 
 		WriteLine("Showing Results...");
 
