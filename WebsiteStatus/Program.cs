@@ -1,4 +1,3 @@
-using Microsoft.VisualBasic;
 using Serilog;
 using Serilog.Events;
 
@@ -6,15 +5,13 @@ namespace WebsiteStatus;
 
 public class Program
 {
-
-
-	public static void Main(string[] args)
+	public static async Task Main(string[] args)
 	{
 		GetLogger();
-		Run(args);
+		await Run(args);
 	}
 
-	private static void Run(string[] args)
+	private static async Task Run(string[] args)
 	{
 		try
 		{
@@ -28,7 +25,7 @@ public class Program
 				.AddSerilog();
 
 			var host = builder.Build();
-			host.Run();
+			await host.RunAsync();
 		}
 		catch (Exception ex)
 		{
