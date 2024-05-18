@@ -14,7 +14,7 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
 	public override Task StopAsync(CancellationToken cancellationToken)
 	{
 		client?.Dispose();
-		_logger.LogInformation("The service has been stopped!");
+		_logger.LogInformation("The service has been stopped successfully...");
 		return base.StopAsync(cancellationToken);	
 	}
 
