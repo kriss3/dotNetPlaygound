@@ -1,8 +1,7 @@
-﻿namespace DecoratorPattern
+﻿namespace DecoratorPattern;
+
+public interface ICharacter
 {
-    public interface ICharacter
-    {
-        string GetDescription();
-        int GetImpactLevel();
-    }
+    string GetDescription();
+    int GetImpactLevel();
 }
