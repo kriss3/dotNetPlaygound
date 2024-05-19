@@ -1,14 +1,11 @@
-﻿namespace DecoratorPattern;
+﻿
+using System.Runtime.InteropServices;
 
-public abstract class CharacterDecorator : ICharacter
+namespace DecoratorPattern;
+
+public abstract class CharacterDecorator(ICharacter newCharacter) : ICharacter
 {
-    protected ICharacter tempCharacter;
-
-    public CharacterDecorator(ICharacter newCharacter)
-    {
-        //start customizing our Character
-        tempCharacter = newCharacter;
-    }
+    protected ICharacter tempCharacter = newCharacter;
 
     public virtual string GetDescription()
     {
