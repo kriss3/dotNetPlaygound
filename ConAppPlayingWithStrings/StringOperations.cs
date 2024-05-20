@@ -9,9 +9,9 @@ using static System.Console;
 
 namespace ConAppPlayingWithStrings;
 
-internal class StringOperations
+public static class StringOperations
 {
-    public  string VowelsString()
+    public static string VowelsString()
     {
         var strArr = "kaliningrad";  //aeoui  //result=> kaliningrad
 
@@ -35,7 +35,7 @@ internal class StringOperations
         return res.ToString();
     }
 
-    public  void StrStats() //a dictionary of char key and number of reoccuring characters;
+    public static void StrStats() //a dictionary of char key and number of reoccuring characters;
     {
         var strArr = "aabbbccccddddd";
         var stats = new Dictionary<char, int>();
@@ -55,7 +55,7 @@ internal class StringOperations
     }
 
     //Comparing reversed string
-    public bool IsReversedStringTheSame()
+    public static bool IsReversedStringTheSame()
     {
         var str = "abba";
         if (!string.IsNullOrEmpty(str))
@@ -66,7 +66,7 @@ internal class StringOperations
     }
 
     //Reverse words in the string
-    public string ReverseWordsInString()
+    public static string ReverseWordsInString()
     {
         string sent = "ala ma kota";
 
@@ -82,24 +82,23 @@ internal class StringOperations
     }
 
     //Using Padding and Substring for a given string
-    public static void StringPaddingAndSubstring()
+    public static string StringPaddingAndSubstring()
     {
         string transName = "C";
         string companyCode = "0";
         string systemCode = "SM";
-        string constract = "0000000610001";
+        string construct = "0000000610001";
         string companyName = "MyNewCompanyName";
 
         //StringBuilder has Append
         //String has PadRight/PadLeft
         StringBuilder sb = new(transName.PadRight(2));
         sb.Append(companyCode.PadRight(3));
-        sb.Append(constract.PadRight(20));
+        sb.Append(construct.PadRight(20));
         sb.Append(systemCode.PadRight(42));
         sb.Append(companyName);
 
-        sb.ToString();
-
+       return sb.ToString();
     }
 
     public static void  FindAnagrams()
@@ -159,7 +158,7 @@ internal class StringOperations
         }
     }
 
-    public void StringsOperations(string val)
+    public static void StringsOperations(string val)
     {
         var t = val.Length;
         for (int i = 0; i < val.Length; i++)
