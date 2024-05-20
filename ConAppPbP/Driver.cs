@@ -458,7 +458,7 @@ class Driver
     {
         Clear();
         PrintMethodHeader(MethodBase.GetCurrentMethod()?.Name ?? "Error, unknown Method!");
-        Node root = null;
+        Node? root = null;
         InsertToBinaryTree(ref root, 50);
         InsertToBinaryTree(ref root, 17);
         InsertToBinaryTree(ref root, 23);
@@ -472,51 +472,47 @@ class Driver
         InsertToBinaryTree(ref root, 72);
     }
 
-    private static void InsertToBinaryTree(ref Node root, int nodeVal) 
+    private static void InsertToBinaryTree(ref Node? root, int nodeVal) 
     {
   
-        Node newNode = new Node { Data = nodeVal};
+        Node? newNode = new() { Data = nodeVal};
 
-        if (root == null)
-        {
-            root = newNode;
-        }
-        else 
-        {
-            Node current = root;
-            Node parent;
+        root ??= newNode;
 
-            while (true) 
+		Node? current = root;
+		Node? parent;
+
+        while (true) 
+        {
+            parent = current;
+            if (nodeVal < current.Data)
             {
-                parent = current;
-                if (nodeVal < current.Data)
+                current = current.Left;
+                if (current == null)
                 {
-                    current = current.Left;
-                    if (current == null)
-                    {
-                        parent.Left = newNode;
-                        WriteLine($"Inserted Node with {parent.Left.DisplayNode()}");
-                        break;
-                    }
+                    parent.Left = newNode;
+                    WriteLine($"Inserted Node with {parent.Left.DisplayNode()}");
+                    break;
                 }
-                else
+            }
+            else
+            {
+                current = current.Right;
+                if (current == null)
                 {
-                    current = current.Right;
-                    if (current == null)
-                    {
-                        parent.Right = newNode;
-                        WriteLine($"Inserted Node with {parent.Right.DisplayNode()}");
-                        break;
-                    }
+                    parent.Right = newNode;
+                    WriteLine($"Inserted Node with {parent.Right.DisplayNode()}");
+                    break;
                 }
-             }
-        }
+            }
+            }
+        
     }
 
     private static void DisplayRightAngleTriangle() 
     {
         Clear();
-        PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+        PrintMethodHeader(MethodBase.GetCurrentMethod()?.Name ?? "Unknown Method()");
            
         int i, j, rows, k = 1;
 
@@ -539,7 +535,7 @@ class Driver
     private static void ExecuteAsyncAwait() 
     {
         Clear();
-        PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+        PrintMethodHeader(MethodBase.GetCurrentMethod()?.Name ?? "Unknown Method!");
         callMethods();
         WriteLine();
     }
