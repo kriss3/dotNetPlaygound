@@ -5,7 +5,7 @@ using static System.Console;
 // See https://aka.ms/new-console-template for more information
 WriteLine("Hello, World!");
 
-Customer cust1 = new()
+Customer customer1 = new()
 {
     Id = 1,
     IsMedical = true,
@@ -13,7 +13,7 @@ Customer cust1 = new()
     MedicalInfo = new MedicalInformation() { MedicalCard = "PAT123456"}
 };
 
-if (cust1.IsMedical && cust1.ValidatePatientLocation())
+if (customer1.IsMedical && customer1.ValidatePatientLocation())
     WriteLine("Customer is from the IN-State");
 else
     WriteLine("Out-of-State customer");

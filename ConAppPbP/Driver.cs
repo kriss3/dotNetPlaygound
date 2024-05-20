@@ -577,7 +577,7 @@ class Driver
     private static void EnTermsOfEvenNumber() 
     {
         Clear();
-        PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+        PrintMethodHeader(MethodBase.GetCurrentMethod()?.Name ?? "Unknow method!");
 
         Write("\n\n");
         Write("Calculate n terms of even natural number and their sum:\n");
@@ -598,9 +598,9 @@ class Driver
 
     private static void RunObservable()
     {
-        WriteLine($"Running method: {MethodBase.GetCurrentMethod().Name}");
-        var obs = new ObservableCollection<string>();
-        obs.CollectionChanged += obs_CollectionChanged;
+        WriteLine($"Running method: {MethodBase.GetCurrentMethod()?.Name}" ?? "Unknown Method!");
+        ObservableCollection<string> obs = [];
+        obs.CollectionChanged += Obs_CollectionChanged;
         obs.Add("Adam");
         obs.Add("Eve");
         obs.Add("Clive");
@@ -612,7 +612,7 @@ class Driver
         obs.Clear();
     }
 
-    private static void obs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    private static void Obs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
     {
         WriteLine("Action type: " + e.Action);
         if (e.NewItems != null)
