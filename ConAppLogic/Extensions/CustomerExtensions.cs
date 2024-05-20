@@ -16,8 +16,6 @@ public static class CustomerExtensions
     }
 }
 
-public class PatientLocationInfoException : Exception
+public class PatientLocationInfoException(string message) : Exception(message)
 {
-    public PatientLocationInfoException(string message)
-        : base(message)  { }
 }

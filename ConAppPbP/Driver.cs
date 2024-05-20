@@ -194,7 +194,7 @@ class Driver
         Clear();
         PrintMethodHeader("ManualSeak()");
         Write("What number to look for:\t");
-        int find = int.Parse(ReadLine());
+        int find = int.Parse(ReadLine()!);
         int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
         Array.Sort(arr);
         WriteLine();
@@ -325,9 +325,9 @@ class Driver
         Clear();
         PrintMethodHeader("SwapNumbers()");
         Write("Supply value x: ");
-        int x = int.Parse(ReadLine());
+        int x = int.Parse(ReadLine()!);
         Write("Supply value y: ");
-        int y = int.Parse(ReadLine());
+        int y = int.Parse(ReadLine()!);
         WriteLine();
         Write($"Value x: {x} and value y: {y}");
 
@@ -373,7 +373,7 @@ class Driver
             WriteLine($"The name is: {item}");
         }
 
-        _linkedLst.Remove(_linkedLst.First);
+        _linkedLst.Remove(_linkedLst.First ?? throw new InvalidOperationException("List is empty here!"));
 
         foreach (var item in _linkedLst)
         {
@@ -405,7 +405,7 @@ class Driver
     {
         Clear();
         Write("Enter number of rows:\t");
-        int rows = int.Parse(ReadLine());
+        int rows = int.Parse(ReadLine()!);
 
         int spc = rows + 3;
         for (int i = 1; i <= rows; i++)
@@ -430,7 +430,7 @@ class Driver
         Clear();
         PrintMethodHeader("CountFactorial()");
         Write("Enter factorial base to count: ");
-        int val = int.Parse(ReadLine());
+        int val = int.Parse(ReadLine()!);
         int fac = 1;
         for (int i = 1; i <= val; i++)
         {
@@ -445,7 +445,7 @@ class Driver
         PrintMethodHeader("NumberReverseOrder");
         Write("Enter number to reverse: ");
         var input = ReadLine();
-        char[] inputC = input.ToArray();
+        char[] inputC = [.. input];
         Array.Reverse(inputC);
 
         foreach (var i in inputC) 
@@ -457,7 +457,7 @@ class Driver
     private static void BTSTreeImplementation() 
     {
         Clear();
-        PrintMethodHeader(MethodBase.GetCurrentMethod().Name);
+        PrintMethodHeader(MethodBase.GetCurrentMethod()?.Name ?? "Error, unknown Method!");
         Node root = null;
         InsertToBinaryTree(ref root, 50);
         InsertToBinaryTree(ref root, 17);
