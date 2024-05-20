@@ -12,18 +12,18 @@ namespace ConAppPlayingWithStrings
         {
             WriteLine("Hello World!");
             Sop = new StringOperations();
-            //VowelsStringOperation();
-            //CompareStrings();
-            //FindAnagrams();
-            //SortAndRemoveDuplicatesFromString();
-            //PrintStarPattern();
-            //WorkingWithStrings();
-            //WorkingWithRegEx();
-            //var res = FilterAndCreateEmployees();
-            var r = MotoRace().ToList();
+			//VowelsStringOperation();
+			//CompareStrings();
+			//FindAnagrams();
+			//SortAndRemoveDuplicatesFromString();
+			//PrintStarPattern();
+			//WorkingWithStrings();
+			//WorkingWithRegEx();
+			//var res = FilterAndCreateEmployees();
+			_ = MotoRace().ToList();
         }
 
-        private static IEnumerable<int> MotoRace()
+        private static List<int> MotoRace()
         {
             var res = "10,0,4,1,0,10,3,4,6";
             List<int> x = new(res.Split(',')
@@ -48,7 +48,7 @@ namespace ConAppPlayingWithStrings
             return res;
         }
 
-        private static IList<Employee> BuildEmployees(IList<Employee> employees) =>
+        private static List<Employee> BuildEmployees(IList<Employee> employees) =>
             employees
             .Where(e => !(string.IsNullOrWhiteSpace(e.Name) || string.IsNullOrWhiteSpace(e.Department)))
             .Select(x => new Employee() { Id = x.Id, Name = x.Name, Department = x.Department })
@@ -66,18 +66,18 @@ namespace ConAppPlayingWithStrings
         {
             var dellEmployees = new List<Employee>() 
             {
-                new Employee() { Id = 0, Name =  "John Doe", Department = "Software" },
-                new Employee() { Id = 1, Name = "Angela Su", Department = "Sales" },
-                new Employee() { Id = 2, Name = "Frank Kelvin", Department = "Marketing" },
-                new Employee() { Id = 3, Name = "Joe Dustin", Department = "Sales" },
-                new Employee() { Id = 4, Name = "Glory GG", Department = "Software" },
-                new Employee() { Id = 5, Name = "Antonella Clement", Department = "Marketing" },
-                new Employee() { Id = 6, Name = "Andrew Logan", Department = "Software" },
-                new Employee() { Id = 7, Name = "Billy Cruz", Department = "Marketing" },
-                new Employee() { Id = 8, Name = "Sally Jane", Department = "Software" },
-                new Employee() { Id = 9, Name = "John Kane", Department = "Sales" },
-                new Employee() { Id = 10, Name = "Jon Bullock", Department = null },
-                new Employee() { Id = 11, Name = null, Department = "" }
+                new() { Id = 0, Name =  "John Doe", Department = "Software" },
+                new() { Id = 1, Name = "Angela Su", Department = "Sales" },
+                new() { Id = 2, Name = "Frank Kelvin", Department = "Marketing" },
+                new() { Id = 3, Name = "Joe Dustin", Department = "Sales" },
+                new() { Id = 4, Name = "Glory GG", Department = "Software" },
+                new() { Id = 5, Name = "Antonella Clement", Department = "Marketing" },
+                new() { Id = 6, Name = "Andrew Logan", Department = "Software" },
+                new() { Id = 7, Name = "Billy Cruz", Department = "Marketing" },
+                new() { Id = 8, Name = "Sally Jane", Department = "Software" },
+                new() { Id = 9, Name = "John Kane", Department = "Sales" },
+                new() { Id = 10, Name = "Jon Bullock", Department = null },
+                new() { Id = 11, Name = null, Department = "" }
             };
 
             var company = new Company() { CompanyId = 0, Name = "Dell", Employees = dellEmployees };

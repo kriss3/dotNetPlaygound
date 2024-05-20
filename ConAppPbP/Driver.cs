@@ -146,7 +146,7 @@ class Driver
     {
         Clear();
         PrintMethodHeader("ArrayWork()");
-        int[] myArr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int[] myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         for (int i = myArr.Length - 1; i >= 0; i--)
         {
@@ -171,7 +171,7 @@ class Driver
     {
         Clear();
         PrintMethodHeader("SortAndReverseArray()");
-        int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
+        int[] arr = [7, 4, 6, 3, 5, 8, 11, 2, 15, 1];
 
         foreach (var item in arr)
         {
@@ -192,10 +192,10 @@ class Driver
     private static void ManualSeak()
     {
         Clear();
-        PrintMethodHeader("ManualSeak()");
+        PrintMethodHeader("ManualSeek()");
         Write("What number to look for:\t");
         int find = int.Parse(ReadLine()!);
-        int[] arr = { 7, 4, 6, 3, 5, 8, 11, 2, 15, 1 };
+        int[] arr = [7, 4, 6, 3, 5, 8, 11, 2, 15, 1];
         Array.Sort(arr);
         WriteLine();
         foreach (var item in arr)
@@ -246,12 +246,12 @@ class Driver
         PrintMethodHeader("FindDuplicateCharacters()");
         string tstStr = "Konstantynopolitanczykiewiczowna";
 
-        StringBuilder res = new StringBuilder();
-        StringBuilder duplicates = new StringBuilder();
+        StringBuilder res = new();
+        StringBuilder duplicates = new();
 
         foreach (var item in tstStr)
         {
-            if (res.ToString().IndexOf(item.ToString().ToLower()) == -1)
+            if (!res.ToString().Contains(item.ToString(), StringComparison.CurrentCultureIgnoreCase))
             {
                 res.Append(item);
             }
@@ -271,17 +271,17 @@ class Driver
         PrintMethodHeader("WordLetterCount()");
         string example = "Brzeczyszczykiewicz";
 
-        Dictionary<char, int> result = new Dictionary<char, int>();
+        Dictionary<char, int> result = [];
 
         foreach (var item in example)
         {
-            if (!result.ContainsKey(item))
+            if (!result.TryGetValue(item, out int value))
             {
                 result.Add(item, 1);
             }
             else
             {
-                result[item]++;
+                result[item] = ++value;
             }
 
         }
@@ -357,7 +357,7 @@ class Driver
     {
         Clear();
         PrintMethodHeader("SimpleLinkedList() ");
-        LinkedList<string> _linkedLst = new LinkedList<string>();
+        LinkedList<string> _linkedLst = new();
 
         _linkedLst.AddLast("Kris");
         _linkedLst.AddLast("Peter");
@@ -536,11 +536,11 @@ class Driver
     {
         Clear();
         PrintMethodHeader(MethodBase.GetCurrentMethod()?.Name ?? "Unknown Method!");
-        callMethods();
+        CallMethods();
         WriteLine();
     }
 
-    private static async void callMethods() 
+    private static async void CallMethods() 
     {
         Task<int> task = Method1(100);
         Method2(25);
@@ -612,7 +612,7 @@ class Driver
         obs.Clear();
     }
 
-    private static void Obs_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    private static void Obs_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         WriteLine("Action type: " + e.Action);
         if (e.NewItems != null)
