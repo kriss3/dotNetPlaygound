@@ -71,18 +71,18 @@ internal class StringOperations
         string sent = "ala ma kota";
 
         string[] res = sent.Split(' ');
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
         for (int i = res.Length - 1; i >= 0; i--)
         {
             sb.Append(res[i]);
-            sb.Append(" ");
+            sb.Append(' ');
         }
         string result = sb.ToString();
         return result;
     }
 
-    //Using Padding and Subtring for a given string
-    public void StringPaddingAndSubstring()
+    //Using Padding and Substring for a given string
+    public static void StringPaddingAndSubstring()
     {
         string transName = "C";
         string companyCode = "0";
@@ -92,7 +92,7 @@ internal class StringOperations
 
         //StringBuilder has Append
         //String has PadRight/PadLeft
-        StringBuilder sb = new StringBuilder(transName.PadRight(2));
+        StringBuilder sb = new(transName.PadRight(2));
         sb.Append(companyCode.PadRight(3));
         sb.Append(constract.PadRight(20));
         sb.Append(systemCode.PadRight(42));
@@ -102,7 +102,7 @@ internal class StringOperations
 
     }
 
-    public void  FindAnagrams()
+    public static void  FindAnagrams()
     {
         /*
          * I was asked to write a program to find the anagrams in a list and return the list of anagrams.  
@@ -112,9 +112,9 @@ internal class StringOperations
             also the word binary into brainy and the word adobe into abode.
          */
 
-        List<string> words = new() { "adobe", "binary", "abode", "brainy", "apap" };
+        List<string> words = ["adobe", "binary", "abode", "brainy", "apap"];
 
-        List<string> result = new List<string>();
+        List<string> result = [];
 
         //Can I group elements of the list<string> by its length;
         var pr = words
@@ -139,7 +139,7 @@ internal class StringOperations
         //to be continued... add test cases...
     }
 
-    public string SortAndRemoveStringWord() 
+    public static string SortAndRemoveStringWord() 
     {
         string example = "aacbkimp"; //abcikmp
         string result = string.Concat(example.OrderBy(c => c).Distinct());
@@ -147,7 +147,7 @@ internal class StringOperations
     }
 
     //Prints a star patters on the screen;
-    public void PrintStarPattern(int n)
+    public static void PrintStarPattern(int n)
     {
         for (int i = n; i > 0; i--)
         {
@@ -177,12 +177,12 @@ internal class StringOperations
             Debug.WriteLine(val[m]);
         }
         Debug.WriteLine("");
-        Debug.WriteLine(val.Count());
+        Debug.WriteLine(val.Length);
         Debug.WriteLine(val.Length);
         var k = val.OrderBy(x => x.ToString());
     }
 
-    public string ObfString(string val) 
+    public static string ObfString(string val) 
     {
         string result = string.Empty;
 
