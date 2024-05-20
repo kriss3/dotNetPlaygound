@@ -42,7 +42,7 @@ public static class StringOperations
         var strCounter = 0;
         foreach (var item in strArr)
         {
-            if (!stats.Keys.Contains(item))
+            if (!stats.ContainsKey(item))
             {
                 strCounter = 0;
                 stats.Add(item, ++strCounter);
@@ -190,7 +190,7 @@ public static class StringOperations
 
         //var regEx = new Regex(".{4}(?=\\s|$)");
         //var x = Regex.Replace("1002945", @"#(.4)", "*");
-        result = val.Substring(val.Length - 4).PadLeft(val.Length, '*');
+        result = val[^4..].PadLeft(val.Length, '*');
 
         var res2 = val.toMask(4);
 
