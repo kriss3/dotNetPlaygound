@@ -62,15 +62,15 @@ class Program
         options.PrimaryKey = options.TimeStamp;
         options.TimeStamp.NonClusteredIndex = true;
 
-        // how do I use MSSqlServerSinkOptions
+		// how do I use MSSqlServerSinkOptions
 
-        var sinkOptions = new MSSqlServerSinkOptions
+		MSSqlServerSinkOptions sinkOptions = new() 
         {
             TableName = serilogTbl,
             AutoCreateSqlTable = true,
             BatchPostingLimit = 1000,
             EagerlyEmitFirstEvent = true,
-            SchemaName = "dbo",
+            SchemaName = "dbo"
         };
 
         Log.Logger = new LoggerConfiguration()
