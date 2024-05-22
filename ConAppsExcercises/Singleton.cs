@@ -1,39 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Console;
+﻿using static System.Console;
 
-namespace ConAppsExercises
+namespace ConAppsExercises;
+
+public sealed class Singleton
 {
-    public sealed class Singleton
+    private static Singleton _instance = null;
+    private static readonly object padLock = new object();
+
+    private Singleton()
     {
-        private static Singleton _instance = null;
-        private static readonly object padLock = new object();
+        WriteLine($"Creating new instance !!!");
+    }
 
-        private Singleton()
+    public static Singleton Instance
+    {
+        get
         {
-            WriteLine($"Creating new instance !!!");
-        }
-
-        public static Singleton Instance
-        {
-            get
+            lock (padLock)
             {
-                lock (padLock)
+                if (_instance == null)
                 {
-                    if (_instance == null)
-                    {
-                        _instance = new Singleton();
-                    }
-                    else
-                    {
-                        WriteLine($"Using exising instance !!!");
-                    }
-                    
-                    return _instance;
+                    _instance = new Singleton();
                 }
+                else
+                {
+                    WriteLine($"Using excising instance !!!");
+                }
+                
+                return _instance;
             }
         }
     }

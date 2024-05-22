@@ -1,8 +1,6 @@
 ﻿using Serilog;
-using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
 using System;
-using System.Data.SqlClient;
 using System.IO;
 using System.Reflection;
 using static System.Console;

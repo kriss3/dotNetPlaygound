@@ -498,7 +498,7 @@ class Program
     private static void MyEvents()
     {
         NotificationMethods nm = new();
-        nm._shaw += ShowMethodHandler;
+        nm.Show += ShowMethodHandler;
         nm.Name = "Kris";
     }
 

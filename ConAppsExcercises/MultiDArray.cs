@@ -4,7 +4,7 @@ namespace ConAppsExercises;
 
 public class MultiDArray
 {
-    public void RunMultiDArray()
+    public static void RunMultiDArray()
     {
         //int[3,3]
         int[,] arr = new int[3,3]{{ 0,1,2},

@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ConAppsExercises;
 
-namespace ConAppsExercises
+//can be public, private, protected, internal protected
+public class Person
 {
-    //can be public, private, protected, internal protected
-    public class Person
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Name}, age = {Age}";
-        }
+    public override string ToString()
+    {
+        return $"{Name}, age = {Age}";
     }
 }
