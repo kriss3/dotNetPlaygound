@@ -1,16 +1,15 @@
-﻿using System;
+﻿using ConAppsExercises.Models;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.Data;
-using System.Threading.Tasks;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Text.Json;
-using ConAppsExercises.Models;
+using System.Threading.Tasks;
 
 using static System.Console;
-using Microsoft.Identity.Client;
-using Microsoft.Extensions.Configuration;
 
 namespace ConAppsExercises;
 

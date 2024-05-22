@@ -1,15 +1,13 @@
-﻿namespace ConAppPbP
+﻿namespace ConAppPbP;
+
+public class Node
 {
-	public class Node
+    public int Data { get; set; }
+    public Node? Left { get; set; }
+    public Node? Right { get; set; }
+
+    public string DisplayNode() 
     {
-        public int Data { get; set; }
-        public Node? Left { get; set; }
-        public Node? Right { get; set; }
-
-        public string DisplayNode() 
-        {
-            return $"Data in the current Node: {Data}";
-        }
-
+        return $"Data in the current Node: {Data}";
     }
 }

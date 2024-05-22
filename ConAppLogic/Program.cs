@@ -2,20 +2,31 @@
 using ConAppLogic.Extensions;
 using static System.Console;
 
-WriteLine("Hello, World!");
 
-Customer customer1 = new()
+namespace ConAppLogic;
+
+public class Program 
 {
-    Id = 1,
-    IsMedical = true,
-    BillingAddress = new Address() { StateCode = "MO" }, 
-    MedicalInfo = new MedicalInformation() { MedicalCard = "PAT123456"}
-};
+    public static void Main() 
+    {
+		WriteLine("Hello, World!");
 
-if (customer1.IsMedical && customer1.ValidatePatientLocation())
-    WriteLine("Customer is from the IN-State");
-else
-    WriteLine("Out-of-State customer");
+		Customer customer1 = new()
+		{
+			Id = 1,
+			IsMedical = true,
+			BillingAddress = new Address() { StateCode = "MO" },
+			MedicalInfo = new MedicalInformation() { MedicalCard = "PAT123456" }
+		};
+
+		if (customer1.IsMedical && customer1.ValidatePatientLocation())
+			WriteLine("Customer is from the IN-State");
+		else
+			WriteLine("Out-of-State customer");
+
+	}
+
+}
 
 public readonly struct Option<T>
 {

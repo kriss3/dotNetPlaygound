@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace ConAppPlayingWithStrings;
@@ -192,7 +190,7 @@ public static class StringOperations
         //var x = Regex.Replace("1002945", @"#(.4)", "*");
         result = val[^4..].PadLeft(val.Length, '*');
 
-        var res2 = val.toMask(4);
+        var res2 = val.ToMask(4);
 
         return result; 
     }

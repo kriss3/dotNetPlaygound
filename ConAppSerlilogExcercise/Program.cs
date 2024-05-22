@@ -39,10 +39,10 @@ class Program
 
     private static void Run()
     {
-        Log.Information("In static Run() mothd");
+        Log.Information("In static Run() method");
         Log.Warning("This is warning Message");
 
-        // Get normal filepath of this assembly's permanent directory
+        // Get normal file path of this assembly's permanent directory
         var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).LocalPath;
         var user = Environment.UserName;
         Log.Information("Current user is: {UserName}", user);

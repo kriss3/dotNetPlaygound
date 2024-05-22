@@ -1,9 +1,10 @@
-﻿namespace ConAppDu.DriverOrApi;
-
+﻿
 using System.Diagnostics;
 using static System.Console;
 
-internal class Program
+namespace ConAppDu.DriverOrApi;
+
+public class Program
 {
     static void Main()
     {
@@ -51,7 +52,3 @@ public class Enums
         Metrc
     }
 }
-
-
-
-
