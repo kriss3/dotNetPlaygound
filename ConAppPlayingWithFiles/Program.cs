@@ -1,15 +1,25 @@
-﻿namespace ConAppPlayingWithFiles;
+﻿
+using static System.Console;
+using System.IO;
+
+namespace ConAppPlayingWithFiles;
 
 public class Program
 {
-	static Task Main()
+	static async Task Main()
 	{
-		Console.WriteLine("Hello, World!");
-		return Task.CompletedTask;
+		WriteLine("Hello, World!");
+		await Run();
 	}
 
-	private async Task Run() 
+	private static async Task Run() 
 	{
 		string rootPath = @"C:\temp\TimCorey_Files";
-	}
+		string[] dirs = Directory.GetDirectories(rootPath);
+
+        foreach (var dir in dirs)
+        {
+            WriteLine($"Dir: {dir}");
+        }
+    }
 }
