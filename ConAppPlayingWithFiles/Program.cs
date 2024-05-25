@@ -12,14 +12,12 @@ public class Program
 		await Run();
 	}
 
-	private static async Task Run() 
+	private static Task Run() 
 	{
 		string rootPath = @"C:\temp\TimCorey_Files";
 		string[] dirs = Directory.GetDirectories(rootPath);
 
-        foreach (var dir in dirs)
-        {
-            WriteLine($"Dir: {dir}");
-        }
+		dirs.ToList().ForEach(d => WriteLine($"Directory Name: {d}"));
+		return Task.CompletedTask;
     }
 }
