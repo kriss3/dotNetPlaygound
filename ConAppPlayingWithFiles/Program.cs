@@ -13,9 +13,11 @@ public class Program
 
 	private static Task Run()
 	{
-		//SearchDirAtRootLevelOnly();
-		//SearchDirAtAllLevels();
+		SearchDirAtRootLevelOnly();
+		SearchDirAtAllLevels();
 		SearchAllFilesAtRoot();
+		SearchAllFiles();
+		ShowFileInfo();
 
 		return Task.CompletedTask;
 	}
@@ -60,8 +62,21 @@ public class Program
 
 		files.ToList().ForEach(f => WriteLine($"File names are: {Path.GetFileNameWithoutExtension(f)})"));
 
-		files.ToList().ForEach(f => WriteLine($"File names are: {Path.GetFullPath(f)}"));
+		files.ToList().ForEach(f => WriteLine($"File names are: {Path.GetDirectoryName(f)}"));
 
+		return Task.CompletedTask;
+	}
+
+	private static Task ShowFileInfo()
+	{
+		string rootPath = @"C:\temp\TimCorey_Files";
+		var files = Directory.GetFiles(rootPath, "*.*", SearchOption.AllDirectories);
+
+		foreach (var file in files)
+		{
+			var fileInfo = new FileInfo(file);
+			WriteLine($"{Path.GetFileName(file)}: {fileInfo.Length} bytes");
+		}
 
 		return Task.CompletedTask;
 	}
