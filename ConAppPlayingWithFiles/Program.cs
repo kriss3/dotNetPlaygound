@@ -90,10 +90,15 @@ public class Program
 
 		string[] files = Directory.GetFiles(rootPath);
 
+		//When option is set to true, it will overwrite the file if it already exists
+		//When opiton is set to false, it will throw an exception if the file already exists
 		foreach (var file in files)
 		{
 			File.Copy(file, $"{destinationDirectory}{Path.GetFileName(file)}", true);
 		}
+
+		//Another variation of Copy is Move where files are moved from one location to another;
+		//Move function does not have Options. If file exists at destination, it will throw an exception;
 
 		return Task.CompletedTask;
 	}
