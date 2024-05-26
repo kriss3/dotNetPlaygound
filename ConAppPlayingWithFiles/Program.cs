@@ -18,6 +18,7 @@ public class Program
 		SearchAllFilesAtRoot();
 		SearchAllFiles();
 		ShowFileInfo();
+		CopyFiles();
 
 		return Task.CompletedTask;
 	}
@@ -76,6 +77,22 @@ public class Program
 		{
 			var fileInfo = new FileInfo(file);
 			WriteLine($"{Path.GetFileName(file)}: {fileInfo.Length} bytes");
+		}
+
+		return Task.CompletedTask;
+	}
+
+	private static Task CopyFiles()
+	{ 
+		string rootPath = @"C:\temp\TimCorey_Files";
+
+		string destinationDirectory = @"C:\temp\TimCorey_Files\SubFolderA\";
+
+		string[] files = Directory.GetFiles(rootPath);
+
+		foreach (var file in files)
+		{
+			File.Copy(file, $"{destinationDirectory}{Path.GetFileName(file)}", true);
 		}
 
 		return Task.CompletedTask;
