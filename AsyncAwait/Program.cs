@@ -27,16 +27,17 @@ class DoAsync
 {
     public static async Task<IEnumerable<Monkey>> GetMonkeysAsync()
     {
-        try
-        {
-            return await LocalData.GetLocalMonkeys();
-        }
-        catch (Exception ex)
-        {
-            WriteLine(ex.Message);
-            return [];
-        }
-    }
+		//try
+		//{
+		//    return await LocalData.GetLocalMonkeys();
+		//}
+		//catch (Exception ex)
+		//{
+		//    WriteLine(ex.Message);
+		//    return [];
+		//}
+		return await LocalData.GetLocalMonkeys();
+	}
 
     public static async Task RunDownloadSync()
     {
