@@ -1,5 +1,7 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -27,15 +29,6 @@ internal class DoAsync
 {
     public static async Task<IEnumerable<Monkey>> GetMonkeysAsync()
     {
-		//try
-		//{
-		//    return await LocalData.GetLocalMonkeys();
-		//}
-		//catch (Exception ex)
-		//{
-		//    WriteLine(ex.Message);
-		//    return [];
-		//}
 		return await LocalData.GetLocalMonkeys();
 	}
 
@@ -88,22 +81,17 @@ public static class LocalData
 {
     public static async ValueTask<IEnumerable<Monkey>> GetLocalMonkeys()
     {
-        HttpClient client = GetLocalClient();
-        static HttpClient GetLocalClient() => new()
-        {
-            BaseAddress = new Uri("https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/monkeydata.json"),
-            DefaultRequestHeaders =
-        {
-            Accept = { new MediaTypeWithQualityHeaderValue("application/json")}
-        }
-        };
+        var baseUrl = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/";
+        var options = new RestClientOptions(baseUrl);
+        var client = new RestClient(options);
+        var request = new RestRequest("monkeydata.json");
 
-        var response = await client.GetAsync(client.BaseAddress);
+        var response = await client.ExecuteAsync<List<Monkey>>(request, default);
 
         IEnumerable<Monkey> result = [];
         if (response.IsSuccessStatusCode) 
         {
-            result = await response.Content.ReadFromJsonAsync<IEnumerable<Monkey>>();
+            result = response.Data;
         }
 
         return result;
