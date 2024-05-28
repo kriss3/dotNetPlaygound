@@ -16,14 +16,14 @@ class Program
         DoAsync __ = new();
         //await dc.RunDownloadSync();
 
-        var _ = await DoAsync.GetMonkeysAsync();
+        await DoAsync.GetMonkeysAsync();
 
         ReadLine();
     }
 }
 
 
-class DoAsync
+internal class DoAsync
 {
     public static async Task<IEnumerable<Monkey>> GetMonkeysAsync()
     {
