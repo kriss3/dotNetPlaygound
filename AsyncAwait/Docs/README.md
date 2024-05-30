@@ -10,9 +10,18 @@ Name: Asynchronous Programming in C#
 
 ## 
 Commands I want to master:
-1. git init
+1. git init  
 	Description: Initializes a new Git repository in the current directory.  
-1. Usage: `git init`
-2. git clone
+    Usage: `git init`
+2. git clone  
 	Description: Creates a copy of an existing Git repository from a remote server.  
 	Usage: `git clone <repository-url> `
+
+3. git tag  
+Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
+Usage: 
+```
+git tag <tag-name>
+git tag
+
+```
