@@ -13,15 +13,41 @@ Commands I want to master:
 1. git init  
 	Description: Initializes a new Git repository in the current directory.  
     Usage: `git init`
+
 2. git clone  
 	Description: Creates a copy of an existing Git repository from a remote server.  
 	Usage: `git clone <repository-url> `
 
-3. git tag  
-Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
-Usage: 
-```
-git tag <tag-name>
-git tag
+3. git add
+	Description: Stages changes in the working directory for the next commit.
+	Usage:
+	``` 
+		git add <file>
+		git add .
+	```
 
-```
+
+4. git commit
+	Description: Records the changes in the staging area along with a message.
+	Usage: ` git commit -m "Commit message"`
+
+5. git status
+	Description: Shows the status of changes as untracked, modified, or staged.
+	Usage: `git status`
+
+6. git push
+	Description: Uploads local repository content to a remote repository.
+	Usage: `git push <remote> <branch>`
+
+7. git pull
+	Description: Fetches and merges changes from a remote repository to the local repository.
+	Usage: `git pull <remote> <branch>`
+
+8. git tag  
+	Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
+	Usage: 
+	```
+	git tag <tag-name>
+	git tag
+
+	```
