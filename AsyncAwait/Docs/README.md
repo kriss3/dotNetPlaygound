@@ -43,7 +43,15 @@ Commands I want to master:
 	Description: Fetches and merges changes from a remote repository to the local repository.
 	Usage: `git pull <remote> <branch>`
 
-8. git tag  
+8. git fetch
+	Description: Downloads objects and refs from another repository.
+	Usage: `git fetch <remote> `
+
+9. git merge
+	Description: Combines sequences of commits into one unified history.
+	Usage: `git merge <branch>`
+
+18. git tag  
 	Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
 	Usage: 
 	```
