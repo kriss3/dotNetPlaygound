@@ -51,6 +51,19 @@ Commands I want to master:
 	Description: Combines sequences of commits into one unified history.
 	Usage: `git merge <branch>`
 
+10. git branch
+	Description: Lists, creates, or deletes branches.
+	Usage: 
+	`git branch <branch-name>`
+	`git branch -d <branch-name>`
+
+11. git checkout
+Description: Switches branches or restores working directory files.
+Usage:
+
+git checkout <branch>
+git checkout -b <new-branch>
+
 18. git tag  
 	Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
 	Usage: 
