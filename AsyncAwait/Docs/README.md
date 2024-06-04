@@ -66,6 +66,19 @@ Usage:
 	`git checkout <branch>`
 	`git checkout -b <new-branch>`
 
+
+12. git log
+Description: Shows the commit history for the repository.
+Usage:
+
+git log
+13. git reset
+Description: Resets current HEAD to a specified state.
+Usage:
+
+git reset --hard <commit>
+git reset --soft <commit>
+
 18. git tag  
 	Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
 	Usage: 
