@@ -61,17 +61,18 @@ Commands I want to master:
 	`git branch -d <branch-name>`
 
 11. git checkout
-Description: Switches branches or restores working directory files.
-Usage: 
-	`git checkout <branch>`
-	`git checkout -b <new-branch>`
-
-
+	Description: Switches branches or restores working directory files.
+	Usage: 
+	```
+	git checkout <branch>`
+	git checkout -b <new-branch>
+	```
 12. git log
-Description: Shows the commit history for the repository.
-Usage:
-
-git log
+	Description: Shows the commit history for the repository.
+	Usage:
+	```
+	git log
+	```
 13. git reset
 Description: Resets current HEAD to a specified state.
 Usage:
