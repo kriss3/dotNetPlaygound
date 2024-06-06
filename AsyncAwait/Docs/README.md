@@ -79,13 +79,19 @@ Commands I want to master:
 	```
 	git reset --hard <commit>
 	git reset --soft <commit>
-	```
-
+	```  
 14. git revert
 	Description: Creates a new commit that undoes the changes made by a previous commit.
 	Usage:
 	```
 	git revert <commit>
+	```  
+
+15. git rebase   
+	Description: Reapplies commits on top of another base tip.
+	Usage:
+	```
+	git rebase <branch>
 	```
 
 18. git tag  
