@@ -74,11 +74,19 @@ Commands I want to master:
 	git log
 	```
 13. git reset
-Description: Resets current HEAD to a specified state.
-Usage:
+	Description: Resets current HEAD to a specified state.
+	Usage:
+	```
+	git reset --hard <commit>
+	git reset --soft <commit>
+	```
 
-git reset --hard <commit>
-git reset --soft <commit>
+14. git revert
+	Description: Creates a new commit that undoes the changes made by a previous commit.
+	Usage:
+	```
+	git revert <commit>
+	```
 
 18. git tag  
 	Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
