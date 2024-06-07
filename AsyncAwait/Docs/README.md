@@ -94,6 +94,19 @@ Commands I want to master:
 	git rebase <branch>
 	```
 
+16. git stash
+Description: Temporarily shelves changes you've made to your working copy so you can work on something else, then reapply them later.
+Usage:
+
+git stash
+git stash apply
+17. git remote
+Description: Manages set of tracked repositories.
+Usage:
+
+git remote add <name> <url>
+git remote -v
+
 18. git tag  
 	Description: Creates, lists, deletes, or verifies a tag object signed with GPG.
 	Usage: 
