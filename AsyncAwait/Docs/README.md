@@ -27,28 +27,37 @@ Commands I want to master:
 	Description: Stages changes in the working directory for the next commit.
 	Usage:
 	``` 
-   git add <file>  
-   git add .
+	git add <file>  
+	git add .
    ```
 
 4. git commit
 	Description: Records the changes in the staging area along with a message.
 	Usage: 
     ```
-    git commit -m "Commit message"
+	git commit -m "Commit message"
     ```
 
 5. git status
 	Description: Shows the status of changes as untracked, modified, or staged.
-	Usage: `git status`
+	Usage: 
+	```
+	git status
+	```
 
 6. git push
 	Description: Uploads local repository content to a remote repository.
-	Usage: `git push <remote> <branch>`
+	Usage: 
+    ```
+	git push <remote> <branch>
+	```
 
 7. git pull
 	Description: Fetches and merges changes from a remote repository to the local repository.
-	Usage: `git pull <remote> <branch>`
+	Usage:
+	```
+	git pull <remote> <branch>
+	```
 
 8. git fetch
 	Description: Downloads objects and refs from another repository.
