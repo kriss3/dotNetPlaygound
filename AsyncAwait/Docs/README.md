@@ -12,24 +12,31 @@ Name: Asynchronous Programming in C#
 Commands I want to master:
 1. git init  
 	Description: Initializes a new Git repository in the current directory.  
-    Usage: `git init`
-
+    Usage: 
+    ```
+	git init
+    ```
 2. git clone  
 	Description: Creates a copy of an existing Git repository from a remote server.  
-	Usage: `git clone <repository-url> `
+	Usage: 
+    ```
+    git clone <repository-url>
+    ```
 
 3. git add
 	Description: Stages changes in the working directory for the next commit.
 	Usage:
 	``` 
-		git add <file>
-		git add .
-	```
-
+   git add <file>  
+   git add .
+   ```
 
 4. git commit
 	Description: Records the changes in the staging area along with a message.
-	Usage: ` git commit -m "Commit message"`
+	Usage: 
+    ```
+    git commit -m "Commit message"
+    ```
 
 5. git status
 	Description: Shows the status of changes as untracked, modified, or staged.
