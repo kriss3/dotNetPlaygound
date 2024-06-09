@@ -4,11 +4,13 @@ Name: Asynchronous Programming in C#
 
 ### Non-tech changes
 - Attempt to add RestSharp lib and update the project.
-- This project will also contain some temporary weird commits as I'm taking git advanced course using commaind line.
+- This project will also contain some temporary weird commits as I'm taking git advanced course using command line.
    It is finally time to get away from GUI :)
 - Adding ultimate guide/cheat sheet, based on Mosh Hamedani's teaching.
 
 ## 
+This readme.md file will be moved to its own Project. Below initiative is a start of a Journey to No GUI Git for me.
+
 Commands I want to master:
 1. git init  
 	Description: Initializes a new Git repository in the current directory.  
