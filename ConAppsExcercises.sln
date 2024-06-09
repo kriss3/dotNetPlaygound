@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithLambda", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteStatus", "WebsiteStatus\WebsiteStatus.csproj", "{209B8070-F8D5-4E61-B7BE-35369A129E64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithFiles", "ConAppPlayingWithFiles\ConAppPlayingWithFiles.csproj", "{56DAE696-EA3F-47EC-8284-6F19FE468086}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithFiles", "ConAppPlayingWithFiles\ConAppPlayingWithFiles.csproj", "{56DAE696-EA3F-47EC-8284-6F19FE468086}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppMediatorPattern", "ConAppMediatorPattern\ConAppMediatorPattern.csproj", "{28D4543B-9F38-447C-AA83-6B2B0524E84C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{56DAE696-EA3F-47EC-8284-6F19FE468086}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56DAE696-EA3F-47EC-8284-6F19FE468086}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56DAE696-EA3F-47EC-8284-6F19FE468086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28D4543B-9F38-447C-AA83-6B2B0524E84C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D4543B-9F38-447C-AA83-6B2B0524E84C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D4543B-9F38-447C-AA83-6B2B0524E84C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D4543B-9F38-447C-AA83-6B2B0524E84C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
