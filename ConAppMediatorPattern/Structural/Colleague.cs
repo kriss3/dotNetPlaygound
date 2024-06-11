@@ -5,15 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConAppMediatorPattern.Structural;
-public abstract class Colleague
+public abstract class Colleague(Mediator mediator)
 {
-	protected Mediator mediator;
-
-    protected Colleague(Mediator mediator)
-    {
-        this.mediator = mediator;
-    }
-
     public virtual void Send(string message)
 	{
 		mediator.Send(message, this);
