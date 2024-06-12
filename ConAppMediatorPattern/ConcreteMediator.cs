@@ -8,21 +8,19 @@ using System.Threading.Tasks;
 namespace ConAppMediatorPattern; 
 public class ConcreteMediator: Mediator
 {
-	public Colleague1? Colleague1 { get; set; }	
-	public Colleague2? Colleague2 { get; set; }
+	private readonly List<Colleague> colleagues = [];
+
+	public void Register(Colleague colleague)
+	{
+		colleague.SetMediator(this);
+		this.colleagues.Add(colleague);
+	}
 
 	public override void Send(string message, Colleague colleague)
 	{
-		if (colleague is Colleague1)
-		{
-			Colleague2?.HandleNotification(message);
-		}
-		else if (colleague is Colleague2)
-		{
-			Colleague1?.HandleNotification(message);
-		}
-		else 
-		{
-		}
+		this.colleagues
+			.Where(c => c != colleague)
+			.ToList()
+			.ForEach(c => c.HandleNotification(message));
 	}
 }
