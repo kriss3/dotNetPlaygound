@@ -14,16 +14,18 @@ public abstract class TeamMember
         this.Name = name;
     }
 
-    internal void SetChatRoom(ChatRoom chatRoom) 
+    internal void SetChatRoom(ChatRoom chatRoom)
     {
         _chatRoom = chatRoom;
     }
 
+    public void Send(string message)
+    {
+        this._chatRoom.Send(this.Name, message);
+    }
 
-
-
-
-
-
-
-}
+    public void Receive(string from, string message) 
+    {
+        Console.WriteLine($"From: {from}: `{message}`");
+    }
+}   
