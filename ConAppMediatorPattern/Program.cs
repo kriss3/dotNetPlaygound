@@ -7,6 +7,13 @@ public class Program
 {
 	static void Main(string[] args)
 	{
+		
+	}
+
+
+
+	private static void StructuralExample()
+	{
 		WriteLine("Project to learn more about this Behavioral Pattern.");
 		WriteLine("Based on PluralSight Course by: Steve Michelotti");
 		var mediator = new ConcreteMediator();
