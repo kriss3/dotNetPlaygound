@@ -91,7 +91,7 @@ public class Program
 		string[] files = Directory.GetFiles(rootPath);
 
 		//When option is set to true, it will overwrite the file if it already exists
-		//When opiton is set to false, it will throw an exception if the file already exists
+		//When option is set to false, it will throw an exception if the file already exists
 		foreach (var file in files)
 		{
 			File.Copy(file, $"{destinationDirectory}{Path.GetFileName(file)}", true);

@@ -8,7 +8,7 @@ namespace ConAppMediatorPattern.ChatApp;
 public abstract class TeamMember
 {
     public string Name { get; }
-    private ChatRoom _chatRoom;
+    private ChatRoom? _chatRoom;
     public TeamMember(string name)
     {
         this.Name = name;
@@ -21,7 +21,7 @@ public abstract class TeamMember
 
     public void Send(string message)
     {
-        this._chatRoom.Send(this.Name, message);
+        this._chatRoom?.Send(this.Name, message);
     }
 
     public void Receive(string from, string message) 
