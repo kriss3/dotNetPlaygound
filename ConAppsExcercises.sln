@@ -43,7 +43,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteStatus", "WebsiteSta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithFiles", "ConAppPlayingWithFiles\ConAppPlayingWithFiles.csproj", "{56DAE696-EA3F-47EC-8284-6F19FE468086}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppMediatorPattern", "ConAppMediatorPattern\ConAppMediatorPattern.csproj", "{28D4543B-9F38-447C-AA83-6B2B0524E84C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppMediatorPattern", "ConAppMediatorPattern\ConAppMediatorPattern.csproj", "{28D4543B-9F38-447C-AA83-6B2B0524E84C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithRestSharp", "ConAppPlayingWithRestSharp\ConAppPlayingWithRestSharp.csproj", "{11BD80FB-BB92-4A14-AD02-B8B0A5DEC862}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{28D4543B-9F38-447C-AA83-6B2B0524E84C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28D4543B-9F38-447C-AA83-6B2B0524E84C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28D4543B-9F38-447C-AA83-6B2B0524E84C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11BD80FB-BB92-4A14-AD02-B8B0A5DEC862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11BD80FB-BB92-4A14-AD02-B8B0A5DEC862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11BD80FB-BB92-4A14-AD02-B8B0A5DEC862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11BD80FB-BB92-4A14-AD02-B8B0A5DEC862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

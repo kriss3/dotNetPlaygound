@@ -434,7 +434,7 @@ class Program
     private static void Run2DArray()
     {
         MultiDArray mda = new();
-        mda.RunMultiDArray();
+        MultiDArray.RunMultiDArray();
     }
 
     private static void GetFibonachiSeq(int n)
