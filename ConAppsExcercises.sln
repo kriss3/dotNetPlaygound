@@ -47,7 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppMediatorPattern", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithRestSharp", "ConAppPlayingWithRestSharp\ConAppPlayingWithRestSharp.csproj", "{11BD80FB-BB92-4A14-AD02-B8B0A5DEC862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppStrategyPattern", "ConAppStrategyPattern\ConAppStrategyPattern.csproj", "{82F06E4F-8F00-47BB-B0AD-A67475557E72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppStrategyPattern", "ConAppStrategyPattern\ConAppStrategyPattern.csproj", "{82F06E4F-8F00-47BB-B0AD-A67475557E72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithErrorHandling", "ConAppPlayingWithErrorHandling\ConAppPlayingWithErrorHandling.csproj", "{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{82F06E4F-8F00-47BB-B0AD-A67475557E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82F06E4F-8F00-47BB-B0AD-A67475557E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82F06E4F-8F00-47BB-B0AD-A67475557E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
