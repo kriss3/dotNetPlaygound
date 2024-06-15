@@ -1,6 +1,6 @@
 ﻿namespace ConAppStrategyPattern;
 
-public record Order(string Customer, int Amount, string Name, string Description, IExportSvc ExportService) 
+public record Order(string Customer, int Amount, string Name, IExportSvc ExportService) 
 {
 	public void Export()
 	{
