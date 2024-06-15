@@ -1,9 +1,10 @@
 ﻿namespace ConAppStrategyPattern;
 
-public record Order(string Customer, int Amount, string Name, IExportSvc ExportService) 
+public record Order(string Customer, int Amount, string Name) 
 {
-	public void Export()
+	public void Export(IExportSvc svc)
 	{
-		ExportService?.Export(this);
+		ArgumentNullException.ThrowIfNull(svc);
+		svc?.Export(this);
 	}
 }

@@ -29,12 +29,15 @@ public class Program
 
 		WriteLine("Strategy v1.");
 
-		var order = new Order("Kris Software", 10, "Strategy", new JsonExportService());
-		order.Export();
+		var order = new Order("Kris Software", 10, "Strategy");
 
-		//Same order but different strategy.
-		var order2 = order with { ExportService = new ExcelExportService() };
-		order2.Export();
-	
+		//Strategy 1
+		order.Export(new JsonExportService());
+
+		//Strategy 2
+		order.Export(new ExcelExportService());
+
+		//Strategy 3
+		order.Export(new XmlExportService());
 	}
 }
