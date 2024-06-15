@@ -17,3 +17,4 @@ Next step: modeling using functional C#. Code examples from ROP Railway Oriented
 Adding a new project. Experimenting with Service Worker. The simple project will monitor website (google) health status. It will run on period and report status to the console and a log file.
 Log library: Serilog, Added Windows service library to implement this background worker as a win service  
 Will add a.md file for this project with commands to install service, start it and destroy their service 
+Adding two new projects: 1.Playing with Restsharp; 2. Learning new patterns, Strategy pattern and Results pattern  
