@@ -8,7 +8,7 @@ class Program
 	static void Main()
 	{
 		WriteLine("Hello World!");
-		Document[] d = [new Resume(), new Report()];
+		Document[] _ = [new Resume(), new Report()];
 		ReadLine();
 	}
 }
@@ -18,7 +18,7 @@ class Program
 /// </summary>
 abstract class Document
 {
-	private readonly List<Page> _pages = new List<Page>();
+	private readonly List<Page> _pages = [];
 
 	// Constructor calls abstract Factory method
 	public Document()
@@ -45,7 +45,7 @@ abstract class Page {  }
 /// </summary>
 class SkillsPage : Page
 {
-	public void WhatAmIm()
+	public static void WhatAmIm()
 	{
 		WriteLine($"I am SkillsPage");
 	}
