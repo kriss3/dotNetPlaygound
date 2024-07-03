@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppsExcercises", "ConAppsExcercises\ConAppsExcercises.csproj", "{4B6C31BB-1496-4D60-97A8-578FDF631789}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppExcercises_2", "ConsoleApp1\ConAppExcercises_2.csproj", "{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithFactoryMethod", "ConsoleApp1\ConAppPlayingWithFactoryMethod.csproj", "{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppSerlilogExcercise", "ConAppSerlilogExcercise\ConAppSerlilogExcercise.csproj", "{D4E8C438-6A3D-4F58-918F-A01A436C10DE}"
 EndProject
@@ -49,7 +49,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithRestSharp"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppStrategyPattern", "ConAppStrategyPattern\ConAppStrategyPattern.csproj", "{82F06E4F-8F00-47BB-B0AD-A67475557E72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithErrorHandling", "ConAppPlayingWithErrorHandling\ConAppPlayingWithErrorHandling.csproj", "{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithErrorHandling", "ConAppPlayingWithErrorHandling\ConAppPlayingWithErrorHandling.csproj", "{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
