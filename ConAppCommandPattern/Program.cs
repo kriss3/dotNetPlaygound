@@ -30,3 +30,18 @@ public class Program
         });
     }
 }
+
+public class Receiver
+{
+    public void Action()
+    {
+        WriteLine("Receiver.Action() called");
+    }
+}
+
+public abstract class Command(Receiver receiver)
+{
+    protected Receiver _receiver = receiver;
+
+    public abstract void Execute();
+}
