@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using ConAppCommandPattern.Model;
+using static System.Console;
 
 namespace ConAppCommandPattern;
 
@@ -27,42 +28,5 @@ public class Program
 
             ReadKey();
         });
-    }
-}
-
-public class Receiver
-{
-    public static void Action()
-    {
-        WriteLine("Receiver.Action() called");
-    }
-}
-
-public abstract class Command(Receiver receiver)
-{
-    protected Receiver _receiver = receiver;
-
-    public abstract void Execute();
-}
-
-public class  ConcreteCommand(Receiver receiver) : Command(receiver ?? new Receiver()) 
-{
-    public override void Execute()
-    {
-        Receiver.Action();
-    }
-}
-
-public class Invoker 
-{
-    Command? _cmd;
-
-    public void SetCommand(Command cmd) 
-    {
-        _cmd = cmd;
-    }
-    public void ExecuteCommand()
-    {
-        _cmd?.Execute();
     }
 }
