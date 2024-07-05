@@ -1,0 +1,40 @@
+﻿
+classDiagram
+    class Command {
+        <<interface>>
+        +execute(): void
+    }
+
+    class ConcreteCommand1 {
+        -receiver: Receiver
+        +execute(): void
+    }
+
+    class ConcreteCommand2 {
+        -receiver: Receiver
+        +execute(): void
+    }
+
+    class Receiver {
+        +action1(): void
+        +action2(): void
+    }
+
+    class Invoker {
+        -command: Command
+        +setCommand(command: Command): void
+        +invoke(): void
+    }
+
+    class Client {
+        +main(): void
+    }
+
+    Command <|-- ConcreteCommand1
+    Command <|-- ConcreteCommand2
+    ConcreteCommand1 --> Receiver
+    ConcreteCommand2 --> Receiver
+    Invoker --> Command
+    Client --> Invoker
+    Client --> ConcreteCommand1
+    Client --> ConcreteCommand2
