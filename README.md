@@ -24,4 +24,5 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Adding two new projects:  
    1.Playing with Restsharp.  
    2.Learning new patterns, Strategy pattern and Results pattern.  
-  Both reasesrch is based on Pluralsight, LinkedIn Learning and YT. Added a driver class and implementation  It contains Result type that encapsulates Error type  
+  Both reasesrch is based on Pluralsight, LinkedIn Learning and YT. Added a driver class and implementation  It contains Result type that encapsulates Error type
+- Adding Command Pattern project. This is an attempt to isolate all the projects that are related to Design Patterns to push them into its own repo   
