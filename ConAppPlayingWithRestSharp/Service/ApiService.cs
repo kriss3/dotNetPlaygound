@@ -39,6 +39,8 @@ public class ApiService
 
     }
 
+
+    // I want this to be wrapped in its own type and each exception should be custom, inheriting from Exception;
     private static void HandleErrorResponse(RestResponse response)
     {
         throw response.StatusCode switch
