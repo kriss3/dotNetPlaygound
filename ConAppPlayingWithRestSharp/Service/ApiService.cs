@@ -46,7 +46,7 @@ public class ApiService
         throw response.StatusCode switch
         {
             System.Net.HttpStatusCode.NotFound => new ResourceNotFoundException(),
-            System.Net.HttpStatusCode.Unauthorized => new Exception("Unauthorized access (401)."),
+            System.Net.HttpStatusCode.Unauthorized => new UnauthorizedAccessException(),
             // Handle other status codes as needed
             _ => new Exception($"Unexpected error: {response.StatusCode}"),
         };
