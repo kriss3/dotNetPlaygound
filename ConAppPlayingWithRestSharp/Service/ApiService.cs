@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using ConAppPlayingWithRestSharp.Errors;
@@ -45,8 +46,8 @@ public class ApiService
     {
         throw response.StatusCode switch
         {
-            System.Net.HttpStatusCode.NotFound => new ResourceNotFoundException(),
-            System.Net.HttpStatusCode.Unauthorized => new UnauthorizedAccessException(),
+            HttpStatusCode.NotFound => new ResourceNotFoundException(),
+            HttpStatusCode.Unauthorized => new UnauthorizedAccessException(),
             // Handle other status codes as needed
             _ => new Exception($"Unexpected error: {response.StatusCode}"),
         };
