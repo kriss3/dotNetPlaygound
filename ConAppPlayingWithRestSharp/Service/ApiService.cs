@@ -4,7 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ConAppPlayingWithRestSharp.Errors;
 using RestSharp;
 
 namespace ConAppPlayingWithRestSharp.Service;
@@ -45,7 +45,7 @@ public class ApiService
     {
         throw response.StatusCode switch
         {
-            System.Net.HttpStatusCode.NotFound => new Exception("Resource not found (404)."),
+            System.Net.HttpStatusCode.NotFound => new ResourceNotFoundException(),
             System.Net.HttpStatusCode.Unauthorized => new Exception("Unauthorized access (401)."),
             // Handle other status codes as needed
             _ => new Exception($"Unexpected error: {response.StatusCode}"),
