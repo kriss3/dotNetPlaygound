@@ -30,14 +30,12 @@ public class ApiService
 
         var response = await _client.ExecuteAsync<T>(request);
 
-        if (response.IsSuccessful)
+        if (!response.IsSuccessful)
         {
-            return response.Data;
+            HandleErrorResponse(response);
+            return default;
         }
-
-        HandleErrorResponse(response);
-        return default;
-
+        return response.Data;
     }
 
 
