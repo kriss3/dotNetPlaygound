@@ -1,9 +1,11 @@
 ﻿
+using ConAppPlayingWithRestSharp.Model;
 using ConAppPlayingWithRestSharp.Service;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RestSharp;
-using System.Runtime.CompilerServices;
+
 using static System.Console;
 
 namespace ConAppPlayingWithRestSharp;
@@ -12,15 +14,14 @@ public class Program
 {
 	static async Task Main(string[] args)
 	{
-		await Task.Run(() => 
-		{ 
+
 			WriteLine("Playing with RestSharp Lib");
             using var host = CreateHostBuilder().Build();
-            var exampleUsage = host.Services.GetRequiredService<ExampleUsage>();
+            var _apiService = host.Services.GetRequiredService<ApiService>();
 
             try
 			{
-                var data = await _apiService.GetAsync<MyDataModel>("endpoint");
+                var data = await _apiService.GetAsync<DataReturnModel>("endpoint");
                 if (data != null)
                 {
                     WriteLine("Request succeeded");
@@ -34,17 +35,16 @@ public class Program
 			{
                 WriteLine($"An error occurred: {ex.Message}");
 			}
-		});  
+		  
 	}
 
-    private static IHostBuilder CreateHostBuilder() =>
-        Host.CreateDefaultBuilder()
+    private static IHostBuilder CreateHostBuilder() 
+    {
+        return Host.CreateDefaultBuilder()
             .ConfigureServices((_, services) =>
             {
                 services.AddSingleton<IApiService, ApiService>();
                 services.AddSingleton<RestClient>();
-                services.AddSingleton<ExampleUsage>();
             });
-
-
+    }
 }

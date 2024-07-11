@@ -12,10 +12,10 @@ namespace ConAppPlayingWithRestSharp.Service;
 
 public interface IApiService 
 {
-    Task<T> GetAsync<T>(string endpoint);
+    Task<T?> GetAsync<T>(string endpoint) where T: new();
 }
 
-public class ApiService
+public class ApiService : IApiService
 {
     private readonly RestClient _client;
 
