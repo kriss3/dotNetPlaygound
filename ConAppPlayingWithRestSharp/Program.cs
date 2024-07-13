@@ -12,7 +12,7 @@ namespace ConAppPlayingWithRestSharp;
 
 public class Program
 {
-	static async Task Main(string[] args)
+	static async Task Main()
 	{
 
 			WriteLine("Playing with RestSharp Lib");
