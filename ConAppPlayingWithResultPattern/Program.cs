@@ -10,13 +10,17 @@ public class Program
 		await Task.Run(Console.WriteLine);
 	}
 
-	public Result DeleteProduct(int id)
+	public static Result DeleteProduct(int id)
 	{
+		List<Product> productList = [];
+		productList.Add(new Product(0, "test1"));
+		productList.Add(new Product(1, "test2"));
+
 		if (id < 0)
 			return Result.Failed($"The value of {nameof(id)} is invalid: {id}");
 
-		Product ToDelete = ProductList.Products.Single(x => x.Id == id);
-		ProductList.Products.Remove(ToDelete);
+		Product ToDelete = productList.Single(x => x.Id == id);
+		productList.Remove(ToDelete);
 
 		return Result.Success();
 	}
@@ -56,3 +60,5 @@ public class FirstName
 		return new FirstName(value);
 	}
 }
+
+public record Product(int Id, string Name);
