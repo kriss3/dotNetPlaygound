@@ -1,6 +1,8 @@
 ﻿using LanguageExt;
 using static LanguageExt.Prelude;
 
+using static System.Console;
+
 namespace ConAppPlayingWithResultPattern;
 
 public class Program
@@ -18,9 +20,10 @@ public class Program
 		var firstNameOption = FirstName.Create(name);
 
 		firstNameOption.Match(
-			Some: firstName => Console.WriteLine($"First name created: {firstName.Value}"),
-			None: () => Console.WriteLine("Invalid first name.")
+			Some: firstName => WriteLine($"First name created: {firstName.Value}"),
+			None: () => WriteLine("Invalid first name.")
 		);
+
 
 		return firstNameOption;
 	}
