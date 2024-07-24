@@ -13,7 +13,7 @@ public class Program
 
 	}
 
-	public static void ValidateFirstName(string name)
+	public static Option<FirstName> ValidateFirstName(string name)
 	{
 		var firstNameOption = FirstName.Create(name);
 
@@ -21,6 +21,8 @@ public class Program
 			Some: firstName => Console.WriteLine($"First name created: {firstName.Value}"),
 			None: () => Console.WriteLine("Invalid first name.")
 		);
+
+		return firstNameOption;
 	}
 
 
