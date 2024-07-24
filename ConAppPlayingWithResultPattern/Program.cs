@@ -9,10 +9,7 @@ public class Program
 {
 	static async Task Main()
 	{
-		await Task.Run(Console.WriteLine);
-
-
-
+		await Task.Run(WriteLine);
 	}
 
 	public static Option<FirstName> ValidateFirstName(string name)
