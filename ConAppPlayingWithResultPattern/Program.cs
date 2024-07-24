@@ -8,7 +8,21 @@ public class Program
 	static async Task Main()
 	{
 		await Task.Run(Console.WriteLine);
+
+
+
 	}
+
+	public static void ValidateFirstName(string name)
+	{
+		var firstNameOption = FirstName.Create(name);
+
+		firstNameOption.Match(
+			Some: firstName => Console.WriteLine($"First name created: {firstName.Value}"),
+			None: () => Console.WriteLine("Invalid first name.")
+		);
+	}
+
 
 	public static Result DeleteProduct(int id)
 	{
