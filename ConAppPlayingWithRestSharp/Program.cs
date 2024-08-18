@@ -22,14 +22,7 @@ public class Program
             try
 			{
                 var data = await _apiService.GetAsync<DataReturnModel>("endpoint");
-                if (data != null)
-                {
-                    WriteLine("Request succeeded");
-                }
-                else
-                {
-                    Console.WriteLine("No data returned");
-                }
+                WriteLine(data != null ? "Request succeeded" : "No data returned");
             }
 			catch (Exception ex)
 			{
