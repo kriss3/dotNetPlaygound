@@ -28,5 +28,6 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Adding Command Pattern project. This is an attempt to isolate all the projects that are related to Design Patterns to push them into its own repo
 - Continue to the next pattern and this time adding analysis first with mermaid diagram upfront
 - Next tasks to follow will be Result and Option pattern. I want to explore creating endpoints with no or minimum exception throwing.   
-- Playing with Guard clauses i.e. Ardalis lib;  
+- Playing with Guard clauses i.e. Ardalis lib;
+- Regular and Custom guards for Null and specific i out checkn  
 - Property based testing;
