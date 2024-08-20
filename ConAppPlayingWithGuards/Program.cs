@@ -1,6 +1,8 @@
-﻿namespace ConAppPlayingWithGuards;
-
+﻿using Ardalis.GuardClauses;
 using static System.Console;
+
+namespace ConAppPlayingWithGuards;
+
 public class Program
 {
     static async Task Main(string[] args)
@@ -8,6 +10,7 @@ public class Program
         WriteLine("Hello, World!");
         TestGuard();
         CreatePersonWithoutGuard("John", 17);
+        CreatePerson("John", 17);
         await Task.CompletedTask;
     }
 
@@ -32,4 +35,20 @@ public class Program
             throw new ArgumentOutOfRangeException(nameof(age), "Age must be greater than 0.");
         }
     }
+
+    private static void CreatePerson(string name, int age)
+    {
+        //if (string.IsNullOrWhiteSpace(name))
+        //{
+        //    throw new ArgumentException("Name cannot be null or empty.", nameof(name));
+        //}
+        Guard.Against.NullOrWhiteSpace(name, nameof(name));
+
+        //if (age <= 0)
+        //{
+        //    throw new ArgumentOutOfRangeException(nameof(age), "Age must be greater than 0.");
+        //}
+        Guard.Against.NegativeOrZero(age, nameof(age));
+    }
+
 }
