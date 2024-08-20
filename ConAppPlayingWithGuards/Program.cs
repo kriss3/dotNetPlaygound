@@ -7,6 +7,7 @@ public class Program
     {
         WriteLine("Hello, World!");
         TestGuard();
+        CreatePersonWithoutGuard("John", 17);
         await Task.CompletedTask;
     }
 
@@ -16,6 +17,19 @@ public class Program
         if (age < 18)
         {
             throw new Exception("You are not allowed to enter this site.");
+        }
+    }
+
+    private static void CreatePersonWithoutGuard(string name, int age)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new ArgumentException("Name cannot be null or empty.", nameof(name));
+        }
+
+        if (age <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(age), "Age must be greater than 0.");
         }
     }
 }
