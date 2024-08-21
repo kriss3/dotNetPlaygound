@@ -1,4 +1,5 @@
 ﻿using Ardalis.GuardClauses;
+using ConAppPlayingWithGuards.Extensions;
 using static System.Console;
 
 namespace ConAppPlayingWithGuards;
@@ -52,17 +53,5 @@ public class Program
 
         // Add more Guard.Against.* examples... i.e. custom Guard
         Guard.Against.AgainstInvalidAge(age, nameof(age));
-    }
-}
-
-
-public static class GuardClauseExtensions
-{
-    public static void AgainstInvalidAge(this IGuardClause guardClause, int age, string parameterName)
-    {
-        if (age <= 0 || age > 120)
-        {
-            throw new ArgumentOutOfRangeException(parameterName, "Age must be between 1 and 120.");
-        }
     }
 }
