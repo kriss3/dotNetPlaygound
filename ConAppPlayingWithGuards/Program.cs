@@ -49,9 +49,10 @@ public class Program
         //    throw new ArgumentOutOfRangeException(nameof(age), "Age must be greater than 0.");
         //}
         Guard.Against.NegativeOrZero(age, nameof(age));
-    }
-    // Add more Guard.Against.* examples...
 
+        // Add more Guard.Against.* examples... i.e. custom Guard
+        Guard.Against.AgainstInvalidAge(age, nameof(age));
+    }
 }
 
 
