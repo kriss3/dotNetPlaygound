@@ -55,3 +55,13 @@ public class Program
         Guard.Against.AgainstInvalidAge(age, nameof(age));
     }
 }
+
+// Scenario:
+/*
+ * This is a case of building an e-commerce application where you need to validate an order before processing it. The order has several properties like OrderDate, Customer, and a list of OrderItems. You want to ensure:
+ *
+ * The OrderDate is not in the future.
+ * The Customer is not null and has a valid CustomerId.
+ * The OrderItems list is not empty, and each item has a valid ProductId and a quantity greater than zero.
+ * 
+ */
