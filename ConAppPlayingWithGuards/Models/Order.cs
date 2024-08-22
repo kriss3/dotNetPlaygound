@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConAppPlayingWithGuards.Models;
+﻿namespace ConAppPlayingWithGuards.Models;
 public class Order
 {
     public DateTime? OrderDate { get; set; }
