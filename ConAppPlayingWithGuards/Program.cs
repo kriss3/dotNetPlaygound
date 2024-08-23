@@ -6,12 +6,15 @@ namespace ConAppPlayingWithGuards;
 
 public class Program
 {
-    static async Task Main(string[] args)
+    static async Task Main()
     {
         WriteLine("Hello, World!");
         TestGuard();
         CreatePersonWithoutGuard("John", 17);
         CreatePerson("John", 17);
+
+
+
         await Task.CompletedTask;
     }
 
