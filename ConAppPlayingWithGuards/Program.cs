@@ -1,5 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using ConAppPlayingWithGuards.Extensions;
+using ConAppPlayingWithGuards.Models;
 using static System.Console;
 
 namespace ConAppPlayingWithGuards;
@@ -13,7 +14,25 @@ public class Program
         CreatePersonWithoutGuard("John", 17);
         CreatePerson("John", 17);
 
+        try
+        {
+            var order = new Order
+            {
+                OrderDate = DateTime.Now.AddDays(1), // Invalid: Future date
+                Customer = new Customer { CustomerId = 0, Name = "John Doe" }, // Invalid: Default CustomerId
+                OrderItems =
+                [
+                    new() { ProductId = 1, Quantity = 5 },
+                    new() { ProductId = 2, Quantity = 0 } // Invalid: Quantity is 0
+                ]
+            };
 
+            ProcessOrder(order);
+        }
+        catch (Exception ex)
+        {
+            WriteLine($"Validation failed: {ex.Message}");
+        }
 
         await Task.CompletedTask;
     }
