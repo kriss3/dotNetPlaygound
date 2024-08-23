@@ -76,6 +76,27 @@ public class Program
         // Add more Guard.Against.* examples... i.e. custom Guard
         Guard.Against.AgainstInvalidAge(age, nameof(age));
     }
+
+    public static void ProcessOrder(Order order)
+    {
+        Guard.Against.Null(order, nameof(order));
+        Guard.Against.NullOrEmpty(order.OrderItems, nameof(order.OrderItems));
+
+        Guard.Against.Null(order.Customer, nameof(order.Customer));
+        Guard.Against.Default(order.Customer.CustomerId, nameof(order.Customer.CustomerId));
+
+        Guard.Against.Default(order.OrderDate, nameof(order.OrderDate));
+
+        Guard.Against.Null(order.OrderItems, nameof(order.OrderItems));
+        foreach (var item in order.OrderItems)
+        {
+            Guard.Against.Null(item, nameof(order.OrderItems));
+            Guard.Against.Default(item.ProductId, nameof(item.ProductId));
+            Guard.Against.OutOfRange(item.Quantity, nameof(item.Quantity), 1, int.MaxValue);
+        }
+
+        WriteLine("Order processed successfully!");
+    }
 }
 
 // Scenario:
