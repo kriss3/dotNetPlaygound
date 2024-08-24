@@ -5,7 +5,7 @@ namespace ConAppPlayingWithGuards.Extensions;
 
 public static class GuardClauseExtensions
 {
-    public static void AgainstInvalidAge(this IGuardClause guardClause, int age, string parameterName)
+    public static void AgainstInvalidAge(this IGuardClause _, int age, string parameterName)
     {
         if (age <= 0 || age > 120)
         {
@@ -27,8 +27,7 @@ public static class GuardClauseExtensions
         }
     }
 
-    public static void InTheFuture(this IGuardClause guardClause, 
-        DateTime input, string parameterName)
+    public static void InTheFuture(this IGuardClause _, DateTime input, string parameterName)
     {
         if (input > DateTime.Now)
         {
@@ -36,30 +35,27 @@ public static class GuardClauseExtensions
         }
     }
 
-    public static void InvalidCustomer(this IGuardClause guardClause, 
-        Customer customer, string parameterName)
+    public static void InvalidCustomer(this IGuardClause _, Customer customer, string parameterName)
     {
         Guard.Against.Null(customer, parameterName);
         Guard.Against.Default(customer.CustomerId, nameof(customer.CustomerId));
     }
 
 
-    public static void ValidCustomer(this IGuardClause guardClause, 
-        Customer? customer, string parameterName)
+    public static void ValidCustomer(this IGuardClause _, Customer? customer, string parameterName)
     {
         Guard.Against.Null(customer, parameterName);
         Guard.Against.Default(customer.CustomerId, nameof(customer.CustomerId));
     }
 
-    public static void ValidOrderItem(this IGuardClause guardClause, 
-        OrderItem orderItem, string parameterName)
+    public static void ValidOrderItem(this IGuardClause _, OrderItem orderItem, string parameterName)
     {
         Guard.Against.Null(orderItem, parameterName);
         Guard.Against.Default(orderItem.ProductId, nameof(orderItem.ProductId));
         Guard.Against.OutOfRange(orderItem.Quantity, nameof(orderItem.Quantity), 1, int.MaxValue);
     }
 
-    public static void NotInTheFuture(this IGuardClause guardClause, DateTime input, string parameterName)
+    public static void NotInTheFuture(this IGuardClause _, DateTime input, string parameterName)
     {
         if (input > DateTime.Now)
         {
