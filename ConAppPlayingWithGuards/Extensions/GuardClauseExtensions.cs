@@ -45,7 +45,7 @@ public static class GuardClauseExtensions
 
 
     public static void ValidCustomer(this IGuardClause guardClause, 
-        Customer customer, string parameterName)
+        Customer? customer, string parameterName)
     {
         Guard.Against.Null(customer, parameterName);
         Guard.Against.Default(customer.CustomerId, nameof(customer.CustomerId));
