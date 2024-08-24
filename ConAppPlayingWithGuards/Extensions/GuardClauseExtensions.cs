@@ -27,7 +27,8 @@ public static class GuardClauseExtensions
         }
     }
 
-    public static void InTheFuture(this IGuardClause guardClause, DateTime input, string parameterName)
+    public static void InTheFuture(this IGuardClause guardClause, 
+        DateTime input, string parameterName)
     {
         if (input > DateTime.Now)
         {
@@ -35,20 +36,23 @@ public static class GuardClauseExtensions
         }
     }
 
-    public static void InvalidCustomer(this IGuardClause guardClause, Customer customer, string parameterName)
+    public static void InvalidCustomer(this IGuardClause guardClause, 
+        Customer customer, string parameterName)
     {
         Guard.Against.Null(customer, parameterName);
         Guard.Against.Default(customer.CustomerId, nameof(customer.CustomerId));
     }
 
 
-    public static void ValidCustomer(this IGuardClause guardClause, Customer customer, string parameterName)
+    public static void ValidCustomer(this IGuardClause guardClause, 
+        Customer customer, string parameterName)
     {
         Guard.Against.Null(customer, parameterName);
         Guard.Against.Default(customer.CustomerId, nameof(customer.CustomerId));
     }
 
-    public static void ValidOrderItem(this IGuardClause guardClause, OrderItem orderItem, string parameterName)
+    public static void ValidOrderItem(this IGuardClause guardClause, 
+        OrderItem orderItem, string parameterName)
     {
         Guard.Against.Null(orderItem, parameterName);
         Guard.Against.Default(orderItem.ProductId, nameof(orderItem.ProductId));
