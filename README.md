@@ -31,3 +31,4 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Playing with Guard clauses i.e. Ardalis lib;
 - Regular and Custom guards for Null and specific i out checkn  
 - Property based testing;
+- Working on Refit (learning new http client library); 
