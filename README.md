@@ -32,4 +32,5 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Regular and Custom guards for Null and specific i out checkn  
 - Property based testing;
 - Working on Refit (learning new http client library);
-- Upgrading dotnet framework solution projects to dotnet 8.0 Trying to find the smoothest way to move old but working app to a modern world.  
+- Upgrading dotnet framework solution projects to dotnet 8.0 Trying to find the smoothest way to move old but working app to a modern world.
+- Pattern matching attempt to scan through the projects and convert switch statement to switch expressions using pattern matching.
