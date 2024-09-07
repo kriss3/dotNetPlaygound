@@ -1,10 +1,10 @@
-﻿using ConAppPlayingWithRefit.Service;
+﻿
 using Microsoft.Extensions.DependencyInjection;
-using static System.Console;
-
 using Refit;
+using ConAppPlayingWithRefit.Service;
 using ConAppPlayingWithRefit.MonkeyClient;
 
+using static System.Console;
 
 namespace ConAppPlayingWithRefit;
 
