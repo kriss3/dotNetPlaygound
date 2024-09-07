@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConAppPlayingWithRefit.Model;
+using ConAppPlayingWithRefit.MonkeyClient;
 
 namespace ConAppPlayingWithRefit.Service;
-internal class MonkeyService
+public class MonkeyService(IMonkeyApi monkeyApi)
 {
+    private readonly IMonkeyApi _monkeyApi = monkeyApi;
+
+    public async Task<List<Monkey>> GetMonkeys()
+    {
+        return await _monkeyApi.GetMonkeys();
+    }
 }
