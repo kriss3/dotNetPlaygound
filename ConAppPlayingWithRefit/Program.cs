@@ -13,6 +13,12 @@ public class Program
 
         var monkeyService = monkeySvc.GetRequiredService<MonkeyService>();
         var monkeys = await monkeyService.GetMonkeys();
+
+        foreach (var monkey in monkeys)
+        foreach (var monkey in monkeys)
+        {
+            WriteLine($"{monkey.Name} - {monkey.Location}");
+        }
     }
 
     public static IServiceProvider ConfigureServices()
