@@ -13,24 +13,28 @@ public class Program
     static async Task Main()
     {
         WriteLine("Hello, Monkey World!");
+        var serviceProvide = ConfigureServices();
+        var monkeyService = serviceProvide.GetRequiredService<MonkeyService>();
+        var myMonkeys = await monkeyService.GetMonkeys();
+        ReadKey();
+    }
 
-        // Set up DI and Refit client
+    private static ServiceProvider ConfigureServices() 
+    {
         var serviceProvider = new ServiceCollection()
-            .AddRefitClient<IMonkeyApi>()
-            .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/"))
-            .Services
+            .AddHttpClient()
+            .AddTransient(provider => {
+                var httpClientFactory = provider.GetRequiredService<IHttpClientFactory>();
+                var httpClient = httpClientFactory.CreateClient();
+                httpClient.BaseAddress = new Uri("https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/");
+
+                return RestService.For<IMonkeyApi>(httpClient);
+            })
             .AddTransient<MonkeyService>()
             .BuildServiceProvider();
 
-        // Resolve the MonkeyService and call the API
-        var monkeyService = serviceProvider.GetRequiredService<MonkeyService>();
-        var monkeys = await monkeyService.GetMonkeys();
+        return serviceProvider;
 
-        // Output the data
-        foreach (var monkey in monkeys)
-        {
-            WriteLine($"{monkey.Name} - {monkey.Location}");
-        }
     }
 }
 
