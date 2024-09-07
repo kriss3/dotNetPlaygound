@@ -16,6 +16,9 @@ public class Program
         var serviceProvide = ConfigureServices();
         var monkeyService = serviceProvide.GetRequiredService<MonkeyService>();
         var myMonkeys = await monkeyService.GetMonkeys();
+
+        myMonkeys.ForEach(m => WriteLine($"{m.Name} - {m.Location}"));
+
         ReadKey();
     }
 
