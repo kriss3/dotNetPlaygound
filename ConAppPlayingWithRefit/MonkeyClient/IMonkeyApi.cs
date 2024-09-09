@@ -12,5 +12,8 @@ public interface IMonkeyApi
 
     [Put("/monkeys/{id}")]
     Task UpdateMonkey(int id, [Body] Monkey monkey);
+
+    [Delete("/monkeys/{id}")]
+    Task DeleteMonkey(int id);
 }
 
