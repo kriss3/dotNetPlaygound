@@ -9,5 +9,8 @@ public interface IMonkeyApi
 
     [Post("/monkeys")]
     Task<Monkey> AddMonkey([Body] Monkey monkey);
+
+    [Put("/monkeys/{id}")]
+    Task UpdateMonkey(int id, [Body] Monkey monkey);
 }
 
