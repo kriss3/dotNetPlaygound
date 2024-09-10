@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ConAppPlayingWithRefit.Model;
+﻿namespace ConAppPlayingWithRefit.Model;
 public class Monkey
 {
     public int Id { get; set; }

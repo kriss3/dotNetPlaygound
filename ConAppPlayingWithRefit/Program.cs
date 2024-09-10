@@ -15,7 +15,7 @@ public class Program
         WriteLine("Hello, Monkey World!");
         var serviceProvide = ConfigureServices();
         var monkeyService = serviceProvide.GetRequiredService<MonkeyService>();
-        var myMonkeys = await monkeyService.GetMonkeys();
+        var myMonkeys = await monkeyService.GetMonkeysAsync();
 
         myMonkeys.ForEach(m => WriteLine($"{m.Name} - {m.Location}"));
 
