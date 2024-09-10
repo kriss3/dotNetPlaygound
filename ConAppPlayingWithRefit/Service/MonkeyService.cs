@@ -20,4 +20,9 @@ public class MonkeyService(IMonkeyApi monkeyApi)
     {
         await _monkeyApi.UpdateMonkey(id, monkey);
     }
+
+    public async Task DeleteMonkeyAsync(int id)
+    {
+        await _monkeyApi.DeleteMonkey(id);
+    }
 }
