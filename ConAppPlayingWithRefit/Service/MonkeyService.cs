@@ -15,4 +15,9 @@ public class MonkeyService(IMonkeyApi monkeyApi)
     {
         await _monkeyApi.AddMonkey(monkey);
     }
+
+    public async Task UpdateMonkeyAsync(int id, Monkey monkey)
+    {
+        await _monkeyApi.UpdateMonkey(id, monkey);
+    }
 }
