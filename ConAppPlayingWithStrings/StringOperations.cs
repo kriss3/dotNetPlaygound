@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace ConAppPlayingWithStrings;
 
-internal class StringOperations
+public static class StringOperations
 {
-    public  string VowelsString()
+    public static string VowelsString()
     {
         var strArr = "kaliningrad";  //aeoui  //result=> kaliningrad
 
@@ -35,14 +33,14 @@ internal class StringOperations
         return res.ToString();
     }
 
-    public  void StrStats() //a dictionary of char key and number of reoccuring characters;
+    public static void StrStats() //a dictionary of char key and number of reoccuring characters;
     {
         var strArr = "aabbbccccddddd";
         var stats = new Dictionary<char, int>();
         var strCounter = 0;
         foreach (var item in strArr)
         {
-            if (!stats.Keys.Contains(item))
+            if (!stats.ContainsKey(item))
             {
                 strCounter = 0;
                 stats.Add(item, ++strCounter);
@@ -55,7 +53,7 @@ internal class StringOperations
     }
 
     //Comparing reversed string
-    public bool IsReversedStringTheSame()
+    public static bool IsReversedStringTheSame()
     {
         var str = "abba";
         if (!string.IsNullOrEmpty(str))
@@ -66,43 +64,42 @@ internal class StringOperations
     }
 
     //Reverse words in the string
-    public string ReverseWordsInString()
+    public static string ReverseWordsInString()
     {
         string sent = "ala ma kota";
 
         string[] res = sent.Split(' ');
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
         for (int i = res.Length - 1; i >= 0; i--)
         {
             sb.Append(res[i]);
-            sb.Append(" ");
+            sb.Append(' ');
         }
         string result = sb.ToString();
         return result;
     }
 
-    //Using Padding and Subtring for a given string
-    public void StringPaddingAndSubstring()
+    //Using Padding and Substring for a given string
+    public static string StringPaddingAndSubstring()
     {
         string transName = "C";
         string companyCode = "0";
         string systemCode = "SM";
-        string constract = "0000000610001";
+        string construct = "0000000610001";
         string companyName = "MyNewCompanyName";
 
         //StringBuilder has Append
         //String has PadRight/PadLeft
-        StringBuilder sb = new StringBuilder(transName.PadRight(2));
+        StringBuilder sb = new(transName.PadRight(2));
         sb.Append(companyCode.PadRight(3));
-        sb.Append(constract.PadRight(20));
+        sb.Append(construct.PadRight(20));
         sb.Append(systemCode.PadRight(42));
         sb.Append(companyName);
 
-        sb.ToString();
-
+       return sb.ToString();
     }
 
-    public void  FindAnagrams()
+    public static void  FindAnagrams()
     {
         /*
          * I was asked to write a program to find the anagrams in a list and return the list of anagrams.  
@@ -112,9 +109,9 @@ internal class StringOperations
             also the word binary into brainy and the word adobe into abode.
          */
 
-        List<string> words = new() { "adobe", "binary", "abode", "brainy", "apap" };
+        List<string> words = ["adobe", "binary", "abode", "brainy", "apap"];
 
-        List<string> result = new List<string>();
+        List<string> result = [];
 
         //Can I group elements of the list<string> by its length;
         var pr = words
@@ -139,7 +136,7 @@ internal class StringOperations
         //to be continued... add test cases...
     }
 
-    public string SortAndRemoveStringWord() 
+    public static string SortAndRemoveStringWord() 
     {
         string example = "aacbkimp"; //abcikmp
         string result = string.Concat(example.OrderBy(c => c).Distinct());
@@ -147,7 +144,7 @@ internal class StringOperations
     }
 
     //Prints a star patters on the screen;
-    public void PrintStarPattern(int n)
+    public static void PrintStarPattern(int n)
     {
         for (int i = n; i > 0; i--)
         {
@@ -159,7 +156,7 @@ internal class StringOperations
         }
     }
 
-    public void StringsOperations(string val)
+    public static void StringsOperations(string val)
     {
         var t = val.Length;
         for (int i = 0; i < val.Length; i++)
@@ -177,12 +174,12 @@ internal class StringOperations
             Debug.WriteLine(val[m]);
         }
         Debug.WriteLine("");
-        Debug.WriteLine(val.Count());
+        Debug.WriteLine(val.Length);
         Debug.WriteLine(val.Length);
         var k = val.OrderBy(x => x.ToString());
     }
 
-    public string ObfString(string val) 
+    public static string ObfString(string val) 
     {
         string result = string.Empty;
 
@@ -191,9 +188,9 @@ internal class StringOperations
 
         //var regEx = new Regex(".{4}(?=\\s|$)");
         //var x = Regex.Replace("1002945", @"#(.4)", "*");
-        result = val.Substring(val.Length - 4).PadLeft(val.Length, '*');
+        result = val[^4..].PadLeft(val.Length, '*');
 
-        var res2 = val.toMask(4);
+        var res2 = val.ToMask(4);
 
         return result; 
     }

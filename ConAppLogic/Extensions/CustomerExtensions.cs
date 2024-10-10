@@ -10,14 +10,12 @@ public static class CustomerExtensions
     public static bool ValidatePatientLocation(this Customer customer) 
     {
         if (customer.IsMedical && !(customer?.BillingAddress?.StateCode =="MO")) {
-            throw new PatientLocationInfoException("Patient Information and Billing Infomation mismatch.");
+            throw new PatientLocationInfoException("Patient Information and Billing Information mismatch.");
         }
         return true;
     }
 }
 
-public class PatientLocationInfoException : Exception
+public class PatientLocationInfoException(string message) : Exception(message)
 {
-    public PatientLocationInfoException(string message)
-        : base(message)  { }
 }

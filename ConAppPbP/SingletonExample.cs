@@ -1,27 +1,21 @@
-﻿using System.Runtime.CompilerServices;
+﻿namespace ConAppPbP;
 
-namespace ConAppPbP
+public class SingletonExample
 {
-    public class SingletonExample
-    {
-        private static SingletonExample mySingleton;
-        protected SingletonExample() { }
+	private static SingletonExample? mySingleton;
+	protected SingletonExample() { }
 
-        private static readonly object syncLock = new object();
+	private static readonly object syncLock = new();
 
-        public static SingletonExample Instance() 
-        {
-            if (mySingleton == null)
-            {
-                lock (syncLock) 
-                {
-                    if (mySingleton == null)
-                    {
-                        mySingleton = new SingletonExample();
-                    }
-                }
-            }
-            return mySingleton;
-        }
-    }
+	public static SingletonExample Instance()
+	{
+		if (mySingleton == null)
+		{
+			lock (syncLock)
+			{
+				mySingleton ??= new SingletonExample();
+			}
+		}
+		return mySingleton;
+	}
 }

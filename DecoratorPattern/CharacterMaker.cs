@@ -1,6 +1,6 @@
-using DecoratorPattern;
 using static System.Console;
 
+namespace DecoratorPattern;
 public class CharacterMaker 
 {
 	public static void Main() 

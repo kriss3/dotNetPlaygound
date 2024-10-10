@@ -1,8 +1,7 @@
-﻿namespace AsyncAwait
+﻿namespace AsyncAwait;
+
+public class WebsiteDataModel
 {
-    public class WebsiteDataModel
-    {
-        public string WebsiteUrl { get; set; } = "";
-        public string WebsiteData { get; set; } = "";
-    }
+    public string WebsiteUrl { get; set; } = "";
+    public string WebsiteData { get; set; } = "";
 }

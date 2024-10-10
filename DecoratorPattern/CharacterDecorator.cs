@@ -1,26 +1,19 @@
 ﻿
 using System.Runtime.InteropServices;
 
-namespace DecoratorPattern
+namespace DecoratorPattern;
+
+public abstract class CharacterDecorator(ICharacter newCharacter) : ICharacter
 {
-    public abstract class CharacterDecorator : ICharacter
+    protected ICharacter tempCharacter = newCharacter;
+
+    public virtual string GetDescription()
     {
-        protected ICharacter tempCharacter;
+        return tempCharacter.GetDescription();
+    }
 
-        public CharacterDecorator(ICharacter newCharacter)
-        {
-            //start customizing our Character
-            tempCharacter = newCharacter;
-        }
-
-        public virtual string GetDescription()
-        {
-            return tempCharacter.GetDescription();
-        }
-
-        public virtual int GetImpactLevel()
-        {
-            return tempCharacter.GetImpactLevel();
-        }
+    public virtual int GetImpactLevel()
+    {
+        return tempCharacter.GetImpactLevel();
     }
 }

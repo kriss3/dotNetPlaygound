@@ -1,8 +1,6 @@
 ﻿using Serilog;
-using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
 using System;
-using System.Data.SqlClient;
 using System.IO;
 using System.Reflection;
 using static System.Console;
@@ -39,10 +37,10 @@ class Program
 
     private static void Run()
     {
-        Log.Information("In static Run() mothd");
+        Log.Information("In static Run() method");
         Log.Warning("This is warning Message");
 
-        // Get normal filepath of this assembly's permanent directory
+        // Get normal file path of this assembly's permanent directory
         var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).LocalPath;
         var user = Environment.UserName;
         Log.Information("Current user is: {UserName}", user);
@@ -62,15 +60,15 @@ class Program
         options.PrimaryKey = options.TimeStamp;
         options.TimeStamp.NonClusteredIndex = true;
 
-        // how do I use MSSqlServerSinkOptions
+		// how do I use MSSqlServerSinkOptions
 
-        var sinkOptions = new MSSqlServerSinkOptions
+		MSSqlServerSinkOptions sinkOptions = new() 
         {
             TableName = serilogTbl,
             AutoCreateSqlTable = true,
             BatchPostingLimit = 1000,
             EagerlyEmitFirstEvent = true,
-            SchemaName = "dbo",
+            SchemaName = "dbo"
         };
 
         Log.Logger = new LoggerConfiguration()

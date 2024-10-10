@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Distributed;
 
 WriteLine("Hello, World!");
-WriteLine("Getting Configurtion");
+WriteLine("Getting Configuration");
 
 ConfigurationBuilder configuration = new();
 configuration.SetBasePath(Directory.GetCurrentDirectory())

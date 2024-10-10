@@ -1,16 +1,15 @@
-﻿using System;
+﻿using ConAppsExercises.Models;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.Data;
-using System.Threading.Tasks;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Text.Json;
-using ConAppsExercises.Models;
+using System.Threading.Tasks;
 
 using static System.Console;
-using Microsoft.Identity.Client;
-using Microsoft.Extensions.Configuration;
 
 namespace ConAppsExercises;
 
@@ -130,7 +129,7 @@ class Program
         return count;
     }
 
-    private static IEnumerable<string> stringSplitByMaxInt(string s)
+    private static IEnumerable<string> StringSplitByMaxInt(string s)
     {
         var partLength = int.MaxValue;
         for (var i = 0; i < s.Length; i += partLength)
@@ -207,12 +206,12 @@ class Program
     {
         int numberOfSteps = 8;
         string path = "UDDDUDUU";
-        int result = CountingValleys(numberOfSteps, path);
+        int result = CountingValleys(path);
         WriteLine($"Number of Steps: {numberOfSteps} with the paths: {path}, " +
             $"the number of values is: {result}");
     }
 
-    public static int CountingValleys(int steps, string path) 
+    public static int CountingValleys(string path) 
     {
         //8 steps and path is: DD UUUU DD
         int countOfValleys = 0;
@@ -435,7 +434,7 @@ class Program
     private static void Run2DArray()
     {
         MultiDArray mda = new();
-        mda.RunMultiDArray();
+        MultiDArray.RunMultiDArray();
     }
 
     private static void GetFibonachiSeq(int n)
@@ -499,7 +498,7 @@ class Program
     private static void MyEvents()
     {
         NotificationMethods nm = new();
-        nm._shaw += ShowMethodHandler;
+        nm.Show += ShowMethodHandler;
         nm.Name = "Kris";
     }
 

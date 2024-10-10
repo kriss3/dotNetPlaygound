@@ -1,38 +1,37 @@
 ﻿using static System.Console;
 
-namespace ConAppsExercises
+namespace ConAppsExercises;
+
+public interface IServiceBroker
 {
-    public interface IServiceBroker
-    {
-        void Serve();
-    }
+    void Serve();
+}
 
-    public class ServiceProvider : IServiceBroker
+public class ServiceProvider : IServiceBroker
+{
+    public void Serve()
     {
-        public void Serve()
-        {
-            WriteLine($"Service started ...");
-        }
+        WriteLine($"Service started ...");
     }
+}
 
-    public class ServiceConsumer
+public class ServiceConsumer
+{
+    private IServiceBroker sb;
+    public void Start(IServiceBroker s)
     {
-        private IServiceBroker sb;
-        public void Start(IServiceBroker s)
-        {
-            sb = s;
-            WriteLine("Service Caller");
-            sb.Serve();
-        }
-          
+        sb = s;
+        WriteLine("Service Caller");
+        sb.Serve();
     }
+      
+}
 
-    class MethodInjection
+class MethodInjection
+{
+    public MethodInjection()
     {
-        public MethodInjection()
-        {
-            ServiceConsumer sc = new ServiceConsumer();
-            sc.Start(new ServiceProvider());
-        }
+        ServiceConsumer sc = new ServiceConsumer();
+        sc.Start(new ServiceProvider());
     }
 }

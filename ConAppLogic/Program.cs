@@ -2,40 +2,30 @@
 using ConAppLogic.Extensions;
 using static System.Console;
 
-// See https://aka.ms/new-console-template for more information
-WriteLine("Hello, World!");
 
-Customer cust1 = new()
+namespace ConAppLogic;
+
+public class Program 
 {
-    Id = 1,
-    IsMedical = true,
-    BillingAddress = new Address() { StateCode = "MO" }, 
-    MedicalInfo = new MedicalInformation() { MedicalCard = "PAT123456"}
-};
+    public static void Main() 
+    {
+		WriteLine("Hello, World!");
 
-if (cust1.IsMedical && cust1.ValidatePatientLocation())
-    WriteLine("Customer is from the IN-State");
-else
-    WriteLine("Out-of-State customer");
+		Customer customer1 = new()
+		{
+			Id = 1,
+			IsMedical = true,
+			BillingAddress = new Address() { StateCode = "MO" },
+			MedicalInfo = new MedicalInformation() { MedicalCard = "PAT123456" }
+		};
 
-public class Customer 
-{
-    public int Id { get; set; }
-    public bool IsMedical { get; set; }
-    public MedicalInformation? MedicalInfo { get; set; }
-    public Address? BillingAddress { get; set; }
-}
+		if (customer1.IsMedical && customer1.ValidatePatientLocation())
+			WriteLine("Customer is from the IN-State");
+		else
+			WriteLine("Out-of-State customer");
 
+	}
 
-
-public class Address
-{
-    public string? StateCode { get; set; }
-}
-
-public class MedicalInformation
-{
-    public string? MedicalCard { get; set; }
 }
 
 public readonly struct Option<T>

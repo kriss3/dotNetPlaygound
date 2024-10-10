@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ConAppDu.Persistence.Data;
 
-namespace ConAppDu.Persistance.Data
+internal class DataProvider
 {
-    internal class DataProvider
-    {
-    }
 }

@@ -1,42 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConAppsExercises
+namespace ConAppsExercises;
+
+public class BankAccount(string customerName, double balance)
 {
-    public class BankAccount
+	public string CustomerName { get; set; } = customerName;
+	public double Balance { get; set; } = balance;
+
+	public void Debit(double amount)
     {
-        public string CustomerName { get; set; }
-        public double Balance { get; set; }
-
-        public BankAccount(string customerName, double balance)
+        if (Balance == 0)
         {
-            CustomerName = customerName;
-            Balance = balance;
+            throw new Exception("Balance is 0");
         }
-
-        public void Debit(double amount)
+        if (amount <= 0 || amount > Balance)
         {
-            if (Balance == 0)
-            {
-                throw new Exception("Balance is 0");
-            }
-            if (amount <= 0 || amount > Balance)
-            {
-                throw new ArgumentOutOfRangeException("Amount <=0 or Amount > Balance");
-            }
-            Balance = -amount;
+            throw new ArgumentOutOfRangeException("Amount <=0 or Amount > Balance");
         }
+        Balance = -amount;
+    }
 
-        public void Credit(double amount)
+    public void Credit(double amount)
+    {
+        if (amount <= 0)
         {
-            if (amount <= 0)
-            {
-                throw new ArgumentOutOfRangeException("Amount <= 0");
-            }
-            Balance += amount;
+            throw new ArgumentOutOfRangeException("Amount <= 0");
         }
+        Balance += amount;
     }
 }

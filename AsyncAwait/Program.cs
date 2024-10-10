@@ -1,5 +1,7 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -11,34 +13,26 @@ namespace AsyncAwait;
 
 class Program
 {
-    public static async Task Main(string[] args)
+    public static async Task Main()
     {
-        DoAsync dc = new();
+        DoAsync __ = new();
         //await dc.RunDownloadSync();
 
-        var monkeys = await dc.GetMonkeysAsync();
+        await DoAsync.GetMonkeysAsync();
 
         ReadLine();
     }
 }
 
 
-class DoAsync
+internal class DoAsync
 {
-    public async Task<IEnumerable<Monkey>> GetMonkeysAsync()
+    public static async Task<IEnumerable<Monkey>> GetMonkeysAsync()
     {
-        try
-        {
-            return await LocalData.GetLocalMonkeys();
-        }
-        catch (Exception ex)
-        {
-            WriteLine(ex.Message);
-            return new List<Monkey>();
-        }
-    }
+		return await LocalData.GetLocalMonkeys();
+	}
 
-    public async Task RunDownloadSync()
+    public static async Task RunDownloadSync()
     {
         var sites = PrepData();
 
@@ -67,17 +61,17 @@ class DoAsync
             () => WriteLine($"{wdm.WebsiteUrl} downloaded: {wdm.WebsiteData.Length} characters long."));
     }
 
-    private static IEnumerable<string> PrepData()
+    private static List<string> PrepData()
     {
-        List<string> output = new List<string>
-        {
+        List<string> output =
+        [
             "http://www.yahoo.com",
             "http://www.google.com",
             "http://www.microsoft.com",
             "http://www.cnn.com",
             "http://www.codeproject.com",
             "http://www.stackoverflow.com"
-        };
+        ];
 
         return output;
     }
@@ -87,22 +81,17 @@ public static class LocalData
 {
     public static async ValueTask<IEnumerable<Monkey>> GetLocalMonkeys()
     {
-        HttpClient client = GetLocalClient();
-        static HttpClient GetLocalClient() => new()
-        {
-            BaseAddress = new Uri("https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/monkeydata.json"),
-            DefaultRequestHeaders =
-        {
-            Accept = { new MediaTypeWithQualityHeaderValue("application/json")}
-        }
-        };
+        var baseUrl = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/";
+        var options = new RestClientOptions(baseUrl);
+        var client = new RestClient(options);
+        var request = new RestRequest("monkeydata.json");
 
-        var response = await client.GetAsync(client.BaseAddress);
+        var response = await client.ExecuteAsync<List<Monkey>>(request, default);
 
-        IEnumerable<Monkey> result = new List<Monkey>();
+        IEnumerable<Monkey> result = [];
         if (response.IsSuccessStatusCode) 
         {
-            result = await response.Content.ReadFromJsonAsync<IEnumerable<Monkey>>();
+            result = response.Data;
         }
 
         return result;

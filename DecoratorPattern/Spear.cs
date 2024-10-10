@@ -1,25 +1,24 @@
 ﻿using static System.Console;
 
-namespace DecoratorPattern
+namespace DecoratorPattern;
+
+
+public class Spear : CharacterDecorator
 {
+    private readonly int spearAddedImpactLevel = 50;
 
-    public class Spear : CharacterDecorator
+    public Spear(ICharacter newCharacter) : base(newCharacter)
     {
-        private readonly int spearAddedImpactLevel = 50;
+        WriteLine("Adding Spear");
+    }
 
-        public Spear(ICharacter newCharacter) : base(newCharacter)
-        {
-            WriteLine("Adding Spear");
-        }
+    public override string GetDescription()
+    {
+        return tempCharacter.GetDescription() + ", Spear";
+    }
 
-        public override string GetDescription()
-        {
-            return tempCharacter.GetDescription() + ", Spear";
-        }
-
-        public override int GetImpactLevel()
-        {
-            return tempCharacter.GetImpactLevel() + spearAddedImpactLevel;
-        }
+    public override int GetImpactLevel()
+    {
+        return tempCharacter.GetImpactLevel() + spearAddedImpactLevel;
     }
 }
