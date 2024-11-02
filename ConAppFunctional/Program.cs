@@ -35,7 +35,7 @@ public class ConcreteServiceError(string code, string message) :
 	ServiceError(code, new Exception(message))
 {
 	public override string ErrorType { get; } = "ConcreteServiceError";
-	public override IEnumerable<ErrorCode> ErrorCodes { get; } = new List<ErrorCode>();
+	public override IEnumerable<ErrorCode> ErrorCodes { get; } = [];
 
 	public override T Match<T>(
 		Func<PersistenceDataError, T> persistenceDataError,
