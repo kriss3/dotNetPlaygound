@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Cova.Functional" Version="4.3.2" />
+    <PackageReference Include="Cova.ServiceErrors" Version="3.0.2" />
+  </ItemGroup>
+
 </Project>
