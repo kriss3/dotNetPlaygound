@@ -1,9 +1,13 @@
-﻿namespace ConAppFunctional;
+﻿
+using static System.Console;
 
-internal class Program
+namespace ConAppFunctional;
+
+public class Program
 {
-	static void Main(string[] args)
+	static async Task Main()
 	{
-		Console.WriteLine("Hello, World!");
+		await Task.CompletedTask;
+		WriteLine("Hello, World!");
 	}
 }
