@@ -27,8 +27,13 @@ public class Program
 		await Task.Delay(2000);
 		//Error
 		return Result.Failure<int, ServiceError>(new ConcreteServiceError("Error", "Error message"));
-
 	}
+
+	//Simple division function that returns a Result (either success or failure)
+	//This is one way of returning two different types from a function: string or int
+	Result<int, string> Divide(int x, int y) => y == 0
+	? Result.Failure<int, string>("Division by zero")
+	: Result.Success<int, string>(x / y);
 }
 
 public class ConcreteServiceError(string code, string message) : 
@@ -51,3 +56,7 @@ public class ConcreteServiceError(string code, string message) :
 	}
 
 }
+
+//playing with Result, Bind, BindToFailure and Success
+
+
