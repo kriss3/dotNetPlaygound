@@ -11,6 +11,13 @@ public class Program
 	{
 		await Task.CompletedTask;
 		WriteLine("Let's play with CS Functional!");
+
+		var result = Divide(10, 2)
+			.Bind(MultiplyByTwo).Match(
+				success: value => $"Result: {value}",
+				failure: error => $"Error: {error}"
+			);
+		WriteLine(result);
 	}
 
 	static async Task<Result<int, ServiceError>> PerformanceOperationAsync() 
@@ -29,12 +36,20 @@ public class Program
 		return Result.Failure<int, ServiceError>(new ConcreteServiceError("Error", "Error message"));
 	}
 
+	//Playing with Result, Bind, BindToFailure and Success
 	//Simple division function that returns a Result (either success or failure)
 	//This is one way of returning two different types from a function: string or int
-	Result<int, string> Divide(int x, int y) => y == 0
+	//Once function is declared it is ready to be used.
+	static Result<int, string> Divide(int x, int y) => y == 0
 	? Result.Failure<int, string>("Division by zero")
 	: Result.Success<int, string>(x / y);
+
+	//This is a second function that returns a Result (either success or failure)
+	static Result<int, string> MultiplyByTwo(int number) => 
+		Result.Success<int, string>(number * 2);
+
 }
+
 
 public class ConcreteServiceError(string code, string message) : 
 	ServiceError(code, new Exception(message))
@@ -56,7 +71,3 @@ public class ConcreteServiceError(string code, string message) :
 	}
 
 }
-
-//playing with Result, Bind, BindToFailure and Success
-
-
