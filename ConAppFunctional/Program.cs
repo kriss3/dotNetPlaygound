@@ -1,6 +1,7 @@
 ﻿
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
+using System.Reflection.Metadata;
 using static System.Console;
 
 namespace ConAppFunctional;
@@ -18,6 +19,11 @@ public class Program
 				failure: error => $"Error: {error}"
 			);
 		WriteLine(result);
+
+		// Handles the failure by returning a default success value
+		var result_v2 = Divide(10, 0)
+			.BindFailure(error => Result.Success<int, string>(-1));
+		WriteLine(result_v2);
 	}
 
 	static async Task<Result<int, ServiceError>> PerformanceOperationAsync() 
@@ -48,6 +54,11 @@ public class Program
 	static Result<int, string> MultiplyByTwo(int number) => 
 		Result.Success<int, string>(number * 2);
 
+	static Result<int, string> Divide_v2(int x, int y) => y == 0
+		? Result.Failure<int, string>("Division by zero")
+		: Result.Success<int, string>(x / y);
+	
+	
 }
 
 
