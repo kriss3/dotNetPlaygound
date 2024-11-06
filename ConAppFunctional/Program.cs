@@ -31,6 +31,15 @@ public class Program
 		//If the Result is successful, it skips this function.
 		var result_v3 = Divide(10, 0)
 			.MapFailure(error => "Division by zero");
+
+		var result_v4 = Divide(10, 0)
+			.MapFailure(error => "Division by zero in _v4")
+			.Match(
+				success: value => $"Result: {value}",
+				failure: error => $"Error: {error}"
+			);
+		WriteLine(result_v4);
+
 	}
 
 	static async Task<Result<int, ServiceError>> PerformanceOperationAsync() 
