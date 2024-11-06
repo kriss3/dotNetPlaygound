@@ -47,6 +47,15 @@ public class Program
 		Divide(10, 0)
 			.DoOnFailure(error => WriteLine($"Failed with error: {error} in _v5"));
 
+		//Recover allows you to specify a fallback success value if a failure occurs.
+		//If the Result is a success, it skips Recover. // need to figure out what is different between C.Functional and Functional.All.
+		var result_v6 = Divide(10, 0)
+			.Recover(() => 0)
+			.Match(
+				success: value => $"Result: {value}",
+				failure: error => $"Error: {error}"
+			);
+
 	}
 
 	static async Task<Result<int, ServiceError>> PerformanceOperationAsync() 
