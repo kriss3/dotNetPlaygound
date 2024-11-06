@@ -1,6 +1,7 @@
 ﻿
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
+using System.Drawing;
 using System.Reflection.Metadata;
 using static System.Console;
 
@@ -39,6 +40,12 @@ public class Program
 				failure: error => $"Error: {error}"
 			);
 		WriteLine(result_v4);
+
+		// DoOnFailure function
+		// DoOnFailure allows you to execute a side effect when a failure occurs.
+		// It doesn’t transform the Result; instead, it’s often used for logging or debugging purposes.
+		Divide(10, 0)
+			.DoOnFailure(error => WriteLine($"Failed with error: {error} in _v5"));
 
 	}
 
