@@ -24,6 +24,13 @@ public class Program
 		var result_v2 = Divide(10, 0)
 			.BindFailure(error => Result.Success<int, string>(-1));
 		WriteLine(result_v2);
+
+		// What about MapFailure function?
+		//MapFailure transforms the failure value (TFailure) to a different type,
+		//allowing you to adapt the error for specific cases or add more context to it.
+		//If the Result is successful, it skips this function.
+		var result_v3 = Divide(10, 0)
+			.MapFailure(error => "Division by zero");
 	}
 
 	static async Task<Result<int, ServiceError>> PerformanceOperationAsync() 
@@ -57,8 +64,6 @@ public class Program
 	static Result<int, string> Divide_v2(int x, int y) => y == 0
 		? Result.Failure<int, string>("Division by zero")
 		: Result.Success<int, string>(x / y);
-	
-	
 }
 
 
