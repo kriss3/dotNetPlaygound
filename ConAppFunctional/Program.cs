@@ -2,6 +2,7 @@
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
 using System.Drawing;
+using System.IO;
 using System.Reflection.Metadata;
 using static System.Console;
 
@@ -47,15 +48,32 @@ public class Program
 		Divide(10, 0)
 			.DoOnFailure(error => WriteLine($"Failed with error: {error} in _v5"));
 
-		//Recover allows you to specify a fallback success value if a failure occurs.
-		//If the Result is a success, it skips Recover. // need to figure out what is different between C.Functional and Functional.All.
-		var result_v6 = Divide(10, 0)
-			.Recover(() => 0)
-			.Match(
-				success: value => $"Result: {value}",
-				failure: error => $"Error: {error}"
-			);
+		// Playing with Map again:
+		// Use Map when you have a Result<TSuccess, TFailure> and want to change the TSuccess type,
+		// or transform the TSuccess value, while keeping the Result as a success or failure.
+		// Map operates only on the success path(or with MapFailure on the failure path)
+		// but does not handle chaining a new Result.
 
+
+	}
+
+	public async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
+	{
+		try
+		{
+			// Simulate an async operation
+			await Task.Delay(1000);
+
+			// Example of creating a successful result
+			var strain = new Strain { Id = id, Name = "Example Strain" };
+			return Result.Success<Strain, ServiceError>(strain);
+		}
+		catch (Exception ex)
+		{
+			// Example of creating a failure result
+			var error = new ConcreteServiceError("FetchError", ex.Message);
+			return Result.Failure<Strain, ServiceError>(error);
+		}
 	}
 
 	static async Task<Result<int, ServiceError>> PerformanceOperationAsync() 
