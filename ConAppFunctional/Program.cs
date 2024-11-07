@@ -108,6 +108,25 @@ public class Program
 	static Result<int, string> Divide_v2(int x, int y) => y == 0
 		? Result.Failure<int, string>("Division by zero")
 		: Result.Success<int, string>(x / y);
+
+	public Result<ProcessedStrain, ServiceError> ProcessStrain(Strain strain)
+	{
+		if (string.IsNullOrEmpty(strain.Id) || string.IsNullOrEmpty(strain.Name))
+		{
+			return Result.Failure<ProcessedStrain, ServiceError>(
+				new ConcreteServiceError("InvalidStrain", "Strain ID or Name is missing"));
+		}
+
+		var processedStrain = new ProcessedStrain
+		{
+			// Assuming ProcessedStrain has similar properties to Strain
+			Id = strain.Id,
+			Name = strain.Name,
+			Description = strain.Description + " - Processed"
+		};
+
+		return Result.Success<ProcessedStrain, ServiceError>(processedStrain);
+	}
 }
 
 
