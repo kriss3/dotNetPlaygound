@@ -53,11 +53,12 @@ public class Program
 		// or transform the TSuccess value, while keeping the Result as a success or failure.
 		// Map operates only on the success path(or with MapFailure on the failure path)
 		// but does not handle chaining a new Result.
-
+		var result_v6 = await FetchStrainAsync("some-id")
+			.Map(strain => strain.WithAdditionalInfo("Extra Info")); // Transforms the Strain only if success
 
 	}
 
-	public async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
+	public static async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
 	{
 		try
 		{
@@ -129,4 +130,12 @@ public class ConcreteServiceError(string code, string message) :
 		throw new NotImplementedException();
 	}
 
+}
+public static class StrainExtensions
+{
+	public static Strain WithAdditionalInfo(this Strain strain, string additionalInfo)
+	{
+		strain.Description = additionalInfo;
+		return strain;
+	}
 }
