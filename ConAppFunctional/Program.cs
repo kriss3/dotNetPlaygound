@@ -56,6 +56,7 @@ public class Program
 		var result_v6 = await FetchStrainAsync("some-id")
 			.Map(strain => strain.WithAdditionalInfo("Extra Info")); // Transforms the Strain only if success
 
+		// Chain only if FetchStrainAsync succeeds
 		var result_v7 = await FetchStrainAsync("some-id")
 			.Bind<Strain, ServiceError, ProcessedStrain>(static strain =>
 				ProcessStrain(strain));
