@@ -56,6 +56,10 @@ public class Program
 		var result_v6 = await FetchStrainAsync("some-id")
 			.Map(strain => strain.WithAdditionalInfo("Extra Info")); // Transforms the Strain only if success
 
+		var result_v7 = await FetchStrainAsync("some-id")
+			.Bind<Strain, ServiceError, ProcessedStrain>(static strain =>
+				ProcessStrain(strain));
+
 	}
 
 	public static async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
@@ -109,7 +113,7 @@ public class Program
 		? Result.Failure<int, string>("Division by zero")
 		: Result.Success<int, string>(x / y);
 
-	public Result<ProcessedStrain, ServiceError> ProcessStrain(Strain strain)
+	static Result<ProcessedStrain, ServiceError> ProcessStrain(Strain strain)
 	{
 		if (string.IsNullOrEmpty(strain.Id) || string.IsNullOrEmpty(strain.Name))
 		{
