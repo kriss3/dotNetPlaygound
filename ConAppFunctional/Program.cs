@@ -63,8 +63,8 @@ public class Program
 
 		var result_v8 = await FetchStrainAsync("some-id")
 			.Map(strain => strain.WithAdditionalInfo("Extra Info")) // Map to add info if successful
-			.Bind(strain => Task.FromResult(ProcessStrain(strain)))  // Bind to process strain if success
-			.Map(processedStrain => processedStrain.Finalize());    // Map to finalize processed strain
+			.Bind(strain => (ProcessStrain(strain))) // Bind to process strain if success
+			.Match(success: (strain) => strain, failure: (error) => default(ProcessedStrain));
 
 	}
 
