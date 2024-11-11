@@ -90,6 +90,10 @@ public class Program
 
 	}
 
+	Option<double> GetSquareRoot(int x) => x >= 0 ? 
+		Option.Some(Math.Sqrt(x)) 
+		: Option.None<double>();
+
 	public static Option<int> CheckIfPositive(int x) => x > 0 
 		? Option.Some(x) 
 		: Option.None<int>();
