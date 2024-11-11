@@ -73,7 +73,26 @@ public class Program
 		Option<int> doubledNumber = maybeNumber.Map(number => number * 2); // Some(10)
 		Option<int> noDoubledNumber = noNumber.Map(number => number * 2); // None
 
+		// Start with Option.Some
+		Option<int> maybeANumber = Option.Some(5);
+		Option<int> result_8 = maybeANumber
+			.Bind(CheckIfPositive);  // Result: Option.Some(5)
+
+		// Option.None
+		Option<int> notANumber = Option.None<int>();
+		Option<int> resultNone = notANumber
+			.Bind(CheckIfPositive); // Result: Option.None<int>
+
+		// With a negative number
+		Option<int> negativeNumber = Option.Some(-3);
+		Option<int> resultNegative = negativeNumber
+			.Bind(CheckIfPositive); // Result: Option.None<int>
+
 	}
+
+	public static Option<int> CheckIfPositive(int x) => x > 0 
+		? Option.Some(x) 
+		: Option.None<int>();
 
 	public static async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
 	{
