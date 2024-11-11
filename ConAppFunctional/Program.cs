@@ -66,6 +66,13 @@ public class Program
 			.Bind(strain => (ProcessStrain(strain))) // Bind to process strain if success
 			.Match(success: (strain) => strain, failure: (error) => default(ProcessedStrain));
 
+		// Continue discoverhing Result with Map and Bind:
+		Option<int> maybeNumber = Option.Some(5);
+		Option<int> noNumber = Option.None<int>();
+
+		Option<int> doubledNumber = maybeNumber.Map(number => number * 2); // Some(10)
+		Option<int> noDoubledNumber = noNumber.Map(number => number * 2); // None
+
 	}
 
 	public static async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
