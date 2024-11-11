@@ -88,17 +88,24 @@ public class Program
 		Option<int> resultNegative = negativeNumber
 			.Bind(CheckIfPositive); // Result: Option.None<int>
 
+
+		// Chaining using Bind
+		Option<int> maybeSomeNewNumber = Option.Some(16);
+		Option<double> result_9 = maybeSomeNewNumber
+			.Bind(CheckIfPositive)       // Checks if positive
+			.Bind(GetSquareRoot);        // Gets the square root if positive
+
 	}
 
-	Option<double> GetSquareRoot(int x) => x >= 0 ? 
+	static Option<double> GetSquareRoot(int x) => x >= 0 ? 
 		Option.Some(Math.Sqrt(x)) 
 		: Option.None<double>();
 
-	public static Option<int> CheckIfPositive(int x) => x > 0 
+	static Option<int> CheckIfPositive(int x) => x > 0 
 		? Option.Some(x) 
 		: Option.None<int>();
 
-	public static async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
+	static async Task<Result<Strain, ServiceError>> FetchStrainAsync(string id)
 	{
 		try
 		{
