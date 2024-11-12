@@ -97,6 +97,12 @@ public class Program
 
 	}
 
+	static void DisplayDefault<T>() 
+	{
+		var val = default(T);
+	
+	}
+
 	static Option<double> GetSquareRoot(int x) => x >= 0 ? 
 		Option.Some(Math.Sqrt(x)) 
 		: Option.None<double>();
