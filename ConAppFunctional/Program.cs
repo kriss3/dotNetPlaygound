@@ -97,6 +97,12 @@ public class Program
 
 		// Make a call to the default Type value check.
 		DisplayDefault<int>();
+		DisplayDefault<int?>();
+		DisplayDefault<string>();
+		DisplayDefault<Point>();
+		DisplayDefault<Decimal>();
+		DisplayDefault<bool>();
+		DisplayDefault<object>();	
 
 	}
 
