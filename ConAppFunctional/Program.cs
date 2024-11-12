@@ -95,12 +95,17 @@ public class Program
 			.Bind(CheckIfPositive)       // Checks if positive
 			.Bind(GetSquareRoot);        // Gets the square root if positive
 
+		// Make a call to the default Type value check.
+		DisplayDefault<int>();
+
 	}
 
 	static void DisplayDefault<T>() 
 	{
 		var val = default(T);
-	
+		WriteLine($"Default value of {typeof(T)} is {(val == null 
+			? "null" 
+			: val.ToString())}");
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 ? 
