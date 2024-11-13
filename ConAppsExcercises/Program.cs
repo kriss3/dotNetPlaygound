@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -58,15 +59,36 @@ class Program
         //await LongProcess();
         //CountNumberOfValleys();
         //JumpOverThunderHeads();
-        FindNumberOfAsInAString();
+        //FindNumberOfAsInAString();
         //PrintFactorial();
         //MinStepsToEqualizeIntArray();
+        ShowDefaultsForTypes();
 
         ReadLine();
         return Task.CompletedTask;
     }
 
-    private static void FindNumberOfAsInAString()
+	private static void ShowDefaultsForTypes()
+	{
+		// Make a call to the default Type value check.
+		DisplayDefault<int>();
+		DisplayDefault<int?>();
+		DisplayDefault<string>();
+		DisplayDefault<Point>();
+		DisplayDefault<decimal>();
+		DisplayDefault<bool>();
+		DisplayDefault<object>();
+	}
+
+	static void DisplayDefault<T>()
+	{
+		var val = default(T);
+		WriteLine($"Default value of {typeof(T)} is {(val == null
+			? "null"
+			: val.ToString())}");
+	}
+
+	private static void FindNumberOfAsInAString()
     {
         //var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
         long n = 2000000000;  //2147483646
