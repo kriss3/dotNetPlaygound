@@ -100,7 +100,7 @@ public class Program
 		DisplayDefault<int?>();
 		DisplayDefault<string>();
 		DisplayDefault<Point>();
-		DisplayDefault<Decimal>();
+		DisplayDefault<decimal>();
 		DisplayDefault<bool>();
 		DisplayDefault<object>();	
 
