@@ -92,13 +92,25 @@ public class Program
 		// Chaining using Bind
 		Option<int> maybeSomeNewNumber = Option.Some(16);
 		Option<double> result_9 = maybeSomeNewNumber
-			.Bind(CheckIfPositive)       // Checks if positive
-			.Bind(GetSquareRoot);        // Gets the square root if positive
+			.Bind(CheckIfPositive)		// Checks if positive
+			.Bind(GetSquareRoot);       // Gets the square root if positive
+
+		// Starting with Option.None
+		Option<int> noANumber = Option.None<int>();
+		Option<double> resultOfNone = noNumber
+			.Bind(CheckIfPositive)
+			.Bind(GetSquareRoot);        // Result: Option.None<double>
+
+		// With a negative number
+		Option<int> negativeANumber = Option.Some(-9);
+		Option<double> resultANegative = negativeNumber
+			.Bind(CheckIfPositive)       // Fails at this step, so resultNegative is Option.None
+			.Bind(GetSquareRoot);
 
 	}
 
-	static Option<double> GetSquareRoot(int x) => x >= 0 ? 
-		Option.Some(Math.Sqrt(x)) 
+	static Option<double> GetSquareRoot(int x) => x >= 0 
+		? Option.Some(Math.Sqrt(x)) 
 		: Option.None<double>();
 
 	static Option<int> CheckIfPositive(int x) => x > 0 
