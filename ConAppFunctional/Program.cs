@@ -1,6 +1,7 @@
 ﻿
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Reflection.Metadata;
@@ -106,6 +107,11 @@ public class Program
 		Option<double> resultANegative = negativeNumber
 			.Bind(CheckIfPositive)       // Fails at this step, so resultNegative is Option.None
 			.Bind(GetSquareRoot);
+
+		// To Recap:
+		// Map returns a monad by wrapping the transformed result back into the same monadic structure.
+		// Bind expects the function itself to return a monad and avoids additional wrapping,
+		// preserving the single monadic structure.
 
 	}
 
