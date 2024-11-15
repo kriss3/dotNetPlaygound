@@ -14,3 +14,9 @@ public class UserWelcome
 
 
 }
+
+public record User
+{
+	public string? Name { get; init; }
+	public int Age { get; init; }
+}
