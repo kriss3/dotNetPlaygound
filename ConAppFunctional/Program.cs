@@ -4,6 +4,7 @@ using Cova.ServiceErrors.Errors;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection.Metadata;
 using static System.Console;
 
@@ -118,6 +119,14 @@ public class Program
 		UserWelcome userWelcome = new();
 		Result<User, string> result_v10 = userWelcome.FetchUserData(1);
 
+		// Use Map to transform the User object to a string
+		Result<string, string> formattedResult = result_v10
+			.Map(user => $"Name: {user.Name}, Age: {user.Age}");
+
+		WriteLine(formattedResult.Match(
+			success => success,
+			failure => $"Error: {failure}"
+		));
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
