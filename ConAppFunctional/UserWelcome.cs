@@ -20,9 +20,6 @@ public class UserWelcome
 		else
 			return Result.Failure<User, string>("Unexpected error occurred.");
 	}
-
-
-
 }
 
 public record User

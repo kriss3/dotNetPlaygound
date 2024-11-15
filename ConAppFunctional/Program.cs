@@ -113,6 +113,11 @@ public class Program
 		// Bind expects the function itself to return a monad and avoids additional wrapping,
 		// preserving the single monadic structure.
 
+
+		// This will be a successful result with user "Alice"
+		UserWelcome userWelcome = new();
+		Result<User, string> result_v10 = userWelcome.FetchUserData(1);
+
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
