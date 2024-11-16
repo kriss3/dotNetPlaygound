@@ -141,6 +141,10 @@ public class Program
 			failure => failure
 		));
 
+		// Combina map and mapFailure:
+		int userId = 2; // Trying with userId that will cause a failure
+		Result<User, string> result_12 = userWelcome.FetchUserData(userId);
+
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
