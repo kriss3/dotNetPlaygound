@@ -150,6 +150,10 @@ public class Program
 			.Map(user => $"Welcome, {user.Name}! You are {user.Age} years old.")
 			.MapFailure(error => $"Error occurred while fetching user data: {error}");
 
+		// Output: "Error occurred while fetching user data: User not found."
+		WriteLine(finalResult.Match(
+			success => success,
+			failure => failure));
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
