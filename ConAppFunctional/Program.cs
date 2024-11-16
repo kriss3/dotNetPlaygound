@@ -135,6 +135,12 @@ public class Program
 		// Use MapFailure to add more context to the error message
 		Result<User, string> detailedError = result_11.MapFailure(error => $"Fetch failed: {error}");
 
+		// Output: "Fetch failed: User not found."
+		WriteLine(detailedError.Match(
+			success => $"Fetched User: {success.Name}",
+			failure => failure
+		));
+
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
