@@ -145,6 +145,11 @@ public class Program
 		int userId = 2; // Trying with userId that will cause a failure
 		Result<User, string> result_12 = userWelcome.FetchUserData(userId);
 
+		// Chain Map and MapFailure to handle both success and failure cases
+		Result<string, string> finalResult = result_12
+			.Map(user => $"Welcome, {user.Name}! You are {user.Age} years old.")
+			.MapFailure(error => $"Error occurred while fetching user data: {error}");
+
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
