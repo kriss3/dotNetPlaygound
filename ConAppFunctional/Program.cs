@@ -132,6 +132,9 @@ public class Program
 		// Let's create mapFailure:
 		Result<User, string> result_11 = userWelcome.FetchUserData(2);
 
+		// Use MapFailure to add more context to the error message
+		Result<User, string> detailedError = result_11.MapFailure(error => $"Fetch failed: {error}");
+
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
