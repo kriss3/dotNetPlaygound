@@ -127,6 +127,11 @@ public class Program
 			success => success,
 			failure => $"Error: {failure}"
 		));
+
+		// Map Failure:
+		// Let's create mapFailure:
+		Result<User, string> result_11 = userWelcome.FetchUserData(2);
+
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
