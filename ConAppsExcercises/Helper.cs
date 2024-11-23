@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -103,7 +103,7 @@ public class Helper
         return stringBuilder.ToString();
     }
 
-    public IList<int> ArrayGames()
+    public static IList<int> ArrayGames()
     {
         int[] result = [1, 4, 9, 16, 25];
 
@@ -223,7 +223,7 @@ public class Helper
 
     public static IEnumerable<string> StringsArrays()
     {
-        IList<String> myStrings = new List<string>();
+        IList<String> myStrings = [];
         //string[] myArr = { "a","e","i","o","u","y"};
         var t = "aeiouy";
         var res = t.ToCharArray();
@@ -272,7 +272,7 @@ public class Helper
 
     public static IEnumerable<string> GetAllItems()
     {
-        List<string> result = new();
+        List<string> result = [];
         using (SqlConnection conn = new(GetConnectionString()))
         {
             SqlCommand cmd = new("dbo.getItems", conn)
