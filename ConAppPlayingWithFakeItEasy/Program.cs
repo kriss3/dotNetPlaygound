@@ -1,9 +1,14 @@
-﻿namespace ConAppPlayingWithFakeItEasy;
+﻿using static System.Console;
 
-internal class Program
+namespace ConAppPlayingWithFakeItEasy;
+
+public class Program
 {
-	static void Main(string[] args)
+	static async Task Main()
 	{
-		Console.WriteLine("Hello, World!");
+		await Task.Run(() =>
+		{
+			WriteLine("Welcome to a Fake World!");
+		});
 	}
 }
