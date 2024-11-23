@@ -2,7 +2,7 @@
   <Import Project="..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.props')" />
   <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.props')" />
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -19,7 +19,7 @@
     <PackageReference Include="xunit.extensibility.execution" Version="2.9.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConAppsExcercises\ConAppsExcercises.csproj" />
+    <ProjectReference Include="..\ConAppsExcercises\ConAppsExercises.csproj" />
   </ItemGroup>
   <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" />
 </Project>
