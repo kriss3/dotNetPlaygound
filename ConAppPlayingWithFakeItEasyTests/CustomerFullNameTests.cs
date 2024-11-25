@@ -92,4 +92,21 @@ public class CustomerFullNameTests
 
 		Assert.Equal(expected, actual);
 	}
+
+	[Theory]
+	[InlineAutoData(22, true)]
+	[InlineAutoData(40, true)]
+	[InlineAutoData(21, false)]
+	[InlineAutoData(11, false)]
+	public void ForCustomerWithAddressShippingCondition(
+		int age,
+		bool expected,
+		CustomerWithAddress customer,
+		CustomerShippingCondition sut) 
+	{
+		customer.Age = age;
+		var actual = sut.Check(customer);
+
+		Assert.Equal(expected, actual);
+	}
 }
