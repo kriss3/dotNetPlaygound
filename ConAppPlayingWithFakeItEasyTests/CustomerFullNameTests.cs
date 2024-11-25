@@ -104,6 +104,27 @@ public class CustomerFullNameTests
 		CustomerWithAddress customer,
 		CustomerShippingCondition sut) 
 	{
+
+		Assert.True(customer.AddressList.Any());
+		customer.Age = age;
+		var actual = sut.Check(customer);
+
+		Assert.Equal(expected, actual);
+	}
+
+	[Theory]
+	[InlineAutoData(22, true)]
+	[InlineAutoData(40, true)]
+	[InlineAutoData(21, false)]
+	[InlineAutoData(11, false)]
+	public void ForCustomerWithoutAddressShippingCondition_v2(
+		int age,
+		bool expected,
+		CustomerWithAddress customer,
+		CustomerShippingCondition sut)
+	{
+
+		Assert.True(customer.AddressList.Any());
 		customer.Age = age;
 		var actual = sut.Check(customer);
 
