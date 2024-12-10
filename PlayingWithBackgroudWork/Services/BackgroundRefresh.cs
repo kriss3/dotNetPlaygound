@@ -19,11 +19,12 @@ public class BackgroundRefresh(SampleData data) : IHostedService, IDisposable
 
 	public Task StopAsync(CancellationToken cancellationToken)
 	{
-		throw new NotImplementedException();
+		_timer?.Change(Timeout.Infinite, 0);
+		return Task.CompletedTask;
 	}
 
 	public void Dispose()
 	{
-		throw new NotImplementedException();
+		_timer?.Dispose();
 	}
 }
