@@ -8,6 +8,7 @@ public class BackgroundController(SampleData data) : ControllerBase
 	private readonly SampleData _data = data;
 
 	[HttpGet]
+	[Route("messages")]
 	public IActionResult Get()
 	{
 		return Ok(_data.Data.Order());

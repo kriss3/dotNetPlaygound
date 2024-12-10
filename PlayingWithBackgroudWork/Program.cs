@@ -13,10 +13,7 @@ public class Program
 
 		builder.Services.AddControllers();
 		builder.Services.AddOpenApi();
-		builder.Services.AddSwaggerGen(c => // Add this configuration
-		{
-			c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-		});
+		builder.Services.AddSwaggerGen();
 		builder.Services.AddSingleton<SampleData>();
 		builder.Services.AddHostedService<BackgroundRefresh>();
 
@@ -25,7 +22,7 @@ public class Program
 		if (app.Environment.IsDevelopment())
 		{
 			app.MapOpenApi();
-			app.UseSwagger();
+			app.UseSwaggerUI();
 		}
 
 		app.UseHttpsRedirection();
