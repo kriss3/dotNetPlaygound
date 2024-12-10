@@ -1,4 +1,4 @@
-namespace WebAppPlayingWithBackgroudWork;
+namespace PlayingWithBackgroudWork.Models;
 
 public class WeatherForecast
 {
