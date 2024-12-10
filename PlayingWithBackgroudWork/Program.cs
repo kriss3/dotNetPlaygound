@@ -1,4 +1,6 @@
 
+using PlayingWithBackgroudWork;
+
 namespace WebAppPlayingWithBackgroudWork;
 
 public class Program
@@ -9,6 +11,7 @@ public class Program
 
 		builder.Services.AddControllers();
 		builder.Services.AddOpenApi();
+		builder.Services.AddSingleton<SampleData>();
 
 		var app = builder.Build();
 
