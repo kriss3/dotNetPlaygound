@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithFakeItEasy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithFakeItEasyTests", "ConAppPlayingWithFakeItEasyTests\ConAppPlayingWithFakeItEasyTests.csproj", "{D399BB18-A145-4A33-9CAA-7CA50B5DC614}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithBackgroudWork", "PlayingWithBackgroudWork\PlayingWithBackgroudWork.csproj", "{7C57E694-2A82-43D7-ABC1-395978F25C39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +199,10 @@ Global
 		{D399BB18-A145-4A33-9CAA-7CA50B5DC614}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D399BB18-A145-4A33-9CAA-7CA50B5DC614}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D399BB18-A145-4A33-9CAA-7CA50B5DC614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C57E694-2A82-43D7-ABC1-395978F25C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C57E694-2A82-43D7-ABC1-395978F25C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C57E694-2A82-43D7-ABC1-395978F25C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C57E694-2A82-43D7-ABC1-395978F25C39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -233,6 +239,7 @@ Global
 		{558C3BDD-3392-46F4-8DC0-0641013A7C30} = {4039B2F5-C454-46F9-B32F-D919F2D0DAC6}
 		{A14B67D1-24D2-4CA7-9DAC-C48B4CBFEC81} = {4039B2F5-C454-46F9-B32F-D919F2D0DAC6}
 		{D399BB18-A145-4A33-9CAA-7CA50B5DC614} = {4039B2F5-C454-46F9-B32F-D919F2D0DAC6}
+		{7C57E694-2A82-43D7-ABC1-395978F25C39} = {4039B2F5-C454-46F9-B32F-D919F2D0DAC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FFE1B78-0DB7-4F9A-9E29-D3C224DE2204}
