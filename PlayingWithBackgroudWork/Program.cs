@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Models;
 using PlayingWithBackgroudWork;
 using PlayingWithBackgroudWork.Services;
 
-namespace WebAppPlayingWithBackgroudWork;
+namespace PlayingWithBackgroudWork;
 
 public class Program
 {

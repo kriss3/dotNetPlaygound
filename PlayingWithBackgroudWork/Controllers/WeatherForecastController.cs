@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PlayingWithBackgroudWork.Models;
 
-namespace WebAppPlayingWithBackgroudWork.Controllers;
+namespace PlayingWithBackgroudWork.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
