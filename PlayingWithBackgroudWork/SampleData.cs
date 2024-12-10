@@ -2,4 +2,7 @@
 
 namespace PlayingWithBackgroudWork;
 
-public record SampleData(ConcurrentBag<string> Data);
+public record SampleData 
+{
+	public ConcurrentBag<string> Data { get; init; } = [];
+}
