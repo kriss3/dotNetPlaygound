@@ -7,9 +7,9 @@ namespace PlayingWithBackgroudWork;
 
 public class Program
 {
-	public static void Main(string[] args)
+	public static void Main()
 	{
-		var builder = WebApplication.CreateBuilder(args);
+		var builder = WebApplication.CreateBuilder();
 
 		builder.Services.AddControllers();
 		builder.Services.AddOpenApi();
