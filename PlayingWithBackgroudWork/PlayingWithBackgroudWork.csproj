@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
+
+    <ContainerEnable>true</ContainerEnable>
+    <ContainerRepository>kriss3/BackgroundWorkApi_1</ContainerRepository>
+    <ContainerRegistry>docker.io</ContainerRegistry>
+    <ContainerImageTag>latest</ContainerImageTag>
+    <PublishProfile>DefaultContainer</PublishProfile>
+
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject></StartupObject>

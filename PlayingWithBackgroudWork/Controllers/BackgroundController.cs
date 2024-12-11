@@ -11,6 +11,6 @@ public class BackgroundController(SampleData data) : ControllerBase
 	[Route("messages")]
 	public IActionResult Get()
 	{
-		return Ok(_data.Data.Order());
+		return Ok(_data.Data.OrderBy(r => r));
 	}
 }
