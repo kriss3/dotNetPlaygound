@@ -89,7 +89,7 @@ public static class LocalData
         var response = await client.ExecuteAsync<List<Monkey>>(request, default);
 
         IEnumerable<Monkey> result = [];
-        if (response.IsSuccessStatusCode) 
+        if (response.IsSuccessful) 
         {
             result = response.Data;
         }

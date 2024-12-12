@@ -60,6 +60,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithRefit", "ConAppPlayingWithRefit\ConAppPlayingWithRefit.csproj", "{342E4BDE-DDE2-4C52-9A98-8EB626124986}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4039B2F5-C454-46F9-B32F-D919F2D0DAC6}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppFunctional", "ConAppFunctional\ConAppFunctional.csproj", "{558C3BDD-3392-46F4-8DC0-0641013A7C30}"
 EndProject
@@ -68,11 +71,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithFakeItEasyTests", "ConAppPlayingWithFakeItEasyTests\ConAppPlayingWithFakeItEasyTests.csproj", "{D399BB18-A145-4A33-9CAA-7CA50B5DC614}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithBackgroudWork", "PlayingWithBackgroudWork\PlayingWithBackgroudWork.csproj", "{7C57E694-2A82-43D7-ABC1-395978F25C39}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{86A36DCB-A9C6-4C00-88F8-7E367001D300}"
-	ProjectSection(SolutionItems) = preProject
-		Directory.Packages.props = Directory.Packages.props
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
