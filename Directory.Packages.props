@@ -26,7 +26,30 @@
 	<PackageVersion Include="Cova.Functional" Version="4.5.0" />
 	<PackageVersion Include="Cova.ServiceErrors" Version="4.5.0" />
 	<PackageVersion Include="Ardalis.GuardClauses" Version="5.0.0" />
-
-    
+	<PackageVersion Include="Microsoft.Extensions.Hosting.WindowsServices" Version="9.0.0" />
+	<PackageVersion Include="xunit.core" Version="2.9.2" />
+	<PackageVersion Include="xunit.abstractions" Version="2.0.3" />
+	<PackageVersion Include="xunit.assert" Version="2.9.2" />
+	<PackageVersion Include="xunit" Version="2.9.2" />
+	<PackageVersion Include="xunit.analyzers" Version="1.17.0" />
+	<PackageVersion Include="xunit.extensibility.core" Version="2.9.2" />
+	<PackageVersion Include="xunit.extensibility.execution" Version="2.9.2" />
+	<PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.0" />
+	<PackageVersion Include="StackExchange.Redis" Version="2.8.22" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+	<PackageVersion Include="LanguageExt.Core" Version="4.4.9" />
+	<PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.18.2" />
+	<PackageVersion Include="FluentAssertions" Version="7.0.0" />
+	<PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
+	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+	<PackageVersion Include="System.Net.Http" Version="4.3.4" />
+	<PackageVersion Include="coverlet.collector" Version="6.0.2" />
+	<PackageVersion Include="AutoFixture" Version="4.18.1" />
+	<PackageVersion Include="AutoFixture.Xunit2" Version="4.18.1" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0" />
+	<PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
+	
+	
   </ItemGroup>
 </Project>
