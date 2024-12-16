@@ -21,7 +21,11 @@
     <PackageVersion Include="Serilog" Version="4.0.2" />
     <PackageVersion Include="Serilog.AspNetCore" Version="8.0.2" />
     <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="6.0.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
+	<PackageVersion Include="System.Data.DataSetExtensions" Version="4.5.0" />
+	<PackageVersion Include="Cova.Functional" Version="4.5.0" />
+	<PackageVersion Include="Cova.ServiceErrors" Version="4.5.0" />
+	<PackageVersion Include="Ardalis.GuardClauses" Version="5.0.0" />
 
     
   </ItemGroup>
