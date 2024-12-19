@@ -762,7 +762,7 @@ class Program
             result.Add(listB[i]);
             result.Add(listC[i]);
 
-            result.Distinct();
+			_ = result.Distinct();
         }
 
         return result;
