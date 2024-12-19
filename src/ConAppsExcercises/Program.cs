@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -73,7 +74,16 @@ class Program
 
 	private static void ParamsCollectionsCheck()
 	{
-		throw new NotImplementedException();
+		List<string> list = [ "admin", "user", "god" ];
+		PrintVaribleLength(list);
+	}
+
+    private static void PrintVaribleLength(params List<string> input) 
+    {
+		foreach (var item in input)
+		{
+			WriteLine(item);
+		}
 	}
 
 	private static void ShowDefaultsForTypes()
