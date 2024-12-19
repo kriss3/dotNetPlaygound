@@ -145,9 +145,9 @@ class Program
             foreach (var arr in maxStringArray)
             {
                 //do the same as below to find all 'a' letters;
-                
-               
-            }
+                WriteLine(CountOfAs(arr, n));
+
+			}
         }
 
        
@@ -308,12 +308,13 @@ class Program
     //This example will return true for any function taking int param and that param is > 10;
     private static void PredicateDelegateExample()
     {
-        Predicate<int> predicate = (val) => {
-            if (val > 10)
-                return true;
-            return false;
-        };
-        Write("Enter a digit: ");
+		static bool predicate(int val)
+		{
+			if (val > 10)
+				return true;
+			return false;
+		}
+		Write("Enter a digit: ");
         int valueReceived = int.Parse(ReadLine());
         Write($"Is the value entered greater than 10? : {predicate(valueReceived)}");
     }
@@ -321,8 +322,8 @@ class Program
     //Does not return a value take 0 up to 16 params (equivalant to void function)
     private static void ActionDelegateExample()
     {
-        Action<int> printAValue = (i) => WriteLine($"The parameter passed to the Actin Delegate is: {i}");
-        printAValue(10);
+		static void printAValue(int i) => WriteLine($"The parameter passed to the Actin Delegate is: {i}");
+		printAValue(10);
     }
 
     //takes up to 16 params and MUST return a value
