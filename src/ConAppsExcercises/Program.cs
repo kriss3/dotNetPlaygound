@@ -19,56 +19,62 @@ class Program
 {
     static Task Main()
     {
-		//TODO: Add some sort of Text menu so methods do not have to be commented out.
+        //TODO: Add some sort of Text menu so methods do not have to be commented out.
 
-		//Setup();
+        //Setup();
 
-		//MyEvents();
-		//Run();
-		//Run2(10);
-		//var t = "konstantynopolitanczykowna";
-		//ReverseString(ref t);
-		//RemoveVowels("HellO");
-		//FindDelimiterOccurrence("ABCDE", "DC");
-		//ReverseSentence("Ala ma kota");
-		//CardDeckShuffler();
-		//GetDataFromDb();
-		//Task.Run(async () => await GetPeopleFromWeb());
-		//ReverseArrayCheck(10);
-		//Shuffle(new int[52]);
-		//GtMoreUsers();
-		//var res = GetMatchingPairs();
-		//GetMatchingPairs2();
-		//IntArrayExercises();
-		//FindElementInSorterArray(3);
-		//FindPairs();
-		//ValleyCount();
-		//OddNumbers(2,5);
-		//BreakPalindrome("acca");
-		//MySortingBubble();
-		//GetFibonacciSeq(12);
-		//Run2DArray();
-		//IntArray();
-		//LinqQuery();
-		//Compare2List();
-		//CapitalizeEveryOtherCharter();
-		//PaddingWithZeros();
-		//SerializeUsingMsLibrary();
-		//FizzBuzzAttempt();
-		//FuncDelegateExample();
-		//ActionDelegateExample();
-		//PredicateDelegateExample();
-		//await LongProcess();
-		//CountNumberOfValleys();
-		//JumpOverThunderHeads();
-		//FindNumberOfAsInAString();
-		//PrintFactorial();
-		//MinStepsToEqualizeIntArray();
-		//ShowDefaultsForTypes();
+        //MyEvents();
+        //Run();
+        //Run2(10);
+        //var t = "konstantynopolitanczykowna";
+        //ReverseString(ref t);
+        //RemoveVowels("HellO");
+        //FindDelimiterOccurrence("ABCDE", "DC");
+        //ReverseSentence("Ala ma kota");
+        //CardDeckShuffler();
+        //GetDataFromDb();
+        //Task.Run(async () => await GetPeopleFromWeb());
+        //ReverseArrayCheck(10);
+        //Shuffle(new int[52]);
+        //GtMoreUsers();
+        //var res = GetMatchingPairs();
+        //GetMatchingPairs2();
+        //IntArrayExercises();
+        //FindElementInSorterArray(3);
+        //FindPairs();
+        //ValleyCount();
+        //OddNumbers(2,5);
+        //BreakPalindrome("acca");
+        //MySortingBubble();
+        //GetFibonacciSeq(12);
+        //Run2DArray();
+        //IntArray();
+        //LinqQuery();
+        //Compare2List();
+        //CapitalizeEveryOtherCharter();
+        //PaddingWithZeros();
+        //SerializeUsingMsLibrary();
+        //FizzBuzzAttempt();
+        //FuncDelegateExample();
+        //ActionDelegateExample();
+        //PredicateDelegateExample();
+        //await LongProcess();
+        //CountNumberOfValleys();
+        //JumpOverThunderHeads();
+        //FindNumberOfAsInAString();
+        //PrintFactorial();
+        //MinStepsToEqualizeIntArray();
+        //ShowDefaultsForTypes();
+        ParamsCollectionsCheck();
 
 		ReadLine();
         return Task.CompletedTask;
     }
+
+	private static void ParamsCollectionsCheck()
+	{
+		throw new NotImplementedException();
+	}
 
 	private static void ShowDefaultsForTypes()
 	{
