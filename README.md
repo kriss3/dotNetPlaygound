@@ -35,3 +35,6 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Upgrading dotnet framework solution projects to dotnet 8.0 Trying to find the smoothest way to move old but working app to a modern world.
 - Pattern matching attempt to scan through the projects and convert switch statement to switch expressions using pattern matching.
 - Continue working on this repository. This is my go to for practice dotnet and C#. Now focusing on C# functional features and EF Core.
+- Added CPM.
+- Moved all projects to src for more clarity and cleanness of the solution.
+- Added package mapping. This solution has two sources, nuget and Azure Devops 
