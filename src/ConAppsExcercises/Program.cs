@@ -329,12 +329,12 @@ class Program
     //takes up to 16 params and MUST return a value
     private static void FuncDelegateExample()
     {
-        Func<int, int, int> myResult = myDelegateFnct;
+        Func<int, int, int> myResult = MyDelegateFnct;
         var res = myResult(5, 5);
         WriteLine($"Func can take 0 to 16 params and returns a value: {res}");
     }
 
-    private static int myDelegateFnct(int val1, int val2) 
+    private static int MyDelegateFnct(int val1, int val2) 
     {
         return val1 + val2;
     }
@@ -362,7 +362,7 @@ class Program
         }
 
         // in case we want to return just an array
-        var arr1 = results.Values.ToArray(); 
+        //var arr1 = results.Values.ToArray(); 
         var myResult = new StringBuilder(results.Keys.Count);
         foreach (var item in results.Values)
         {
@@ -409,7 +409,7 @@ class Program
             else
                 sb.Append(example[itemIndex].ToString().ToLower());
         }
-        var result = sb.ToString();
+        sb.ToString();
     }
 
     
@@ -430,7 +430,7 @@ class Program
     private static bool HasAccess(List<string> theirs, List<string> mine) 
     {
         //test2.Where(t2 => !test1.Any(t1 => t2.Contains(t1)));
-        var res = theirs.Intersect(mine).Count() == theirs.Count();
+        var res = theirs.Intersect(mine).Count() == theirs.Count;
         return res;
     }
 
@@ -474,7 +474,6 @@ class Program
 
     private static void Run2DArray()
     {
-        MultiDArray mda = new();
         MultiDArray.RunMultiDArray();
     }
 
@@ -550,7 +549,6 @@ class Program
 
     public static void Run()
     {
-        Helper h = new();
         Helper.SwapMinMax();
         Helper.SwapString();
         Helper.StringsArrays();
@@ -637,7 +635,7 @@ class Program
         result.Add(t);
         t = string.Empty;
         result.ForEach(x => WriteLine(x));
-        return result.ToArray();
+        return [.. result];
     }
 
     private static void RemoveVowels(string cTest)
@@ -711,7 +709,6 @@ class Program
 
     private static async Task GetPeopleFromWeb()
     {
-        var hp = new Helper();
         var t = await Helper.GetPeopleFromWeb();
         WriteLine(t);
     }
@@ -742,11 +739,12 @@ class Program
         for (int n = deck.Length - 1; n > 0; --n)
         {
             int k = r.Next(n + 1);
-            int temp = deck[n];
-            deck[n] = deck[k];
-            deck[k] = temp;
-        }
-    }
+            //int temp = deck[n];
+            //deck[n] = deck[k];
+            //deck[k] = temp;
+			(deck[k], deck[n]) = (deck[n], deck[k]);
+		}
+	}
 
     private static List<int> GtMoreUsers()
     {
@@ -916,7 +914,7 @@ class Program
 
     private static void OddNumbers(int l, int r)
     {
-        List<int> result = new();
+        List<int> result = [];
         for (int i = l; i <= r; i++)
         {
             if ((i % 2) != 0)
@@ -928,7 +926,7 @@ class Program
     {
         string result, nStr;
 
-        nStr = str.Replace(str[1], str[str.Length - 1]);
+        nStr = str.Replace(str[1], str[^1]);
 
         if (nStr.CompareTo(str) == -1)
             result = nStr;
@@ -944,7 +942,7 @@ class Program
 
     private static void MySortingBubble()
     {
-        int[] myArr = new int[] { 5, 1, 4, 2, 8 };
+        int[] myArr = [ 5, 1, 4, 2, 8 ];
         var move = 0;
         do
         {
@@ -975,7 +973,7 @@ class Program
         arr[inxT2] = a;
     }
 
-    private void TwoDMatrixOps()
+    private static void TwoDMatrixOps()
     {
         /*
          * There's an integer materials implemented in two dimensional array. When met a 0 in any position , 
