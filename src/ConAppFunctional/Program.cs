@@ -12,6 +12,8 @@ public class Program
 		await Task.CompletedTask;
 		WriteLine("Let's play with CS Functional!");
 
+		SecondAttempt(100);
+
 		var result = Divide(10, 2)
 			.Bind(MultiplyByTwo).Match(
 				success: value => $"Result: {value}",
@@ -149,6 +151,13 @@ public class Program
 		WriteLine(finalResult.Match(
 			success => success,
 			failure => failure));
+	}
+
+	private static void SecondAttempt(int v)
+	{
+		Option<int> maybeNumber = Option.Some(v);
+		//apply a transformation:
+		Option<int> doubledNumber = maybeNumber.Map(number => number * 2);
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
