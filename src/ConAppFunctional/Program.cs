@@ -1,11 +1,6 @@
 ﻿
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection.Metadata;
 using static System.Console;
 
 namespace ConAppFunctional;
