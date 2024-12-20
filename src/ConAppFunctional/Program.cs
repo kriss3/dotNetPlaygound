@@ -158,9 +158,8 @@ public class Program
 		Option<int> maybeNumber = Option.Some(v);
 		//apply a transformation:
 		Option<int> doubledNumber = maybeNumber.Map(number => number * 2);
-		var squaredValue = doubledNumber.Map(number => number * number);
-		WriteLine($"Map Result: {squaredValue.Match<int, string>(() => "None", v => v.ToString())}");
-
+		Option<int> squaredValue = doubledNumber.Map(number => number * number);
+		WriteLine($"Map Result: {squaredValue.Match(s => s.ToString(), () => "Something is worng!")}");
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
