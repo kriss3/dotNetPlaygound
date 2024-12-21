@@ -157,7 +157,13 @@ public class Program
 
 	private static void SecondAttempt_Bind()
 	{
-		throw new NotImplementedException();
+		Option<int> value = Option.Some(5);
+		Option<int> chainedResult = value.Bind(r => SafeDivide(10, r));
+	}
+
+	private static Option<int> SafeDivide(int numerator, int denominator) 
+	{
+		return denominator == 0 ? Option.None<int>() : Option.Some(numerator / denominator);
 	}
 
 	private static void SecondAttempt_Map(int v)
