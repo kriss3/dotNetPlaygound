@@ -5,12 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static System.Console;
 namespace ConAppFunctional;
 public class BindHelper
 {
 	Result<int, string> GetInitialResult() 
 	{
 		return SafeDivide(10, 2);
+	}
+
+	Result<int, string> GetSquaredResult() 
+	{
+		var values = GetInitialResult().Map(rec => rec * rec);
+
+
+
+		return values;
 	}
 
 	private static Result<int, string> SafeDivide(int numerator, int denominator)
