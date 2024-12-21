@@ -16,11 +16,11 @@ public class BindHelper
 	private static Result<int, string> SafeDivide(int numerator, int denominator)
 	{
 		return denominator == 0
-			? Result.Failure<int, string>("")
+			? Result.Failure<int, string>("Division by zero is not allowed")
 			: Result.Success<int, string>(numerator / denominator);
 	}
 
-	private static Option<int> SaveDivide(int numerator, int denominator)
+	private static Option<int> SaveDivideWithOption(int numerator, int denominator)
 	{
 		return denominator == 0
 			? Option.None<int>()
