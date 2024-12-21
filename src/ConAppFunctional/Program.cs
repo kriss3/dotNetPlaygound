@@ -14,6 +14,8 @@ public class Program
 
 		SecondAttempt_Map(100);
 
+		SecondAttempt_Bind();
+
 		var result = Divide(10, 2)
 			.Bind(MultiplyByTwo).Match(
 				success: value => $"Result: {value}",
@@ -151,6 +153,11 @@ public class Program
 		WriteLine(finalResult.Match(
 			success => success,
 			failure => failure));
+	}
+
+	private static void SecondAttempt_Bind()
+	{
+		throw new NotImplementedException();
 	}
 
 	private static void SecondAttempt_Map(int v)
