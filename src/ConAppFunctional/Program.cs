@@ -159,13 +159,8 @@ public class Program
 	{
 		// let's refactor this to a separare class.
 		
-		Option<int> value = Option.Some(5);
-		Option<int> chainedResult = value.Bind(r => SafeDivide(10, r));
-
-		var message = chainedResult.Match(
-			some: val => $"Successful divide result: {val}",
-			none: () => "The division did not go well."
-		);
+		BindHelper helper = new();
+		var result = helper.GetInitialResult();
 	}
 
 	private static void SecondAttempt_Map(int v)
