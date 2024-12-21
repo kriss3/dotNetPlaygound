@@ -159,6 +159,11 @@ public class Program
 	{
 		Option<int> value = Option.Some(5);
 		Option<int> chainedResult = value.Bind(r => SafeDivide(10, r));
+
+		var message = chainedResult.Match(
+			some: r => $"Successful divide result: {r}",
+			none: () => "The division did not go well."
+		);
 	}
 
 	private static Option<int> SafeDivide(int numerator, int denominator) 
