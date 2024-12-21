@@ -18,7 +18,10 @@ public class BindHelper
 	{
 		var values = GetInitialResult().Map(rec => rec * rec);
 
-
+		WriteLine($"Map Result: {values.Match(
+			success => $"Success: {success}", 
+			failure => $"Failure: {failure}")}"
+			);
 
 		return values;
 	}
