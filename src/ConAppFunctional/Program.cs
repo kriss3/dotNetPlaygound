@@ -12,7 +12,7 @@ public class Program
 		await Task.CompletedTask;
 		WriteLine("Let's play with CS Functional!");
 
-		SecondAttempt(100);
+		SecondAttempt_Map(100);
 
 		var result = Divide(10, 2)
 			.Bind(MultiplyByTwo).Match(
@@ -153,7 +153,7 @@ public class Program
 			failure => failure));
 	}
 
-	private static void SecondAttempt(int v)
+	private static void SecondAttempt_Map(int v)
 	{
 		Option<int> maybeNumber = Option.Some(v);
 		//apply a transformation:
