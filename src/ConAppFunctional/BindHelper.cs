@@ -19,4 +19,11 @@ public class BindHelper
 			? Result.Failure<int, string>("")
 			: Result.Success<int, string>(numerator / denominator);
 	}
+
+	private static Option<int> SaveDivide(int numerator, int denominator)
+	{
+		return denominator == 0
+			? Option.None<int>()
+			: Option.Some(numerator / denominator);
+	}
 }
