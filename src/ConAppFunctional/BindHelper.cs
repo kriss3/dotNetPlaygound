@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static System.Console;
 namespace ConAppFunctional;
 public class BindHelper
@@ -38,6 +39,14 @@ public class BindHelper
 		return values;
 	}
 
+	public Result<int, string> GetErrorResult() 
+	{
+		var result = SafeDivideDriver(10, 0).
+			Bind(val => SafeDivide(10, 0).Bind(r => SafeDivide(10, r));
+
+		return result;
+	}
+
 	static string? SafeDivideDriver()
 	{
 		// let's refactor this to a separare class.
@@ -66,4 +75,5 @@ public class BindHelper
 			? Option.None<int>()
 			: Option.Some(numerator / denominator);
 	}
+
 }
