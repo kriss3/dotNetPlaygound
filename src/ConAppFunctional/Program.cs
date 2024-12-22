@@ -162,6 +162,12 @@ public class Program
 		BindHelper helper = new();
 		var result = helper.GetFinalResult();
 		var result_v2 = helper.GetSquaredResult();
+
+		// Can I get someting out of result and result_v2?
+		WriteLine($"Result: {result.Match(success => $"Success: {success}", failure => $"Failure: {failure}")}");
+		
+		
+		WriteLine($"Result_v2: {result_v2.Match(success => $"Success: {success}", failure => $"Failure: {failure}")}");
 	}
 
 	private static void SecondAttempt_Map(int v)
