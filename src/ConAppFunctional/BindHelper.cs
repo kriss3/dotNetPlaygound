@@ -8,12 +8,12 @@ using static System.Console;
 namespace ConAppFunctional;
 public class BindHelper
 {
-	public Result<int, string> GetInitialResult() 
+	private Result<int, string> GetInitialResult() 
 	{
 		return SafeDivide(10, 2);
 	}
 
-	Result<int, string> GetSquaredResult() 
+	public Result<int, string> GetSquaredResult() 
 	{
 		var values = GetInitialResult().Map(rec => rec * rec);
 
@@ -25,7 +25,7 @@ public class BindHelper
 		return values;
 	}
 
-	Result<int, string> GetFinalResult() 
+	public Result<int, string> GetFinalResult() 
 	{
 		var values = GetInitialResult().
 			Bind(val => SafeDivide(val, 2)).

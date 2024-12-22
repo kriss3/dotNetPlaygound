@@ -160,7 +160,8 @@ public class Program
 		// let's refactor this to a separare class.
 		
 		BindHelper helper = new();
-		var result = helper.GetInitialResult();
+		var result = helper.GetFinalResult();
+		var result_v2 = helper.GetSquaredResult();
 	}
 
 	private static void SecondAttempt_Map(int v)
