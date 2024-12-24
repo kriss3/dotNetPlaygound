@@ -37,4 +37,5 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Continue working on this repository. This is my go to for practice dotnet and C#. Now focusing on C# functional features and EF Core.
 - Added CPM.
 - Moved all projects to src for more clarity and cleanness of the solution.
-- Added package mapping. This solution has two sources, nuget and Azure Devops 
+- Added package mapping. This solution has two sources, nuget and Azure Devops
+- Working on Functional C#. 
