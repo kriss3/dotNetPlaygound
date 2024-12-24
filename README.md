@@ -38,4 +38,4 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Added CPM.
 - Moved all projects to src for more clarity and cleanness of the solution.
 - Added package mapping. This solution has two sources, nuget and Azure Devops
-- Working on Functional C#. 
+- Working on Functional C# - First, doing work on Map and Bind/BindFailure.
