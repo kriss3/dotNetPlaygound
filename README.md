@@ -41,4 +41,5 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Working on Functional C# - First, doing work on Map and Bind/BindFailure.
 - Working on Match function to extend Result type + examples of function chaining using Option<T>.
 - Explore pre-existing C# Functional libs like OneOf ErrorOr and others which dels with higher order functions
-- Error handling with multiple APIs and call to the 3rd party API  
+- Error handling with multiple APIs and call to the 3rd party API
+  (make sure the model supports potential errors from both APIs) 
