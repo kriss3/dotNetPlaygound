@@ -1,4 +1,4 @@
-# dotNetPlayground Repository
+U# dotNetPlayground Repository
 
 Main container for exploration of number of different dotNet concepts in C#. This will be full framework project.
 
@@ -43,4 +43,5 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Explore pre-existing C# Functional libs like OneOf ErrorOr and others which dels with higher order functions
 - Error handling with multiple APIs and call to the 3rd party API
   (make sure the model supports potential errors from both APIs)
-- going back to function approach 
+- going back to functional approach
+- Bind and bind failure are the next exploration  
