@@ -45,3 +45,4 @@ I wanted to get more familiar with the latest additions to this functional featu
   (make sure the model supports potential errors from both APIs)
 - going back to functional approach
 - Bind and bind failure are the next exploration  
+- Two action items: remove ConsoleApp1 and ConAppExcercises projects. 
