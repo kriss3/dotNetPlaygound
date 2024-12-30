@@ -46,4 +46,5 @@ I wanted to get more familiar with the latest additions to this functional featu
 - going back to functional approach
 - Bind and bind failure are the next exploration  
 - Two action items: remove ConsoleApp1 and ConAppExcercises projects.
-- Add project for regex. 
+- Add project for regex.
+  Add fundamental patterns for regex in C#
