@@ -48,4 +48,5 @@ I wanted to get more familiar with the latest additions to this functional featu
 - Two action items: remove ConsoleApp1 and ConAppExcercises projects.
 - Add project for regex.
   Add fundamental patterns for regex in C#
-- Experiment with regex and json response for variety of response string  
+- Experiment with regex and json response for variety of response string
+- Create a potential small library with bunch of extensions methods for extracting strings and partial strings from json response object that came back as string  
