@@ -41,16 +41,14 @@ public class BindHelper
 
 	public Result<int, string> GetErrorResult() 
 	{
-		var result = SafeDivideDriver(10, 0).
-			Bind(val => SafeDivide(10, 0).Bind(r => SafeDivide(10, r));
+		var result = SafeDivideDriver();
 
-		return result;
+		return Result.Create(result is not null, () => 0, () => "");
 	}
 
 	static string? SafeDivideDriver()
 	{
 		// let's refactor this to a separare class.
-
 		Option<int> value = Option.Some(5);
 		Option<int> chainedResult = value.Bind(r => SaveDivideWithOption(10, r));
 
