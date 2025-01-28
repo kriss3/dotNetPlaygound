@@ -1,6 +1,7 @@
 @PlayingWithDDD.App_HostAddress = http://localhost:5025
+@secHost = https://localhost:7244
 
-GET {{PlayingWithDDD.App_HostAddress}}/weatherforecast/
+GET {{secHost}}/weatherforecast/
 Accept: application/json
 
 ###

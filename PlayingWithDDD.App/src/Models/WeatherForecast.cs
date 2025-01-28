@@ -1,4 +1,4 @@
-namespace PlayingWithDDD.App;
+namespace PlayingWithDDD.App.src.Models;
 
 public class WeatherForecast
 {
