@@ -13,6 +13,11 @@ public class Program
 		// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 		builder.Services.AddOpenApi();
 
+		builder.Services.AddHttpClient<IExternalApiClient, ExternalApiClient>(client =>
+		{
+			client.BaseAddress = new Uri("https://external-api.example.com/");
+		});
+
 		var app = builder.Build();
 
 		// Configure the HTTP request pipeline.
