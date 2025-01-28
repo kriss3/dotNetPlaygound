@@ -1,7 +1,4 @@
-﻿
-using System.Runtime.InteropServices;
-
-namespace DecoratorPattern;
+﻿namespace DecoratorPattern;
 
 public abstract class CharacterDecorator(ICharacter newCharacter) : ICharacter
 {
