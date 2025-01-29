@@ -31,6 +31,3 @@ public class ExternalApiClient(HttpClient httpClient) : IExternalApiClient
 	}
 }
 
-
-public record CompanyId(int Value);
-public record LocationId(int Value);
