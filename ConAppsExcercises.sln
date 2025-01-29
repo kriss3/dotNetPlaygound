@@ -67,7 +67,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithFakeItEasy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithBackgroudWork", "src\PlayingWithBackgroudWork\PlayingWithBackgroudWork.csproj", "{7C57E694-2A82-43D7-ABC1-395978F25C39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithDDD.App", "PlayingWithDDD.App\PlayingWithDDD.App.csproj", "{5F8F559C-20AF-4725-981F-33C030E6F768}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithDDD.App", "src\PlayingWithDDD.App\PlayingWithDDD.App.csproj", "{5F8F559C-20AF-4725-981F-33C030E6F768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
