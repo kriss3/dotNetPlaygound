@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\DomainLayer\" />
     <Folder Include="src\ApplicationLayer\" />
     <Folder Include="src\ApiLayer\" />
   </ItemGroup>
