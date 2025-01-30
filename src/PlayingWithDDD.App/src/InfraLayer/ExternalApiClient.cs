@@ -1,6 +1,7 @@
 ﻿
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
+using PlayingWithDDD.App.src.DomainLayer.Primitives;
 
 namespace PlayingWithDDD.App.src.InfraLayer;
 
