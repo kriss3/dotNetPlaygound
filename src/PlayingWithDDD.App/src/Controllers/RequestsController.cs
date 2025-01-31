@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Cova.Functional;
+using Cova.ServiceErrors.Errors;
 using Microsoft.AspNetCore.Mvc;
 using PlayingWithDDD.App.src.ApiLayer.Models;
 using PlayingWithDDD.App.src.ApplicationLayer;
@@ -12,7 +13,7 @@ namespace PlayingWithDDD.App.src.Controllers;
 public class RequestsController(IExternalApiClient apiClient) : ControllerBase
 {
 	// Bind the API client to the handler
-	private readonly CreateRequestHandler _handler = 
+	private readonly CreateRequestHandler _handler =
 		CreateRequestHandlerFactory.Create(apiClient);
 
 	[HttpPost]
@@ -20,11 +21,13 @@ public class RequestsController(IExternalApiClient apiClient) : ControllerBase
 	{
 		var command = new CreateRequestCommand(dto.CompanyId, dto.LocationId);
 
+		Result<ValidationResource, ServiceError> res = await _handler(command);
+
 		// Handle the request and map Result to HTTP response
-		return await _handler(command)
-			.Match(
-				success => Ok(new { Message = success }),
-				error => BadRequest(new { Error = error })
+		return res
+			.Match<IActionResult>(
+				success => Ok(new { success.Message }),
+				error => BadRequest(new { Error = error.ErrorType })
 			);
 	}
 }
