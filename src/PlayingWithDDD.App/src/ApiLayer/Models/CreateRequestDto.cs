@@ -3,5 +3,5 @@
 public record CreateRequestDto
 {
 	public int CompanyId { get; init; }
-	public Guid LocationId { get; init; }
+	public int LocationId { get; init; }
 }
