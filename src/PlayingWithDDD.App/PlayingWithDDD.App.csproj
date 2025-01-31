@@ -12,8 +12,4 @@
     <PackageReference Include="Cova.ServiceErrors" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="src\ApiLayer\" />
-  </ItemGroup>
-
 </Project>
