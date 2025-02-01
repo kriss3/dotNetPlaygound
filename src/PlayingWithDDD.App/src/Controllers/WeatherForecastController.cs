@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using PlayingWithDDD.App.src.Models;
 
 namespace PlayingWithDDD.App.src.Controllers;
+
+
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase

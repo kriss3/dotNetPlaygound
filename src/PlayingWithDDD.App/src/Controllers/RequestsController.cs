@@ -8,6 +8,8 @@ using PlayingWithDDD.App.src.DomainLayer.Interfaces;
 using static PlayingWithDDD.App.src.ApplicationLayer.CreateRequestHandlerFactory;
 
 namespace PlayingWithDDD.App.src.Controllers;
+
+
 [Route("api/[controller]")]
 [ApiController]
 public class RequestsController(IExternalApiClient apiClient) : ControllerBase

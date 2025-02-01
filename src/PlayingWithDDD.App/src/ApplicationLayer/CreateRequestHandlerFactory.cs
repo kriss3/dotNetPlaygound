@@ -9,7 +9,8 @@ namespace PlayingWithDDD.App.src.ApplicationLayer;
 
 public static class CreateRequestHandlerFactory
 {
-	public delegate Task<Result<ValidationResource, ServiceError>> CreateRequestHandler(CreateRequestCommand command);
+	public delegate Task<Result<ValidationResource, ServiceError>> 
+		CreateRequestHandler(CreateRequestCommand command);
 	public static CreateRequestHandler Create(IExternalApiClient apiClient) =>
 		async command =>
 		{
