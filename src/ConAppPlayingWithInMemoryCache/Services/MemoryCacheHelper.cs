@@ -9,13 +9,19 @@ namespace ConAppPlayingWithInMemoryCache.Services;
 
 public interface IMemoryCacheHelper
 {
-	List<Product> GetProducts();
+	Task<List<Product>> GetProductsWithCache();
+	Task<List<Product>> GetProducts();
 }
 public class MemoryCacheHelper : IMemoryCacheHelper
 {
 	public List<Product>? Products { get; set; }
 
-	public List<Product> GetProducts()
+	public Task<List<Product>> GetProducts()
+	{
+		throw new NotImplementedException();
+	}
+
+	public Task<List<Product>> GetProductsWithCache()
 	{
 		throw new NotImplementedException();
 	}

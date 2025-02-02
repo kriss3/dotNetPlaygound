@@ -17,6 +17,8 @@ public class Program
 
 	private static void ConfigureDependency()
 	{
+		
+
 		var services = new ServiceCollection();
 		services.AddMemoryCache();
 	}
