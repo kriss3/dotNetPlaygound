@@ -1,25 +1,34 @@
 ﻿
+using ConAppPlayingWithInMemoryCache.Services;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
-
+using Microsoft.Extensions.Hosting;
 using static System.Console;
 
 namespace ConAppPlayingWithInMemoryCache;
 
 public class Program
 {
-	static Task Main()
+	static async Task Main()
 	{
 		WriteLine("In-Memory Cache exercise!");
-		ConfigureDependency();
+		var host = ConfigureDependency();
 
-		return Task.CompletedTask;
+		var memCache= host.Services.GetRequiredService<IMemoryCache>();
+		var memoryCacheHelper = new MemoryCacheHelper(memCache);
+
+		var products = await memoryCacheHelper.GetProducts();
 	}
 
-	private static void ConfigureDependency()
+	private static IHost ConfigureDependency()
 	{
-		
+		var host = Host.CreateDefaultBuilder();
 
-		var services = new ServiceCollection();
-		services.AddMemoryCache();
+		host.ConfigureServices((ctx, svc) => {
+			svc.AddMemoryCache();
+
+		});
+
+		return host.Build();
 	}
 }
