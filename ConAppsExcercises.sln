@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppDelegates", "src\ConA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithStrings", "src\ConAppPlayingWithStrings\ConAppPlayingWithStrings.csproj", "{5CCE949D-63C6-445C-8383-836CC09CEDD0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppRedis", "src\ConAppRedis\ConAppRedis.csproj", "{07EEA9C8-97F8-4AFD-AD73-1F27FDB9F11F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithRedisCache", "src\ConAppRedis\ConAppPlayingWithRedisCache.csproj", "{07EEA9C8-97F8-4AFD-AD73-1F27FDB9F11F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppDu", "src\ConAppDu\ConAppDu.csproj", "{9DA12681-44BC-4C37-B5D2-DBCAE489C29A}"
 EndProject
