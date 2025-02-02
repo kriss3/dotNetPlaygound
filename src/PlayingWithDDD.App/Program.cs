@@ -11,7 +11,6 @@ public class Program
 
 		builder.Services.AddControllers();
 		builder.Services.AddOpenApi();
-		builder.Services.AddMemoryCache();
 
 		builder.Services.AddHttpClient<IExternalApiClient, ExternalApiClient>(client =>
 		{
