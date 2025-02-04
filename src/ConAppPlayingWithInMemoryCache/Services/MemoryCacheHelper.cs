@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+using static System.Console;
+
 namespace ConAppPlayingWithInMemoryCache.Services;
 
 public interface IMemoryCacheHelper
@@ -55,5 +57,15 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 		return products == null ? GetProducts() : Task.FromResult(products); 
 	}
 
-	
+	private void DisplayProducts(List<Product> products)
+	{
+		foreach (var product in products)
+		{
+			WriteLine($"Product Id: {product.Id}");
+			WriteLine($"Product Name: {product.Name}");
+			WriteLine($"Product Quantity Per Unit: {product.QuantityPerUnit}");
+			WriteLine($"Product Unit Price: {product.UnitPrice}");
+			WriteLine();
+		}
+	}
 }
