@@ -69,6 +69,7 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 		return @"https://northwind.now.sh/api";
 	}
 
+	//This would be the external facing "driver" methos.
 	public async Task<List<Product>> GetProductsWithCache()
 	{
 		var t1 = Stopwatch.StartNew();
@@ -77,6 +78,8 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 
 		t1.Stop();
 		var elapsed = t1.ElapsedMilliseconds;
+		
+		DisplayProducts(products);
 		WriteLine($"Elapsed time: {elapsed / 1000.0} seconds");
 		return products;
 	}
