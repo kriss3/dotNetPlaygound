@@ -41,6 +41,11 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 		}
 	}
 
+	public async Task<List<Product>> GetProductsOrCache() 
+	{
+		var cacheKey = "productsList";
+	}
+
 	private static string GetBaseUrl()
 	{
 		return @"https://northwind.now.sh/api";
