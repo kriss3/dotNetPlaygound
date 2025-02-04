@@ -44,6 +44,24 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 	public async Task<List<Product>> GetProductsOrCache() 
 	{
 		var cacheKey = "productsList";
+		//var products = new List<Product>();
+
+		if (!_memoryCache.TryGetValue(cacheKey, out List<Product>? products))
+		{
+			//no key in the cache, get data;
+			products = await GetProducts();
+			//set the cache options
+			var cacheEntryOptions = new MemoryCacheEntryOptions 
+			{
+				AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(50),
+				Priority = CacheItemPriority.High,
+				SlidingExpiration = TimeSpan.FromSeconds(20)
+			};
+
+			_memoryCache.Set(cacheKey, products, cacheEntryOptions);
+		}
+
+		return products ?? [];
 	}
 
 	private static string GetBaseUrl()
