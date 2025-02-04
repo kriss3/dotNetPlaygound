@@ -2,11 +2,11 @@
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace ConAppPlayingWithInMemoryCache.Services;
 
@@ -46,7 +46,14 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 
 	public Task<List<Product>> GetProductsWithCache()
 	{
-		// var products = _memoryCache.Get<List<Product>>("products");
-		throw new NotImplementedException();
+		var t1 = Stopwatch.StartNew();
+		t1.Start();
+		var products = _memoryCache.Get<List<Product>>("products");
+
+		t1.Stop();
+		var elapsed = t1.ElapsedMilliseconds;
+		return products == null ? GetProducts() : Task.FromResult(products); 
 	}
+
+	
 }
