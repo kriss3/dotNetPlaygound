@@ -19,9 +19,9 @@ public class Program
 		var memCache= host.Services.GetRequiredService<IMemoryCache>();
 		var memoryCacheHelper = new MemoryCacheHelper(memCache);
 
+		await RunAndReport(memoryCacheHelper.GetProductsOrCache);
 
-		//var products = await memoryCacheHelper.GetProductsOrCache();
-
+		ReadLine();
 	}
 
 	private static IHost ConfigureDependency()
@@ -36,10 +36,10 @@ public class Program
 		return host.Build();
 	}
 
-	private void RunAndReport(Func<List<Product>> getFromApiOrCache) 
+	private static async Task RunAndReport(Func<Task<List<Product>>> getFromApiOrCache) 
 	{
 		var t1 = Stopwatch.StartNew();
-		var result = getFromApiOrCache();
+		var result = await getFromApiOrCache();
 		t1.Stop();
 		MemoryCacheHelper.DisplayProducts(result);
 		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds / 1000} sec.");
