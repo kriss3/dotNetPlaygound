@@ -17,7 +17,7 @@ public class Program
 		var memCache= host.Services.GetRequiredService<IMemoryCache>();
 		var memoryCacheHelper = new MemoryCacheHelper(memCache);
 
-		var products = await memoryCacheHelper.GetProducts();
+		var products = await memoryCacheHelper.GetProductsOrCache();
 	}
 
 	private static IHost ConfigureDependency()
