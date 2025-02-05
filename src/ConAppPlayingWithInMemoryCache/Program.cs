@@ -24,6 +24,16 @@ public class Program
 		ReadLine();
 	}
 
+	private static async Task RunAndReport(Func<Task<List<Product>>> getFromApiOrCache) 
+	{
+		var t1 = Stopwatch.StartNew();
+		var result = await getFromApiOrCache();
+		t1.Stop();
+		MemoryCacheHelper.DisplayProducts(result);
+		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds / 1000} sec.");
+
+	}
+
 	private static IHost ConfigureDependency()
 	{
 		var host = Host.CreateDefaultBuilder();
@@ -34,15 +44,5 @@ public class Program
 		});
 
 		return host.Build();
-	}
-
-	private static async Task RunAndReport(Func<Task<List<Product>>> getFromApiOrCache) 
-	{
-		var t1 = Stopwatch.StartNew();
-		var result = await getFromApiOrCache();
-		t1.Stop();
-		MemoryCacheHelper.DisplayProducts(result);
-		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds / 1000} sec.");
-
 	}
 }
