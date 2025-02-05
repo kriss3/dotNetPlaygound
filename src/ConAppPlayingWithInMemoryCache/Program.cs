@@ -18,14 +18,10 @@ public class Program
 
 		var memCache= host.Services.GetRequiredService<IMemoryCache>();
 		var memoryCacheHelper = new MemoryCacheHelper(memCache);
-		var t1 = Stopwatch.StartNew();
 
-		var products = await memoryCacheHelper.GetProductsOrCache();
 
-		t1.Stop();
-		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds / 1000} sec.");
+		//var products = await memoryCacheHelper.GetProductsOrCache();
 
-		MemoryCacheHelper.DisplayProducts(products);
 	}
 
 	private static IHost ConfigureDependency()
