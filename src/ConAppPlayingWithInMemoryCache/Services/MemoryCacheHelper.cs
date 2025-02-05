@@ -71,7 +71,7 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 		return products;
 	}
 
-	private void DisplayProducts(List<Product> products)
+	public static void DisplayProducts(List<Product> products)
 	{
 		foreach (var product in products)
 		{

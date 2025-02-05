@@ -18,6 +18,7 @@ public class Program
 		var memoryCacheHelper = new MemoryCacheHelper(memCache);
 
 		var products = await memoryCacheHelper.GetProductsOrCache();
+		memoryCacheHelper.dis
 	}
 
 	private static IHost ConfigureDependency()
