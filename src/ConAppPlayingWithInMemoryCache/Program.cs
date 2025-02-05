@@ -1,8 +1,10 @@
 ﻿
+using ConAppPlayingWithInMemoryCache.Models;
 using ConAppPlayingWithInMemoryCache.Services;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Diagnostics;
 using static System.Console;
 
 namespace ConAppPlayingWithInMemoryCache;
@@ -16,9 +18,14 @@ public class Program
 
 		var memCache= host.Services.GetRequiredService<IMemoryCache>();
 		var memoryCacheHelper = new MemoryCacheHelper(memCache);
+		var t1 = Stopwatch.StartNew();
 
 		var products = await memoryCacheHelper.GetProductsOrCache();
-		memoryCacheHelper.dis
+
+		t1.Stop();
+		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds / 1000} sec.");
+
+		MemoryCacheHelper.DisplayProducts(products);
 	}
 
 	private static IHost ConfigureDependency()
@@ -31,5 +38,15 @@ public class Program
 		});
 
 		return host.Build();
+	}
+
+	private void RunAndReport(Func<List<Product>> getFromApiOrCache) 
+	{
+		var t1 = Stopwatch.StartNew();
+		var result = getFromApiOrCache();
+		t1.Stop();
+		MemoryCacheHelper.DisplayProducts(result);
+		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds / 1000} sec.");
+
 	}
 }
