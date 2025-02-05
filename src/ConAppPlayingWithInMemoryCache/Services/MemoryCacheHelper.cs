@@ -67,16 +67,15 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 	//This would be the external facing "driver" methos.
 	public async Task<List<Product>> GetProductsWithCache()
 	{
-		var t1 = Stopwatch.StartNew();
-		t1.Start();
 		var products = await GetProductsOrCache();
-
-		t1.Stop();
-		var elapsed = t1.ElapsedMilliseconds;
-		
-		DisplayProducts(products);
-		WriteLine($"Elapsed time: {elapsed / 1000.0} seconds");
 		return products;
+	}
+
+	private static void GetElapsedTime(Stopwatch t1)
+	{
+		var elapsed = t1.ElapsedMilliseconds;
+
+		WriteLine($"Elapsed time: {elapsed / 1000.0} seconds");
 	}
 
 	private void DisplayProducts(List<Product> products)
