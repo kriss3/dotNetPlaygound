@@ -71,13 +71,6 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 		return products;
 	}
 
-	private static void GetElapsedTime(Stopwatch t1)
-	{
-		var elapsed = t1.ElapsedMilliseconds;
-
-		WriteLine($"Elapsed time: {elapsed / 1000.0} seconds");
-	}
-
 	private void DisplayProducts(List<Product> products)
 	{
 		foreach (var product in products)
