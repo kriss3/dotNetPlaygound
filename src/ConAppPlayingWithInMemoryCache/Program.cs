@@ -44,6 +44,7 @@ public class Program
 
 		host.ConfigureServices((ctx, svc) => {
 			svc.AddMemoryCache();
+			svc.AddSingleton<IMemoryCacheHelper, MemoryCacheHelper>();
 
 		});
 
