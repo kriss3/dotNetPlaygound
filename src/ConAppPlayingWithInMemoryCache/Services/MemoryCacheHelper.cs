@@ -9,8 +9,8 @@ namespace ConAppPlayingWithInMemoryCache.Services;
 
 public interface IMemoryCacheHelper
 {
-	Task<List<Product>> GetProductsWithCache();
-	Task<List<Product>> GetProducts();
+	Task<ProductResult> GetProductsWithCache();
+	Task<ProductResult> GetProducts();
 }
 public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 {
@@ -18,7 +18,7 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 
 	public List<Product>? Products { get; set; }
 
-	public async Task<List<Product>> GetProducts()
+	public async Task<ProductResult> GetProducts()
 	{
 		try
 		{
