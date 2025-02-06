@@ -19,7 +19,11 @@ public class Program
 		var memCache= host.Services.GetRequiredService<IMemoryCache>();
 		var memoryCacheHelper = new MemoryCacheHelper(memCache);
 
-		await RunAndReport(memoryCacheHelper.GetProductsOrCache);
+		Write("How many time to run?\t");
+		var times = int.Parse(ReadLine());
+
+		while (times-- > 0)
+			await RunAndReport(memoryCacheHelper.GetProductsOrCache);
 
 		ReadLine();
 	}
