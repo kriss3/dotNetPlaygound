@@ -34,7 +34,7 @@ public class Program
 		var result = await getFromApiOrCache();
 		t1.Stop();
 		MemoryCacheHelper.DisplayProducts(result);
-		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds / 1000} sec.");
+		WriteLine($"Time taken to fetch products: {t1.ElapsedMilliseconds} m.sec.");
 
 	}
 
