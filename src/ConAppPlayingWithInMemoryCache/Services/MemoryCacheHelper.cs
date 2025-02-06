@@ -49,9 +49,9 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 			//set the cache options
 			var cacheEntryOptions = new MemoryCacheEntryOptions 
 			{
-				AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(50),
+				AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10),
 				Priority = CacheItemPriority.High,
-				SlidingExpiration = TimeSpan.FromSeconds(20)
+				SlidingExpiration = TimeSpan.FromMinutes(10)
 			};
 
 			_memoryCache.Set(cacheKey, products, cacheEntryOptions);
