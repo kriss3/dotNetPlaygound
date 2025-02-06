@@ -36,13 +36,15 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 		}
 	}
 
-	public async Task<List<Product>> GetProductsOrCache() 
+	public async Task<ProductResult> GetProductsOrCache() 
 	{
 		var cacheKey = "productsList";
+		string from = string.Empty;
 		
 		if (!_memoryCache.TryGetValue(cacheKey, out List<Product>? products))
 		{
 			//no key in the cache, get data;
+			from = "API";
 			products = await GetProducts();
 			//set the cache options
 			var cacheEntryOptions = new MemoryCacheEntryOptions 
@@ -53,9 +55,10 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 			};
 
 			_memoryCache.Set(cacheKey, products, cacheEntryOptions);
+			return new ProductResult(from, products);
 		}
 
-		return products ?? [];
+		return new ProductResult("Cache", products ?? []);
 	}
 
 	private static string GetBaseUrl()
@@ -64,21 +67,15 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 	}
 
 	//This would be the external facing "driver" methos.
-	public async Task<List<Product>> GetProductsWithCache()
+	public async Task<ProductResult> GetProductsWithCache()
 	{
 		var products = await GetProductsOrCache();
 		return products;
 	}
 
-	public static void DisplayProducts(List<Product> products)
+	public static void DisplayProducts(ProductResult products)
 	{
-		foreach (var product in products)
-		{
-			WriteLine($"Product Id: {product.Id}");
-			WriteLine($"Product Name: {product.Name}");
-			WriteLine($"Product Quantity Per Unit: {product.QuantityPerUnit}");
-			WriteLine($"Product Unit Price: {product.UnitPrice}");
-			WriteLine();
-		}
+		WriteLine($"Products from: {products.From}");	
+		WriteLine($"Available Product: {products.Products.Count}");
 	}
 }
