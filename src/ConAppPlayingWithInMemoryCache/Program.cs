@@ -28,7 +28,7 @@ public class Program
 		ReadLine();
 	}
 
-	private static async Task RunAndReport(Func<Task<List<ProductResult>>> getFromApiOrCache) 
+	private static async Task RunAndReport(Func<Task<ProductResult>> getFromApiOrCache) 
 	{
 		var t1 = Stopwatch.StartNew();
 		var result = await getFromApiOrCache();

@@ -10,7 +10,7 @@ namespace ConAppPlayingWithInMemoryCache.Services;
 public interface IMemoryCacheHelper
 {
 	Task<ProductResult> GetProductsWithCache();
-	Task<ProductResult> GetProducts();
+	Task<List<Product>> GetProducts();
 }
 public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 {
@@ -18,7 +18,7 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 
 	public List<Product>? Products { get; set; }
 
-	public async Task<ProductResult> GetProducts()
+	public async Task<List<Product>> GetProducts()
 	{
 		try
 		{
@@ -31,15 +31,15 @@ public class MemoryCacheHelper(IMemoryCache memCache) : IMemoryCacheHelper
 		}
 		catch (Exception ex)
 		{
-			Console.WriteLine($"An error occurred while fetching products: {ex.Message}");
-			return new List<Product>();
+			WriteLine($"An error occurred while fetching products: {ex.Message}");
+			return [];
 		}
 	}
 
 	public async Task<ProductResult> GetProductsOrCache() 
 	{
 		var cacheKey = "productsList";
-		string from = string.Empty;
+		string from;
 		
 		if (!_memoryCache.TryGetValue(cacheKey, out List<Product>? products))
 		{
