@@ -15,3 +15,5 @@ public record Product
 	[JsonPropertyName("name")]
 	public string? Name { get; set; }
 }
+
+public record ProductResult(string From, List<Product> Products);
