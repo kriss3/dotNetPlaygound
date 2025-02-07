@@ -5,7 +5,7 @@ namespace ConAppPlayingWithFundamentals;
 public sealed class Singleton
 {
 	private static Singleton _instance = null;
-	private static readonly object padLock = new object();
+	private static readonly object padLock = new();
 
 	private Singleton()
 	{
@@ -18,15 +18,8 @@ public sealed class Singleton
 		{
 			lock (padLock)
 			{
-				if (_instance == null)
-				{
-					_instance = new Singleton();
-				}
-				else
-				{
-					WriteLine($"Using excising instance !!!");
-				}
-
+				_instance ??= new Singleton();
+				WriteLine(_instance == null ? "Creating new instance !!!" : "Using existing instance !!!");
 				return _instance;
 			}
 		}
