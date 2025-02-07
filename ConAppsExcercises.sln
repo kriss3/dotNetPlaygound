@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppsExercises", "src\ConAppsExcercises\ConAppsExercises.csproj", "{4B6C31BB-1496-4D60-97A8-578FDF631789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithFundamentials", "src\ConAppsExcercises\ConAppPlayingWithFundamentials.csproj", "{4B6C31BB-1496-4D60-97A8-578FDF631789}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithFactoryMethod", "src\ConsoleApp1\ConAppPlayingWithFactoryMethod.csproj", "{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8}"
 EndProject
