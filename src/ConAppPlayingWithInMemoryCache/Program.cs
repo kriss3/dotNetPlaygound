@@ -20,10 +20,22 @@ public class Program
 		var memoryCacheHelper = new MemoryCacheHelper(memCache);
 
 		Write("How many time to run?\t");
-		var times = int.Parse(ReadLine());
+		var input = ReadLine();
+		var times = int.TryParse(input, out var parsedTimes) 
+			? parsedTimes 
+			: (int?)null;
 
-		while (times-- > 0)
-			await RunAndReport(memoryCacheHelper.GetProductsOrCache);
+		if (times.HasValue)
+		{
+			while (times-- > 0)
+				await RunAndReport(memoryCacheHelper.GetProductsOrCache);
+		}
+		else
+		{
+			WriteLine("Invalid input. Please enter a valid number.");
+		}
+			
+		await RunAndReport(memoryCacheHelper.GetProductsOrCache);
 
 		ReadLine();
 	}
