@@ -1,11 +1,12 @@
-﻿using static System.Console;
+﻿using System.Threading;
+using static System.Console;
 
 namespace ConAppPlayingWithFundamentals;
 
 public sealed class Singleton
 {
 	private static Singleton _instance = null;
-	private static readonly object padLock = new();
+	private static readonly Lock padLock = new();
 
 	private Singleton()
 	{

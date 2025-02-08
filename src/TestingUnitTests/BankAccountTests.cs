@@ -18,7 +18,7 @@ namespace TestingUnitTests;
         }
         catch (ArgumentOutOfRangeException e)
         {
-            Assert.Contains(e.Message, "Amount <=0 or Amount > Balanc");
+            Assert.Contains(e.Message, "Amount <=0 or Amount > Balance");
             return;
         }
         catch (Exception e)
