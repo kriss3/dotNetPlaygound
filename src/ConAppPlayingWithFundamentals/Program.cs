@@ -20,7 +20,17 @@ class Program
 {
 	static Task Main()
 	{
-		//TODO: Add some sort of Text menu so methods do not have to be commented out.
+		while (true)
+		{
+			DisplayMenu();
+			var choice = ReadLine();
+			if (choice == "q")
+			{
+				WriteLine("Exiting...");
+				break;
+			};
+
+		}
 
 		//Setup();
 
@@ -70,6 +80,19 @@ class Program
 
 		ReadLine();
 		return Task.CompletedTask;
+	}
+
+	private static void DisplayMenu()
+	{
+		WriteLine("Choose an option:");
+		WriteLine("1. ParamsCollectionsCheck");
+		WriteLine("2. ShowDefaultsForTypes");
+		WriteLine("3. FindNumberOfAsInAString");
+		WriteLine("4. MinStepsToEqualizeIntArray");
+		WriteLine("5. JumpOverThunderHeads");
+		WriteLine("6. CountNumberOfValleys");
+		WriteLine("0. Exit");
+		Write("Enter your choice: ");
 	}
 
 	private static void ParamsCollectionsCheck()
@@ -142,11 +165,8 @@ class Program
 			{
 				//do the same as below to find all 'a' letters;
 				WriteLine(CountOfAs(arr, n));
-
 			}
 		}
-
-
 	}
 
 	private static long CountOfAs(string s, long n)
@@ -173,7 +193,7 @@ class Program
 	}
 
 	//This is done and works
-	private static int MinStepsToEquilizeIntArray()
+	private static int MinStepsToEqualizeIntArray()
 	{
 		int result = 0;
 		//initial thought: create given array statistics and order by most, same elements
