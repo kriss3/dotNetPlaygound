@@ -29,7 +29,7 @@ class Program
 				WriteLine("Exiting...");
 				break;
 			};
-
+			ExecuteChoice(choice);
 		}
 
 		//Setup();
@@ -93,6 +93,34 @@ class Program
 		WriteLine("6. CountNumberOfValleys");
 		WriteLine("0. Exit");
 		Write("Enter your choice: ");
+	}
+
+	private static void ExecuteChoice(string choice)
+	{
+		switch (choice)
+		{
+			case "1":
+				ParamsCollectionsCheck();
+				break;
+			case "2":
+				ShowDefaultsForTypes();
+				break;
+			case "3":
+				FindNumberOfAsInAString();
+				break;
+			case "4":
+				MinStepsToEqualizeIntArray();
+				break;
+			case "5":
+				JumpOverThunderHeads();
+				break;
+			case "6":
+				CountNumberOfValleys();
+				break;
+			default:
+				WriteLine("Invalid choice. Please try again.");
+				break;
+		}
 	}
 
 	private static void ParamsCollectionsCheck()
