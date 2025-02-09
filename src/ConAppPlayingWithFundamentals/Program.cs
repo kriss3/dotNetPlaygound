@@ -32,11 +32,6 @@ class Program
 			ExecuteChoice(choice);
 		}
 
-		//Setup();
-
-		//MyEvents();
-		//Run();
-		//Run2(10);
 		//var t = "konstantynopolitanczykowna";
 		//ReverseString(ref t);
 		//RemoveVowels("HellO");
@@ -94,6 +89,7 @@ class Program
 		WriteLine("7. Run");
 		WriteLine("8. Setup");
 		WriteLine("9. StringSplitByMaxInt");
+		WriteLine("10. MyEvents");
 
 
 		WriteLine("0. Exit");
@@ -130,6 +126,9 @@ class Program
 				break;
 			case "9":
 				StringSplitByMaxInt("13");
+				break;
+			case "10":
+				MyEvents();
 				break;
 			default:
 				WriteLine("Invalid choice. Please try again.");
