@@ -96,7 +96,7 @@ class Program
 		Write("Enter your choice: ");
 	}
 
-	private static void ExecuteChoice(string choice)
+	private static async Task ExecuteChoice(string choice)
 	{
 		switch (choice)
 		{
@@ -129,6 +129,9 @@ class Program
 				break;
 			case "10":
 				MyEvents();
+				break;
+			case "11":
+				await LongProcess();
 				break;
 			default:
 				WriteLine("Invalid choice. Please try again.");
@@ -535,7 +538,7 @@ class Program
 		MultiDArray.RunMultiDArray();
 	}
 
-	private static void GetFibonachiSeq(int n)
+	private static void GetFibonacciSeq(int n)
 	{
 		//0,1,1,2,3,5,8,13,21,34,55,89
 		int first = 0;
