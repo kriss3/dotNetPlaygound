@@ -133,6 +133,33 @@ class Program
 			case "11":
 				await LongProcess();
 				break;
+			case "12":
+				PredicateDelegateExample();
+				break;
+			case "13":
+				ActionDelegateExample();
+				break;
+			case "14":
+				FuncDelegateExample();
+				break;
+			case "15":
+				FizzBuzzAttempt();
+				break;
+			case "16":
+				
+				break;
+			case "17":
+				
+				break;
+			case "18":
+
+				break;
+			case "19":
+
+				break;
+
+
+
 			default:
 				WriteLine("Invalid choice. Please try again.");
 				break;
@@ -942,7 +969,7 @@ class Program
 		WriteLine($"Number of matching pairs: {results}");
 	}
 
-	private static void ValeyCount()
+	private static void ValleyCount()
 	{
 		var results = 0;
 		/*
@@ -984,7 +1011,7 @@ class Program
 		}
 	}
 
-	private static string BreakPalindrom(string str)
+	private static string BreakPalindrome(string str)
 	{
 		string result, nStr;
 
