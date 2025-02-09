@@ -91,6 +91,9 @@ class Program
 		WriteLine("4. MinStepsToEqualizeIntArray");
 		WriteLine("5. JumpOverThunderHeads");
 		WriteLine("6. CountNumberOfValleys");
+		WriteLine("7. Run");
+		
+		
 		WriteLine("0. Exit");
 		Write("Enter your choice: ");
 	}
@@ -116,6 +119,9 @@ class Program
 				break;
 			case "6":
 				CountNumberOfValleys();
+				break;
+			case "7":
+				Run();
 				break;
 			default:
 				WriteLine("Invalid choice. Please try again.");
@@ -622,7 +628,7 @@ class Program
 		}
 		else
 		{
-			WriteLine($"Word {s} is not a palindrom");
+			WriteLine($"Word {s} is not a palindrome");
 		}
 	}
 
