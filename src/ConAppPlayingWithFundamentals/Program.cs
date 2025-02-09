@@ -92,8 +92,10 @@ class Program
 		WriteLine("5. JumpOverThunderHeads");
 		WriteLine("6. CountNumberOfValleys");
 		WriteLine("7. Run");
-		
-		
+		WriteLine("8. Setup");
+		WriteLine("9. StringSplitByMaxInt");
+
+
 		WriteLine("0. Exit");
 		Write("Enter your choice: ");
 	}
@@ -122,6 +124,12 @@ class Program
 				break;
 			case "7":
 				Run();
+				break;
+			case "8":
+				Setup();
+				break;
+			case "9":
+				StringSplitByMaxInt("13");
 				break;
 			default:
 				WriteLine("Invalid choice. Please try again.");
