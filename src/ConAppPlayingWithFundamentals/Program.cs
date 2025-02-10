@@ -32,34 +32,28 @@ class Program
 			await ExecuteChoice(choice);
 		}
 
-
-		//RemoveVowels("HellO");
-		//FindDelimiterOccurrence("ABCDE", "DC");
-		//ReverseSentence("Ala ma kota");
 		//CardDeckShuffler();
 		//GetDataFromDb();
 		//Task.Run(async () => await GetPeopleFromWeb());
 		//ReverseArrayCheck(10);
 		//Shuffle(new int[52]);
-		//GtMoreUsers();
 		//var res = GetMatchingPairs();
 		//GetMatchingPairs2();
 		//IntArrayExercises();
-		//FindElementInSorterArray(3);
+		
 		//FindPairs();
-		//ValleyCount();
+
 		//OddNumbers(2,5);
 		//BreakPalindrome("acca");
 		//MySortingBubble();
-		//GetFibonacciSeq(12);
 		//Run2DArray();
 		//IntArray();
 		//LinqQuery();
+		//SerializeUsingMsLibrary();
+		//FizzBuzzAttempt();
 		//Compare2List();
 		//CapitalizeEveryOtherCharter();
 		//PaddingWithZeros();
-		//SerializeUsingMsLibrary();
-		//FizzBuzzAttempt();
 		//FuncDelegateExample();
 		//ActionDelegateExample();
 		//PredicateDelegateExample();
@@ -73,7 +67,6 @@ class Program
 		ParamsCollectionsCheck();
 
 		ReadLine();
-		return Task.CompletedTask;
 	}
 
 	private static void DisplayMenu()
@@ -179,10 +172,45 @@ class Program
 				ReverseString(ref word);
 				break;
 			case "27":
+				var sentence = "Ala ma kota";
+				ReverseSentence(sentence);
 				break;
 			case "28":
+				var exampleWord = "HellO";
+				RemoveVowels(exampleWord);
 				break;
 			case "29":
+				var inputExample1 = "ABCDE";
+				var inputExample2 = "DC";
+				FindDelimiterOccurrence(inputExample1, inputExample2);
+				break;
+			case "30":
+				CardDeckShuffler();
+				break;
+			case "31":
+				GetDataFromDb();
+				break;
+			case "32":
+				await GetPeopleFromWeb();
+				break;
+			case "33":
+				ReverseArrayCheck(10);
+				break;
+			case "34":
+				GtMoreUsers();
+				break;
+			case "35":
+				GetMatchingPairs03();
+				break;
+			case "36":
+				GetMatchingPairs04();
+				break;
+			case "37":
+				var input = 3;
+				FindElementInSorterArray(input);
+				break;
+			case "38":
+				
 				break;
 
 
@@ -355,7 +383,7 @@ class Program
 	}
 
 
-	//Hackerrank = countNumber of valleys
+	//HackerRank = countNumber of valleys
 	//SeaLevel, walker always ends up at level 0;
 	private static void CountNumberOfValleys()
 	{
