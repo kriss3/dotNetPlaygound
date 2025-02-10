@@ -32,8 +32,7 @@ class Program
 			ExecuteChoice(choice);
 		}
 
-		//var t = "konstantynopolitanczykowna";
-		//ReverseString(ref t);
+
 		//RemoveVowels("HellO");
 		//FindDelimiterOccurrence("ABCDE", "DC");
 		//ReverseSentence("Ala ma kota");
@@ -173,8 +172,11 @@ class Program
 				GetMatchingPairs();
 				break;
 			case "25":
+				Run2(10);
 				break;
 			case "26":
+				var word = "konstantynopolitanczykowna";
+				ReverseString(ref word);
 				break;
 			case "27":
 				break;
