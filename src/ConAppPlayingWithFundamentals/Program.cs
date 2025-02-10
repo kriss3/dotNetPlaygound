@@ -31,39 +31,6 @@ class Program
 			};
 			await ExecuteChoice(choice);
 		}
-
-		//CardDeckShuffler();
-		//GetDataFromDb();
-		//Task.Run(async () => await GetPeopleFromWeb());
-		//ReverseArrayCheck(10);
-		//Shuffle(new int[52]);
-		//var res = GetMatchingPairs();
-		//GetMatchingPairs2();
-		//IntArrayExercises();
-		
-		//FindPairs();
-
-		//OddNumbers(2,5);
-		//BreakPalindrome("acca");
-		//MySortingBubble();
-		//Run2DArray();
-		//IntArray();
-		//LinqQuery();
-		//SerializeUsingMsLibrary();
-		//FizzBuzzAttempt();
-		//Compare2List();
-		//CapitalizeEveryOtherCharter();
-		//PaddingWithZeros();
-		//FuncDelegateExample();
-		//ActionDelegateExample();
-		//PredicateDelegateExample();
-		//await LongProcess();
-		//CountNumberOfValleys();
-		//JumpOverThunderHeads();
-		//FindNumberOfAsInAString();
-		//PrintFactorial();
-		//MinStepsToEqualizeIntArray();
-		//ShowDefaultsForTypes();
 		ParamsCollectionsCheck();
 
 		ReadLine();
@@ -210,12 +177,35 @@ class Program
 				FindElementInSorterArray(input);
 				break;
 			case "38":
-				
+				FindPairs();
 				break;
-
-
-
-
+			case "39":
+				ValleyCount();
+				break;
+			case "40":
+				var input1 = 2;
+				var input2 = 5;
+				OddNumbers(input1, input2);
+				break;
+			case "41":
+				var inputForBreakPalindrome = "acca";
+				BreakPalindrome(inputForBreakPalindrome);
+				break;
+			case "42":
+				MySortingBubble();
+				break;
+			case "43":
+				TwoDMatrixOps();
+				break;
+			case "44":
+				Magnitude();
+				break;
+			case "45":
+				IntArray();
+				break;
+			case "46":
+				PrintFactorial();
+				break;
 			default:
 				WriteLine("Invalid choice. Please try again.");
 				break;
@@ -462,7 +452,7 @@ class Program
 		Write($"Is the value entered greater than 10? : {predicate(valueReceived)}");
 	}
 
-	//Does not return a value take 0 up to 16 params (equivalant to void function)
+	//Does not return a value take 0 up to 16 params (equivalent to void function)
 	private static void ActionDelegateExample()
 	{
 		static void printAValue(int i) => WriteLine($"The parameter passed to the Actin Delegate is: {i}");
