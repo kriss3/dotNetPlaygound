@@ -18,7 +18,7 @@ namespace ConAppPlayingWithFundamentals;
 
 class Program
 {
-	static Task Main()
+	static async Task Main()
 	{
 		while (true)
 		{
@@ -29,7 +29,7 @@ class Program
 				WriteLine("Exiting...");
 				break;
 			};
-			ExecuteChoice(choice);
+			await ExecuteChoice(choice);
 		}
 
 
