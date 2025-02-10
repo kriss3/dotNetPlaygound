@@ -157,6 +157,32 @@ class Program
 			case "19":
 				Compare2List();
 				break;
+			case "20":
+				LinqQuery();
+				break;
+			case "21":
+				Run2DArray();
+				break;
+			case "22":
+				GetFibonacciSeq(10);
+				break;
+			case "23":
+				GetMatchingPairs2();
+				break;
+			case "24":
+				GetMatchingPairs();
+				break;
+			case "25":
+				break;
+			case "26":
+				break;
+			case "27":
+				break;
+			case "28":
+				break;
+			case "29":
+				break;
+
 
 
 
