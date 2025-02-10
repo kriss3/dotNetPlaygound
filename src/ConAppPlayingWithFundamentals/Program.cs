@@ -146,16 +146,16 @@ class Program
 				FizzBuzzAttempt();
 				break;
 			case "16":
-				
+				SerializeUsingMsLibrary();
 				break;
 			case "17":
-				
+				PaddingWithZeros();
 				break;
 			case "18":
-
+				CapitalizeEveryOtherCharter();
 				break;
 			case "19":
-
+				Compare2List();
 				break;
 
 
@@ -499,8 +499,6 @@ class Program
 		}
 		sb.ToString();
 	}
-
-
 
 	private static void Compare2List()
 	{
