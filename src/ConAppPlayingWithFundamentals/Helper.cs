@@ -199,10 +199,10 @@ public class Helper
 		return results;
 	}
 
-	public static DateTime WorldClock(string myDate, IList<string> timeZones)
+	public static DateTime WorldClock(string myDate)
 	{
 		//check input parameters => is myDate actually a date?
-		//you have 135 time zones => do you want to convert time for eacho of them?
+		//you have 135 time zones => do you want to convert time for each of them?
 		var dt = Convert.ToDateTime(myDate);
 
 		var destinationTimeZone = "Central European Standard Time";
