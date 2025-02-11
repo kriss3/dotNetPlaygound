@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ConAppPlayingWithFundamentals.Models;
+using System.Collections.Generic;
 
 namespace ConAppsExercises.Models;
 

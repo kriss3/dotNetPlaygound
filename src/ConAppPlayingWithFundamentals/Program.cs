@@ -1,4 +1,5 @@
-﻿using ConAppsExercises;
+﻿using ConAppPlayingWithFundamentals.Models;
+using ConAppsExercises;
 using ConAppsExercises.Models;
 using Microsoft.Extensions.Configuration;
 using System;
