@@ -1,10 +1,10 @@
-﻿using ConAppsExercises;
+﻿using ConAppPlayingWithFundamentals;
 using System;
 using Xunit;
 
 namespace TestingUnitTests;
 
-	public class BankAccountTests
+public class BankAccountTests
 {
     [Fact]
     public void TestExceptionThrowing()
