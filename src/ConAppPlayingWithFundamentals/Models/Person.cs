@@ -1,4 +1,4 @@
-﻿namespace ConAppPlayingWithFundamentals;
+﻿namespace ConAppPlayingWithFundamentals.Models;
 
 //can be public, private, protected, internal protected
 public class Person

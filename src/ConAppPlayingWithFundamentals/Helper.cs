@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using ConAppPlayingWithFundamentals.Models;
 
 namespace ConAppPlayingWithFundamentals;
 
@@ -194,8 +195,6 @@ public class Helper
 		{
 			results += rec.Key + rec.Value.ToString();
 		}
-
-
 		return results;
 	}
 

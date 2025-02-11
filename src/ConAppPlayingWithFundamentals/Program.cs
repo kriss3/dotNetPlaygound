@@ -683,8 +683,8 @@ class Program
 		Helper.SwapMinMax();
 		Helper.SwapString();
 		Helper.StringsArrays();
-		var tz = Helper.GetTimeZoneId();
-		Helper.WorldClock("2017-11-25 3:32pm", tz);
+		Helper.GetTimeZoneId();
+		Helper.WorldClock("2017-11-25 3:32pm");
 
 		//Helper String statistics
 		Helper.GetCollapsed("yyyaaa");
