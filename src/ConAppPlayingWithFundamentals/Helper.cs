@@ -8,324 +8,323 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
-using ConAppPlayingWithFundamentals;
 
-namespace ConAppsExercises;
+namespace ConAppPlayingWithFundamentals;
 
 public class Helper
 {
-    public static bool IsPalindrome(string word)
-    {
-        var s = word.ToLower();
-        char[] test = word.ToLower().ToCharArray();
-        Array.Reverse(test);
-        var res = new string(test);
+	public static bool IsPalindrome(string word)
+	{
+		var s = word.ToLower();
+		char[] test = word.ToLower().ToCharArray();
+		Array.Reverse(test);
+		var res = new string(test);
 
-        return s.Equals(res);
-    }
-    
-    public static IEnumerable<string> GetPresidents()
-    {
-        var presidents = new LinkedList<string>();
-        presidents.AddLast("JFK");
-        presidents.AddLast("Lyndon B Johnson");
-        presidents.AddLast("Richard Nixon");
-        presidents.AddLast("Jimmy Carter");
+		return s.Equals(res);
+	}
 
-        var lln = new LinkedListNode<string>("John F. Kennedy");
+	public static IEnumerable<string> GetPresidents()
+	{
+		var presidents = new LinkedList<string>();
+		presidents.AddLast("JFK");
+		presidents.AddLast("Lyndon B Johnson");
+		presidents.AddLast("Richard Nixon");
+		presidents.AddLast("Jimmy Carter");
 
-        presidents.RemoveFirst();
-        presidents.AddFirst(lln);
-        return presidents;
-    }
+		var lln = new LinkedListNode<string>("John F. Kennedy");
 
-    public static IEnumerable<string> GetNames()
-    {
-        var st = new Stack<string>();
-        return st;
-    }
+		presidents.RemoveFirst();
+		presidents.AddFirst(lln);
+		return presidents;
+	}
 
-    public static IEnumerable<string> GetValue()
-    {
-        var q = new Queue<string>();
-        return q;
-    }
+	public static IEnumerable<string> GetNames()
+	{
+		var st = new Stack<string>();
+		return st;
+	}
 
-    public static string ReverseStringWithVowelsOnly(string input)
-    {
-        var result = new StringBuilder();
-        var inputArr = input.ToCharArray();
-        var vowels = new char[] {'a','o','u','y','e','i'};
-        //wenkola
+	public static IEnumerable<string> GetValue()
+	{
+		var q = new Queue<string>();
+		return q;
+	}
 
-        for (int i = 0; i < inputArr.Length; i++)
-        {
-            if (vowels.Contains(inputArr[i]))
-            {
-                for (var k = inputArr.Length - 1; k >= 0; k--)
-                {
-                    if (vowels.Contains(inputArr[^1]))
-                    {
-                        var lastVowel = inputArr[^1];
-                        inputArr[i] = lastVowel;
-                        result.Append(inputArr[i]);
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                result.Append(inputArr[i]);
-            }
-        }
-        return result.ToString();
-    }
+	public static string ReverseStringWithVowelsOnly(string input)
+	{
+		var result = new StringBuilder();
+		var inputArr = input.ToCharArray();
+		var vowels = new char[] { 'a', 'o', 'u', 'y', 'e', 'i' };
+		//wenkola
 
-    public static string ReverseVowels(string s)
-    {
-        var stringBuilder = new StringBuilder();
-        for (int start = 0, end = s.Length - 1; start < s.Length; start++)
-        {
-            if ("aeiouAEIOU".IndexOf(s[start]) < 0) // if s[start] returns -1 meaning not there ...
-            {
-                stringBuilder.Append(s[start]);
-            }
-            else
-            {
-                while (end >= 0 && "aeiouAEIOU".IndexOf(s[end]) < 0)
-                {
-                    end--;
-                }
-                stringBuilder.Append(s[end]);
-                end--;
-            }
-        }
+		for (int i = 0; i < inputArr.Length; i++)
+		{
+			if (vowels.Contains(inputArr[i]))
+			{
+				for (var k = inputArr.Length - 1; k >= 0; k--)
+				{
+					if (vowels.Contains(inputArr[^1]))
+					{
+						var lastVowel = inputArr[^1];
+						inputArr[i] = lastVowel;
+						result.Append(inputArr[i]);
+						break;
+					}
+				}
+			}
+			else
+			{
+				result.Append(inputArr[i]);
+			}
+		}
+		return result.ToString();
+	}
 
-        return stringBuilder.ToString();
-    }
+	public static string ReverseVowels(string s)
+	{
+		var stringBuilder = new StringBuilder();
+		for (int start = 0, end = s.Length - 1; start < s.Length; start++)
+		{
+			if ("aeiouAEIOU".IndexOf(s[start]) < 0) // if s[start] returns -1 meaning not there ...
+			{
+				stringBuilder.Append(s[start]);
+			}
+			else
+			{
+				while (end >= 0 && "aeiouAEIOU".IndexOf(s[end]) < 0)
+				{
+					end--;
+				}
+				stringBuilder.Append(s[end]);
+				end--;
+			}
+		}
 
-    public static IList<int> ArrayGames()
-    {
-        int[] result = [1, 4, 9, 16, 25];
+		return stringBuilder.ToString();
+	}
 
-        return result;
-    }
+	public static IList<int> ArrayGames()
+	{
+		int[] result = [1, 4, 9, 16, 25];
 
-    public static IList<string> GetWeekName()
-    {
-        string[] results = [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-        ];
+		return result;
+	}
 
-        StringBuilder sb = new();
-        for (int i = 0; i < results.Length; i++)
-        {
-            sb.Append(results[i]);
-            if (i < results.Length - 2)
-            {
-                sb.Append(", ");
-            }
-            if (i == results.Length - 2)
-            {
-                sb.Append(" and ");
-            }
-        }
-        WriteLine(sb.ToString());
-        return results;
-    }
+	public static IList<string> GetWeekName()
+	{
+		string[] results = [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+			"Sunday"
+		];
 
-    public static IList<Person> GetPeople()
-    {
-        Person[] people =
-        [
-            new Person { Name="Kris", Age=11},
-            new Person { Name= "Tom", Age=20}
-        ];
+		StringBuilder sb = new();
+		for (int i = 0; i < results.Length; i++)
+		{
+			sb.Append(results[i]);
+			if (i < results.Length - 2)
+			{
+				sb.Append(", ");
+			}
+			if (i == results.Length - 2)
+			{
+				sb.Append(" and ");
+			}
+		}
+		WriteLine(sb.ToString());
+		return results;
+	}
 
-        foreach (var item in people)
-        {
-            WriteLine(item.ToString());
-        }
-        return people;
-    }
+	public static IList<Person> GetPeople()
+	{
+		Person[] people =
+		[
+			new Person { Name="Kris", Age=11},
+			new Person { Name= "Tom", Age=20}
+		];
 
-    public static void CopyArray()
-    {
-        int[] myBase = [1, 4, 9, 16, 2, 5];
-        int[] copy = new int[6];
+		foreach (var item in people)
+		{
+			WriteLine(item.ToString());
+		}
+		return people;
+	}
 
-        myBase.CopyTo(copy, 0);
+	public static void CopyArray()
+	{
+		int[] myBase = [1, 4, 9, 16, 2, 5];
+		int[] copy = new int[6];
 
-        foreach (var item in copy)
-        {
-            WriteLine(item);
-        }
+		myBase.CopyTo(copy, 0);
 
-        WriteLine($"myBase Equals to Copy? {myBase == copy}");
-    }
+		foreach (var item in copy)
+		{
+			WriteLine(item);
+		}
 
-    public static void UseSingleton()
-    {
-    }
+		WriteLine($"myBase Equals to Copy? {myBase == copy}");
+	}
 
-    public static string GetCollapsed(string input)
-    {
-        //group same letters;
-        //var gr = input.ToCharArray();
-        Dictionary<char, int> dictionary = [];
+	public static void UseSingleton()
+	{
+	}
 
-        foreach (var l in input)
-        {
-            if (!dictionary.TryGetValue(l, out int value))
-            {
-                value = 0;
-                dictionary[l] = value;
-            }
-            dictionary[l] = ++value;
-        }
+	public static string GetCollapsed(string input)
+	{
+		//group same letters;
+		//var gr = input.ToCharArray();
+		Dictionary<char, int> dictionary = [];
 
-        var results = string.Empty;
-        foreach (var rec in dictionary)
-        {
-            results += rec.Key + rec.Value.ToString();
-        }
+		foreach (var l in input)
+		{
+			if (!dictionary.TryGetValue(l, out int value))
+			{
+				value = 0;
+				dictionary[l] = value;
+			}
+			dictionary[l] = ++value;
+		}
+
+		var results = string.Empty;
+		foreach (var rec in dictionary)
+		{
+			results += rec.Key + rec.Value.ToString();
+		}
 
 
-        return results;
-    }
+		return results;
+	}
 
-    public static DateTime WorldClock(string myDate, IList<string> timeZones)
-    {
-        //check input parameters => is myDate actually a date?
-        //you have 135 time zones => do you want to convert time for eacho of them?
-        var dt = Convert.ToDateTime(myDate);
+	public static DateTime WorldClock(string myDate, IList<string> timeZones)
+	{
+		//check input parameters => is myDate actually a date?
+		//you have 135 time zones => do you want to convert time for eacho of them?
+		var dt = Convert.ToDateTime(myDate);
 
-        var destinationTimeZone = "Central European Standard Time";
-        var result = TimeZoneInfo.ConvertTime(dt, TimeZoneInfo.Local, TimeZoneInfo.FindSystemTimeZoneById(destinationTimeZone));
+		var destinationTimeZone = "Central European Standard Time";
+		var result = TimeZoneInfo.ConvertTime(dt, TimeZoneInfo.Local, TimeZoneInfo.FindSystemTimeZoneById(destinationTimeZone));
 
-        return result;
-    }
+		return result;
+	}
 
-    public static IList<string> GetTimeZoneId()
-    {
-        var results = new List<String>();
-        foreach (var tz in TimeZoneInfo.GetSystemTimeZones())
-        {
-            results.Add(tz.Id);
-        }
-        return results;
-    }
+	public static IList<string> GetTimeZoneId()
+	{
+		var results = new List<string>();
+		foreach (var tz in TimeZoneInfo.GetSystemTimeZones())
+		{
+			results.Add(tz.Id);
+		}
+		return results;
+	}
 
-    public static IEnumerable<string> StringsArrays()
-    {
-        IList<String> myStrings = [];
-        //string[] myArr = { "a","e","i","o","u","y"};
-        var t = "aeiouy";
-        var res = t.ToCharArray();
-        for (int i = res.Length-1; i>0;i++)
-        {
-            WriteLine(t[i]);
-        }
+	public static IEnumerable<string> StringsArrays()
+	{
+		IList<string> myStrings = [];
+		//string[] myArr = { "a","e","i","o","u","y"};
+		var t = "aeiouy";
+		var res = t.ToCharArray();
+		for (int i = res.Length - 1; i > 0; i++)
+		{
+			WriteLine(t[i]);
+		}
 
-        return myStrings;
-    }
+		return myStrings;
+	}
 
-    public static void SwapMinMax()
-    {
-        int[] arr = [ 1, 4, 5, 3, 2, 7, 6, 8, 9, 11 ];
-        Array.Sort(arr);
-        var min = arr[0];
-        var max = arr[^1];
+	public static void SwapMinMax()
+	{
+		int[] arr = [1, 4, 5, 3, 2, 7, 6, 8, 9, 11];
+		Array.Sort(arr);
+		var min = arr[0];
+		var max = arr[^1];
 
-        arr[0] = max;
-        arr[^1] = min;
-    }
+		arr[0] = max;
+		arr[^1] = min;
+	}
 
-    public static void SwapString()
-    {
-        var word = "test"; //test => tset
-        var t = word.ToCharArray();
-        var len = t.Length -1;
-        var mid = len / 2;
+	public static void SwapString()
+	{
+		var word = "test"; //test => tset
+		var t = word.ToCharArray();
+		var len = t.Length - 1;
+		var mid = len / 2;
 
-        for (var i = 0; i <= mid; i++)
-        {
-            (t[len - i], t[i]) = (t[i], t[len - i]);
-        }
+		for (var i = 0; i <= mid; i++)
+		{
+			(t[len - i], t[i]) = (t[i], t[len - i]);
+		}
 
-        //var myChar = t[i];
-        //t[i] = t[len - i];
-        //t[len - i] = myChar;
+		//var myChar = t[i];
+		//t[i] = t[len - i];
+		//t[len - i] = myChar;
 
-        t.ToString();
-    }
+		t.ToString();
+	}
 
-    public static string GetConnectionString()
-    {
-        return ConfigurationManager.ConnectionStrings["BCIT"].ConnectionString;
-    }
+	public static string GetConnectionString()
+	{
+		return ConfigurationManager.ConnectionStrings["BCIT"].ConnectionString;
+	}
 
-    public static IEnumerable<string> GetAllItems()
-    {
-        List<string> result = [];
-        using (SqlConnection conn = new(GetConnectionString()))
-        {
-            SqlCommand cmd = new("dbo.getItems", conn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
+	public static IEnumerable<string> GetAllItems()
+	{
+		List<string> result = [];
+		using (SqlConnection conn = new(GetConnectionString()))
+		{
+			SqlCommand cmd = new("dbo.getItems", conn)
+			{
+				CommandType = CommandType.StoredProcedure
+			};
 
-            conn.Open();
+			conn.Open();
 
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                while (dr.Read())
-                {
-                    result.Add(dr.GetString(0));
-                }
-            }
-        }
-        return result;
-    }
+			SqlDataReader dr = cmd.ExecuteReader();
+			if (dr.HasRows)
+			{
+				while (dr.Read())
+				{
+					result.Add(dr.GetString(0));
+				}
+			}
+		}
+		return result;
+	}
 
-    public static string GetItemById(int val)
-    {
-        var result = String.Empty;
-        using (SqlConnection conn = new(GetConnectionString()))
-        {
-            SqlCommand cmd = new("dbo.getItemById", conn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.Add("@itemId", SqlDbType.Int).Value = val;
-            //cmd.Parameters.AddWithValue("@itemId", val);
-            
-            conn.Open();
+	public static string GetItemById(int val)
+	{
+		var result = string.Empty;
+		using (SqlConnection conn = new(GetConnectionString()))
+		{
+			SqlCommand cmd = new("dbo.getItemById", conn)
+			{
+				CommandType = CommandType.StoredProcedure
+			};
+			cmd.Parameters.Add("@itemId", SqlDbType.Int).Value = val;
+			//cmd.Parameters.AddWithValue("@itemId", val);
 
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                while (dr.Read())
-                {
-                    result = dr.GetString(1);
-                }
-            }
-        }
-        return result;
-    }
+			conn.Open();
 
-    public static async Task<string> GetPeopleFromWeb()
-    {
-        var baseUrl = $"http://peoplecollectionapi.azurewebsites.net/";
-        HttpClient _ = new();
-        var task =  await _.GetStringAsync(new Uri($"{baseUrl}api/people"));
-        return task;
-    }
+			SqlDataReader dr = cmd.ExecuteReader();
+			if (dr.HasRows)
+			{
+				while (dr.Read())
+				{
+					result = dr.GetString(1);
+				}
+			}
+		}
+		return result;
+	}
+
+	public static async Task<string> GetPeopleFromWeb()
+	{
+		var baseUrl = $"http://peoplecollectionapi.azurewebsites.net/";
+		HttpClient _ = new();
+		var task = await _.GetStringAsync(new Uri($"{baseUrl}api/people"));
+		return task;
+	}
 }

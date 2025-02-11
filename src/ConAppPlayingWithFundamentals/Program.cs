@@ -15,7 +15,6 @@ using static System.Console;
 
 namespace ConAppPlayingWithFundamentals;
 
-
 class Program
 {
 	static async Task Main()
