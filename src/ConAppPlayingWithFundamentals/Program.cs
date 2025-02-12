@@ -1,4 +1,5 @@
 ﻿using ConAppPlayingWithFundamentals.Models;
+using ConAppPlayingWithFundamentals.Services;
 using ConAppsExercises.Models;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -665,17 +666,9 @@ class Program
 		return res;
 	}
 
-	private static void MyEvents()
-	{
-		NotificationMethods nm = new();
-		nm.Show += ShowMethodHandler;
-		nm.Name = "Kris";
-	}
+	
 
-	private static void ShowMethodHandler(object sender, EventArgs args)
-	{
-		WriteLine($"Name property has changed...");
-	}
+	
 
 	public static void Run()
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConAppPlayingWithFundamentals;
+namespace ConAppPlayingWithFundamentals.Services.NotificationService;
 
 public class NotificationMethods
 {
