@@ -1,5 +1,4 @@
 ﻿using ConAppPlayingWithFundamentals.Models;
-using ConAppsExercises;
 using ConAppsExercises.Models;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -11,7 +10,6 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-
 using static System.Console;
 
 namespace ConAppPlayingWithFundamentals;
@@ -1098,6 +1096,7 @@ class Program
 		} while (move > 0);
 
 	}
+	
 	private static void Swap(ref int[] arr, ref int a, ref int b)
 	{
 		var inxT1 = Array.IndexOf(arr, a);
@@ -1142,7 +1141,6 @@ class Program
 		var fullRes = res - myArrSum;
 		WriteLine(fullRes);
 	}
-
 
 	private static void PrintFactorial()
 	{
