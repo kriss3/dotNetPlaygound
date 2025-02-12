@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using static System.Console;
@@ -120,5 +121,87 @@ public static class StringOperations
 		}
 		WriteLine(res + 1);
 		return res + 1;
+	}
+
+	public static void CapitalizeEveryOtherCharter()
+	{
+		string example = "this is my example";
+		var sb = new StringBuilder();
+		foreach (var item in example)
+		{
+			int itemIndex = example.IndexOf(item);
+			if (itemIndex == 0)
+			{
+				sb.Append(example[itemIndex].ToString().ToLower());
+				continue;
+			}
+
+			if (itemIndex % 2 != 0)
+				sb.Append(example[itemIndex].ToString().ToUpper());
+			else
+				sb.Append(example[itemIndex].ToString().ToLower());
+		}
+		sb.ToString();
+	}
+
+	public static void FindNumberOfAsInAString()
+	{
+		//var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
+		long n = 2000000000;  //2147483646
+		string s = "a";  //this string can be infinite, index can be larger than int32;
+		var maxStringArray = new List<string>();
+
+		if (s.Length < n && n < int.MaxValue)
+		{
+			s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
+			_ = s.Length;
+			_ = CountOfAs(s, n);
+		}
+		else
+		{
+			//very large n > int.MaxValue
+			while (n > int.MaxValue)
+			{
+				n = int.MaxValue;
+				s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
+				maxStringArray.Add(s);
+
+				n -= int.MaxValue;
+			}
+			maxStringArray.Add(string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n))));
+			long res = 0;
+			foreach (string item in maxStringArray)
+			{
+				var temp = CountOfAs(item, n);
+				res += temp;
+			}
+		}
+
+
+
+		if (maxStringArray.Count > 0)
+		{
+			foreach (var arr in maxStringArray)
+			{
+				//do the same as below to find all 'a' letters;
+				WriteLine(CountOfAs(arr, n));
+			}
+		}
+	}
+
+	private static long CountOfAs(string s, long n)
+	{
+		long count = 0;
+		long counter = 0;
+		var toListChar = s.ToList();
+		foreach (char c in toListChar)
+		{
+			if (counter == n)
+				break;
+			if (c == 'a')
+				count++;
+			counter++;
+		}
+		return count;
 	}
 }

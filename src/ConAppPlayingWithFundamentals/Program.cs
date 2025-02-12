@@ -66,7 +66,7 @@ class Program
 				ShowDefaultsForTypes();
 				break;
 			case "3":
-				FindNumberOfAsInAString();
+				StringOperations.FindNumberOfAsInAString();
 				break;
 			case "4":
 				MinStepsToEqualizeIntArray();
@@ -111,7 +111,7 @@ class Program
 				PaddingWithZeros();
 				break;
 			case "18":
-				CapitalizeEveryOtherCharter();
+				StringOperations.CapitalizeEveryOtherCharter();
 				break;
 			case "19":
 				Compare2List();
@@ -239,67 +239,6 @@ class Program
 		WriteLine($"Default value of {typeof(T)} is {(val == null
 			? "null"
 			: val.ToString())}");
-	}
-
-	private static void FindNumberOfAsInAString()
-	{
-		//var result = s.Take(n).Where(c => c == 'a').ToList().Count; //this works when n is within integer
-		long n = 2000000000;  //2147483646
-		string s = "a";  //this string can be infinite, index can be larger than int32;
-		var maxStringArray = new List<string>();
-
-		if (s.Length < n && n < int.MaxValue)
-		{
-			s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
-			_ = s.Length;
-			_ = CountOfAs(s, n);
-		}
-		else
-		{
-			//very large n > int.MaxValue
-			while (n > int.MaxValue)
-			{
-				n = int.MaxValue;
-				s = string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n)));
-				maxStringArray.Add(s);
-
-				n -= int.MaxValue;
-			}
-			maxStringArray.Add(string.Concat(Enumerable.Repeat(s, Convert.ToInt32(n))));
-			long res = 0;
-			foreach (string item in maxStringArray)
-			{
-				var temp = CountOfAs(item, n);
-				res += temp;
-			}
-		}
-
-
-
-		if (maxStringArray.Count > 0)
-		{
-			foreach (var arr in maxStringArray)
-			{
-				//do the same as below to find all 'a' letters;
-				WriteLine(CountOfAs(arr, n));
-			}
-		}
-	}
-
-	private static long CountOfAs(string s, long n)
-	{
-		long count = 0;
-		long counter = 0;
-		var toListChar = s.ToList();
-		foreach (char c in toListChar)
-		{
-			if (counter == n)
-				break;
-			if (c == 'a')
-				count++;
-			counter++;
-		}
-		return count;
 	}
 
 	private static IEnumerable<string> StringSplitByMaxInt(string s)
@@ -523,27 +462,6 @@ class Program
 		int value = 2;
 		string result = $"{value.ToString().PadLeft(numberOfAvailSpaces, '0')}";
 		WriteLine($"The DB2 value is {result} but the code will deal with value: {value}");
-	}
-
-	private static void CapitalizeEveryOtherCharter()
-	{
-		string example = "this is my example";
-		var sb = new StringBuilder();
-		foreach (var item in example)
-		{
-			int itemIndex = example.IndexOf(item);
-			if (itemIndex == 0)
-			{
-				sb.Append(example[itemIndex].ToString().ToLower());
-				continue;
-			}
-
-			if (itemIndex % 2 != 0)
-				sb.Append(example[itemIndex].ToString().ToUpper());
-			else
-				sb.Append(example[itemIndex].ToString().ToLower());
-		}
-		sb.ToString();
 	}
 
 	private static void Compare2List()
