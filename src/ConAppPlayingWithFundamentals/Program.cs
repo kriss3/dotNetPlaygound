@@ -1,5 +1,6 @@
 ﻿using ConAppPlayingWithFundamentals.Models;
-using ConAppPlayingWithFundamentals.Services;
+using ConAppPlayingWithFundamentals.Services.NotificationService;
+using ConAppPlayingWithFundamentals.Services.StringService;
 using ConAppsExercises.Models;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -77,7 +78,7 @@ class Program
 				CountNumberOfValleys();
 				break;
 			case "7":
-				Run();
+				StringOperations.Run();
 				break;
 			case "8":
 				Setup();
@@ -86,7 +87,7 @@ class Program
 				StringSplitByMaxInt("13");
 				break;
 			case "10":
-				MyEvents();
+				EventsHelper.MyEvents();
 				break;
 			case "11":
 				await LongProcess();
@@ -131,7 +132,7 @@ class Program
 				GetMatchingPairs();
 				break;
 			case "25":
-				Run2(10);
+				StringOperations.Run2(10);
 				break;
 			case "26":
 				var word = "konstantynopolitanczykowna";
@@ -666,44 +667,6 @@ class Program
 		return res;
 	}
 
-	
-
-	
-
-	public static void Run()
-	{
-		Helper.SwapMinMax();
-		Helper.SwapString();
-		Helper.StringsArrays();
-		Helper.GetTimeZoneId();
-		Helper.WorldClock("2017-11-25 3:32pm");
-
-		//Helper String statistics
-		Helper.GetCollapsed("yyyaaa");
-
-		//Helper Singleton
-		Helper.UseSingleton();
-		var a = Helper.GetWeekName();
-		WriteLine(a);
-
-		var r = Helper.ReverseVowels("Whyeeko");//a e o u i y
-		WriteLine(r);
-
-		var k = Helper.GetPresidents();
-		WriteLine(k);
-
-		Write(@"Type word to check if Palindrome: ");
-		var s = ReadLine();
-		if (Helper.IsPalindrome(s))
-		{
-			WriteLine($"Word {s} is palindrome");
-		}
-		else
-		{
-			WriteLine($"Word {s} is not a palindrome");
-		}
-	}
-
 	protected virtual void GetDog()
 	{
 		WriteLine($"This is inside method: {MethodBase.GetCurrentMethod().Name}()");
@@ -712,14 +675,6 @@ class Program
 	protected virtual void GetCat()
 	{
 		WriteLine($"This is inside method: {MethodBase.GetCurrentMethod().Name}()");
-	}
-
-	private static void Run2(int val)
-	{
-		for (int i = val; i >= 0; i--)
-		{
-			WriteLine($"Back iteration: {i}  == value: {i}");
-		}
 	}
 
 	private static string ReverseString(ref string testString)
