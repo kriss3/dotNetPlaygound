@@ -84,7 +84,7 @@ class Program
 				Setup();
 				break;
 			case "9":
-				StringSplitByMaxInt("13");
+				StringOperations.StringSplitByMaxInt("13");
 				break;
 			case "10":
 				EventsHelper.MyEvents();
@@ -239,13 +239,6 @@ class Program
 		WriteLine($"Default value of {typeof(T)} is {(val == null
 			? "null"
 			: val.ToString())}");
-	}
-
-	private static IEnumerable<string> StringSplitByMaxInt(string s)
-	{
-		var partLength = int.MaxValue;
-		for (var i = 0; i < s.Length; i += partLength)
-			yield return s.Substring(i, Math.Min(partLength, s.Length - i));
 	}
 
 	//This is done and works
@@ -456,13 +449,7 @@ class Program
 		WriteLine($"Policy Number: {result.PolicyNumber}\nDivision Number: {result.DivisionNumber}\nCategory: {result.Category}");
 	}
 
-	private static void PaddingWithZeros()
-	{
-		int numberOfAvailSpaces = 2;
-		int value = 2;
-		string result = $"{value.ToString().PadLeft(numberOfAvailSpaces, '0')}";
-		WriteLine($"The DB2 value is {result} but the code will deal with value: {value}");
-	}
+	
 
 	private static void Compare2List()
 	{

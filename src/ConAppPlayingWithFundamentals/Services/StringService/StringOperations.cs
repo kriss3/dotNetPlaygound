@@ -204,4 +204,11 @@ public static class StringOperations
 		}
 		return count;
 	}
+
+	public static IEnumerable<string> StringSplitByMaxInt(string s)
+	{
+		var partLength = int.MaxValue;
+		for (var i = 0; i < s.Length; i += partLength)
+			yield return s.Substring(i, Math.Min(partLength, s.Length - i));
+	}
 }
