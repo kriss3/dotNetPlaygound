@@ -108,7 +108,7 @@ class Program
 				SerializeUsingMsLibrary();
 				break;
 			case "17":
-				PaddingWithZeros();
+				StringOperations.PaddingWithZeros();
 				break;
 			case "18":
 				StringOperations.CapitalizeEveryOtherCharter();

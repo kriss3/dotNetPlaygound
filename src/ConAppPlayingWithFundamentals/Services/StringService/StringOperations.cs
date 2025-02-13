@@ -211,4 +211,12 @@ public static class StringOperations
 		for (var i = 0; i < s.Length; i += partLength)
 			yield return s.Substring(i, Math.Min(partLength, s.Length - i));
 	}
+
+	public static void PaddingWithZeros()
+	{
+		int numberOfAvailSpaces = 2;
+		int value = 2;
+		string result = $"{value.ToString().PadLeft(numberOfAvailSpaces, '0')}";
+		WriteLine($"The DB2 value is {result} but the code will deal with value: {value}");
+	}
 }
