@@ -1,4 +1,5 @@
 ﻿using ConAppPlayingWithFundamentals.Models;
+using ConAppPlayingWithFundamentals.Services.DelegateService;
 using ConAppPlayingWithFundamentals.Services.NotificationService;
 using ConAppPlayingWithFundamentals.Services.StringService;
 using ConAppsExercises.Models;
@@ -99,7 +100,7 @@ class Program
 				ActionDelegateExample();
 				break;
 			case "14":
-				FuncDelegateExample();
+				DelegateHelper.FuncDelegateExample();
 				break;
 			case "15":
 				FizzBuzzAttempt();
@@ -390,19 +391,7 @@ class Program
 		static void printAValue(int i) => WriteLine($"The parameter passed to the Actin Delegate is: {i}");
 		printAValue(10);
 	}
-
-	//takes up to 16 params and MUST return a value
-	private static void FuncDelegateExample()
-	{
-		Func<int, int, int> myResult = MyDelegateFnct;
-		var res = myResult(5, 5);
-		WriteLine($"Func can take 0 to 16 params and returns a value: {res}");
-	}
-
-	private static int MyDelegateFnct(int val1, int val2)
-	{
-		return val1 + val2;
-	}
+	
 	private static void FizzBuzzAttempt()
 	{
 		var n = 15; // 1,2,Fizz,4,Buzz
