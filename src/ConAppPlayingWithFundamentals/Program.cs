@@ -189,7 +189,7 @@ class Program
 				break;
 			case "41":
 				var inputForBreakPalindrome = "acca";
-				BreakPalindrome(inputForBreakPalindrome);
+				StringOperations.BreakPalindrome(inputForBreakPalindrome);
 				break;
 			case "42":
 				MySortingBubble();
@@ -448,8 +448,6 @@ class Program
 		var result = JsonSerializer.Deserialize<Dependent>(_example);
 		WriteLine($"Policy Number: {result.PolicyNumber}\nDivision Number: {result.DivisionNumber}\nCategory: {result.Category}");
 	}
-
-	
 
 	private static void Compare2List()
 	{
@@ -830,24 +828,6 @@ class Program
 			if (i % 2 != 0)
 				result.Add(i);
 		}
-	}
-
-	private static string BreakPalindrome(string str)
-	{
-		string result, nStr;
-
-		nStr = str.Replace(str[1], str[^1]);
-
-		if (nStr.CompareTo(str) == -1)
-			result = nStr;
-		else if (nStr.CompareTo(str) == 1)
-		{
-			Array.Sort(str.ToArray());
-			result = str.ToString();
-		}
-		else
-			return "IMPOSSIBLE";
-		return result;
 	}
 
 	private static void MySortingBubble()

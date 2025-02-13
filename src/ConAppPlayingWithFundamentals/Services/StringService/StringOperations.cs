@@ -219,4 +219,22 @@ public static class StringOperations
 		string result = $"{value.ToString().PadLeft(numberOfAvailSpaces, '0')}";
 		WriteLine($"The DB2 value is {result} but the code will deal with value: {value}");
 	}
+
+	public static string BreakPalindrome(string str)
+	{
+		string result, nStr;
+
+		nStr = str.Replace(str[1], str[^1]);
+
+		if (nStr.CompareTo(str) == -1)
+			result = nStr;
+		else if (nStr.CompareTo(str) == 1)
+		{
+			Array.Sort(str.ToArray());
+			result = str.ToString();
+		}
+		else
+			return "IMPOSSIBLE";
+		return result;
+	}
 }
