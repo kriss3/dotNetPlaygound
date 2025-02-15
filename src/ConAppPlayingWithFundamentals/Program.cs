@@ -50,21 +50,21 @@ class Program
 		WriteLine("8. Setup");
 		WriteLine("9. StringSplitByMaxInt");
 		WriteLine("10. MyEvents");
-		WriteLine("11. MyEvents");
-		WriteLine("12. MyEvents");
-		WriteLine("13. MyEvents");
-		WriteLine("14. MyEvents");
-		WriteLine("15. MyEvents");
-		WriteLine("16. MyEvents");
-		WriteLine("17. MyEvents");
-		WriteLine("18. MyEvents");
-		WriteLine("19. MyEvents");
-		WriteLine("20. MyEvents");
-		WriteLine("21. MyEvents");
-		WriteLine("22. MyEvents");
-		WriteLine("23. MyEvents");
-		WriteLine("24. MyEvents");
-		WriteLine("25. MyEvents");
+		WriteLine("11. LongProcess");
+		WriteLine("12. PredicateDelegateExample");
+		WriteLine("13. ");
+		WriteLine("14. ");
+		WriteLine("15. ");
+		WriteLine("16. ");
+		WriteLine("17. ");
+		WriteLine("18. ");
+		WriteLine("19. ");
+		WriteLine("20. ");
+		WriteLine("21. ");
+		WriteLine("22. ");
+		WriteLine("23. ");
+		WriteLine("24. ");
+		WriteLine("25. ");
 
 
 		WriteLine("0. Exit");
