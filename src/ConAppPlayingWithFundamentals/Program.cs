@@ -50,6 +50,21 @@ class Program
 		WriteLine("8. Setup");
 		WriteLine("9. StringSplitByMaxInt");
 		WriteLine("10. MyEvents");
+		WriteLine("11. MyEvents");
+		WriteLine("12. MyEvents");
+		WriteLine("13. MyEvents");
+		WriteLine("14. MyEvents");
+		WriteLine("15. MyEvents");
+		WriteLine("16. MyEvents");
+		WriteLine("17. MyEvents");
+		WriteLine("18. MyEvents");
+		WriteLine("19. MyEvents");
+		WriteLine("20. MyEvents");
+		WriteLine("21. MyEvents");
+		WriteLine("22. MyEvents");
+		WriteLine("23. MyEvents");
+		WriteLine("24. MyEvents");
+		WriteLine("25. MyEvents");
 
 
 		WriteLine("0. Exit");
