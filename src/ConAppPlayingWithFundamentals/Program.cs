@@ -79,13 +79,13 @@ class Program
 		WriteLine("37. FindElementInSorterArray");
 		WriteLine("38. FindPairs");
 		WriteLine("39. ValleyCount");
-		WriteLine("40. ");
-		WriteLine("41. ");
-		WriteLine("42. ");
-		WriteLine("43. ");
-		WriteLine("44. ");
-		WriteLine("45. ");
-		WriteLine("46. ");
+		WriteLine("40. OddNumbers");
+		WriteLine("41. BreakPalindrome");
+		WriteLine("42. MySortingBubble");
+		WriteLine("43. TwoDMatrixOps");
+		WriteLine("44. Magnitude");
+		WriteLine("45. IntArray");
+		WriteLine("46. PrintFactorial");
 
 
 		WriteLine("0. Exit");
