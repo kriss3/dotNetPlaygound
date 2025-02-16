@@ -52,14 +52,14 @@ class Program
 		WriteLine("10. MyEvents");
 		WriteLine("11. LongProcess");
 		WriteLine("12. PredicateDelegateExample");
-		WriteLine("13. ");
-		WriteLine("14. ");
-		WriteLine("15. ");
-		WriteLine("16. ");
-		WriteLine("17. ");
-		WriteLine("18. ");
-		WriteLine("19. ");
-		WriteLine("20. ");
+		WriteLine("13. ActionDelegateExample");
+		WriteLine("14. FuncDelegateExample");
+		WriteLine("15. FizzBuzzAttempt");
+		WriteLine("16. SerializeUsingMsLibrary");
+		WriteLine("17. PaddingWithZeros");
+		WriteLine("18. CapitalizeEveryOtherCharter");
+		WriteLine("19. Compare2List");
+		WriteLine("20. LinqQuery");
 		WriteLine("21. ");
 		WriteLine("22. ");
 		WriteLine("23. ");
@@ -99,8 +99,6 @@ class Program
 		WriteLine("44. ");
 		WriteLine("45. ");
 		WriteLine("46. ");
-		WriteLine("47. ");
-		WriteLine("48. ");
 
 
 		WriteLine("0. Exit");
