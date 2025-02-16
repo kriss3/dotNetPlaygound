@@ -65,6 +65,19 @@ class Program
 		WriteLine("23. ");
 		WriteLine("24. ");
 		WriteLine("25. ");
+		WriteLine("13. ");
+		WriteLine("14. ");
+		WriteLine("15. ");
+		WriteLine("16. ");
+		WriteLine("17. ");
+		WriteLine("18. ");
+		WriteLine("19. ");
+		WriteLine("20. ");
+		WriteLine("21. ");
+		WriteLine("22. ");
+		WriteLine("23. ");
+		WriteLine("24. ");
+		WriteLine("25. ");
 
 
 		WriteLine("0. Exit");
