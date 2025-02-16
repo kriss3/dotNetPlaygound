@@ -78,6 +78,29 @@ class Program
 		WriteLine("23. ");
 		WriteLine("24. ");
 		WriteLine("25. ");
+		WriteLine("26. ");
+		WriteLine("27. ");
+		WriteLine("28. ");
+		WriteLine("29. ");
+		WriteLine("30. ");
+		WriteLine("31. ");
+		WriteLine("32. ");
+		WriteLine("33. ");
+		WriteLine("34. ");
+		WriteLine("35. ");
+		WriteLine("36. ");
+		WriteLine("37. ");
+		WriteLine("38. ");
+		WriteLine("39. ");
+		WriteLine("40. ");
+		WriteLine("41. ");
+		WriteLine("42. ");
+		WriteLine("43. ");
+		WriteLine("44. ");
+		WriteLine("45. ");
+		WriteLine("46. ");
+		WriteLine("47. ");
+		WriteLine("48. ");
 
 
 		WriteLine("0. Exit");
