@@ -1,15 +1,12 @@
-﻿namespace ConAppPlayingWithProxyPattern;
+﻿using ConAppPlayingWithProxyPattern.Interfaces;
 
-public class ImageProxy : IImage
+namespace ConAppPlayingWithProxyPattern;
+
+public class ImageProxy(string fileName) : IImage
 {
 	// this class should implement a common interface and "wrap" the intended object.
-	private readonly string _fileName;
+	private readonly string _fileName = fileName;
 	private RealImage? _realImage;
-
-	public ImageProxy(string fileName)
-	{
-		_fileName = fileName;
-	}
 
 	public void DisplayImage()
 	{
