@@ -10,3 +10,21 @@ public class Program
 		return Task.CompletedTask;
 	}
 }
+
+
+public interface IImage 
+{
+	void DisplayImage();
+}
+
+
+public class RealImage(string fileName) : IImage 
+{
+	private readonly string _fileName = fileName;
+
+	public void DisplayImage()
+	{
+		WriteLine($"Displaying {_fileName}");
+	}
+}
+
