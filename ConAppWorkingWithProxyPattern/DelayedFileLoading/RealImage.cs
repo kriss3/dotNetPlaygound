@@ -1,8 +1,8 @@
-﻿namespace ConAppPlayingWithProxyPattern;
+﻿namespace ConAppPlayingWithProxyPattern.DelayedFileLoading;
 
 using static System.Console;
 
-public class RealImage : IImage 
+public class RealImage : IImage
 {
 	private readonly string _fileName;
 

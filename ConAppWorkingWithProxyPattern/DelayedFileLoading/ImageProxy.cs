@@ -1,6 +1,6 @@
 ﻿using ConAppPlayingWithProxyPattern.Interfaces;
 
-namespace ConAppPlayingWithProxyPattern;
+namespace ConAppPlayingWithProxyPattern.DelayedFileLoading;
 
 public class ImageProxy(string fileName) : IImage
 {
@@ -16,7 +16,7 @@ public class ImageProxy(string fileName) : IImage
 		//	_realImage = new RealImage(_fileName);
 		//}
 		//_realImage.DisplayImage();
-	}	
+	}
 
 }
 

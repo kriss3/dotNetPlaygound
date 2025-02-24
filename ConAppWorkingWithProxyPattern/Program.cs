@@ -1,5 +1,6 @@
 ﻿namespace ConAppPlayingWithProxyPattern;
 
+using ConAppPlayingWithProxyPattern.DelayedFileLoading;
 using static System.Console;
 
 
