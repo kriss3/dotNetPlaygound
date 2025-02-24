@@ -27,7 +27,7 @@ public class Program
 	{
 		ImageProxy myNewImageProxy = new("someInterestingFile.jpg");
 
-		WriteLine("The file is not yet loaded...");
+		WriteLine("Image is created but the file had not yet been loaded...");
 
 		//Loading ima/file from the disk happens at exact, controlled moment rather then during object creation.
 		myNewImageProxy.DisplayImage();
