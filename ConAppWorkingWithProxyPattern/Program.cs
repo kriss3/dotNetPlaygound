@@ -1,8 +1,11 @@
-﻿namespace ConAppPlayingWithProxyPattern;
+﻿
 
+using ConAppPlayingWithProxyPattern.AccessControl;
 using ConAppPlayingWithProxyPattern.DelayedFileLoading;
+using ConAppPlayingWithProxyPattern.Interfaces;
 using static System.Console;
 
+namespace ConAppPlayingWithProxyPattern;
 
 public class Program
 {
@@ -20,11 +23,12 @@ public class Program
 			A common use case is lazy initialization, where the proxy defers the creation of a resource until it's actually needed.
 		 */
 
-		Run();
+		RunLazyLoadingExample();
+		RunDataAccessExample();
 
 	}
 
-	private static void  Run() 
+	private static void  RunLazyLoadingExample() 
 	{
 		ImageProxy myNewImageProxy = new("someInterestingFile.jpg");
 
@@ -32,5 +36,16 @@ public class Program
 
 		//Loading ima/file from the disk happens at exact, controlled moment rather then during object creation.
 		myNewImageProxy.DisplayImage();
+	}
+
+	private static void RunDataAccessExample()
+	{
+		IDataAccess dataAccess = new DataServiceProxy();
+
+		WriteLine("Accessing data as Guest.../nUser: Guest");
+		dataAccess.FetchData("Guest");
+
+		WriteLine("Accessing data as Admin.../nUser: Admin");
+		dataAccess.FetchData("Admin");
 	}
 }
