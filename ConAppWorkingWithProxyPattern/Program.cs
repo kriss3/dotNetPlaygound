@@ -3,8 +3,6 @@
 using ConAppPlayingWithProxyPattern.AccessControl;
 using ConAppPlayingWithProxyPattern.ApiService;
 using ConAppPlayingWithProxyPattern.DelayedFileLoading;
-using ConAppPlayingWithProxyPattern.Interfaces;
-using System;
 using static System.Console;
 
 namespace ConAppPlayingWithProxyPattern;
