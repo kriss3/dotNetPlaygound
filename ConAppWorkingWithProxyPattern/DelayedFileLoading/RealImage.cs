@@ -1,6 +1,8 @@
-﻿namespace ConAppPlayingWithProxyPattern.DelayedFileLoading;
-
+﻿
+using ConAppPlayingWithProxyPattern.Interfaces;
 using static System.Console;
+
+namespace ConAppPlayingWithProxyPattern.DelayedFileLoading;
 
 public class RealImage : IImage
 {

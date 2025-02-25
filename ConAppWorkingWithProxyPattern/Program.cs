@@ -40,7 +40,7 @@ public class Program
 
 	private static void RunDataAccessExample()
 	{
-		IDataAccess dataAccess = new DataServiceProxy();
+		var dataAccess = new DataServiceProxy();
 
 		WriteLine("Accessing data as Guest.../nUser: Guest");
 		dataAccess.FetchData("Guest");
