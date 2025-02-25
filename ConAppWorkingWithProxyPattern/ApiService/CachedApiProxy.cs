@@ -3,9 +3,9 @@
 using static System.Console;
 
 namespace ConAppPlayingWithProxyPattern.ApiService;
-public class CachedApiProxy(RealApiService realApiService) : IApiService
+public class CachedApiProxy() : IApiService
 {
-	private readonly RealApiService _realApiService = realApiService ?? throw new ArgumentNullException(nameof(realApiService));
+	private readonly RealApiService? _realApiService;
 	private readonly Dictionary<string, (string Data, DateTime Expiry)> _cachedData = [];
 	private readonly TimeSpan _cacheDuration = TimeSpan.FromSeconds(10);
 
@@ -19,6 +19,9 @@ public class CachedApiProxy(RealApiService realApiService) : IApiService
 		else
 		{
 			WriteLine("Fetching data from external source");
+
+			if(_realApiService is null) return string.Empty;
+
 			var data = await _realApiService.GetDataAsync(url);
 			_cachedData[url] = (data, DateTime.UtcNow.Add(_cacheDuration));
 			return data;
