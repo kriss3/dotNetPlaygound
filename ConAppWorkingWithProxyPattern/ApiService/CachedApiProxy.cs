@@ -3,15 +3,15 @@
 using static System.Console;
 
 namespace ConAppPlayingWithProxyPattern.ApiService;
-public class CachedApiProxy : IApiService
+public class CachedApiProxy(RealApiService realApiService) : IApiService
 {
-	private readonly RealApiService _realApiService;
+	private readonly RealApiService _realApiService = realApiService ?? throw new ArgumentNullException(nameof(realApiService));
 	private readonly Dictionary<string, (string Data, DateTime Expiry)> _cachedData = [];
 	private readonly TimeSpan _cacheDuration = TimeSpan.FromSeconds(10);
 
 	public async Task<string> GetDataAsync(string url)
 	{
-		if (_cachedData.TryGetValue(url, out var cachedResponse) && DateTime.UtcNow < cachedResponse.Expiry) 
+		if (_cachedData.TryGetValue(url, out var cachedResponse) && DateTime.UtcNow < cachedResponse.Expiry)
 		{
 			WriteLine("Returning cached data");
 			return cachedResponse.Data;
