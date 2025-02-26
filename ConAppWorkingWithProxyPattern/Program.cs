@@ -26,6 +26,8 @@ public class Program
 		RunLazyLoadingExample();
 		RunDataAccessExample();
 		await RunApiServiceProxyExample();
+		await RunRedisCacheProxyExample();
+
 	}
 
 	private static void  RunLazyLoadingExample() 
@@ -69,5 +71,10 @@ public class Program
 		WriteLine("\nThird request (should fetch fresh data):");
 		string response3 = await apiService.GetDataAsync(urlToFetchedData);
 		WriteLine(response3);
+	}
+
+	private static async Task RunRedisCacheProxyExample()
+	{
+		throw new NotImplementedException();
 	}
 }
