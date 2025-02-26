@@ -81,5 +81,16 @@ public class Program
 		WriteLine("First request:");
 		string response1 = await apiService.GetDataAsync(url);
 		WriteLine(response1);
+
+		WriteLine("\nSecond request (should return cached data):");
+		string response2 = await apiService.GetDataAsync(url);
+		WriteLine(response2);
+
+		WriteLine("\nWaiting 35 seconds for cache to expire...");
+		await Task.Delay(35000);
+
+		WriteLine("\nThird request (should fetch fresh data):");
+		string response3 = await apiService.GetDataAsync(url);
+		WriteLine(response3);
 	}
 }
