@@ -5,7 +5,7 @@ using static System.Console;
 namespace ConAppPlayingWithProxyPattern.ApiService;
 public class CachedApiProxy() : IApiService
 {
-	private readonly RealApiService? _realApiService;
+	private readonly RealApiService? _realApiService = new(new HttpClient());
 	private readonly Dictionary<string, (string Data, DateTime Expiry)> _cachedData = [];
 	private readonly TimeSpan _cacheDuration = TimeSpan.FromSeconds(10);
 
