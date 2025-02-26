@@ -75,6 +75,11 @@ public class Program
 
 	private static async Task RunRedisCacheProxyExample()
 	{
-		throw new NotImplementedException();
+		var apiService = new RedisCachedApiService();
+		string url = "https://jsonplaceholder.typicode.com/todos/1";
+
+		WriteLine("First request:");
+		string response1 = await apiService.GetDataAsync(url);
+		WriteLine(response1);
 	}
 }
