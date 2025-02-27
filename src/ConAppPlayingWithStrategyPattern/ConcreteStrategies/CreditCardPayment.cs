@@ -14,14 +14,6 @@ public class CreditCardPayment : IPaymentStrategy
 	}
 }
 
-public class PayPalPayment : IPaymentStrategy
-{
-	public void Pay(decimal amount)
-	{
-		throw new NotImplementedException();
-	}
-}
-
 public class BitcoinPayment : IPaymentStrategy
 {
 	public void Pay(decimal amount)
