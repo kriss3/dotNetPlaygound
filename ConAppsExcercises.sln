@@ -71,7 +71,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithDDD.App", "src\P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithInMemoryCache", "src\ConAppPlayingWithInMemoryCache\ConAppPlayingWithInMemoryCache.csproj", "{71C10E80-6BDB-4013-B479-950E0A84C273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithProxyPattern", "ConAppWorkingWithProxyPattern\ConAppPlayingWithProxyPattern.csproj", "{28C47358-C38A-44A1-AFFA-FBF29DBACE94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithProxyPattern", "src\ConAppWorkingWithProxyPattern\ConAppPlayingWithProxyPattern.csproj", "{28C47358-C38A-44A1-AFFA-FBF29DBACE94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithStrategyPattern", "src\ConAppPlayingWithStrategyPattern\ConAppPlayingWithStrategyPattern.csproj", "{5A5B8C8F-B781-484A-8676-6CDD023C6809}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -219,6 +221,10 @@ Global
 		{28C47358-C38A-44A1-AFFA-FBF29DBACE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28C47358-C38A-44A1-AFFA-FBF29DBACE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28C47358-C38A-44A1-AFFA-FBF29DBACE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5B8C8F-B781-484A-8676-6CDD023C6809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5B8C8F-B781-484A-8676-6CDD023C6809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5B8C8F-B781-484A-8676-6CDD023C6809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5B8C8F-B781-484A-8676-6CDD023C6809}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
