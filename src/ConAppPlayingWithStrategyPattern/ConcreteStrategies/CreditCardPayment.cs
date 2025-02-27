@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static System.Console;
+
 namespace ConAppPlayingWithStrategyPattern.ConcreteStrategies;
 public class CreditCardPayment : IPaymentStrategy
 {
 	public void Pay(decimal amount)
 	{
-		throw new NotImplementedException();
+		WriteLine($"Paid {amount:C} using Credit Card.");
 	}
 }
