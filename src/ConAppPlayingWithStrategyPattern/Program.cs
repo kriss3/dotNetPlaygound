@@ -35,5 +35,15 @@ internal class Program
 				return;
 		}
 
+		Write("Enter amount to pay: ");
+		if (decimal.TryParse(ReadLine(), out decimal amount))
+		{
+			paymentContext.ProcessPayment(amount);
+		}
+		else
+		{
+			WriteLine("Invalid amount.");
+		}
+
 	}
 }
