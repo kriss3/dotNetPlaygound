@@ -1,9 +1,4 @@
 ﻿using ConAppPlayingWithStrategyPattern.ConcreteStrategies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using static System.Console;
 
@@ -20,6 +15,6 @@ public class PaymentProcessing
 			_ => "Invalid choice."
 		};
 
-		WriteLine();
+		WriteLine(message);
 	}
 }
