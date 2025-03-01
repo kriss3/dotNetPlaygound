@@ -51,6 +51,19 @@ internal class Program
 	private static void RunWithUnionType()
 	{
 		WriteLine("Select a payment method: /n1. Credit Card  /n2. PayPal  /n3. Bitcoin");
-		string choice = ReadLine();
+		string? choice = ReadLine();
+
+		if (choice is null)
+		{
+			WriteLine("Invalid choice.");
+			return;
+		}
+
+		var paymentMethods = new Dictionary<string, PaymentMethod>
+		{
+			{ "1", new CreditCard() },
+			{ "2", new PayPal() },
+			{ "3", new Bitcoin() }
+		};
 	}
 }
