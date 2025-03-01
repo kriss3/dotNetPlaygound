@@ -59,11 +59,28 @@ internal class Program
 			return;
 		}
 
-		var paymentMethods = new Dictionary<string, PaymentMethod>
+		Dictionary<string, PaymentMethod> paymentMethods = new()
 		{
 			{ "1", new CreditCard() },
 			{ "2", new PayPal() },
 			{ "3", new Bitcoin() }
 		};
+
+		if (paymentMethods.TryGetValue(choice, out PaymentMethod? method))
+		{
+			Write("Enter amount to pay: ");
+			if (decimal.TryParse(ReadLine(), out decimal amount))
+			{
+				PaymentProcessing.ProcessPayment(method, amount);
+			}
+			else
+			{
+				WriteLine("Invalid amount.");
+			}
+		}
+		else
+		{
+			WriteLine("Invalid choice.");
+		}
 	}
 }
