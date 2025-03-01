@@ -10,6 +10,7 @@ internal class Program
 	{
 		WriteLine("Playing with the Strategy Pattern!");
 		Run();
+		RunWithUnionType();
 	}
 
 	private static void Run() 
@@ -45,5 +46,9 @@ internal class Program
 			WriteLine("Invalid amount.");
 		}
 
+	}
+
+	private static void RunWithUnionType()
+	{
 	}
 }
