@@ -50,5 +50,7 @@ internal class Program
 
 	private static void RunWithUnionType()
 	{
+		WriteLine("Select a payment method: /n1. Credit Card  /n2. PayPal  /n3. Bitcoin");
+		string choice = ReadLine();
 	}
 }
