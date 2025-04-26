@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Cova.Functional" />
     <PackageReference Include="Cova.ServiceErrors" />
+    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
 </Project>
