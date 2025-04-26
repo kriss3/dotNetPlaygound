@@ -11,16 +11,20 @@ public record ResponseWithDetails<TSuccess, TFailure>(
 public record BioTrackError
 {
 	[JsonPropertyName("Code")]
-	public string Code { get; set; }
+	public string? Code { get; set; }
 	
-	[JsonProperty(PropertyName = "Data")]
-	public string Data { get; set; }
-	[JsonProperty(PropertyName = "Error")]
-	public string Error { get; set; }
-	[JsonProperty(PropertyName = "ErrorResource")]
-	public string ErrorResource { get; set; }
-	[JsonProperty(PropertyName = "ErrorResourceID")]
-	public string ErrorResourceId { get; set; }
-	[JsonProperty(PropertyName = "ErrorSrc")]
-	public string ErrorSrc { get; set; }
+	[JsonPropertyName("Data")]
+	public string? Data { get; set; }
+	
+	[JsonPropertyName("Error")]
+	public string? Error { get; set; }
+	
+	[JsonPropertyName("ErrorResource")]
+	public string? ErrorResource { get; set; }
+	
+	[JsonPropertyName("ErrorResourceID")]
+	public string? ErrorResourceId { get; set; }
+	
+	[JsonPropertyName("ErrorSrc")]
+	public string? ErrorSrc { get; set; }
 }
