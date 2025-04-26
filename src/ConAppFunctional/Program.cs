@@ -11,7 +11,7 @@ public class Program
 	{
 		WriteLine("Let's play with CS Functional!");
 
-		SecondAttempt_Map(100);
+		await ExecuteMapExamples();
 
 		SecondAttempt_Bind();
 
@@ -161,6 +161,11 @@ public class Program
 		SecondAttempt_Map(100);
 	}
 
+	private static async Task ExecuteBindExamples()
+	{
+		SecondAttempt_Bind();
+	}
+
 
 	//-----------------------------------
 
@@ -184,13 +189,14 @@ public class Program
 				failure => $"Failure: {failure}")}");
 	}
 
-	private static void SecondAttempt_Map(int v)
+	private static async Task SecondAttempt_Map(int v)
 	{
 		Option<int> maybeNumber = Option.Some(v);
 		//apply a transformation:
 		Option<int> doubledNumber = maybeNumber.Map(number => number * 2);
 		Option<int> squaredValue = doubledNumber.Map(number => number * number);
-		WriteLine($"Map Result: {squaredValue.Match(s => s.ToString(), () => "Something is worng!")}");
+		WriteLine($"Map Result: {squaredValue.Match(s => s.ToString(), () => "Something is wrong!")}");
+		await Task.CompletedTask;
 	}
 
 	static Option<double> GetSquareRoot(int x) => x >= 0 
