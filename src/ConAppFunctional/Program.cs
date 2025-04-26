@@ -9,7 +9,6 @@ public class Program
 {
 	static async Task Main()
 	{
-		await Task.CompletedTask;
 		WriteLine("Let's play with CS Functional!");
 
 		SecondAttempt_Map(100);
@@ -140,7 +139,7 @@ public class Program
 			failure => failure
 		));
 
-		// Combina map and mapFailure:
+		// Combine map and mapFailure:
 		int userId = 2; // Trying with userId that will cause a failure
 		Result<User, string> result_12 = userWelcome.FetchUserData(userId);
 
@@ -154,6 +153,16 @@ public class Program
 			success => success,
 			failure => failure));
 	}
+
+
+
+	private static async Task ExecuteMapExamples()
+	{
+		SecondAttempt_Map(100);
+	}
+
+
+	//-----------------------------------
 
 	private static void SecondAttempt_Bind()
 	{
