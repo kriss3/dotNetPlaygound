@@ -12,8 +12,9 @@ public class Program
 		WriteLine("Let's play with CS Functional!");
 
 		await ExecuteMapExamples();
+		await ExecuteBindExamples();
 
-		SecondAttempt_Bind();
+
 
 		var result = Divide(10, 2)
 			.Bind(MultiplyByTwo).Match(
@@ -66,7 +67,7 @@ public class Program
 			.Bind(strain => (ProcessStrain(strain))) // Bind to process strain if success
 			.Match(success: (strain) => strain, failure: (error) => default(ProcessedStrain));
 
-		// Continue discoverhing Result with Map and Bind:
+		// Continue discovering Result with Map and Bind:
 		Option<int> maybeNumber = Option.Some(5);
 		Option<int> noNumber = Option.None<int>();
 
@@ -171,13 +172,13 @@ public class Program
 
 	private static void SecondAttempt_Bind()
 	{
-		// let's refactor this to a separare class.
+		// let's refactor this to a separate class.
 		
 		BindHelper helper = new();
 		var result = helper.GetFinalResult();
 		var result_v2 = helper.GetSquaredResult();
 
-		// Can I get someting out of result and result_v2?
+		// Can I get something out of result and result_v2?
 		WriteLine($"Result: " +
 			$"{result.Match(
 				success => $"Success: {success}", 
