@@ -1,4 +1,4 @@
-﻿namespace ConAppFunctional;
+﻿namespace ConAppFunctional.BaseModels;
 
 public record Strain
 {
