@@ -145,8 +145,7 @@ public class Program
 	private static async Task ExecuteUserWelcomeExamples() 
 	{
 		// This will be a successful result with user "Alice"
-		UserWelcome userWelcome = new();
-		Result<User, string> result_v10 = userWelcome.FetchUserData(1);
+		Result<User, string> result_v10 = UserWelcome.FetchUserData(1);
 
 		// Use Map to transform the User object to a string
 		Result<string, string> formattedResult = result_v10
@@ -159,7 +158,7 @@ public class Program
 
 		// Map Failure:
 		// Let's create mapFailure:
-		Result<User, string> result_11 = userWelcome.FetchUserData(2);
+		Result<User, string> result_11 = UserWelcome.FetchUserData(2);
 
 		// Use MapFailure to add more context to the error message
 		Result<User, string> detailedError = result_11.MapFailure(error => $"Fetch failed: {error}");
@@ -172,7 +171,7 @@ public class Program
 
 		// Combine map and mapFailure:
 		int userId = 2; // Trying with userId that will cause a failure
-		Result<User, string> result_12 = userWelcome.FetchUserData(userId);
+		Result<User, string> result_12 = UserWelcome.FetchUserData(userId);
 
 		// Chain Map and MapFailure to handle both success and failure cases
 		Result<string, string> finalResult = result_12
