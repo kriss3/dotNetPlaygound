@@ -1,4 +1,6 @@
-﻿using Cova.ServiceErrors.Errors;
+﻿
+using Cova.ServiceErrors.Errors;
+
 
 namespace ConAppFunctional.ModelTypes;
 

@@ -1,6 +1,6 @@
 ﻿
+using ConAppFunctional.ModelTypes;
 using Cova.Functional;
-using Cova.ServiceErrors.Errors;
 using static System.Console;
 
 namespace ConAppFunctional;
@@ -222,7 +222,10 @@ public class Program
 		catch (Exception ex)
 		{
 			// Example of creating a failure result
-			var error = new ConcreteServiceError("FetchError", ex.Message);
+			var error = new ConcreteServiceError("FetchError", ex.Message)
+			{
+				ErrorCodeDocumentation = "https://example.com/docs/errors#FetchError"
+			};
 			return Result.Failure<Strain, ServiceError>(error);
 		}
 	}
@@ -240,7 +243,10 @@ public class Program
 		//Delay
 		await Task.Delay(2000);
 		//Error
-		return Result.Failure<int, ServiceError>(new ConcreteServiceError("Error", "Error message"));
+		return Result.Failure<int, ServiceError>(new ConcreteServiceError("Error", "Error message")
+		{
+			ErrorCodeDocumentation = "https://example.com/docs/errors#Error"
+		});
 	}
 
 	//Playing with Result, Bind, BindToFailure and Success
@@ -264,12 +270,14 @@ public class Program
 		if (string.IsNullOrEmpty(strain.Id) || string.IsNullOrEmpty(strain.Name))
 		{
 			return Result.Failure<ProcessedStrain, ServiceError>(
-				new ConcreteServiceError("InvalidStrain", "Strain ID or Name is missing"));
+				new ConcreteServiceError("InvalidStrain", "Strain ID or Name is missing")
+				{
+					ErrorCodeDocumentation = "https://example.com/docs/errors#InvalidStrain"
+				});
 		}
 
 		var processedStrain = new ProcessedStrain
 		{
-			// Assuming ProcessedStrain has similar properties to Strain
 			Id = strain.Id,
 			Name = strain.Name,
 			Description = strain.Description + " - Processed"
