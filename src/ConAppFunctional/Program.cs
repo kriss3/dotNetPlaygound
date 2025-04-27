@@ -159,18 +159,18 @@ public class Program
 
 	private static async Task ExecuteMapExamples()
 	{
-		SecondAttempt_Map(100);
+		await SecondAttempt_Map(100);
 	}
 
 	private static async Task ExecuteBindExamples()
 	{
-		SecondAttempt_Bind();
+		await SecondAttempt_Bind();
 	}
 
 
 	//-----------------------------------
 
-	private static void SecondAttempt_Bind()
+	private static async Task SecondAttempt_Bind()
 	{
 		// let's refactor this to a separate class.
 		
@@ -188,6 +188,7 @@ public class Program
 			$"{result_v2.Match(
 				success => $"Success: {success}", 
 				failure => $"Failure: {failure}")}");
+		await Task.CompletedTask;
 	}
 
 	private static async Task SecondAttempt_Map(int v)
