@@ -1,5 +1,6 @@
 ﻿
 using ConAppFunctional.BaseModels;
+using ConAppFunctional.Extensions;
 using ConAppFunctional.ModelTypes;
 using Cova.Functional;
 using static System.Console;

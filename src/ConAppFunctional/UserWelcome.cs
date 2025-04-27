@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Cova.Functional;
-using Cova.ServiceErrors.Errors;
+﻿using Cova.Functional;
 
 namespace ConAppFunctional;
 public class UserWelcome
 {
-	public Result<User, string> FetchUserData(int userId)
+	public static Result<User, string> FetchUserData(int userId)
 	{
 		// Simulate different outcomes based on userId
 		if (userId == 1)

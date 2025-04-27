@@ -1,6 +1,6 @@
 ﻿using ConAppFunctional.BaseModels;
 
-namespace ConAppFunctional;
+namespace ConAppFunctional.Extensions;
 
 public static class StrainExtensions
 {
