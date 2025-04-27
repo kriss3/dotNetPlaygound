@@ -11,104 +11,14 @@ public class Program
 	{
 		WriteLine("Let's play with CS Functional!");
 
+		// Driver functions: 
 		await ExecuteMapExamples();
 		await ExecuteBindExamples();
 		await ExecuteResultExamples();
 		await ExecuteStrainExamples();
-
-
-
-
-		
-
-		// Continue discovering Result with Map and Bind:
-		Option<int> maybeNumber = Option.Some(5);
-		Option<int> noNumber = Option.None<int>();
-
-		Option<int> doubledNumber = maybeNumber.Map(number => number * 2); // Some(10)
-		Option<int> noDoubledNumber = noNumber.Map(number => number * 2); // None
-
-		// Start with Option.Some
-		Option<int> maybeANumber = Option.Some(5);
-		Option<int> result_8 = maybeANumber
-			.Bind(CheckIfPositive);  // Result: Option.Some(5)
-
-		// Option.None
-		Option<int> notANumber = Option.None<int>();
-		Option<int> resultNone = notANumber
-			.Bind(CheckIfPositive); // Result: Option.None<int>
-
-		// With a negative number
-		Option<int> negativeNumber = Option.Some(-3);
-		Option<int> resultNegative = negativeNumber
-			.Bind(CheckIfPositive); // Result: Option.None<int>
-
-
-		// Chaining using Bind
-		Option<int> maybeSomeNewNumber = Option.Some(16);
-		Option<double> result_9 = maybeSomeNewNumber
-			.Bind(CheckIfPositive)		// Checks if positive
-			.Bind(GetSquareRoot);       // Gets the square root if positive
-
-		// Starting with Option.None
-		Option<int> noANumber = Option.None<int>();
-		Option<double> resultOfNone = noNumber
-			.Bind(CheckIfPositive)
-			.Bind(GetSquareRoot);        // Result: Option.None<double>
-
-		// With a negative number
-		Option<int> negativeANumber = Option.Some(-9);
-		Option<double> resultANegative = negativeNumber
-			.Bind(CheckIfPositive)       // Fails at this step, so resultNegative is Option.None
-			.Bind(GetSquareRoot);
-
-		// To Recap:
-		// Map returns a monad by wrapping the transformed result back into the same monadic structure.
-		// Bind expects the function itself to return a monad and avoids additional wrapping,
-		// preserving the single monadic structure.
-
-
-		// This will be a successful result with user "Alice"
-		UserWelcome userWelcome = new();
-		Result<User, string> result_v10 = userWelcome.FetchUserData(1);
-
-		// Use Map to transform the User object to a string
-		Result<string, string> formattedResult = result_v10
-			.Map(user => $"Name: {user.Name}, Age: {user.Age}");
-
-		WriteLine(formattedResult.Match(
-			success => success,
-			failure => $"Error: {failure}"
-		));
-
-		// Map Failure:
-		// Let's create mapFailure:
-		Result<User, string> result_11 = userWelcome.FetchUserData(2);
-
-		// Use MapFailure to add more context to the error message
-		Result<User, string> detailedError = result_11.MapFailure(error => $"Fetch failed: {error}");
-
-		// Output: "Fetch failed: User not found."
-		WriteLine(detailedError.Match(
-			success => $"Fetched User: {success.Name}",
-			failure => failure
-		));
-
-		// Combine map and mapFailure:
-		int userId = 2; // Trying with userId that will cause a failure
-		Result<User, string> result_12 = userWelcome.FetchUserData(userId);
-
-		// Chain Map and MapFailure to handle both success and failure cases
-		Result<string, string> finalResult = result_12
-			.Map(user => $"Welcome, {user.Name}! You are {user.Age} years old.")
-			.MapFailure(error => $"Error occurred while fetching user data: {error}");
-
-		// Output: "Error occurred while fetching user data: User not found."
-		WriteLine(finalResult.Match(
-			success => success,
-			failure => failure));
+		await ExecuteOptionExamples();
+		await ExecuteUserWelcomeExamples();
 	}
-
 
 
 	private static async Task ExecuteMapExamples()
@@ -177,6 +87,103 @@ public class Program
 		.Match(success: (strain) => strain, failure: (error) => default(ProcessedStrain));
 	}
 
+	private static async Task ExecuteOptionExamples() 
+	{
+		// Continue discovering Result with Map and Bind:
+		Option<int> maybeNumber = Option.Some(5);
+		Option<int> noNumber = Option.None<int>();
+
+		Option<int> doubledNumber = maybeNumber.Map(number => number * 2); // Some(10)
+		Option<int> noDoubledNumber = noNumber.Map(number => number * 2); // None
+
+		// Start with Option.Some
+		Option<int> maybeANumber = Option.Some(5);
+		Option<int> result_8 = maybeANumber
+			.Bind(CheckIfPositive);  // Result: Option.Some(5)
+
+		// Option.None
+		Option<int> notANumber = Option.None<int>();
+		Option<int> resultNone = notANumber
+			.Bind(CheckIfPositive); // Result: Option.None<int>
+
+		// With a negative number
+		Option<int> negativeNumber = Option.Some(-3);
+		Option<int> resultNegative = negativeNumber
+			.Bind(CheckIfPositive); // Result: Option.None<int>
+
+
+		// Chaining using Bind
+		Option<int> maybeSomeNewNumber = Option.Some(16);
+		Option<double> result_9 = maybeSomeNewNumber
+			.Bind(CheckIfPositive)      // Checks if positive
+			.Bind(GetSquareRoot);       // Gets the square root if positive
+
+		// Starting with Option.None
+		Option<int> noANumber = Option.None<int>();
+		Option<double> resultOfNone = noNumber
+			.Bind(CheckIfPositive)
+			.Bind(GetSquareRoot);        // Result: Option.None<double>
+
+		// With a negative number
+		Option<int> negativeANumber = Option.Some(-9);
+		Option<double> resultANegative = negativeNumber
+			.Bind(CheckIfPositive)       // Fails at this step, so resultNegative is Option.None
+			.Bind(GetSquareRoot);
+
+		// To Recap:
+		// Map returns a monad by wrapping the transformed result back into the same monadic structure.
+		// Bind expects the function itself to return a monad and avoids additional wrapping,
+		// preserving the single monadic structure.
+
+		WriteLine($"Result A Negative: {resultANegative.Match(s => s.ToString(), () => "None")}");
+
+		await Task.CompletedTask;
+	}
+
+	private static async Task ExecuteUserWelcomeExamples() 
+	{
+		// This will be a successful result with user "Alice"
+		UserWelcome userWelcome = new();
+		Result<User, string> result_v10 = userWelcome.FetchUserData(1);
+
+		// Use Map to transform the User object to a string
+		Result<string, string> formattedResult = result_v10
+			.Map(user => $"Name: {user.Name}, Age: {user.Age}");
+
+		WriteLine(formattedResult.Match(
+			success => success,
+			failure => $"Error: {failure}"
+		));
+
+		// Map Failure:
+		// Let's create mapFailure:
+		Result<User, string> result_11 = userWelcome.FetchUserData(2);
+
+		// Use MapFailure to add more context to the error message
+		Result<User, string> detailedError = result_11.MapFailure(error => $"Fetch failed: {error}");
+
+		// Output: "Fetch failed: User not found."
+		WriteLine(detailedError.Match(
+			success => $"Fetched User: {success.Name}",
+			failure => failure
+		));
+
+		// Combine map and mapFailure:
+		int userId = 2; // Trying with userId that will cause a failure
+		Result<User, string> result_12 = userWelcome.FetchUserData(userId);
+
+		// Chain Map and MapFailure to handle both success and failure cases
+		Result<string, string> finalResult = result_12
+			.Map(user => $"Welcome, {user.Name}! You are {user.Age} years old.")
+			.MapFailure(error => $"Error occurred while fetching user data: {error}");
+
+		// Output: "Error occurred while fetching user data: User not found."
+		WriteLine(finalResult.Match(
+			success => success,
+			failure => failure));
+
+		await Task.CompletedTask;
+	}
 
 	//-----------------------------------
 
