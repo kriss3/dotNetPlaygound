@@ -1,14 +1,14 @@
 ﻿using Cova.Functional;
 using static System.Console;
 namespace ConAppFunctional;
-public class BindHelper
+public static class BindHelper
 {
-	private Result<int, string> GetInitialResult() 
+	private static Result<int, string> GetInitialResult() 
 	{
 		return SafeDivide(10, 2);
 	}
 
-	public Result<int, string> GetSquaredResult() 
+	public static Result<int, string> GetSquaredResult() 
 	{
 		var values = GetInitialResult().Map(rec => rec * rec);
 
@@ -20,7 +20,7 @@ public class BindHelper
 		return values;
 	}
 
-	public Result<int, string> GetFinalResult() 
+	public static Result<int, string> GetFinalResult() 
 	{
 		var values = GetInitialResult().
 			Bind(val => SafeDivide(val, 2)).
@@ -33,7 +33,7 @@ public class BindHelper
 		return values;
 	}
 
-	public Result<int, string> GetErrorResult() 
+	public static Result<int, string> GetErrorResult() 
 	{
 		var result = SafeDivideDriver();
 
@@ -42,7 +42,7 @@ public class BindHelper
 
 	static string? SafeDivideDriver()
 	{
-		// let's refactor this to a separare class.
+		// let's refactor this to a separate class.
 		Option<int> value = Option.Some(5);
 		Option<int> chainedResult = value.Bind(r => SaveDivideWithOption(10, r));
 

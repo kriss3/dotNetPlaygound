@@ -191,10 +191,8 @@ public class Program
 	private static async Task SecondAttempt_Bind()
 	{
 		// let's refactor this to a separate class.
-		
-		BindHelper helper = new();
-		var result = helper.GetFinalResult();
-		var result_v2 = helper.GetSquaredResult();
+		var result = BindHelper.GetFinalResult();
+		var result_v2 = BindHelper.GetSquaredResult();
 
 		// Can I get something out of result and result_v2?
 		WriteLine($"Result: " +
