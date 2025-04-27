@@ -13,59 +13,13 @@ public class Program
 
 		await ExecuteMapExamples();
 		await ExecuteBindExamples();
+		await ExecuteResultExamples();
+		await ExecuteStrainExamples();
 
 
 
-		var result = Divide(10, 2)
-			.Bind(MultiplyByTwo).Match(
-				success: value => $"Result: {value}",
-				failure: error => $"Error: {error}"
-			);
-		WriteLine(result);
 
-		// Handles the failure by returning a default success value
-		var result_v2 = Divide(10, 0)
-			.BindFailure(error => Result.Success<int, string>(-1));
-		WriteLine(result_v2);
-
-		// What about MapFailure function?
-		//MapFailure transforms the failure value (TFailure) to a different type,
-		//allowing you to adapt the error for specific cases or add more context to it.
-		//If the Result is successful, it skips this function.
-		var result_v3 = Divide(10, 0)
-			.MapFailure(error => "Division by zero");
-
-		var result_v4 = Divide(10, 0)
-			.MapFailure(error => "Division by zero in _v4")
-			.Match(
-				success: value => $"Result: {value}",
-				failure: error => $"Error: {error}"
-			);
-		WriteLine(result_v4);
-
-		// DoOnFailure function
-		// DoOnFailure allows you to execute a side effect when a failure occurs.
-		// It doesn’t transform the Result; instead, it’s often used for logging or debugging purposes.
-		Divide(10, 0)
-			.DoOnFailure(error => WriteLine($"Failed with error: {error} in _v5"));
-
-		// Playing with Map again:
-		// Use Map when you have a Result<TSuccess, TFailure> and want to change the TSuccess type,
-		// or transform the TSuccess value, while keeping the Result as a success or failure.
-		// Map operates only on the success path(or with MapFailure on the failure path)
-		// but does not handle chaining a new Result.
-		var result_v6 = await FetchStrainAsync("some-id")
-			.Map(strain => strain.WithAdditionalInfo("Extra Info")); // Transforms the Strain only if success
-
-		// Chain only if FetchStrainAsync succeeds
-		var result_v7 = await FetchStrainAsync("some-id")
-			.Bind<Strain, ServiceError, ProcessedStrain>(static strain =>
-				ProcessStrain(strain));
-
-		var result_v8 = await FetchStrainAsync("some-id")
-			.Map(strain => strain.WithAdditionalInfo("Extra Info")) // Map to add info if successful
-			.Bind(strain => (ProcessStrain(strain))) // Bind to process strain if success
-			.Match(success: (strain) => strain, failure: (error) => default(ProcessedStrain));
+		
 
 		// Continue discovering Result with Map and Bind:
 		Option<int> maybeNumber = Option.Some(5);
@@ -165,6 +119,62 @@ public class Program
 	private static async Task ExecuteBindExamples()
 	{
 		await SecondAttempt_Bind();
+	}
+
+	private static async Task ExecuteResultExamples() 
+	{
+		var result = Divide(10, 2)
+			.Bind(MultiplyByTwo).Match(
+			success: value => $"Result: {value}", failure: error => $"Error: {error}");
+		WriteLine(result);
+
+		// Handles the failure by returning a default success value
+		var result_v2 = Divide(10, 0)
+			.BindFailure(error => Result.Success<int, string>(-1));
+		WriteLine(result_v2);
+
+		// What about MapFailure function?
+		//MapFailure transforms the failure value (TFailure) to a different type,
+		//allowing you to adapt the error for specific cases or add more context to it.
+		//If the Result is successful, it skips this function.
+		var result_v3 = Divide(10, 0)
+			.MapFailure(error => "Division by zero");
+
+		var result_v4 = Divide(10, 0)
+			.MapFailure(error => "Division by zero in _v4")
+			.Match(
+				success: value => $"Result: {value}",
+				failure: error => $"Error: {error}"
+			);
+		WriteLine(result_v4);
+
+		// DoOnFailure function
+		// DoOnFailure allows you to execute a side effect when a failure occurs.
+		// It does not transform the Result; instead, it’s often used for logging or debugging purposes.
+		Divide(10, 0)
+			.DoOnFailure(error => WriteLine($"Failed with error: {error} in _v5"));
+		await Task.CompletedTask;
+	}
+
+	private static async Task ExecuteStrainExamples()
+	{
+		// Playing with Map again:
+		// Use Map when you have a Result<TSuccess, TFailure> and want to change the TSuccess type,
+		// or transform the TSuccess value, while keeping the Result as a success or failure.
+		// Map operates only on the success path(or with MapFailure on the failure path)
+		// but does not handle chaining a new Result.
+		var result_v6 = await FetchStrainAsync("some-id")
+			.Map(strain => strain.WithAdditionalInfo("Extra Info")); // Transforms the Strain only if success
+
+		// Chain only if FetchStrainAsync succeeds
+		var result_v7 = await FetchStrainAsync("some-id")
+			.Bind<Strain, ServiceError, ProcessedStrain>(static strain =>
+				ProcessStrain(strain));
+
+	var result_v8 = await FetchStrainAsync("some-id")
+		.Map(strain => strain.WithAdditionalInfo("Extra Info")) // Map to add info if successful
+		.Bind(strain => (ProcessStrain(strain))) // Bind to process strain if success
+		.Match(success: (strain) => strain, failure: (error) => default(ProcessedStrain));
 	}
 
 
