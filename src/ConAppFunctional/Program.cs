@@ -21,9 +21,13 @@ public class Program
 		await ExecuteOptionExamples();
 		await ExecuteUserWelcomeExamples();
 		// here: cleanup done. Can start adding calls to Result<ResponseWithDetails<TSuccess, BioTrackError>, ServiceError> type.
-
+		await ExecuteResultResponseOperations();
 	}
 
+	private static async Task ExecuteResultResponseOperations()
+	{
+		throw new NotImplementedException();
+	}
 
 	private static async Task ExecuteMapExamples()
 	{
@@ -305,3 +309,4 @@ public class Program
 		return Result.Success<ProcessedStrain, ServiceError>(processedStrain);
 	}
 }
+
