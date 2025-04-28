@@ -26,7 +26,12 @@ public class Program
 
 	private static async Task ExecuteResultResponseOperations()
 	{
-		throw new NotImplementedException();
+		Result<ResponseWithDetails<string, BioTrackError>, ServiceError> result = await CallExternalApi();
+	}
+
+	private static async Task<Result<ResponseWithDetails<string, BioTrackError>, ServiceError>> CallExternalApi() 
+	{
+		return await Result.CreateAsync(true, )
 	}
 
 	private static async Task ExecuteMapExamples()
