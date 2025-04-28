@@ -3,7 +3,6 @@ using ConAppFunctional.BaseModels;
 using ConAppFunctional.Extensions;
 using ConAppFunctional.ModelTypes;
 using Cova.Functional;
-using Cova.ServiceErrors.Errors;
 using System.Net;
 using static System.Console;
 
@@ -33,37 +32,40 @@ public class Program
 
 	private static async Task<Result<ResponseWithDetails<string, BioTrackError>, ServiceError>> CallExternalApi()
 	{
-		return await Result.CreateAsync(true, async () =>
+		return await Result.CreateAsync(true, await GetResponseWithDetails(), () => UnexpectedError.Create(""));
+	}
+
+	private static async Task<ResponseWithDetails<string, BioTrackError>> GetResponseWithDetailsAsync() 
+	{
+		try
 		{
-			try
-			{
-				// Simulate HTTP call
-				await Task.Delay(100);
+			// Simulate HTTP call
+			await Task.Delay(100);
 
-				// Simulate a successful response from BioTrack, even with an error inside
-				var response = new ResponseWithDetails<string, BioTrackError>(
-					IsSuccess: false, // BioTrack says "error", but OUR service worked fine
-					Code: HttpStatusCode.BadRequest,
-					Message: "Bad Request",
-					Success: null,
-					Failure: new BioTrackError
-					{
-						Code = "400",
-						Error = "Invalid input",
-						Data = "SomeData",
-						ErrorResource = "ResourceName",
-						ErrorResourceId = "123",
-						ErrorSrc = "BioTrackSystem"
-					});
+			// Simulate a successful response from BioTrack, even with an error inside
+			var response = new ResponseWithDetails<string, BioTrackError>(
+				IsSuccess: false, // BioTrack says "error", but OUR service worked fine
+				Code: HttpStatusCode.BadRequest,
+				Message: "Bad Request",
+				Success: null,
+				Failure: new BioTrackError
+				{
+					Code = "400",
+					Error = "Invalid input",
+					Data = "SomeData",
+					ErrorResource = "ResourceName",
+					ErrorResourceId = "123",
+					ErrorSrc = "BioTrackSystem"
+				});
 
-				return Result.Success<ResponseWithDetails<string, BioTrackError>, ServiceError>(response); // Wrap response in Result.Success
-			}
-			catch (Exception ex)
-			{
-				// Caught by CreateAsync and mapped to Failure rail automatically
-				return Result.Failure<ResponseWithDetails<string, BioTrackError>, ServiceError>();
-			}
-		});
+			return Result.Success<ResponseWithDetails<string, BioTrackError>, ServiceError>(response); // Wrap response in Result.Success
+		}
+		catch (Exception ex)
+		{
+			// Caught by CreateAsync and mapped to Failure rail automatically
+			return Result.Failure<ResponseWithDetails<string, BioTrackError>, ServiceError>();
+		}
+		
 	}
 
 	private static async Task ExecuteMapExamples()
