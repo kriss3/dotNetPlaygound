@@ -20,6 +20,8 @@ public class Program
 		await ExecuteStrainExamples();
 		await ExecuteOptionExamples();
 		await ExecuteUserWelcomeExamples();
+		// here: cleanup done. Can start adding calls to Result<ResponseWithDetails<TSuccess, BioTrackError>, ServiceError> type.
+
 	}
 
 

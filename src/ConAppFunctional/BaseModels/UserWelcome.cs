@@ -1,6 +1,6 @@
 ﻿using Cova.Functional;
 
-namespace ConAppFunctional;
+namespace ConAppFunctional.BaseModels;
 public class UserWelcome
 {
 	public static Result<User, string> FetchUserData(int userId)
