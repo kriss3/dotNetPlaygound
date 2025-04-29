@@ -3,6 +3,7 @@ using ConAppFunctional.BaseModels;
 using ConAppFunctional.Extensions;
 using ConAppFunctional.ModelTypes;
 using Cova.Functional;
+using Cova.ServiceErrors.Errors;
 using System.Net;
 using static System.Console;
 
@@ -284,11 +285,12 @@ public class Program
 		catch (Exception ex)
 		{
 			// Example of creating a failure result
-			var error = new ConcreteServiceError("FetchError", ex.Message)
-			{
-				ErrorCodeDocumentation = "https://example.com/docs/errors#FetchError"
-			};
-			return Result.Failure<Strain, ServiceError>(error);
+			//var error = new ConcreteServiceError("FetchError", ex.Message)
+			//{
+			//	ErrorCodeDocumentation = "https://example.com/docs/errors#FetchError"
+			//};
+			
+			return Result.Failure<Strain, ServiceError>(UnexpectedError.Create($"FetchError. {ex.Message}", ex.InnerException));
 		}
 	}
 
