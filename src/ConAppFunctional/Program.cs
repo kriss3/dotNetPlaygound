@@ -324,11 +324,7 @@ public class Program
 	{
 		if (string.IsNullOrEmpty(strain.Id) || string.IsNullOrEmpty(strain.Name))
 		{
-			return Result.Failure<ProcessedStrain, ServiceError>(
-				new ConcreteServiceError("InvalidStrain", "Strain ID or Name is missing")
-				{
-					ErrorCodeDocumentation = "https://example.com/docs/errors#InvalidStrain"
-				});
+			return Result.Failure<ProcessedStrain, ServiceError>(UnexpectedError.Create("InvalidStrain - Strain ID or Name is missing"));
 		}
 
 		var processedStrain = new ProcessedStrain
