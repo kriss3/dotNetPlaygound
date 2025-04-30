@@ -33,7 +33,11 @@ public class Program
 
 	private static async Task<Result<ResponseWithDetails<string, BioTrackError>, ServiceError>> CallExternalApi()
 	{
-		return await Result.CreateAsync(true, await GetResponseWithDetails(), () => UnexpectedError.Create(""));
+		return await Result.CreateAsync<ResponseWithDetails<string, BioTrackError>, ServiceError>(
+			true,
+			await GetResponseWithDetailsAsync(),
+			() => throw UnexpectedError.Create("Error creating result of the function call.")
+		);
 	}
 
 	private static async Task<ResponseWithDetails<string, BioTrackError>> GetResponseWithDetailsAsync()
