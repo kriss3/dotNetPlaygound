@@ -283,13 +283,7 @@ public class Program
 			return Result.Success<Strain, ServiceError>(strain);
 		}
 		catch (Exception ex)
-		{
-			// Example of creating a failure result
-			//var error = new ConcreteServiceError("FetchError", ex.Message)
-			//{
-			//	ErrorCodeDocumentation = "https://example.com/docs/errors#FetchError"
-			//};
-			
+		{	
 			return Result.Failure<Strain, ServiceError>(UnexpectedError.Create($"FetchError. {ex.Message}", ex.InnerException));
 		}
 	}
@@ -307,10 +301,7 @@ public class Program
 		//Delay
 		await Task.Delay(2000);
 		//Error
-		return Result.Failure<int, ServiceError>(new ConcreteServiceError("Error", "Error message")
-		{
-			ErrorCodeDocumentation = "https://example.com/docs/errors#Error"
-		});
+		return Result.Failure<int, ServiceError>(UnexpectedError.Create("Error executing operation."));
 	}
 
 	//Playing with Result, Bind, BindToFailure and Success
