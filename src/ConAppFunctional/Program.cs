@@ -36,7 +36,7 @@ public class Program
 		return await Result.CreateAsync(true, await GetResponseWithDetails(), () => UnexpectedError.Create(""));
 	}
 
-	private static async Task<ResponseWithDetails<string, BioTrackError>> GetResponseWithDetailsAsync() 
+	private static async Task<ResponseWithDetails<string, BioTrackError>> GetResponseWithDetailsAsync()
 	{
 		try
 		{
@@ -59,14 +59,26 @@ public class Program
 					ErrorSrc = "BioTrackSystem"
 				});
 
-			return Result.Success<ResponseWithDetails<string, BioTrackError>, ServiceError>(response); // Wrap response in Result.Success
+			return response; // Return the response directly
 		}
 		catch (Exception ex)
 		{
-			// Caught by CreateAsync and mapped to Failure rail automatically
-			return Result.Failure<ResponseWithDetails<string, BioTrackError>, ServiceError>();
+			// Handle exception and return a failure response
+			return new ResponseWithDetails<string, BioTrackError>(
+				IsSuccess: false,
+				Code: HttpStatusCode.InternalServerError,
+				Message: "An unexpected error occurred.",
+				Success: null,
+				Failure: new BioTrackError
+				{
+					Code = "500",
+					Error = ex.Message,
+					Data = null,
+					ErrorResource = null,
+					ErrorResourceId = null,
+					ErrorSrc = "ExceptionHandler"
+				});
 		}
-		
 	}
 
 	private static async Task ExecuteMapExamples()
