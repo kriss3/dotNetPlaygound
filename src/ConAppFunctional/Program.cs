@@ -248,6 +248,23 @@ public class Program
 		await Task.CompletedTask;
 	}
 
+
+
+
+	private static async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> TryCatchAsync(
+	Func<Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>>> action)
+	{
+		try
+		{
+			return await action();
+		}
+		catch (Exception ex)
+		{
+			return Result.Failure<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
+				UnexpectedError.Create(ex.Message));
+		}
+	}
+
 	//-----------------------------------
 
 	private static async Task SecondAttempt_Bind()
