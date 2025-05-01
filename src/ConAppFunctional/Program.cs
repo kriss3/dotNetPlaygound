@@ -5,6 +5,7 @@ using ConAppFunctional.ModelTypes;
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
 using System.Net;
+using System.Text.Json;
 using static System.Console;
 
 namespace ConAppFunctional;
@@ -249,6 +250,19 @@ public class Program
 	}
 
 
+
+
+	private static Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError> DeserializeBioTrackError(string json, HttpStatusCode statusCode) =>
+	JsonSerializer.Deserialize<BioTrackError>(json) is BioTrackError error
+		? Result.Success<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
+			new ResponseWithDetails<Customer, BioTrackError>(
+				IsSuccess: false,
+				Code: statusCode,
+				Message: error.Error ?? "BioTrack reported an error.",
+				Success: null!,
+				Failure: error))
+		: Result.Failure<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
+			UnexpectedError.Create($"Failed to parse BioTrackError from response: {json}"));
 
 
 	private static async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> TryCatchAsync(
