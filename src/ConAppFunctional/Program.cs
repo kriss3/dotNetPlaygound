@@ -1,6 +1,7 @@
 ﻿
 using ConAppFunctional.BaseModels;
 using ConAppFunctional.Extensions;
+using ConAppFunctional.Helpers;
 using ConAppFunctional.ModelTypes;
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
@@ -56,7 +57,7 @@ public class Program
 				IsSuccess: false, // BioTrack says "error", but OUR service worked fine
 				Code: HttpStatusCode.BadRequest,
 				Message: "Bad Request",
-				Success: null,
+				Success: null!, // Use null-forgiving operator to suppress CS8625
 				Failure: new BioTrackError
 				{
 					Code = "400",
@@ -76,7 +77,7 @@ public class Program
 				IsSuccess: false,
 				Code: HttpStatusCode.InternalServerError,
 				Message: "An unexpected error occurred.",
-				Success: null,
+				Success: null!,
 				Failure: new BioTrackError
 				{
 					Code = "500",
@@ -257,7 +258,7 @@ public class Program
 	{
 		//var response = await _httpClient.GetAsync($"<myAPI_ThatHas_Customers_Endpoints>{customerId}");
 		// let's try to fake http response:
-		
+		var response = await FunctionalHelpers.GetFakeHttpData();
 		var content = await response.Content.ReadAsStringAsync();
 		var statusCode = response.StatusCode;
 
