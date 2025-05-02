@@ -5,6 +5,7 @@ using ConAppFunctional.ModelTypes;
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
 using System.Net;
+using System.Net.Http;
 using System.Text.Json;
 using static System.Console;
 
@@ -249,6 +250,17 @@ public class Program
 		await Task.CompletedTask;
 	}
 
+	public async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> GetCustomerAsync(string customerId) =>
+	await TryCatchAsync(async () =>
+	{
+		var response = await _httpClient.GetAsync($"https://thirdparty.com/api/customers/{customerId}");
+		var content = await response.Content.ReadAsStringAsync();
+		var statusCode = response.StatusCode;
+
+		return response.IsSuccessStatusCode
+			? DeserializeCustomer(content, statusCode)
+			: DeserializeBioTrackError(content, statusCode);
+	});
 
 	private static Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError> DeserializeCustomer(string json, HttpStatusCode statusCode) =>
 	JsonSerializer.Deserialize<Customer>(json) is Customer customer
