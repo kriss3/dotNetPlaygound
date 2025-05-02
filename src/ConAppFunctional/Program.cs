@@ -255,7 +255,9 @@ public class Program
 	public async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> GetCustomerAsync(string customerId) =>
 	await TryCatchAsync(async () =>
 	{
-		var response = await _httpClient.GetAsync($"<myAPI_ThatHas_Customers_Endpoints>{customerId}");
+		//var response = await _httpClient.GetAsync($"<myAPI_ThatHas_Customers_Endpoints>{customerId}");
+		// let's try to fake http response:
+		
 		var content = await response.Content.ReadAsStringAsync();
 		var statusCode = response.StatusCode;
 
