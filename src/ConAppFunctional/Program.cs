@@ -13,6 +13,8 @@ namespace ConAppFunctional;
 
 public class Program
 {
+	private readonly HttpClient _httpClient = new();
+
 	static async Task Main()
 	{
 		WriteLine("Let's play with CS Functional!");
@@ -253,7 +255,7 @@ public class Program
 	public async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> GetCustomerAsync(string customerId) =>
 	await TryCatchAsync(async () =>
 	{
-		var response = await _httpClient.GetAsync($"https://thirdparty.com/api/customers/{customerId}");
+		var response = await _httpClient.GetAsync($"<myAPI_ThatHas_Customers_Endpoints>{customerId}");
 		var content = await response.Content.ReadAsStringAsync();
 		var statusCode = response.StatusCode;
 
