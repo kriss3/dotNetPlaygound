@@ -14,7 +14,7 @@ public static class FunctionalHelpers
 		return fakeResponse;
 	}
 
-	public static async Task<HttpResponseMessage> GetFakeHttpDate(string customerId)
+	public static async Task<HttpResponseMessage> GetFakeHttpData(string customerId)
 	{
 		var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
 		{
