@@ -33,7 +33,7 @@ public class Program
 
 	private static async Task ExecuteResultResponseOperations()
 	{
-		Result<ResponseWithDetails<string, BioTrackError>, ServiceError> result = await CallExternalApi();
+		Result<ResponseWithDetails<string, BioTrackError>, ServiceError> _ = await CallExternalApi();
 	}
 
 	private static async Task<Result<ResponseWithDetails<string, BioTrackError>, ServiceError>> CallExternalApi()
