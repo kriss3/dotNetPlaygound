@@ -253,7 +253,7 @@ public class Program
 		await Task.CompletedTask;
 	}
 
-	public async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> GetCustomerAsync(string customerId) =>
+	public static async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> GetCustomerAsync(string customerId) =>
 	await TryCatchAsync(async () =>
 	{
 		//var response = await _httpClient.GetAsync($"<myAPI_ThatHas_Customers_Endpoints>{customerId}");
