@@ -258,7 +258,7 @@ public class Program
 	{
 		//var response = await _httpClient.GetAsync($"<myAPI_ThatHas_Customers_Endpoints>{customerId}");
 		// let's try to fake http response:
-		var response = await FunctionalHelpers.GetFakeHttpData();
+		var response = await FunctionalHelpers.GetFakeHttpData(customerId);
 		var content = await response.Content.ReadAsStringAsync();
 		var statusCode = response.StatusCode;
 
