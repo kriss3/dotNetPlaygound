@@ -250,6 +250,17 @@ public class Program
 	}
 
 
+	private static Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError> DeserializeCustomer(string json, HttpStatusCode statusCode) =>
+	JsonConvert.DeserializeObject<Customer>(json) is Customer customer
+		? Result.Success<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
+			new ResponseWithDetails<Customer, BioTrackError>(
+				IsSuccess: true,
+				Code: statusCode,
+				Message: "Customer retrieved successfully.",
+				Success: customer,
+				Failure: null!))
+		: Result.Failure<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
+			new ServiceError("Customer deserialization returned null."));
 
 
 	private static Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError> DeserializeBioTrackError(string json, HttpStatusCode statusCode) =>
