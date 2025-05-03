@@ -59,3 +59,9 @@ public static class FunctionalHelpers
 		//finished here ... 2morrow start with handling both Success and Failure rather than just Success.
 	}
 }
+
+
+// From Vladimir Khorikov course: Ch3
+public class NonImmutableCustomer { }
+
+public class ImmutableCustomer { }
