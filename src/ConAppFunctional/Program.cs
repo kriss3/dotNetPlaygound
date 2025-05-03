@@ -29,6 +29,7 @@ public class Program
 		await ExecuteUserWelcomeExamples();
 		// here: cleanup done. Can start adding calls to Result<ResponseWithDetails<TSuccess, BioTrackError>, ServiceError> type.
 		await ExecuteResultResponseOperations();
+		await ExecuteBusinessLogic_01();
 	}
 
 	private static async Task ExecuteResultResponseOperations()
@@ -134,6 +135,16 @@ public class Program
 			.DoOnFailure(error => WriteLine($"Failed with error: {error} in _v5"));
 		await Task.CompletedTask;
 	}
+
+	private static async Task ExecuteBusinessLogic_01(string input) 
+	{
+		var res = FunctionalHelpers.ValidateInput(input)
+			.Bind(FunctionalHelpers.ParseInput)
+			.Bind(FunctionalHelpers.ProcessNumber)
+			.Match(s => $"", f => $"");
+		
+	}
+	
 
 	private static async Task ExecuteStrainExamples()
 	{
@@ -409,4 +420,6 @@ public class Program
 
 		return Result.Success<ProcessedStrain, ServiceError>(processedStrain);
 	}
+
+
 }
