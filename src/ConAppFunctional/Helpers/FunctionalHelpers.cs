@@ -110,6 +110,9 @@ public class CustomerRepository
 
 
 //----------- Updates and working with Immutable data:
+// Below implementation removes temporal coupling and prevents from miss-ordering execution.
+// The compiler will barf when order of Business Logic execution is incorrect.
+// In the above type, mutable type, it is easy to move execution logic around as those executions rely on internal state.
 public class ImmutableCustomer
 {
 	public static void Process(string customerName, string addressString)
