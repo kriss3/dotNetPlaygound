@@ -147,9 +147,11 @@ public class Program
 	}
 	
 
-	private static async Task<Result<ResponseWithDetails<string, BioTrackError>, ServiceError>> CallThirdParyApi() 
+	private static async Task CallThirdPartyApi() 
 	{
-		var res = await GetSomeResult();
+		var res = FunctionalHelpers.GetSomeData();
+		res.Map(r => r.Success);
+		await Task.CompletedTask; // finsihed here
 	}
 
 	private static async Task ExecuteStrainExamples()

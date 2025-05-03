@@ -1,4 +1,5 @@
-﻿using Cova.Functional;
+﻿using ConAppFunctional.ModelTypes;
+using Cova.Functional;
 using Cova.ServiceErrors.Errors;
 using System.Net;
 
@@ -48,5 +49,13 @@ public static class FunctionalHelpers
 		return number % 2 == 0
 			? Result.Success<string, ServiceError>($"Even number: {number}")
 			: Result.Failure<string, ServiceError>(UnexpectedError.Create("Only even numbers are allowed."));
+	}
+
+	public static Result<ResponseWithDetails<string, BioTrackError>, ServiceError> GetSomeData() 
+	{
+		ResponseWithDetails<string, BioTrackError> res = new(true, HttpStatusCode.OK, "Some 200 Success", "Success Data", null!);
+		var functionResult = Result.Success<ResponseWithDetails<string, BioTrackError>, ServiceError>(res);
+		return functionResult;
+		//finished here ... 2morrow start with handling both Success and Failure rather than just Success.
 	}
 }
