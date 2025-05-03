@@ -64,8 +64,8 @@ public static class FunctionalHelpers
 // From Vladimir Khorikov course: Ch3
 public class NonImmutableCustomer
 {
-	private readonly Address _address;
-	private readonly Customer _customer;
+	private Address? _address;
+	private Customer? _customer;
 
 	public void Process(string customerName, string addressString)
 	{
@@ -78,9 +78,22 @@ public class NonImmutableCustomer
 	{
 		_address = new Address(addressString);
 	}
+
+	private void CreateCustomer(string name) 
+	{
+		_customer = new Customer(name);
+	}
 }
 
-public class Address { }
+public class Address(string addressString)
+{
+	private string _addressString = addressString;
+}
+
+public class Customer(string customer) 
+{
+	private string _addressString = customer;
+}
 
 
 //----------- Updates and working with Immutable data:
