@@ -2,6 +2,7 @@
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
 using System.Net;
+using ConAppFunctional.BaseModels;
 
 namespace ConAppFunctional.Helpers;
 public static class FunctionalHelpers
@@ -86,8 +87,14 @@ public class NonImmutableCustomer
 
 	private void SaveCustomer()
 	{
+		if (_customer is null) 
+		{
+			throw new InvalidOperationException("Customer cannot be null");
+		}
+
 		var repo = new CustomerRepository();
 		repo.SaveCustomer(_customer);
+		
 	}
 }
 
@@ -96,14 +103,9 @@ public class Address(string addressString)
 	private readonly string _addressString = addressString;
 }
 
-public class Customer(string customer) 
-{
-	private readonly string _addressString = customer;
-}
-
 public class CustomerRepository 
 {
-	private List<Customer> _customers = [];
+	private readonly List<Customer> _customers = [];
 
 	public void SaveCustomer(Customer customer) 
 	{
