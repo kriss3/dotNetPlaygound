@@ -111,37 +111,37 @@ public class CustomerRepository
 
 
 //----------- Updates and working with Immutable data:
-//public class ImmutableCustomer 
-//{
-//	public void Process(string customerName, string addressString)
-//	{
-//		var address = CreateAddress(addressString);
-//		var customer = CreateCustomer(customerName);
-//		SaveCustomer();
-//	}
+public class ImmutableCustomer
+{
+	public void Process(string customerName, string addressString)
+	{
+		var address = CreateAddress(addressString);
+		var customer = CreateCustomer(customerName);
+		SaveCustomer();
+	}
 
-//	private Address CreateAddress(string addressString)
-//	{
-//		return new Address(addressString);
-//	}
+	private Address CreateAddress(string addressString)
+	{
+		return new Address(addressString);
+	}
 
-//	private Customer CreateCustomer(string name, Address address)
-//	{
-//		return new Customer(name, address);
-//	}
+	private Customer CreateCustomer(string name, Address address)
+	{
+		return new Customer(name, address);
+	}
 
-//	private void SaveCustomer()
-//	{
-//		if (_customer is null)
-//		{
-//			throw new InvalidOperationException("Customer cannot be null");
-//		}
+	private void SaveCustomer()
+	{
+		if (_customer is null)
+		{
+			throw new InvalidOperationException("Customer cannot be null");
+		}
 
-//		var repo = new CustomerRepository();
-//		repo.SaveCustomer(_customer);
+		var repo = new CustomerRepository();
+		repo.SaveCustomer(_customer);
 
-//	}
+	}
 
-//}
+}
 
 
