@@ -147,6 +147,11 @@ public class Program
 	}
 	
 
+	private static async Task<Result<ResponseWithDetails<string, BioTrackError>, ServiceError>> CallThirdParyApi() 
+	{
+		
+	}
+
 	private static async Task ExecuteStrainExamples()
 	{
 		// Playing with Map again:
