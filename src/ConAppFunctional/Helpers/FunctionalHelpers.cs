@@ -82,7 +82,7 @@ public class NonImmutableCustomer
 
 	private void CreateCustomer(string name)
 	{
-		_customer = new Customer(name);
+		_customer = new Customer(name, _address);
 	}
 
 	private void SaveCustomer()
@@ -120,19 +120,19 @@ public class ImmutableCustomer
 {
 	public void Process(string customerName, string addressString)
 	{
-		CreateAddress(addressString);
-		CreateCustomer(customerName);
+		var address = CreateAddress(addressString);
+		var customer = CreateCustomer(customerName);
 		SaveCustomer();
 	}
 
-	private void CreateAddress(string addressString)
+	private Address CreateAddress(string addressString)
 	{
-		_address = new Address(addressString);
+		return new Address(addressString);
 	}
 
-	private void CreateCustomer(string name)
+	private Customer CreateCustomer(string name, Address address)
 	{
-		_customer = new Customer(name);
+		return new Customer(name, address);
 	}
 
 	private void SaveCustomer()
