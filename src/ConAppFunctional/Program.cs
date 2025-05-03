@@ -279,7 +279,6 @@ public class Program
 		: Result.Failure<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
 			UnexpectedError.Create("Customer deserialization returned null."));
 
-
 	private static Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError> DeserializeBioTrackError(string json, HttpStatusCode statusCode) =>
 	JsonSerializer.Deserialize<BioTrackError>(json) is BioTrackError error
 		? Result.Success<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
@@ -291,7 +290,6 @@ public class Program
 				Failure: error))
 		: Result.Failure<ResponseWithDetails<Customer, BioTrackError>, ServiceError>(
 			UnexpectedError.Create($"Failed to parse BioTrackError from response: {json}"));
-
 
 	private static async Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>> TryCatchAsync(
 	Func<Task<Result<ResponseWithDetails<Customer, BioTrackError>, ServiceError>>> action)
@@ -412,4 +410,3 @@ public class Program
 		return Result.Success<ProcessedStrain, ServiceError>(processedStrain);
 	}
 }
-
