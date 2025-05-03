@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using Cova.Functional;
+using Cova.ServiceErrors.Errors;
+using System.Net;
 
 namespace ConAppFunctional.Helpers;
 public static class FunctionalHelpers
@@ -7,7 +9,8 @@ public static class FunctionalHelpers
 	{
 		var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
 		{
-			Content = new StringContent("{\"CustomerId\": 1, \"Name\": \"John Doe\"}", System.Text.Encoding.UTF8, "application/json")
+			Content = new StringContent("{\"CustomerId\": 1, \"Name\": \"John Doe\"}", 
+			System.Text.Encoding.UTF8, "application/json")
 		};
 
 		await Task.Delay(100);
@@ -18,10 +21,16 @@ public static class FunctionalHelpers
 	{
 		var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
 		{
-			Content = new StringContent($"{{\"CustomerId\": {customerId}, \"Name\": \"John Doe\"}}", System.Text.Encoding.UTF8, "application/json")
+			Content = new StringContent($"{{\"CustomerId\": {customerId}, \"Name\": \"John Doe\"}}", 
+			System.Text.Encoding.UTF8, "application/json")
 		};
 
 		await Task.Delay(100);
 		return fakeResponse;
+	}
+
+	public static async Result<string, ServiceError> ValidateInput(string input) 
+	{
+
 	}
 }
