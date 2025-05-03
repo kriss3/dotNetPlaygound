@@ -151,7 +151,7 @@ public class Program
 	{
 		var res = FunctionalHelpers.GetSomeData();
 		res.Map(r => r.Success);
-		await Task.CompletedTask; // finsihed here
+		await Task.CompletedTask; // finished here
 	}
 
 	private static async Task ExecuteStrainExamples()
