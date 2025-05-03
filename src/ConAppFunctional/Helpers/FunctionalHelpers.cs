@@ -61,7 +61,6 @@ public static class FunctionalHelpers
 	}
 }
 
-
 // From Vladimir Khorikov course: Ch3
 public class NonImmutableCustomer
 {
@@ -113,35 +112,31 @@ public class CustomerRepository
 //----------- Updates and working with Immutable data:
 public class ImmutableCustomer
 {
-	public void Process(string customerName, string addressString)
+	public static void Process(string customerName, string addressString)
 	{
 		var address = CreateAddress(addressString);
-		var customer = CreateCustomer(customerName);
-		SaveCustomer();
+		var customer = CreateCustomer(customerName, address);
+		SaveCustomer(customer);
 	}
 
-	private Address CreateAddress(string addressString)
+	private static Address CreateAddress(string addressString)
 	{
 		return new Address(addressString);
 	}
 
-	private Customer CreateCustomer(string name, Address address)
+	private static Customer CreateCustomer(string name, Address address)
 	{
 		return new Customer(name, address);
 	}
 
-	private void SaveCustomer()
+	private static void SaveCustomer(Customer customer)
 	{
-		if (_customer is null)
+		if (customer is null)
 		{
 			throw new InvalidOperationException("Customer cannot be null");
 		}
 
 		var repo = new CustomerRepository();
-		repo.SaveCustomer(_customer);
-
+		repo.SaveCustomer(customer);
 	}
-
 }
-
-
