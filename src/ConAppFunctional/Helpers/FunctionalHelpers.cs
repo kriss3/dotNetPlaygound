@@ -35,4 +35,11 @@ public static class FunctionalHelpers
 			? Result.Failure<string, ServiceError>(UnexpectedError.Create("A valid input is required."))
 			: Result.Success<string, ServiceError>(input);
 	}
+
+	public static Result<int, ServiceError> ParseInput(string input)
+	{
+		return int.TryParse(input, out var number)
+			? Result.Failure<int, ServiceError>(UnexpectedError.Create("Input must be a number."))
+			: Result.Success<int, ServiceError>(number);
+	}
 }
