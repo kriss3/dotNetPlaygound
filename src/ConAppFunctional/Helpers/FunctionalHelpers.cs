@@ -62,6 +62,23 @@ public static class FunctionalHelpers
 
 
 // From Vladimir Khorikov course: Ch3
-public class NonImmutableCustomer { }
+public class NonImmutableCustomer 
+{
+	private readonly Address _address;
+	private readonly Customer _customer;
 
-public class ImmutableCustomer { }
+	public void Process(string customerName, string addressString) 
+	{
+		CreateAddress(addressString);
+		CreateCustomer(customerName);
+		SaveCustomer();
+	}
+}
+
+
+public class ImmutableCustomer 
+{ 
+
+}
+
+
