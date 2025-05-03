@@ -62,20 +62,28 @@ public static class FunctionalHelpers
 
 
 // From Vladimir Khorikov course: Ch3
-public class NonImmutableCustomer 
+public class NonImmutableCustomer
 {
 	private readonly Address _address;
 	private readonly Customer _customer;
 
-	public void Process(string customerName, string addressString) 
+	public void Process(string customerName, string addressString)
 	{
 		CreateAddress(addressString);
 		CreateCustomer(customerName);
 		SaveCustomer();
 	}
+
+	private void CreateAddress(string addressString)
+	{
+		_address = new Address(addressString);
+	}
 }
 
+public class Address { }
 
+
+//----------- Updates and working with Immutable data:
 public class ImmutableCustomer 
 { 
 
