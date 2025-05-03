@@ -149,7 +149,7 @@ public class Program
 
 	private static async Task<Result<ResponseWithDetails<string, BioTrackError>, ServiceError>> CallThirdParyApi() 
 	{
-		
+		var res = await GetSomeResult();
 	}
 
 	private static async Task ExecuteStrainExamples()
