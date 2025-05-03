@@ -136,13 +136,14 @@ public class Program
 		await Task.CompletedTask;
 	}
 
-	private static async Task ExecuteBusinessLogic_01(string input) 
+	private static async Task<string> ExecuteBusinessLogic_01(string input) 
 	{
 		var res = FunctionalHelpers.ValidateInput(input)
 			.Bind(FunctionalHelpers.ParseInput)
 			.Bind(FunctionalHelpers.ProcessNumber)
 			.Match(s => $"", f => $"");
-		
+		await Task.CompletedTask;
+		return res;
 	}
 	
 
