@@ -42,4 +42,11 @@ public static class FunctionalHelpers
 			? Result.Failure<int, ServiceError>(UnexpectedError.Create("Input must be a number."))
 			: Result.Success<int, ServiceError>(number);
 	}
+
+	public static Result<string, ServiceError> ProcessNumber(int number)
+	{
+		return number % 2 == 0
+			? Result.Success<string, ServiceError>($"Even number: {number}")
+			: Result.Failure<string, ServiceError>(UnexpectedError.Create("Only even numbers are allowed."));
+	}
 }
