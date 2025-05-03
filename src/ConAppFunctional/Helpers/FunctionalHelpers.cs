@@ -29,8 +29,10 @@ public static class FunctionalHelpers
 		return fakeResponse;
 	}
 
-	public static async Result<string, ServiceError> ValidateInput(string input) 
+	public static Result<string, ServiceError> ValidateInput(string input) 
 	{
-
+		return string.IsNullOrWhiteSpace(input)
+			? Result.Failure<string, ServiceError>(UnexpectedError.Create("A valid input is required."))
+			: Result.Success<string, ServiceError>(input);
 	}
 }
