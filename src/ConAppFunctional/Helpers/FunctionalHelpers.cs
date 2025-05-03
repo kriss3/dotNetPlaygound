@@ -79,21 +79,38 @@ public class NonImmutableCustomer
 		_address = new Address(addressString);
 	}
 
-	private void CreateCustomer(string name) 
+	private void CreateCustomer(string name)
 	{
 		_customer = new Customer(name);
+	}
+
+	private void SaveCustomer()
+	{
+		var repo = new CustomerRepository();
+		repo.SaveCustomer(_customer);
 	}
 }
 
 public class Address(string addressString)
 {
-	private string _addressString = addressString;
+	private readonly string _addressString = addressString;
 }
 
 public class Customer(string customer) 
 {
-	private string _addressString = customer;
+	private readonly string _addressString = customer;
 }
+
+public class CustomerRepository 
+{
+	private List<Customer> _customers = [];
+
+	public void SaveCustomer(Customer customer) 
+	{
+		_customers.Add(customer);
+	}
+}
+
 
 
 //----------- Updates and working with Immutable data:
