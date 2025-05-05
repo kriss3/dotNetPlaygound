@@ -147,10 +147,17 @@ public class ImmutableCustomer
 
 public class UserProfile
 {
-	private User _user;
-	private string _address;
+	private User? _user;
+	private string? _address;
 	public void UpdateUser(int userId, string name)
 	{
 		_user = new User(userId, name);
 	}
 }
+
+public class User(int id, string name)
+{
+	public int Id { get; } = id;
+	public string Name { get; } = name;
+}
+
