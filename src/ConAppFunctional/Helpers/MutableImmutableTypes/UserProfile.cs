@@ -2,11 +2,11 @@
 
 public class UserProfile
 {
-	private User? _user;
+	private FunctionalUser? _user;
 	private readonly string? _address;
 	public void UpdateUser(int userId, string name)
 	{
-		_user = new User(userId, name);
+		_user = new FunctionalUser(userId, name);
 	}
 }
 
