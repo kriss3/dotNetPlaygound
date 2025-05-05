@@ -1,4 +1,4 @@
-﻿namespace ConAppFunctional.Helpers;
+﻿namespace ConAppFunctional.Helpers.MutableImmutableTypes;
 
 public class User(int id, string name)
 {

@@ -2,6 +2,7 @@
 using ConAppFunctional.BaseModels;
 using ConAppFunctional.Extensions;
 using ConAppFunctional.Helpers;
+using ConAppFunctional.Helpers.MutableImmutableTypes;
 using ConAppFunctional.ModelTypes;
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
