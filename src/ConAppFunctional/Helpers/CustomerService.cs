@@ -15,19 +15,19 @@ public class CustomerService
 	}
 
 	//Query
-	private Address CreateAddress(string addressString)
+	private static Address CreateAddress(string addressString)
 	{
 		return new Address(addressString);
 	}
 
 	//Query
-	private Customer CreateCustomer(string name, Address address)
+	private static Customer CreateCustomer(string name, Address address)
 	{
 		return new Customer(name, address);
 	}
 
 	//Command
-	private void SaveCustomer(Customer customer)
+	private static void SaveCustomer(Customer customer)
 	{
 		var repository = new CustomerRepository();
 		repository.SaveCustomer(customer);
