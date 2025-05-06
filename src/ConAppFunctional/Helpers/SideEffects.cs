@@ -8,3 +8,9 @@ namespace ConAppFunctional.Helpers;
 public class SideEffects
 {
 }
+
+
+public class CustomerService
+{
+
+}
