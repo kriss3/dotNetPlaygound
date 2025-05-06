@@ -25,8 +25,8 @@ public class CustomerService
 	}
 	private void SaveCustomer(Customer customer)
 	{
-		var repository = new Repository();
-		repository.Save(customer);
+		var repository = new CustomerRepository();
+		repository.SaveCustomer(customer);
 	}
 
 }
