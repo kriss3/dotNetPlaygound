@@ -40,7 +40,7 @@ public static class BindHelper
 		return Result.Create(result is not null, () => 0, () => "");
 	}
 
-	static string? SafeDivideDriver()
+	private static string? SafeDivideDriver()
 	{
 		// let's refactor this to a separate class.
 		Option<int> value = Option.Some(5);
