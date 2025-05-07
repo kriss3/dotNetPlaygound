@@ -444,8 +444,8 @@ class Driver
         Clear();
         PrintMethodHeader("NumberReverseOrder");
         Write("Enter number to reverse: ");
-        var input = ReadLine();
-        char[] inputC = [.. input];
+        string? input = ReadLine();
+        char[] inputC = [.. input!];
         Array.Reverse(inputC);
 
         foreach (var i in inputC) 
@@ -593,7 +593,7 @@ class Driver
             Write($"{2 * i} ");
             sum += 2 * i;
         }
-        Write($"\nThe Sum of even Natural Number upto {n} terms : {sum} \n");
+        Write($"\nThe Sum of even Natural Number up to {n} terms : {sum} \n");
     }
 
     private static void RunObservable()

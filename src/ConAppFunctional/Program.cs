@@ -137,22 +137,24 @@ public class Program
 		await Task.CompletedTask;
 	}
 
-	private static async Task<string> ExecuteBusinessLogic_01(string input) 
+	private static async Task<string> ExecuteBusinessLogic_01(string input)
 	{
 		var res = FunctionalHelpers.ValidateInput(input)
 			.Bind(FunctionalHelpers.ParseInput)
 			.Bind(FunctionalHelpers.ProcessNumber)
-			.Match(
-			success => $"Success: {success}", 
-			error => $"Failure: {error.Message}");
-		
+		.Match(
+			success => $"Success: {success}",
+			error => $"Failure: {error.Message}"
+		);
+		await Task.CompletedTask;
+		return res;
 	}
-
+		
 	private static async Task<string> ExecuteBusinessLogic_02(string input) =>
-		await FunctionalHelpers.ValidateInput(input)
+		await Task.FromResult(FunctionalHelpers.ValidateInput(input)
 		.Bind(FunctionalHelpers.ParseInput)
 		.Bind(FunctionalHelpers.ProcessNumber)
-		.Match(success => $"Success: {success}", error => $"Failure: {error.Message}");
+		.Match(success => $"Success: {success}", error => $"Failure: {error.Message}"));
 
 	private static async Task CallThirdPartyApi() 
 	{

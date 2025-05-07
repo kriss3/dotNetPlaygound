@@ -31,20 +31,20 @@ public static class FunctionalHelpers
 		return fakeResponse;
 	}
 
-	public static async Task<Result<string, ServiceError>> ValidateInput(string input) 
+	public static Result<string, ServiceError> ValidateInput(string input) 
 	{
 		var res =  string.IsNullOrWhiteSpace(input)
 			? Result.Failure<string, ServiceError>(UnexpectedError.Create("A valid input is required."))
 			: Result.Success<string, ServiceError>(input);
-		return await Task.FromResult(res);
+		return res;
 	}
 
-	public static async Task<Result<int, ServiceError>> ParseInput(string input)
+	public static Result<int, ServiceError> ParseInput(string input)
 	{
 		var res = int.TryParse(input, out var number)
 			? Result.Failure<int, ServiceError>(UnexpectedError.Create("Input must be a number."))
 			: Result.Success<int, ServiceError>(number);
-		return await Task.FromResult(res);
+		return res;
 	}
 
 	public static Result<string, ServiceError> ProcessNumber(int number)
