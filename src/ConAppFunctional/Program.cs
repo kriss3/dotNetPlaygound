@@ -142,7 +142,9 @@ public class Program
 		var res = FunctionalHelpers.ValidateInput(input)
 			.Bind(FunctionalHelpers.ParseInput)
 			.Bind(FunctionalHelpers.ProcessNumber)
-			.Match(s => $"", f => $"");
+			.Match(
+			success => $"Success: {success}", 
+			error => $"Failure: {error.Message}");
 		await Task.CompletedTask;
 		return res;
 	}
