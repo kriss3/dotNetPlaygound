@@ -6,7 +6,7 @@ namespace ConAppFunctional.Helpers;
 // This is a typical class with side effects.
 public class CustomerService
 {
-	public void Process(string customerName, string addressString)
+	public static void Process(string customerName, string addressString)
 	{
 		//Command
 		Address address = CreateAddress(addressString);
