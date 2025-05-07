@@ -31,11 +31,13 @@ public static class FunctionalHelpers
 		return fakeResponse;
 	}
 
-	public static Result<string, ServiceError> ValidateInput(string input) 
+	public static async Task<Result<string, ServiceError>> ValidateInput(string input) 
 	{
-		return string.IsNullOrWhiteSpace(input)
+		var res =  string.IsNullOrWhiteSpace(input)
 			? Result.Failure<string, ServiceError>(UnexpectedError.Create("A valid input is required."))
 			: Result.Success<string, ServiceError>(input);
+		await Task.CompletedTask;
+		return res;
 	}
 
 	public static Result<int, ServiceError> ParseInput(string input)
