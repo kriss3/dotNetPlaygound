@@ -36,15 +36,15 @@ public static class FunctionalHelpers
 		var res =  string.IsNullOrWhiteSpace(input)
 			? Result.Failure<string, ServiceError>(UnexpectedError.Create("A valid input is required."))
 			: Result.Success<string, ServiceError>(input);
-		await Task.CompletedTask;
-		return res;
+		return await Task.FromResult(res);
 	}
 
-	public static Result<int, ServiceError> ParseInput(string input)
+	public static async Task<Result<int, ServiceError>> ParseInput(string input)
 	{
-		return int.TryParse(input, out var number)
+		var res = int.TryParse(input, out var number)
 			? Result.Failure<int, ServiceError>(UnexpectedError.Create("Input must be a number."))
 			: Result.Success<int, ServiceError>(number);
+		return await Task.FromResult(res);
 	}
 
 	public static Result<string, ServiceError> ProcessNumber(int number)

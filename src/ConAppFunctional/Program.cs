@@ -145,29 +145,14 @@ public class Program
 			.Match(
 			success => $"Success: {success}", 
 			error => $"Failure: {error.Message}");
-		await Task.CompletedTask;
-		return res;
+		
 	}
 
 	private static async Task<string> ExecuteBusinessLogic_02(string input) =>
 		await FunctionalHelpers.ValidateInput(input)
 		.Bind(FunctionalHelpers.ParseInput)
 		.Bind(FunctionalHelpers.ProcessNumber)
-		.Match(s => $"", error => $"Failure: {error.Message}"));
-		
-
-
-
-		//var res = FunctionalHelpers.ValidateInput(input)
-		//	.Bind(FunctionalHelpers.ParseInput)
-		//	.Bind(FunctionalHelpers.ProcessNumber)
-		//	.Match(
-		//	success => $"Success: {success}",
-		//	error => $"Failure: {error.Message}");
-		//await Task.CompletedTask;
-		//return res;
-
-
+		.Match(success => $"Success: {success}", error => $"Failure: {error.Message}");
 
 	private static async Task CallThirdPartyApi() 
 	{
