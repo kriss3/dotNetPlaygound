@@ -64,6 +64,29 @@ public static class FunctionalHelpers
 
 	public static ResponseWithDetails<User, ApiError> GetUserById(string id)
 	{
+		if (string.IsNullOrWhiteSpace(id))
+		{
+			return new ResponseWithDetails<User, ApiError>(
+				IsSuccess: false,
+				Code: HttpStatusCode.BadRequest,
+				Message: "Invalid user ID.",
+				Success: null!,
+				Failure: new ApiError { Reason = "ValidationError", Detail = "ID cannot be empty." });
+		}
+
+		if (id != "123") 
+		{
+			return new ResponseWithDetails<User, ApiError>(
+				IsSuccess: false,
+				Code: HttpStatusCode.NotFound,
+				Message: "User not found.",
+				Success: null!,
+				Failure: new ApiError { Reason = "NotFound", Detail = $"No user with ID {id}" });
+		}
+
+
+
+		return new ResponseWithDetails<User, ApiError>();
 	}
 
 // From Vladimir Khorikov course: Ch3
