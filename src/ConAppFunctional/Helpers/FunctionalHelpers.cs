@@ -86,7 +86,11 @@ public static class FunctionalHelpers
 
 
 
-		return new ResponseWithDetails<User, ApiError>();
+		return new ResponseWithDetails<User, ApiError>(IsSuccess: true,
+		Code: HttpStatusCode.OK,
+		Message: "User retrieved successfully.",
+		Success: new User { Id = "123", Name = "Alice" },
+		Failure: null);
 	}
 
 // From Vladimir Khorikov course: Ch3
