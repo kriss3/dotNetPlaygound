@@ -6,8 +6,3 @@ public class Customer(string firstName, Address address)
 	public string? LastName { get; set; }
 	public Address? Address { get; set; } = address;
 }
-
-public class Address(string addressString)
-{
-	private readonly string _addressString = addressString;
-}
