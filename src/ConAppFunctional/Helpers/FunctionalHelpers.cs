@@ -11,7 +11,7 @@ public static class FunctionalHelpers
 	{
 		var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
 		{
-			Content = new StringContent("{\"CustomerId\": 1, \"Name\": \"John Doe\"}", 
+			Content = new StringContent("{\"CustomerId\": 1, \"Name\": \"John Doe\"}",
 			System.Text.Encoding.UTF8, "application/json")
 		};
 
@@ -23,7 +23,7 @@ public static class FunctionalHelpers
 	{
 		var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
 		{
-			Content = new StringContent($"{{\"CustomerId\": {customerId}, \"Name\": \"John Doe\"}}", 
+			Content = new StringContent($"{{\"CustomerId\": {customerId}, \"Name\": \"John Doe\"}}",
 			System.Text.Encoding.UTF8, "application/json")
 		};
 
@@ -31,9 +31,9 @@ public static class FunctionalHelpers
 		return fakeResponse;
 	}
 
-	public static Result<string, ServiceError> ValidateInput(string input) 
+	public static Result<string, ServiceError> ValidateInput(string input)
 	{
-		var res =  string.IsNullOrWhiteSpace(input)
+		var res = string.IsNullOrWhiteSpace(input)
 			? Result.Failure<string, ServiceError>(UnexpectedError.Create("A valid input is required."))
 			: Result.Success<string, ServiceError>(input);
 		return res;
@@ -54,7 +54,7 @@ public static class FunctionalHelpers
 			: Result.Failure<string, ServiceError>(UnexpectedError.Create("Only even numbers are allowed."));
 	}
 
-	public static Result<ResponseWithDetails<string, BioTrackError>, ServiceError> GetSomeData() 
+	public static Result<ResponseWithDetails<string, BioTrackError>, ServiceError> GetSomeData()
 	{
 		ResponseWithDetails<string, BioTrackError> res = new(true, HttpStatusCode.OK, "Some 200 Success", "Success Data", null!);
 		var functionResult = Result.Success<ResponseWithDetails<string, BioTrackError>, ServiceError>(res);
@@ -74,7 +74,7 @@ public static class FunctionalHelpers
 				Failure: new ApiError { Reason = "ValidationError", Detail = "ID cannot be empty." });
 		}
 
-		if (id != "123") 
+		if (id != "123")
 		{
 			return new ResponseWithDetails<User, ApiError>(
 				IsSuccess: false,
@@ -89,90 +89,91 @@ public static class FunctionalHelpers
 		return new ResponseWithDetails<User, ApiError>(IsSuccess: true,
 		Code: HttpStatusCode.OK,
 		Message: "User retrieved successfully.",
-		Success: new User { Id = "123", Name = "Alice" },
-		Failure: null);
+		Success: new User { Id = 123, Name = "Alice" },
+		Failure: null!);
 	}
 
-// From Vladimir Khorikov course: Ch3
-public class NonImmutableCustomer
-{
-	private Address? _address;
-	private Customer? _customer;
-
-	public void Process(string customerName, string addressString)
+	// From Vladimir Khorikov course: Ch3
+	public class NonImmutableCustomer
 	{
-		CreateAddress(addressString);
-		CreateCustomer(customerName);
-		SaveCustomer();
-	}
+		private Address? _address;
+		private Customer? _customer;
 
-	private void CreateAddress(string addressString)
-	{
-		_address = new Address(addressString);
-	}
-
-	private void CreateCustomer(string name)
-	{
-		_customer = new Customer(name, _address!);
-	}
-
-	private void SaveCustomer()
-	{
-		if (_customer is null) 
+		public void Process(string customerName, string addressString)
 		{
-			throw new InvalidOperationException("Customer cannot be null");
+			CreateAddress(addressString);
+			CreateCustomer(customerName);
+			SaveCustomer();
 		}
 
-		var repo = new CustomerRepository();
-		repo.SaveCustomer(_customer);
-		
-	}
-}
-
-public class CustomerRepository 
-{
-	private readonly List<Customer> _customers = [];
-
-	public void SaveCustomer(Customer customer) 
-	{
-		_customers.Add(customer);
-	}
-}
-
-
-
-//----------- Updates and working with Immutable data:
-// Below implementation removes temporal coupling and prevents from miss-ordering execution.
-// The compiler will barf when order of Business Logic execution is incorrect.
-// In the above type, mutable type, it is easy to move execution logic around as those executions rely on internal state.
-public class ImmutableCustomer
-{
-	public static void Process(string customerName, string addressString)
-	{
-		var address = CreateAddress(addressString);
-		var customer = CreateCustomer(customerName, address);
-		SaveCustomer(customer);
-	}
-
-	private static Address CreateAddress(string addressString)
-	{
-		return new Address(addressString);
-	}
-
-	private static Customer CreateCustomer(string name, Address address)
-	{
-		return new Customer(name, address);
-	}
-
-	private static void SaveCustomer(Customer customer)
-	{
-		if (customer is null)
+		private void CreateAddress(string addressString)
 		{
-			throw new InvalidOperationException("Customer cannot be null");
+			_address = new Address(addressString);
 		}
 
-		var repo = new CustomerRepository();
-		repo.SaveCustomer(customer);
+		private void CreateCustomer(string name)
+		{
+			_customer = new Customer(name, _address!);
+		}
+
+		private void SaveCustomer()
+		{
+			if (_customer is null)
+			{
+				throw new InvalidOperationException("Customer cannot be null");
+			}
+
+			var repo = new CustomerRepository();
+			repo.SaveCustomer(_customer);
+
+		}
+	}
+
+	public class CustomerRepository
+	{
+		private readonly List<Customer> _customers = [];
+
+		public void SaveCustomer(Customer customer)
+		{
+			_customers.Add(customer);
+		}
+	}
+
+
+
+	//----------- Updates and working with Immutable data:
+	// Below implementation removes temporal coupling and prevents from miss-ordering execution.
+	// The compiler will barf when order of Business Logic execution is incorrect.
+	// In the above type, mutable type, it is easy to move execution logic around as those executions rely on internal state.
+	public class ImmutableCustomer
+	{
+		public static void Process(string customerName, string addressString)
+		{
+			var address = CreateAddress(addressString);
+			var customer = CreateCustomer(customerName, address);
+			SaveCustomer(customer);
+		}
+
+		private static Address CreateAddress(string addressString)
+		{
+			return new Address(addressString);
+		}
+
+		private static Customer CreateCustomer(string name, Address address)
+		{
+			return new Customer(name, address);
+		}
+
+		private static void SaveCustomer(Customer customer)
+		{
+			if (customer is null)
+			{
+				throw new InvalidOperationException("Customer cannot be null");
+			}
+
+			var repo = new CustomerRepository();
+			repo.SaveCustomer(customer);
+		}
 	}
 }
 
