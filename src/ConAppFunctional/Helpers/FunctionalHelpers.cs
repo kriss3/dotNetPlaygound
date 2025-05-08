@@ -61,7 +61,10 @@ public static class FunctionalHelpers
 		return functionResult;
 		//finished here ... 2morrow start with handling both Success and Failure rather than just Success.
 	}
-}
+
+	public static ResponseWithDetails<User, ApiError> GetUserById(string id)
+	{
+	}
 
 // From Vladimir Khorikov course: Ch3
 public class NonImmutableCustomer
