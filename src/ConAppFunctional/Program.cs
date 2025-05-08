@@ -31,6 +31,7 @@ public class Program
 		// here: cleanup done. Can start adding calls to Result<ResponseWithDetails<TSuccess, BioTrackError>, ServiceError> type.
 		await ExecuteResultResponseOperations();
 		await ExecuteBusinessLogic_01("someVerySophisticatedInput");
+		await ExecuteBusinessLogic_02("someOtherVerySophisticatedInput");
 	}
 
 	private static async Task ExecuteResultResponseOperations()
