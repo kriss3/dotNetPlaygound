@@ -115,6 +115,7 @@ public static class FunctionalHelpers
 				Failure: new DiscountError { Reason = "PolicyRestriction" });
 		}
 
+		var discount = new DiscountResult { DiscountAmount = 10.0m };
 
 	}
 
