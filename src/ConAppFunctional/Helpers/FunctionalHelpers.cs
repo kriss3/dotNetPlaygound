@@ -93,6 +93,15 @@ public static class FunctionalHelpers
 		Failure: null!);
 	}
 
+	public static ResponseWithDetails<DiscountResult, DiscountError> CalculateDiscount(int customerAge)
+	{
+		
+
+		
+	}
+
+
+
 	// From Vladimir Khorikov course: Ch3
 	public class NonImmutableCustomer
 	{
