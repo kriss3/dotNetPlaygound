@@ -105,6 +105,16 @@ public static class FunctionalHelpers
 				Failure: new DiscountError { Reason = "Age cannot be negative" });
 		}
 
+		if (customerAge < 18)
+		{
+			return new ResponseWithDetails<DiscountResult, DiscountError>(
+				IsSuccess: false,
+				Code: HttpStatusCode.Forbidden,
+				Message: "Discount not allowed for minors.",
+				Success: null!,
+				Failure: new DiscountError { Reason = "PolicyRestriction" });
+		}
+
 
 	}
 
