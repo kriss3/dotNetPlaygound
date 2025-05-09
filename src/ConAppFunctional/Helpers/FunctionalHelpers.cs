@@ -95,9 +95,17 @@ public static class FunctionalHelpers
 
 	public static ResponseWithDetails<DiscountResult, DiscountError> CalculateDiscount(int customerAge)
 	{
-		
+		if (customerAge < 0)
+		{
+			return new ResponseWithDetails<DiscountResult, DiscountError>(
+				IsSuccess: false,
+				Code: HttpStatusCode.BadRequest,
+				Message: "Invalid age.",
+				Success: null!,
+				Failure: new DiscountError { Reason = "Age cannot be negative" });
+		}
 
-		
+
 	}
 
 
