@@ -117,6 +117,12 @@ public static class FunctionalHelpers
 
 		var discount = new DiscountResult { DiscountAmount = 10.0m };
 
+		return new ResponseWithDetails<DiscountResult, DiscountError>(
+			IsSuccess: true,
+			Code: HttpStatusCode.OK,
+			Message: "Discount applied.",
+			Success: discount,
+			Failure: null!);
 	}
 
 
