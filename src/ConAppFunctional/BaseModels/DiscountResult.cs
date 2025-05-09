@@ -5,4 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConAppFunctional.BaseModels;
-public class DiscountResult { public decimal DiscountAmount { get; set; } }
+public record DiscountResult 
+{ 
+	public decimal DiscountAmount { get; init; } 
+}
