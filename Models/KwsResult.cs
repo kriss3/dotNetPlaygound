@@ -23,7 +23,7 @@ public class KwsResult
 
 	public static KwsResult<T> Fail<T>(string message) 
 	{
-		return new KwsResult<T>(default(T), false, message);
+		return new KwsResult<T>(default, false, message);
 	}
 
 	public static KwsResult Ok() 
@@ -33,7 +33,7 @@ public class KwsResult
 
 	public static KwsResult<T> Ok<T>(T value) 
 	{
-		return new KwsResult<>(value, true, string.Empty);
+		return new KwsResult<T>(value, true, string.Empty);
 	}
 }
 
