@@ -182,6 +182,11 @@ public class Program
 		}
 	}
 
+	private static async Task ExecuteSimpleFnctExceptions_v2() 
+	{
+		await Task.CompletedTask;
+	}
+
 	private static async Task CallThirdPartyApi() 
 	{
 		var res = FunctionalHelpers.GetSomeData();
