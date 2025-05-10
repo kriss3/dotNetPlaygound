@@ -160,6 +160,22 @@ public class Program
 
 	private static async Task ExecuteSimpleFnctExceptions() 
 	{
+		string name = string.Empty;
+		try
+		{
+			ValidateName(name);
+		}
+		catch (Exception)
+		{
+
+			throw;
+		}
+
+		static void ValidateName(string name) 
+		{
+
+		}
+
 		await Task.CompletedTask;
 	}
 
