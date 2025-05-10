@@ -47,3 +47,5 @@ public class KwsResult<T> : KwsResult
 		Value = value;
 	}
 }
+
+// Next: add version of KwsResult with Enums instead of string Error.
