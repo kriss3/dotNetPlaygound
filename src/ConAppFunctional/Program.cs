@@ -184,6 +184,21 @@ public class Program
 
 	private static async Task ExecuteSimpleFnctExceptions_v2() 
 	{
+		var name = string.Empty;
+		string err = ValidateName(name);
+		if (err != string.Empty) 
+			await Task.Run(() => $"{err}" );
+
+		static string ValidateName(string name) 
+		{
+			if (string.IsNullOrEmpty(name))
+				return "Name cannot be empty";
+
+			if (name.Length > 100)
+				return "Name length cannot exceed 100 characters.";
+			return name;
+		}
+
 		await Task.CompletedTask;
 	}
 
