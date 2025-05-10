@@ -32,6 +32,7 @@ public class Program
 		await ExecuteResultResponseOperations();
 		await ExecuteBusinessLogic_01("someVerySophisticatedInput");
 		await ExecuteBusinessLogic_02("someOtherVerySophisticatedInput");
+		await ExecuteSimpleFnctExceptions();
 	}
 
 	private static async Task ExecuteResultResponseOperations()
@@ -156,6 +157,11 @@ public class Program
 		.Bind(FunctionalHelpers.ParseInput)
 		.Bind(FunctionalHelpers.ProcessNumber)
 		.Match(success => $"Success: {success}", error => $"Failure: {error.Message}"));
+
+	private static async Task ExecuteSimpleFnctExceptions() 
+	{
+		await Task.CompletedTask;
+	}
 
 	private static async Task CallThirdPartyApi() 
 	{
