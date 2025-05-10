@@ -2,5 +2,5 @@
 
 public class Root
 {
-
+	public Invoice Invoice { get; set; }
 }
