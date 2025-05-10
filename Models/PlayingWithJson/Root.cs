@@ -25,3 +25,14 @@ public class InventoryItem
 	public decimal Price { get; set; }
 	public int TransactionID { get; set; }
 }
+
+public class PaymentItem
+{
+	public int ID { get; set; }
+	public decimal Amount { get; set; }
+	public string InvoiceID { get; set; }
+	public bool Deleted { get; set; }
+	public int TransactionID { get; set; }
+	public string CreatedOn { get; set; }
+	public string UpdatedOn { get; set; }
+}
