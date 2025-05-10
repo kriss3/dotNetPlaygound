@@ -166,10 +166,9 @@ public class Program
 		{
 			ValidateName(name);
 		}
-		catch (Exception)
+		catch (Exception ex)
 		{
-
-			throw;
+			await Task.Run(() => $"Error: {ex.Message}");
 		}
 
 		static void ValidateName(string name) 
@@ -181,7 +180,7 @@ public class Program
 				throw new ValidationException("Name value is too long");
 		}
 
-		await Task.CompletedTask;
+		//await Task.CompletedTask;
 	}
 
 	private static async Task CallThirdPartyApi() 
