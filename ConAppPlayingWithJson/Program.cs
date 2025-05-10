@@ -1,9 +1,12 @@
-﻿namespace ConAppPlayingWithJson;
+﻿using static System.Console;
 
-internal class Program
+
+namespace ConAppPlayingWithJson;
+
+public class Program
 {
-	static void Main(string[] args)
+	static void Main()
 	{
-		Console.WriteLine("Hello, World!");
+		WriteLine("Welcome to Playing with JSON files.");
 	}
 }
