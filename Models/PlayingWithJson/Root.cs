@@ -1,6 +1,6 @@
 ﻿namespace Models.PlayingWithJson;
 
-public class Class1
+public class Root
 {
 
 }
