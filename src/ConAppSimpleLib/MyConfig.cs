@@ -5,7 +5,7 @@ namespace ConAppSimpleLib;
 
 public class MyConfig
 {
-    //create async function that connect to Azure Key Vault and retrievs a value
+    //create async function that connect to Azure Key Vault and retrieves a value
     public static async Task<string> GetSecretAsync(string secretName)
     {
         //create a client to connect to Azure Key Vault
