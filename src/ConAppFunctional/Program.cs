@@ -6,6 +6,7 @@ using ConAppFunctional.Helpers.MutableImmutableTypes;
 using ConAppFunctional.ModelTypes;
 using Cova.Functional;
 using Cova.ServiceErrors.Errors;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
@@ -173,7 +174,11 @@ public class Program
 
 		static void ValidateName(string name) 
 		{
+			if (string.IsNullOrEmpty(name))
+				throw new ValidationException("Name cannot be empty.");
 
+			if (name.Length > 100)
+				throw new ValidationException("Name value is too long");
 		}
 
 		await Task.CompletedTask;
