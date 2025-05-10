@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithProxyPatte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithStrategyPattern", "src\ConAppPlayingWithStrategyPattern\ConAppPlayingWithStrategyPattern.csproj", "{5A5B8C8F-B781-484A-8676-6CDD023C6809}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithJson", "ConAppPlayingWithJson\ConAppPlayingWithJson.csproj", "{F79CF3C5-3CDF-48E0-B30E-A19504E7B563}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -225,6 +227,10 @@ Global
 		{5A5B8C8F-B781-484A-8676-6CDD023C6809}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A5B8C8F-B781-484A-8676-6CDD023C6809}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A5B8C8F-B781-484A-8676-6CDD023C6809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F79CF3C5-3CDF-48E0-B30E-A19504E7B563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79CF3C5-3CDF-48E0-B30E-A19504E7B563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79CF3C5-3CDF-48E0-B30E-A19504E7B563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79CF3C5-3CDF-48E0-B30E-A19504E7B563}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
