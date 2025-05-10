@@ -33,7 +33,8 @@ public class Program
 		await ExecuteResultResponseOperations();
 		await ExecuteBusinessLogic_01("someVerySophisticatedInput");
 		await ExecuteBusinessLogic_02("someOtherVerySophisticatedInput");
-		await ExecuteSimpleFnctExceptions();
+		await ExecuteSimpleFnctExceptions_v1();
+		await ExecuteSimpleFnctExceptions_v2();
 	}
 
 	private static async Task ExecuteResultResponseOperations()
@@ -159,7 +160,7 @@ public class Program
 		.Bind(FunctionalHelpers.ProcessNumber)
 		.Match(success => $"Success: {success}", error => $"Failure: {error.Message}"));
 
-	private static async Task ExecuteSimpleFnctExceptions() 
+	private static async Task ExecuteSimpleFnctExceptions_v1() 
 	{
 		string name = string.Empty;
 		try
