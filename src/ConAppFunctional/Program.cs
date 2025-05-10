@@ -179,8 +179,6 @@ public class Program
 			if (name.Length > 100)
 				throw new ValidationException("Name value is too long");
 		}
-
-		//await Task.CompletedTask;
 	}
 
 	private static async Task CallThirdPartyApi() 
