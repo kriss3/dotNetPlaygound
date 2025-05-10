@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models;
-internal class KwsResult
+﻿namespace Models;
+public class KwsResult
 {
 	public bool IsSuccess { get; }
 	public string? Error { get; private set; }
@@ -30,5 +24,26 @@ internal class KwsResult
 	public static KwsResult<T> Fail<T>(string message) 
 	{
 		return new KwsResult<T>(default(T), false, message);
+	}
+
+	public static KwsResult Ok() 
+	{
+		return new KwsResult(true, string.Empty);
+	}
+
+	public static KwsResult<T> Ok<T>(T value) 
+	{
+		return new KwsResult<>(value, true, string.Empty);
+	}
+}
+
+
+public class KwsResult<T> : KwsResult 
+{
+	public T? Value { get; }
+
+	internal KwsResult(T? value, bool isSuccess, string error) : base(isSuccess, error) 
+	{
+		Value = value;
 	}
 }
