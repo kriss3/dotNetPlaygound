@@ -45,30 +45,30 @@ public class KwsResult_v2
 	public ErrorType? ErrorType { get; private set; }
 	public bool IsFailure => !IsSuccess;
 
-	protected KwsResult_v2(bool isSuccess, string error)
+	protected KwsResult_v2(bool isSuccess, ErrorType? errorType)
 	{
-		if (isSuccess && error != string.Empty)
+		if (isSuccess && errorType != null)
 			throw new InvalidOperationException();
-		if (!isSuccess && error == string.Empty)
+		if (!isSuccess && errorType == null)
 			throw new InvalidOperationException();
 
 		IsSuccess = isSuccess;
-		Error = error;
+		ErrorType = errorType;
 	}
 
-	public static KwsResult Fail(string message)
+	public static KwsResult_v2 Fail(ErrorType errorType)
 	{
-		return new KwsResult(false, message);
+		return new KwsResult_v2(false, errorType);
 	}
 
-	public static KwsResult<T> Fail<T>(string message)
+	public static KwsResult_v2<T> Fail<T>(ErrorType errorType)
 	{
-		return new KwsResult<T>(default, false, message);
+		return new KwsResult_v2<T>(default, false, errorType);
 	}
 
 	public static KwsResult Ok()
 	{
-		return new KwsResult(true, string.Empty);
+		return new KwsResult_v2(true, );
 	}
 
 	public static KwsResult<T> Ok<T>(T value)
@@ -84,6 +84,16 @@ public class KwsResult<T> : KwsResult
 	public T? Value { get; }
 
 	internal KwsResult(T? value, bool isSuccess, string error) : base(isSuccess, error) 
+	{
+		Value = value;
+	}
+}
+
+public class KwsResult_v2<T> : KwsResult_v2
+{
+	public T? Value { get; }
+
+	internal KwsResult_v2(T? value, bool isSuccess, ErrorType errorType) : base(isSuccess, error)
 	{
 		Value = value;
 	}
