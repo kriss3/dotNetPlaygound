@@ -42,10 +42,10 @@ public class KwsResult
 public class KwsResult_v2
 {
 	public bool IsSuccess { get; }
-	public string? Error { get; private set; }
+	public ErrorType ErrorType { get; private set; }
 	public bool IsFailure => !IsSuccess;
 
-	protected KwsResult(bool isSuccess, string error)
+	protected KwsResult_v2(bool isSuccess, string error)
 	{
 		if (isSuccess && error != string.Empty)
 			throw new InvalidOperationException();
@@ -90,3 +90,9 @@ public class KwsResult<T> : KwsResult
 }
 
 // Next: add version of KwsResult with Enums instead of string Error.
+
+public enum ErrorType 
+{
+	DatabaseIsOffline,
+	CustomerAlreadyExists
+}
