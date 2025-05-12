@@ -66,9 +66,9 @@ public class KwsResult_v2
 		return new KwsResult_v2<T>(default, false, errorType);
 	}
 
-	public static KwsResult Ok()
+	public static KwsResult_v2 Ok()
 	{
-		return new KwsResult_v2(true, );
+		return new KwsResult_v2(true, errorType);
 	}
 
 	public static KwsResult<T> Ok<T>(T value)
@@ -93,7 +93,7 @@ public class KwsResult_v2<T> : KwsResult_v2
 {
 	public T? Value { get; }
 
-	internal KwsResult_v2(T? value, bool isSuccess, ErrorType errorType) : base(isSuccess, error)
+	internal KwsResult_v2(T? value, bool isSuccess, ErrorType errorType) : base(isSuccess, errorType)
 	{
 		Value = value;
 	}
