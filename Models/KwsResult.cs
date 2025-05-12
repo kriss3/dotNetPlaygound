@@ -1,4 +1,6 @@
-﻿namespace Models;
+﻿using System.Text.Json.Nodes;
+
+namespace Models;
 public class KwsResult
 {
 	public bool IsSuccess { get; }
@@ -68,12 +70,12 @@ public class KwsResult_v2
 
 	public static KwsResult_v2 Ok()
 	{
-		return new KwsResult_v2(true, errorType);
+		return new KwsResult_v2(true, null);
 	}
 
-	public static KwsResult<T> Ok<T>(T value)
+	public static KwsResult_v2<T> Ok<T>(T value)
 	{
-		return new KwsResult<T>(value, true, string.Empty);
+		return new KwsResult_v2<T>(value, true, null);
 	}
 }
 
@@ -93,7 +95,7 @@ public class KwsResult_v2<T> : KwsResult_v2
 {
 	public T? Value { get; }
 
-	internal KwsResult_v2(T? value, bool isSuccess, ErrorType errorType) : base(isSuccess, errorType)
+	internal KwsResult_v2(T? value, bool isSuccess, ErrorType? errorType) : base(isSuccess, errorType)
 	{
 		Value = value;
 	}
