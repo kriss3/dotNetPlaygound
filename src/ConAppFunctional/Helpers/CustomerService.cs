@@ -29,7 +29,7 @@ public class CustomerService
 	//Command
 	private static void SaveCustomer(Customer customer)
 	{
-		var repository = new CustomerRepository();
+		var repository = new FunctionalHelpers.CustomerRepository();
 		repository.SaveCustomer(customer);
 	}
 
