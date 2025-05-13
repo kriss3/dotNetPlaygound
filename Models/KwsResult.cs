@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Nodes;
-
-namespace Models;
+﻿namespace Models;
 public class KwsResult
 {
 	public bool IsSuccess { get; }
@@ -39,8 +37,6 @@ public class KwsResult
 	}
 }
 
-
-
 public class KwsResult_v2
 {
 	public bool IsSuccess { get; }
@@ -78,8 +74,6 @@ public class KwsResult_v2
 		return new KwsResult_v2<T>(value, true, null);
 	}
 }
-
-
 
 public class KwsResult<T> : KwsResult 
 {
