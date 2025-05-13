@@ -1,4 +1,5 @@
 ﻿using ConAppFunctional.BaseModels;
+using Models;
 
 namespace ConAppFunctional.Helpers;
 
@@ -37,6 +38,9 @@ public class CustomerService
 
 public class CustomerService_v2 
 { 
+
+
+	private readonly KwsResult<Customer>? _customer;
 
 }
 
