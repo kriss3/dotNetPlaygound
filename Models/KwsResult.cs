@@ -37,6 +37,16 @@ public class KwsResult
 	}
 }
 
+public class KwsResult<T> : KwsResult 
+{
+	public T? Value { get; }
+
+	internal KwsResult(T? value, bool isSuccess, string error) : base(isSuccess, error) 
+	{
+		Value = value;
+	}
+}
+
 public class KwsResult_v2
 {
 	public bool IsSuccess { get; }
@@ -72,16 +82,6 @@ public class KwsResult_v2
 	public static KwsResult_v2<T> Ok<T>(T value)
 	{
 		return new KwsResult_v2<T>(value, true, null);
-	}
-}
-
-public class KwsResult<T> : KwsResult 
-{
-	public T? Value { get; }
-
-	internal KwsResult(T? value, bool isSuccess, string error) : base(isSuccess, error) 
-	{
-		Value = value;
 	}
 }
 
