@@ -37,10 +37,22 @@ public class CustomerService
 }
 
 public class CustomerService_v2 
-{ 
+{
 
 
-	private readonly KwsResult<Customer>? _customer;
+	private static KwsResult<Customer>? GetCustomer(int id)
+	{
+		try
+		{
+			var ctx = new List<Customer>();
+
+			return KwsResult.Ok(ctx.Single(x => x.Id == id)); 
+		}
+		catch (Exception)
+		{
+			throw;
+		}
+	}
 
 }
 
