@@ -5,7 +5,7 @@ public class KwsResult
 	public string? Error { get; private set; }
 	public bool IsFailure => !IsSuccess;
 
-	protected KwsResult(bool isSuccess, string error) 
+	public KwsResult(bool isSuccess, string error) 
 	{
 		if (isSuccess && error != string.Empty)
 			throw new InvalidOperationException();
@@ -37,14 +37,9 @@ public class KwsResult
 	}
 }
 
-public class KwsResult<T> : KwsResult 
+public class KwsResult<T>(T? value, bool isSuccess, string error) : KwsResult(isSuccess, error) 
 {
-	public T? Value { get; }
-
-	internal KwsResult(T? value, bool isSuccess, string error) : base(isSuccess, error) 
-	{
-		Value = value;
-	}
+	public T? Value { get; } = value;
 }
 
 public class KwsResult_v2

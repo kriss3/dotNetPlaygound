@@ -39,20 +39,26 @@ public class CustomerService
 public class CustomerService_v2 
 {
 
-
+	// this is the client of the KwsResult
 	private static KwsResult<Customer>? GetCustomer(int id)
 	{
-		try
-		{
-			var ctx = new List<Customer>();
+		//try
+		//{
+		//	var ctx = new List<Customer>();
 
-			return KwsResult.Ok(ctx.Single(x => x.Id == id)); 
-		}
-		catch (Exception)
-		{
-			throw;
-		}
+		//	return KwsResult.Ok(ctx.Single(x => x.Id == id)); 
+		//}
+		//catch (Exception)
+		//{
+		//	throw;
+		//}
+		return new KwsResult<Customer>(new Customer("", new Address("")), true, "");
 	}
 
+	private static KwsResult SaveCustomer(Customer customer) 
+	{
+
+		return new KwsResult(false, "");
+	}
 }
 
