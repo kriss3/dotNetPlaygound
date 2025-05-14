@@ -5,7 +5,7 @@ public class KwsResult
 	public string? Error { get; private set; }
 	public bool IsFailure => !IsSuccess;
 
-	public KwsResult(bool isSuccess, string error) 
+	protected KwsResult(bool isSuccess, string error) 
 	{
 		if (isSuccess && error != string.Empty)
 			throw new InvalidOperationException();
