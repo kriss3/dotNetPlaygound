@@ -40,16 +40,20 @@ public class CustomerService_v2
 {
 
 	// this is the client of the KwsResult
-	private static KwsResult<Customer>? CreateCustomer(string name, Address address)
+	private static void CreateCustomer(string name, Address address)
 	{
 		var customer = new Customer(name, address);
-		return new KwsResult<Customer>(new Customer("", new Address("")), true, "");
+		KwsResult<Customer> result = SaveCustomer(customer);
+
+		if (result.IsFailure) {
+			Console.WriteLine("Error connecting to the Db. Please try again later.");
+		}
 	}
 
-	private static KwsResult SaveCustomer(Customer customer) 
+	private static KwsResult<Customer> SaveCustomer(Customer customer) 
 	{
 
-		return new KwsResult(false, "");
+		return new KwsResult<Customer>(customer, false, "");
 	}
 
 	private static KwsResult<Customer>? GetCustomer(int id) 
