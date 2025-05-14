@@ -40,18 +40,9 @@ public class CustomerService_v2
 {
 
 	// this is the client of the KwsResult
-	private static KwsResult<Customer>? GetCustomer(int id)
+	private static KwsResult<Customer>? CreateCustomer(string name)
 	{
-		//try
-		//{
-		//	var ctx = new List<Customer>();
-
-		//	return KwsResult.Ok(ctx.Single(x => x.Id == id)); 
-		//}
-		//catch (Exception)
-		//{
-		//	throw;
-		//}
+		
 		return new KwsResult<Customer>(new Customer("", new Address("")), true, "");
 	}
 
@@ -59,6 +50,21 @@ public class CustomerService_v2
 	{
 
 		return new KwsResult(false, "");
+	}
+
+	private static KwsResult<Customer>? GetCustomer(int id) 
+	{
+		try
+		{
+			var ctx = new List<Customer>();
+			return KwsResult.Ok(ctx.Single(x => x.Id == id));
+		}
+		catch (Exception ex)
+		{
+			if(ex.Message == "Unable to open the Db connection.")
+				return KwsResult.Fail<Customer>(ex.Message);
+			throw;
+		}
 	}
 }
 
