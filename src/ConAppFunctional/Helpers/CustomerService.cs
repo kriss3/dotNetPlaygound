@@ -40,9 +40,9 @@ public class CustomerService_v2
 {
 
 	// this is the client of the KwsResult
-	private static KwsResult<Customer>? CreateCustomer(string name)
+	private static KwsResult<Customer>? CreateCustomer(string name, Address address)
 	{
-		
+		var customer = new Customer(name, address);
 		return new KwsResult<Customer>(new Customer("", new Address("")), true, "");
 	}
 
