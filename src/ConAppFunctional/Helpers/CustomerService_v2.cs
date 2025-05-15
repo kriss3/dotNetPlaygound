@@ -10,7 +10,18 @@ using System.Threading.Tasks;
 namespace ConAppFunctional.Helpers;
 public class CustomerService_v2
 {
+	public void CreateCustomer(string name) 
+	{
+		var address = new Address("someAddress");
+		var customer = new  Customer(name, address);
+		KwsResult res = SaveCustomer(customer);
 
+		if (res.IsFailure) 
+		{
+			Console.WriteLine(res.Error);
+		}
+	
+	}
 
 
 	private static KwsResult SaveCustomer(Customer customer)
@@ -46,6 +57,5 @@ public class CustomerService_v2
 				return KwsResult.Fail<Customer>("Db is off-line.");
 			throw;
 		}
-
 	}
 }
