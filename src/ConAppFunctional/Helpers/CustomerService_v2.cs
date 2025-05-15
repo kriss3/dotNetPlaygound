@@ -33,4 +33,19 @@ public class CustomerService_v2
 		}
 	}
 
+	private KwsResult<Customer> GetCustomer(int id) 
+	{
+		try
+		{
+			List<Customer> customerCtx = [];
+			return KwsResult.Ok(customerCtx.Single(c =>c.Id == id));
+		}
+		catch (Exception ex)
+		{
+			if (ex.Message == "Unable to open Db.")
+				return KwsResult.Fail<Customer>("Db is off-line.");
+			throw;
+		}
+
+	}
 }
