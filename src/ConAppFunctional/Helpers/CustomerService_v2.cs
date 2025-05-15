@@ -1,16 +1,11 @@
 ﻿using ConAppFunctional.BaseModels;
 using Cova.Functional;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConAppFunctional.Helpers;
 public class CustomerService_v2
 {
-	public void CreateCustomer(string name) 
+	public static void CreateCustomer(string name) 
 	{
 		var address = new Address("someAddress");
 		var customer = new  Customer(name, address);
