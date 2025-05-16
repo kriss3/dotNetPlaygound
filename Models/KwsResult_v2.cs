@@ -5,15 +5,15 @@ public class KwsResult_v2
 	public ErrorType? ErrorType { get; private set; }
 	public bool IsFailure => !IsSuccess;
 
-	protected KwsResult_v2(bool isSuccess, string error)
+	protected KwsResult_v2(bool isSuccess, ErrorType? errorType)
 	{
-		if (isSuccess && error != string.Empty)
+		if (isSuccess && errorType != null)
 			throw new InvalidOperationException();
-		if (!isSuccess && error == string.Empty)
+		if (!isSuccess && errorType == null)
 			throw new InvalidOperationException();
 
 		IsSuccess = isSuccess;
-		Error = error;
+		ErrorType = errorType;
 	}
 
 	public static KwsResult_v2 Fail(string message)
