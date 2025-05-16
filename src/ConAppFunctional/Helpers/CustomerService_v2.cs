@@ -38,7 +38,7 @@ public class CustomerService_v2
 		}
 	}
 
-	private KwsResult<Customer> GetCustomer(int id) 
+	private static KwsResult<Customer> GetCustomer(int id) 
 	{
 		try
 		{

@@ -16,28 +16,28 @@ public class KwsResult_v2
 		ErrorType = errorType;
 	}
 
-	public static KwsResult_v2 Fail(string message)
+	public static KwsResult_v2 Fail(ErrorType errorType)
 	{
-		return new KwsResult_v2(false, message);
+		return new KwsResult_v2(false, errorType);
 	}
 
-	public static KwsResult_v2<T> Fail<T>(string message)
+	public static KwsResult_v2<T> Fail<T>(ErrorType errorType)
 	{
-		return new KwsResult_v2<T>(default!, false, message);
+		return new KwsResult_v2<T>(default!, false, errorType);
 	}
 
 	public static KwsResult_v2 Ok()
 	{
-		return new KwsResult_v2(true, string.Empty);
+		return new KwsResult_v2(true, null);
 	}
 
-	public static KwsResult<T> Ok<T>(T value)
+	public static KwsResult_v2<T> Ok<T>(T value)
 	{
-		return new KwsResult<T>(value, true, string.Empty);
+		return new KwsResult_v2<T>(value, true, null);
 	}
 }
 
-public class KwsResult_v2<T> : KwsResult
+public class KwsResult_v2<T> : KwsResult_v2
 {
 	private readonly T _value;
 
@@ -51,7 +51,8 @@ public class KwsResult_v2<T> : KwsResult
 		}
 	}
 
-	protected internal KwsResult_v2(T value, bool isSuccess, string error) : base(isSuccess, error)
+	protected internal KwsResult_v2(T value, bool isSuccess, ErrorType? errorType) 
+		: base(isSuccess, errorType)
 	{
 		_value = value;
 	}
