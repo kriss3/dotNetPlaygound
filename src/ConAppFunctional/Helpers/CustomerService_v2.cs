@@ -15,7 +15,6 @@ public class CustomerService_v2
 		{
 			Console.WriteLine(res.Error);
 		}
-	
 	}
 
 
@@ -54,3 +53,5 @@ public class CustomerService_v2
 		}
 	}
 }
+
+//Next: add enums in the KwsResult type.
