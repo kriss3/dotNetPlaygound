@@ -2,7 +2,7 @@
 public class KwsResult_v2
 {
 	public bool IsSuccess { get; }
-	public string? Error { get; private set; }
+	public ErrorType? ErrorType { get; private set; }
 	public bool IsFailure => !IsSuccess;
 
 	protected KwsResult_v2(bool isSuccess, string error)
