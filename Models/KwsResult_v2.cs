@@ -32,9 +32,9 @@ public class KwsResult_v2
 		return new KwsResult_v2<T>(default!, false, message);
 	}
 
-	public static KwsResult Ok()
+	public static KwsResult_v2 Ok()
 	{
-		return new KwsResult(true, string.Empty);
+		return new KwsResult_v2(true, string.Empty);
 	}
 
 	public static KwsResult<T> Ok<T>(T value)
