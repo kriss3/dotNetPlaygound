@@ -9,23 +9,23 @@ public class CustomerService_v2
 	{
 		var address = new Address("someAddress");
 		var customer = new  Customer(name, address);
-		KwsResult res = SaveCustomer(customer);
+		KwsResult_v2 result = SaveCustomer(customer);
 
-		if (res.IsFailure) 
+		if (result.IsFailure) 
 		{
-			Console.WriteLine(res.Error);
+			switch (result.ErrorType)
 		}
 	}
 
 
-	private static KwsResult SaveCustomer(Customer customer)
+	private static KwsResult_v2 SaveCustomer(Customer customer)
 	{
 		try
 		{
 
 			List<Customer> customerCtx = [];
 			customerCtx.Add(customer);
-			return KwsResult.Ok();
+			return KwsResult_v2.Ok();
 		}
 		catch (Exception ex)
 		{
