@@ -30,25 +30,28 @@ public class CustomerService_v2
 		catch (Exception ex)
 		{
 			if (ex.Message == "")
-				KwsResult.Fail("Unable to open Db.");
+				KwsResult_v2.Fail(ErrorType.DatabaseIsOffline);
 
 			if (ex.Message.Contains("IX_Customer_Name"))
-				return KwsResult.Fail("Customer with such a name already exists.");
+				return KwsResult_v2.Fail(ErrorType.CustomerAlreadyExists);
 			throw;
 		}
 	}
 
-	private static KwsResult<Customer> GetCustomer(int id) 
+	private static KwsResult_v2<Customer> GetCustomer(int id) 
 	{
 		try
 		{
 			List<Customer> customerCtx = [];
-			return KwsResult.Ok(customerCtx.Single(c =>c.Id == id));
+			return KwsResult_v2.Ok(customerCtx.Single(c =>c.Id == id));
 		}
 		catch (Exception ex)
 		{
-			if (ex.Message == "Unable to open Db.")
-				return KwsResult.Fail<Customer>("Db is off-line.");
+			if (ex.Message == "Unable to open the DB connection.")
+				return KwsResult_v2.Fail<Customer>(ErrorType.DatabaseIsOffline);
+
+			if (ex.Message.Contains("IX_Customer_Name"))
+				return KwsResult_v2.Fail<Customer>(ErrorType.CustomerAlreadyExists);
 			throw;
 		}
 	}
