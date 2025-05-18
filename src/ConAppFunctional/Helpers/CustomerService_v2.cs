@@ -2,18 +2,31 @@
 using Cova.Functional;
 using Models;
 
+using static System.Console;
+
 namespace ConAppFunctional.Helpers;
 public class CustomerService_v2
 {
-	public static void CreateCustomer(string name) 
+	public static void CreateCustomer(string name)
 	{
 		var address = new Address("someAddress");
-		var customer = new  Customer(name, address);
+		var customer = new Customer(name, address);
 		KwsResult_v2 result = SaveCustomer(customer);
 
-		if (result.IsFailure) 
+		if (result.IsFailure)
 		{
 			switch (result.ErrorType)
+			{
+				case ErrorType.DatabaseIsOffline:
+					WriteLine("Unable to connect to the database. Try again later!");
+					break;
+				case ErrorType.CustomerAlreadyExists:
+					WriteLine($"A customer with the name: {name} already exists.");
+					break;
+				default:
+					throw new ArgumentException("An unknown error occurred.", nameof(result.ErrorType));
+
+			}
 		}
 	}
 
@@ -38,12 +51,12 @@ public class CustomerService_v2
 		}
 	}
 
-	private static KwsResult_v2<Customer> GetCustomer(int id) 
+	private static KwsResult_v2<Customer> GetCustomer(int id)
 	{
 		try
 		{
 			List<Customer> customerCtx = [];
-			return KwsResult_v2.Ok(customerCtx.Single(c =>c.Id == id));
+			return KwsResult_v2.Ok(customerCtx.Single(c => c.Id == id));
 		}
 		catch (Exception ex)
 		{
