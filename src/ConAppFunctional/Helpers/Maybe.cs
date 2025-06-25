@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConAppFunctional.Helpers;
-internal class Maybe
+public class Maybe<T> : IEquatable<Maybe<T>>
+	where T : class
 {
+	public bool Equals(Maybe<T>? other)
+	{
+		throw new NotImplementedException();
+	}
 }
