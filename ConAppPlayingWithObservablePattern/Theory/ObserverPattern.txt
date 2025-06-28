@@ -1,0 +1,20 @@
+﻿From doFactory.com
+
+The Observer design pattern defines a one-to-many dependency between objects so that when one object changes state, 
+all its dependents are notified and updated automatically. 
+
+From Christopher Okhravi:
+It is a move from Poll architecture to Push architecture.
+
+Classic approach is Poll => The client is constantly asking the "Producer" of the data: 
+    - Have you changed? 
+    - Have you changed your state?
+
+Observer pattern help to move to Push paradigm:
+The "Producer" of the data NOW is responsible for "NOTIFYING" ALL subscribers there is a "CHANGE" and 
+subscribers will now receive a new state of the published data.
+    - I have change, now do what you need to do with the new data I'm providing.
+
+The nature of the "Producer" of the data is, it 'KNOWS' about subscribers.
+Subscribers need to be 'REGISTERED' with the 'PRODUCER'.
+    

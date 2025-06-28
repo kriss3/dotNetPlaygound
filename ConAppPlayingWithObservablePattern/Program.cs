@@ -10,3 +10,4 @@ public class Program
 		await Task.CompletedTask;
 	}
 }
+
