@@ -1,9 +1,12 @@
 ﻿namespace ConAppPlayingWithObservablePattern;
 
-internal class Program
+using static System.Console;
+
+public class Program
 {
-	static void Main(string[] args)
+	static async Task Main()
 	{
-		Console.WriteLine("Hello, World!");
+		WriteLine("Hello, World!");
+		await Task.CompletedTask;
 	}
 }
