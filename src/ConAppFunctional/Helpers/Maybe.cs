@@ -1,4 +1,5 @@
 ﻿namespace ConAppFunctional.Helpers;
+
 public class Maybe<T> : IEquatable<Maybe<T>>
 				where T : class
 {
