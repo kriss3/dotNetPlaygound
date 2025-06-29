@@ -1,20 +1,15 @@
 ﻿using ConAppPlayingWithObservablePattern.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConAppPlayingWithObservablePattern.Concretions;
-public class PhoneDisplay : IObserver
+
+//Important => coupling with the concretion on purpose and this is OK.
+public class PhoneDisplay(WeatherStation weatherStation) : IObserver
 {
-	private readonly IObservable _observable;
-	public PhoneDisplay(IObservable observable)
-	{
-		_observable = observable;
-	}
+	private readonly WeatherStation _weatherStation = weatherStation;
+
 	public Task Update()
 	{
-		throw new NotImplementedException();
+		_weatherStation.GetTemperature();
+		return Task.CompletedTask;
 	}
 }
