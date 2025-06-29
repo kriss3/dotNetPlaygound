@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConAppPlayingWithObservablePattern.Concreations;
-internal class WindoDisplay
+namespace ConAppPlayingWithObservablePattern.Concretions;
+internal class WeatherStation
 {
 }

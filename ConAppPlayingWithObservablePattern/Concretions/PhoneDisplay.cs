@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConAppPlayingWithObservablePattern.Concreations;
+namespace ConAppPlayingWithObservablePattern.Concretions;
 internal class PhoneDisplay
 {
 }

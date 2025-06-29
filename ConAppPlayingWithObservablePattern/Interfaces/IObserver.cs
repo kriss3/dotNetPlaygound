@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConAppPlayingWithObservablePattern.Interfaces;
-internal interface IObserver
+public interface IObserver
 {
+	Task Update();
 }
