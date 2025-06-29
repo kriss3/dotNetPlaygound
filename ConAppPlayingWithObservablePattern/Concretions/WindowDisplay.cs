@@ -1,10 +1,15 @@
-﻿using System;
+﻿using ConAppPlayingWithObservablePattern.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConAppPlayingWithObservablePattern.Concretions;
-public class WindowDisplay
+public class WindowDisplay : IObserver
 {
+	public Task Update()
+	{
+		throw new NotImplementedException();
+	}
 }
