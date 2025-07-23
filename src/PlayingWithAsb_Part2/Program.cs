@@ -1,9 +1,11 @@
 ﻿namespace PlayingWithAsb_Part2;
 
-internal class Program
+using static System.Console;
+
+public class Program
 {
-	static void Main(string[] args)
+	static void Main()
 	{
-		Console.WriteLine("Hello, World!");
+		WriteLine("Hello, World!");
 	}
 }
