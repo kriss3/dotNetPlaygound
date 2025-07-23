@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Azure.Messaging.ServiceBus;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,26 @@ public class TopicProducer
 	public TopicProducer(IConfiguration config)
 	{
 		_config = config;
+	}
+
+	public async Task SendMessageAsync(string message)
+	{
+		var connectionString = _config["ConnectionStrings:ASB_CONN_STRING"];
+		var topicName = _config["TOPIC_NAME"];
+
+		var clientOptions = new ServiceBusClientOptions()
+		{
+			TransportType = ServiceBusTransportType.AmqpWebSockets
+		};
+
+		await using var client = new ServiceBusClient(connectionString, clientOptions);
+		await using var sender = client.CreateSender(topicName);
+
+		var serviceBusMessage = new ServiceBusMessage(message)
+		{
+			MessageId = Guid.NewGuid().ToString(),
+			Subject = "Topic Message"
+		};
+
 	}
 }
