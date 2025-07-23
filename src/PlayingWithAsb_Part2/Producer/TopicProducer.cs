@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static System.Console;
+
 namespace PlayingWithAsb_Part2.Producer;
 public class TopicProducer
 {
@@ -35,5 +37,15 @@ public class TopicProducer
 			Subject = "Topic Message"
 		};
 
+		try
+		{
+			await sender.SendMessageAsync(serviceBusMessage);
+			WriteLine($"Message sent to topic '{topicName}': {message}");
+		}
+		catch (Exception ex)
+		{
+			WriteLine($"Error sending message: {ex.Message}");
+			throw;
+		}
 	}
 }
