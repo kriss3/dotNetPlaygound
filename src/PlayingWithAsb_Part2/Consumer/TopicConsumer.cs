@@ -1,5 +1,6 @@
 ﻿using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.Configuration;
+using static System.Console;
 
 namespace PlayingWithAsb_Part2.Consumer;
 public class TopicConsumer(IConfiguration config)
@@ -41,7 +42,7 @@ public class TopicConsumer(IConfiguration config)
 		{
 			await _processor.StopProcessingAsync();
 			await _processor.DisposeAsync();
-			Console.WriteLine("Stopped processing messages");
+			WriteLine("Stopped processing messages");
 		}
 	}
 
@@ -50,17 +51,16 @@ public class TopicConsumer(IConfiguration config)
 		try
 		{
 			var message = args.Message.Body.ToString();
-			Console.WriteLine($"Received message: {message}");
-			Console.WriteLine($"Message ID: {args.Message.MessageId}");
-			Console.WriteLine($"Subject: {args.Message.Subject}");
+			WriteLine($"Received message: {message}");
+			WriteLine($"Message ID: {args.Message.MessageId}");
+			WriteLine($"Subject: {args.Message.Subject}");
 
-			// Complete the message
 			await args.CompleteMessageAsync(args.Message);
-			Console.WriteLine("Message processed successfully");
+			WriteLine("Message processed successfully");
 		}
 		catch (Exception ex)
 		{
-			Console.WriteLine($"Error processing message: {ex.Message}");
+			WriteLine($"Error processing message: {ex.Message}");
 			// Abandon the message so it can be retried
 			await args.AbandonMessageAsync(args.Message);
 		}
@@ -68,8 +68,7 @@ public class TopicConsumer(IConfiguration config)
 
 	private Task ErrorHandler(ProcessErrorEventArgs args)
 	{
-		Console.WriteLine($"Error occurred: {args.Exception.Message}");
+		WriteLine($"Error occurred: {args.Exception.Message}");
 		return Task.CompletedTask;
 	}
-
 }
