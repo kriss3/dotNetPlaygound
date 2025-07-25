@@ -66,4 +66,10 @@ public class TopicConsumer(IConfiguration config)
 		}
 	}
 
+	private Task ErrorHandler(ProcessErrorEventArgs args)
+	{
+		Console.WriteLine($"Error occurred: {args.Exception.Message}");
+		return Task.CompletedTask;
+	}
+
 }
