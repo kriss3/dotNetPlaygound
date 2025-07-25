@@ -34,4 +34,15 @@ public class TopicConsumer(IConfiguration config)
 		await _processor.StartProcessingAsync(cancellationToken);
 		Console.WriteLine($"Started processing messages from topic '{topicName}', subscription '{subscriptionName}'");
 	}
+
+	public async Task StopReceivingAsync()
+	{
+		if (_processor != null)
+		{
+			await _processor.StopProcessingAsync();
+			await _processor.DisposeAsync();
+			Console.WriteLine("Stopped processing messages");
+		}
+	}
+
 }
