@@ -45,4 +45,25 @@ public class TopicConsumer(IConfiguration config)
 		}
 	}
 
+	private async Task MessageHandler(ProcessMessageEventArgs args)
+	{
+		try
+		{
+			var message = args.Message.Body.ToString();
+			Console.WriteLine($"Received message: {message}");
+			Console.WriteLine($"Message ID: {args.Message.MessageId}");
+			Console.WriteLine($"Subject: {args.Message.Subject}");
+
+			// Complete the message
+			await args.CompleteMessageAsync(args.Message);
+			Console.WriteLine("Message processed successfully");
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"Error processing message: {ex.Message}");
+			// Abandon the message so it can be retried
+			await args.AbandonMessageAsync(args.Message);
+		}
+	}
+
 }
