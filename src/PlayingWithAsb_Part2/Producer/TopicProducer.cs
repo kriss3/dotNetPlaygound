@@ -4,14 +4,9 @@ using Microsoft.Extensions.Configuration;
 using static System.Console;
 
 namespace PlayingWithAsb_Part2.Producer;
-public class TopicProducer
+public class TopicProducer(IConfiguration config)
 {
-	private readonly IConfiguration _config;
-
-	public TopicProducer(IConfiguration config)
-	{
-		_config = config;
-	}
+	private readonly IConfiguration _config = config;
 
 	public async Task SendMessageAsync(string message)
 	{
