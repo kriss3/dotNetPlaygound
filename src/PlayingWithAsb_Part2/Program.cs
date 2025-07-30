@@ -46,7 +46,14 @@ public class Program
 		}
 		catch (Exception ex)
 		{
-			Console.WriteLine($"Error: {ex.Message}");
+			WriteLine($"Error: {ex.Message}");
+		}
+		finally
+		{
+			// Stop the consumer
+			cancellationTokenSource.Cancel();
+			await consumer.StopReceivingAsync();
+			WriteLine("\nApplication stopped.");
 		}
 	}
 }
