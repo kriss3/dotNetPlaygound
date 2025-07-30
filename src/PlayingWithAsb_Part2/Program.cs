@@ -32,7 +32,7 @@ public class Program
 			await Task.Delay(2000);
 
 			// Send some messages
-			Console.WriteLine("\nSending messages...");
+			WriteLine("\nSending messages...");
 			await producer.SendMessageAsync("Hello from Producer!");
 			await producer.SendMessageAsync("Second message from Producer!");
 
@@ -41,8 +41,8 @@ public class Program
 			await producer.SendBatchMessagesAsync(batchMessages);
 
 			// Let messages process
-			Console.WriteLine("\nProcessing messages... Press any key to stop.");
-			Console.ReadKey();
+			WriteLine("\nProcessing messages... Press any key to stop.");
+			ReadKey();
 		}
 		catch (Exception ex)
 		{
