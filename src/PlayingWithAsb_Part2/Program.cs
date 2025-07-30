@@ -6,6 +6,7 @@ public class Program
 {
 	static void Main()
 	{
-		WriteLine("Hello, World!");
+		WriteLine("Azure Service Bus Topic Producer/Consumer Demo");
+
 	}
 }
