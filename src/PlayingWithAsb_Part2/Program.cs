@@ -25,7 +25,7 @@ public class Program
 		try
 		{
 			// Start the consumer in the background
-			Console.WriteLine("Starting consumer...");
+			WriteLine("Starting consumer...");
 			await consumer.StartReceivingAsync(cancellationTokenSource.Token);
 
 			// Give consumer time to start
