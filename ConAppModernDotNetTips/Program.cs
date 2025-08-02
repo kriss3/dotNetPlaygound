@@ -1,9 +1,12 @@
-﻿namespace ConAppModernDotNetTips;
+﻿using static System.Console;
 
-internal class Program
+namespace ConAppModernDotNetTips;
+
+public class Program
 {
-	static void Main(string[] args)
+	static Task Main()
 	{
-		Console.WriteLine("Hello, World!");
+		WriteLine("Hello, World!");
+		return Task.CompletedTask;
 	}
 }
