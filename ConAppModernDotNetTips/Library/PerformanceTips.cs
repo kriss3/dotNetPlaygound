@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,11 @@ public static class PerformanceTips
 			dict[k] = $"The Value for {k}";
 		}
 		return dict;
+	}
+
+	// Concurrent Dictionary
+	public static async Task<ConcurrentDictionary<string, int>> BuildConcurentDictionaryAsync(IEnumerable<string> keys) 
+	{
+		return new ConcurrentDictionary<string, int>();
 	}
 }
