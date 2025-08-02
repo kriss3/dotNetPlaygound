@@ -1,10 +1,10 @@
-﻿namespace PlayingWithAsb_Part2;
-
+﻿
 using Microsoft.Extensions.Configuration;
 using PlayingWithAsb_Part2.Consumer;
 using PlayingWithAsb_Part2.Producer;
 using static System.Console;
 
+namespace PlayingWithAsb_Part2;
 public class Program
 {
 	static async Task Main()
