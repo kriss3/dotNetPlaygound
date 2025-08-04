@@ -33,7 +33,7 @@ public static class PerformanceTips
 	}
 
 	// 3. Using Array.Empty<T>() and Enumerable.Empty<T>()
-        public static string[] GetEmptyArray() => Array.Empty<string>();
+	public static string[] GetEmptyArray() => [];
 
-        public static IEnumerable<int> GetEmptyEnumerable() => Enumerable.Empty<int>();
+	public static IEnumerable<int> GetEmptyEnumerable() => [];
 }
