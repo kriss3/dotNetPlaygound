@@ -38,9 +38,26 @@ public static class PerformanceTips
 	public static IEnumerable<int> GetEmptyEnumerable() => [];
 
 	// 4. C# 13 TryGetAlternateLookup (Simulated since this is future C#)
-        public static bool TryAlternateLookup<T>(IEnumerable<T> items, Func<T, string> keySelector, string key, out T? result)
+	public static bool TryAlternateLookup<T>(
+		IEnumerable<T> items, 
+		Func<T, string> keySelector, 
+		string key, 
+		out T? result)
+	{
+		result = items.FirstOrDefault(item => keySelector(item) == key);
+		return result != null;
+	}
+
+	// 5. TrimExcess and pre-sized list
+        public static List<int> CreateListAndTrim()
         {
-            result = items.FirstOrDefault(item => keySelector(item) == key);
-            return result != null;
+            var list = new List<int>(1000);
+            for (int i = 0; i < 1000; i++)
+                list.Add(i);
+
+            // Simulate cleanup
+            list.RemoveRange(100, 900);
+            list.TrimExcess(); // Reclaim memory
+            return list;
         }
 }
