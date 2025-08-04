@@ -31,4 +31,9 @@ public static class PerformanceTips
 		await Task.WhenAll(tasks);
 		return result;
 	}
+
+	// 3. Using Array.Empty<T>() and Enumerable.Empty<T>()
+        public static string[] GetEmptyArray() => Array.Empty<string>();
+
+        public static IEnumerable<int> GetEmptyEnumerable() => Enumerable.Empty<int>();
 }
