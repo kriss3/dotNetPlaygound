@@ -11,6 +11,6 @@ public class Program
 {
 	public static void Main() 
 	{
-
+		WriteLine("My attempt to work with Az Key Vault.");
 	}
 }
