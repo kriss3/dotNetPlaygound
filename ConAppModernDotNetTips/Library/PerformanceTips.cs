@@ -36,4 +36,11 @@ public static class PerformanceTips
 	public static string[] GetEmptyArray() => [];
 
 	public static IEnumerable<int> GetEmptyEnumerable() => [];
+
+	// 4. C# 13 TryGetAlternateLookup (Simulated since this is future C#)
+        public static bool TryAlternateLookup<T>(IEnumerable<T> items, Func<T, string> keySelector, string key, out T? result)
+        {
+            result = items.FirstOrDefault(item => keySelector(item) == key);
+            return result != null;
+        }
 }
