@@ -20,8 +20,15 @@ public static class PerformanceTips
 	}
 
 	// Concurrent Dictionary
-	public static async Task<ConcurrentDictionary<string, int>> BuildConcurentDictionaryAsync(IEnumerable<string> keys) 
+	public static async Task<ConcurrentDictionary<string, int>> BuildConcurrentDictionaryAsync(IEnumerable<string> keys) 
 	{
-		return new ConcurrentDictionary<string, int>();
+		var result = new ConcurrentDictionary<string, int>();
+		var tasks = keys.Select(async key =>
+		{
+			int computed = await Task.FromResult(key.Length); // Simulated async work
+			result[key] = computed;
+		});
+		await Task.WhenAll(tasks);
+		return result;
 	}
 }
