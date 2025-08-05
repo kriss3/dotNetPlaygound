@@ -22,5 +22,15 @@ public class Program
 		}
 
 		string? secret = await MyConfig.GetSecretAsync(vaultUrl, "kwsConnString");
+
+		if (secret != null)
+		{
+			WriteLine("Retrieved Secret:");
+			WriteLine(secret);
+		}
+		else
+		{
+			WriteLine("Failed to retrieve secret.");
+		}
 	}
 }
