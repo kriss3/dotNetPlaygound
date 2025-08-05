@@ -20,7 +20,10 @@ public class Program
 			return;
 		}
 
-
+		// Capture erorr correctly when DefaultAuthentication did not work due to:
+		/*
+		 * rror retrieving secret: DefaultAzureCredential failed to retrieve a token from the included credentials. See the troubleshooting guide for more information. 
+		 */
 		string? secret = await MyConfig.GetSecretAsync(vaultUrl, "kwsConnString");
 
 		if (secret != null)
