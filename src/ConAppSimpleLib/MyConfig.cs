@@ -18,7 +18,18 @@ public class MyConfig
 
     public static async Task<string> GetSecretAsync(string vaultUrl, string secretKey) 
     {
-        return await Task.FromResult(secretKey);
+        //az key vault client:
+        var client = new SecretClient(new Uri(vaultUrl), new DefaultAzureCredential());
 
+        try
+        {
+            KeyVaultSecret secret = await client.GetSecretAsync(secretKey);
+            return secret.Value;
+        }
+        catch (Exception ex)
+        {
+			Console.WriteLine($"Error retrieving secret: {ex.Message}");
+            return string.Empty;
+        }
     }
 }
