@@ -20,6 +20,7 @@ public class Program
 			return;
 		}
 
+
 		string? secret = await MyConfig.GetSecretAsync(vaultUrl, "kwsConnString");
 
 		if (secret != null)
