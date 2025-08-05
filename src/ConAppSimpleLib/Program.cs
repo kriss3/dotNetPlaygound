@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Configuration;
 
 using static System.Console;
 
@@ -12,5 +8,9 @@ public class Program
 	public static void Main() 
 	{
 		WriteLine("My attempt to work with Az Key Vault.");
+		// Load configuration from appsettings.json
+		var config = new ConfigurationBuilder()
+			.AddJsonFile("appsettings.json")
+			.Build();
 	}
 }
