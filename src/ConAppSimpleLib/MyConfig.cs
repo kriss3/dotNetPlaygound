@@ -15,4 +15,10 @@ public class MyConfig
         //return the secret value
         return secret.Value;
     }
+
+    public static async Task<string> GetSecretAsync(string vaultUrl, string secretKey) 
+    {
+        return await Task.FromResult(secretKey);
+
+    }
 }
