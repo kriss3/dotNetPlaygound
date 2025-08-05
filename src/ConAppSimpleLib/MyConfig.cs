@@ -1,5 +1,6 @@
 ﻿using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using static System.Console;
 
 namespace ConAppSimpleLib;
 
@@ -28,7 +29,7 @@ public class MyConfig
         }
         catch (Exception ex)
         {
-			Console.WriteLine($"Error retrieving secret: {ex.Message}");
+			WriteLine($"Error retrieving secret: {ex.Message}");
             return string.Empty;
         }
     }
