@@ -1,10 +1,5 @@
 ﻿using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AzureKeyVaultHelper;
 public static class KeyVaultHelper
@@ -81,7 +76,6 @@ public static class KeyVaultHelper
 	/// <param name="vaultUrl">The Azure Key Vault URL</param>
 	/// <param name="secretKey">The name of the secret to check</param>
 	/// <returns>True if secret exists, false otherwise</returns>
-
 	public static async Task<bool> SecretExistsAsync(string vaultUrl, string secretKey) 
 	{
 		try
