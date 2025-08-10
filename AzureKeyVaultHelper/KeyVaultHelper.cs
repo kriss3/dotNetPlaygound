@@ -75,9 +75,25 @@ public static class KeyVaultHelper
 
 	}
 
+	/// <summary>
+	/// Checks if a secret exists in Azure Key Vault
+	/// </summary>
+	/// <param name="vaultUrl">The Azure Key Vault URL</param>
+	/// <param name="secretKey">The name of the secret to check</param>
+	/// <returns>True if secret exists, false otherwise</returns>
+
 	public static async Task<bool> SecretExistsAsync(string vaultUrl, string secretKey) 
 	{
-	
+		try
+		{
+			var client = new SecretClient(new Uri(vaultUrl), new DefaultAzureCredential());
+			await client.GetSecretAsync(secretKey);
+			return true;
+		}
+		catch
+		{
+			return false;
+		}
 	}
 
 	public static async Task<Dictionary<string, string>> GetMultipleSecretsAsync(string vaultUrl, params string[] secretKeys) 
