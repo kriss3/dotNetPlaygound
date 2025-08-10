@@ -98,7 +98,14 @@ public static class KeyVaultHelper
 
 	public static async Task<Dictionary<string, string>> GetMultipleSecretsAsync(string vaultUrl, params string[] secretKeys) 
 	{
-	
-	}
+		var results = new Dictionary<string, string>();
 
+		foreach (var secretKey in secretKeys)
+		{
+			var secretValue = await GetSecretAsync(vaultUrl, secretKey);
+			results[secretKey] = secretValue;
+		}
+
+		return results;
+	}
 }
