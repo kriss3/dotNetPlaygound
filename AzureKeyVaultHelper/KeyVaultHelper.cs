@@ -19,6 +19,23 @@ public static class KeyVaultHelper
 
 	public static async Task<string> GetSecretAsync(string vaultUrl, string secretKey) 
 	{
+		if (string.IsNullOrEmpty(vaultUrl))
+			throw new ArgumentException("Vault URL cannot be null or empty", nameof(vaultUrl));
+
+		if (string.IsNullOrEmpty(secretKey))
+			throw new ArgumentException("Secret key cannot be null or empty", nameof(secretKey));
+
+		try
+		{
+			var client = new SecretClient(new Uri(vaultUrl), new DefaultAzureCredential());
+			KeyVaultSecret secret = await client.GetSecretAsync(secretKey);
+			return secret.Value;
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"Error retrieving secret: {ex.Message}");
+			return string.Empty;
+		}
 
 	}
 
