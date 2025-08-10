@@ -17,6 +17,12 @@ public static class KeyVaultHelper
 		return await GetSecretAsync("https://mykeyvault2021.vault.azure.net/", secretName);
 	}
 
+	/// <summary>
+	/// Retrieves a secret value from Azure Key Vault
+	/// </summary>
+	/// <param name="vaultUrl">The Azure Key Vault URL</param>
+	/// <param name="secretKey">The name of the secret to retrieve</param>
+	/// <returns>The secret value, or empty string if error occurred</returns>
 	public static async Task<string> GetSecretAsync(string vaultUrl, string secretKey) 
 	{
 		if (string.IsNullOrEmpty(vaultUrl))
