@@ -1,5 +1,7 @@
 U# dotNetPlayground Repository
 
+Test in place 
+
 Main container for exploration of number of different dotNet concepts in C#. This will be full framework project.
 
 ## Description
