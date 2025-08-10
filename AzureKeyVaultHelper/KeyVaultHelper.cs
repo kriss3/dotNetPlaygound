@@ -96,6 +96,12 @@ public static class KeyVaultHelper
 		}
 	}
 
+	/// <summary>
+	/// Retrieves multiple secrets from Azure Key Vault
+	/// </summary>
+	/// <param name="vaultUrl">The Azure Key Vault URL</param>
+	/// <param name="secretKeys">The names of the secrets to retrieve</param>
+	/// <returns>Dictionary of secret names and values</returns>
 	public static async Task<Dictionary<string, string>> GetMultipleSecretsAsync(string vaultUrl, params string[] secretKeys) 
 	{
 		var results = new Dictionary<string, string>();
