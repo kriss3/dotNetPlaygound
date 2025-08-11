@@ -23,7 +23,8 @@ public class MyConfig
 	/// <returns>The secret value, or empty string if error occurred</returns>
 	public static async Task<string> GetSecretAsync(string vaultUrl, string secretKey)
 	{
-		return await KeyVaultHelper.GetSecretAsync(vaultUrl, secretKey);
+		var result = await KeyVaultHelper.GetSecretAsync(vaultUrl, secretKey);
+		return result;
 	}
 
 	/// <summary>
@@ -34,6 +35,7 @@ public class MyConfig
 	/// <returns>The secret value, or null if error occurred</returns>
 	public static async Task<string?> GetSecretOrNullAsync(string vaultUrl, string secretKey)
 	{
-		return await KeyVaultHelper.GetSecretOrNullAsync(vaultUrl, secretKey);
+		var result = await KeyVaultHelper.GetSecretOrNullAsync(vaultUrl, secretKey);
+		return result;
 	}
 }
