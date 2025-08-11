@@ -1,7 +1,4 @@
-﻿using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
-using AzureKeyVaultHelper;
-using static System.Console;
+﻿using AzureKeyVaultHelper;
 
 namespace ConAppSimpleLib;
 
