@@ -7,27 +7,36 @@ namespace ConAppSimpleLib;
 
 public class MyConfig
 {
-    //create async function that connect to Azure Key Vault and retrieves a value
-    public static async Task<string> GetSecretAsync(string secretName)
+	/// <summary>
+	/// Gets a secret from the default vault URL
+	/// </summary>
+	/// <param name="secretName">The name of the secret to retrieve</param>
+	/// <returns>The secret value, or empty string if error occurred</returns>
+	public static async Task<string> GetSecretAsync(string secretName)
     {
         var result = await KeyVaultHelper.GetSecretAsync(secretName);
         return result;
     }
 
-    public static async Task<string> GetSecretAsync(string vaultUrl, string secretKey) 
-    {
-        //az key vault client:
-        var client = new SecretClient(new Uri(vaultUrl), new DefaultAzureCredential());
+	/// <summary>
+	/// Gets a secret from a specific vault URL
+	/// </summary>
+	/// <param name="vaultUrl">The Azure Key Vault URL</param>
+	/// <param name="secretKey">The name of the secret to retrieve</param>
+	/// <returns>The secret value, or empty string if error occurred</returns>
+	public static async Task<string> GetSecretAsync(string vaultUrl, string secretKey)
+	{
+		return await KeyVaultHelper.GetSecretAsync(vaultUrl, secretKey);
+	}
 
-        try
-        {
-            KeyVaultSecret secret = await client.GetSecretAsync(secretKey);
-            return secret.Value;
-        }
-        catch (Exception ex)
-        {
-			WriteLine($"Error retrieving secret: {ex.Message}");
-            return string.Empty;
-        }
-    }
+	/// <summary>
+	/// Gets a secret that might be null
+	/// </summary>
+	/// <param name="vaultUrl">The Azure Key Vault URL</param>
+	/// <param name="secretKey">The name of the secret to retrieve</param>
+	/// <returns>The secret value, or null if error occurred</returns>
+	public static async Task<string?> GetSecretOrNullAsync(string vaultUrl, string secretKey)
+	{
+		return await KeyVaultHelper.GetSecretOrNullAsync(vaultUrl, secretKey);
+	}
 }
