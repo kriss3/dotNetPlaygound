@@ -8,5 +8,12 @@ public class Program
 	static void Main(string[] args)
 	{
 		WriteLine("Hello, World!");
+		Run();
+	}
+
+	private static void Run() 
+	{
+		var result = GreetingService.GetGreeting("World!");
+		WriteLine(result);
 	}
 }
