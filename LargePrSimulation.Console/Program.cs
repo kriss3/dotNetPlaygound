@@ -1,10 +1,12 @@
-﻿
+﻿using LargePrSimulation.Library;
+using static System.Console;
+
 namespace LargePrSimulation.Console;
 
-internal class Program
+public class Program
 {
 	static void Main(string[] args)
 	{
-		Console.WriteLine("Hello, World!");
+		WriteLine("Hello, World!");
 	}
 }
