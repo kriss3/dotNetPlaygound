@@ -87,6 +87,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppModernDotNetTips", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureKeyVaultHelper", "AzureKeyVaultHelper\AzureKeyVaultHelper.csproj", "{14526BCF-B413-4B21-BD66-CF02355FF028}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargePrSimulation.Console", "LargePrSimulation.Console\LargePrSimulation.Console.csproj", "{3F7A36D1-D44E-403E-B907-F77AF6FF351D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargePrSimulation.Library", "LargePrSimulation.Library\LargePrSimulation.Library.csproj", "{F975EDF9-0D0E-4D12-AA16-74C8B5738EA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +265,14 @@ Global
 		{14526BCF-B413-4B21-BD66-CF02355FF028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14526BCF-B413-4B21-BD66-CF02355FF028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14526BCF-B413-4B21-BD66-CF02355FF028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F7A36D1-D44E-403E-B907-F77AF6FF351D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7A36D1-D44E-403E-B907-F77AF6FF351D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7A36D1-D44E-403E-B907-F77AF6FF351D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7A36D1-D44E-403E-B907-F77AF6FF351D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F975EDF9-0D0E-4D12-AA16-74C8B5738EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F975EDF9-0D0E-4D12-AA16-74C8B5738EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F975EDF9-0D0E-4D12-AA16-74C8B5738EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F975EDF9-0D0E-4D12-AA16-74C8B5738EA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
