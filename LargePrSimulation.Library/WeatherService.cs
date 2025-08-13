@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LargePrSimulation.Library;
+﻿namespace LargePrSimulation.Library;
 public class WeatherService
 {
 	public string GetForecast() => "Sunny with a chance of code!";
