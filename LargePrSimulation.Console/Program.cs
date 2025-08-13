@@ -16,8 +16,8 @@ public class Program
 		var result = GreetingService.GetGreeting("World!");
 		WriteLine(result);
 
-		// After greeting
-		var math = new MathService();
-		WriteLine($"2 + 3 = {math.Add(2, 3)}");
+		// Changed 'math' to 'calculator' (unrelated variable rename)
+		var calculator = new MathService();
+		WriteLine($"2 + 3 = {calculator.Add(2, 3)}");
 	}
 }
