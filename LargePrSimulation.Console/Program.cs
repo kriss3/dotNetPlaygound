@@ -15,5 +15,9 @@ public class Program
 	{
 		var result = GreetingService.GetGreeting("World!");
 		WriteLine(result);
+
+		// After greeting
+		var math = new MathService();
+		WriteLine($"2 + 3 = {math.Add(2, 3)}");
 	}
 }
