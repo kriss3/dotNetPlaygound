@@ -3,7 +3,7 @@ using static System.Console;
 
 namespace ConAppPlayingWithMementoPattern;
 
-internal class Program
+public class Program
 {
 	static Task Main()
 	{
