@@ -18,4 +18,16 @@ public class Originator
 			Console.WriteLine($"State = {_state}");
 		}
 	}
+
+	public Memento CreateMemento() 
+	{
+		return new Memento(_state!);
+	}
+
+	// Restore original State:
+	public void SetMemento(Memento memento) 
+	{
+		Console.WriteLine($"Restoring State...");
+		State = memento.State;
+	}
 }
