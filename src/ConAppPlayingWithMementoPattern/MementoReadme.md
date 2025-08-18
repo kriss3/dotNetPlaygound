@@ -27,4 +27,6 @@ Memento:
   produces the memento would be permitted to access the 
   memento's internal state.
 
-Caretaker
+Caretaker: (Caretaker)
+- is responsible for the memento's safekeeping
+- never operates on or examines the contents of a memento.
