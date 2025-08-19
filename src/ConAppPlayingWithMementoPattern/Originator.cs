@@ -1,4 +1,7 @@
-﻿namespace ConAppPlayingWithMementoPattern;
+﻿
+using static System.Console;
+
+namespace ConAppPlayingWithMementoPattern;
 public class Originator
 {
 	private string? _state;
@@ -9,7 +12,7 @@ public class Originator
 		set 
 		{
 			_state = value;
-			Console.WriteLine($"State = {_state}");
+			WriteLine($"State = {_state}");
 		}
 	}
 
@@ -21,7 +24,7 @@ public class Originator
 	// Restore original State:
 	public void SetMemento(Memento memento) 
 	{
-		Console.WriteLine($"Restoring State...");
+		WriteLine($"Restoring State...");
 		State = memento.State;
 	}
 }
