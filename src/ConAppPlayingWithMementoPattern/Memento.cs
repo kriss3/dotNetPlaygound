@@ -1,15 +1,10 @@
 ﻿namespace ConAppPlayingWithMementoPattern;
-public class Memento
+public class Memento(string state)
 {
-	private string _state;
+	private readonly string _state = state;
 
 	public string State 
 	{
 		get { return _state; }
-	}
-
-	public Memento(string state)
-	{
-		_state = state;
 	}
 }
