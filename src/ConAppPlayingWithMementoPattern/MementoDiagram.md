@@ -1,19 +1,25 @@
-﻿``` mermaid
+﻿```mermaid
+classDiagram
+    class Originator {
+        - state
+        + SetMemento(m: Memento) void
+        + CreateMemento() Memento
+    }
 
-class Memento {
-    - state
-    + GetState() any
-    + SetState(value: any) void
-}
+    class Memento {
+        - state
+        + GetState() any
+        + SetState(value: any) void
+    }
 
-class Caretaker {
-    + memento: Memento
-}
+    class Caretaker {
+        + memento: Memento
+    }
 
-%% Relationships
-Caretaker o-- Memento : holds
-Originator ..> Memento : create / restore
+    %% Relationships
+    Caretaker o-- Memento : holds
+    Originator ..> Memento : create / restore
 
-%% Notes
-note for Originator "return new Memento(state)"
-note for Memento "state = m.GetState()"
+    %% Notes
+    note for Originator "return new Memento(state)"
+    note for Memento "state = m.GetState()"

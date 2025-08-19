@@ -1,4 +1,5 @@
-﻿sequenceDiagram
+﻿```mermaid
+sequenceDiagram
     participant Client
     participant Originator
     participant Caretaker
