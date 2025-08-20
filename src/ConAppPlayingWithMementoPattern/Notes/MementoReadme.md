@@ -30,3 +30,6 @@ Memento:
 Caretaker: (Caretaker)
 - is responsible for the memento's safekeeping
 - never operates on or examines the contents of a memento.
+
+## Related Diagrams:
+- [Memento Diagram](./MementoDiagram.md)
