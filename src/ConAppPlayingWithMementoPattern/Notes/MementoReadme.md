@@ -33,3 +33,4 @@ Caretaker: (Caretaker)
 
 ## Related Diagrams:
 - [Memento Diagram](./MementoDiagram.md)
+- [Memento Sequence Diagram](./SequenceDiagram.md)
