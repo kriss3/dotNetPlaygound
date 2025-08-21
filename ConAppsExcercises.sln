@@ -93,6 +93,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargePrSimulation.Library",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithMementoPattern", "src\ConAppPlayingWithMementoPattern\ConAppPlayingWithMementoPattern.csproj", "{06C73655-3AA6-4268-85FE-C6038A712EB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithAdapterPattern", "src\ConAppPlayingWithAdapterPattern\ConAppPlayingWithAdapterPattern.csproj", "{DFECE9DF-8EF0-4485-92EB-9F94BB2F7719}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -279,6 +281,10 @@ Global
 		{06C73655-3AA6-4268-85FE-C6038A712EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C73655-3AA6-4268-85FE-C6038A712EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C73655-3AA6-4268-85FE-C6038A712EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFECE9DF-8EF0-4485-92EB-9F94BB2F7719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFECE9DF-8EF0-4485-92EB-9F94BB2F7719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFECE9DF-8EF0-4485-92EB-9F94BB2F7719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFECE9DF-8EF0-4485-92EB-9F94BB2F7719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
