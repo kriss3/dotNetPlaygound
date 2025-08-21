@@ -1,9 +1,12 @@
-﻿namespace ConAppPlayingWithAdapterPattern;
+﻿using static System.Console;
 
-internal class Program
+namespace ConAppPlayingWithAdapterPattern;
+
+public class Program
 {
-	static void Main(string[] args)
+	static Task Main(string[] args)
 	{
-		Console.WriteLine("Hello, World!");
+		WriteLine("Hello, World!");
+		return Task.CompletedTask;
 	}
 }
