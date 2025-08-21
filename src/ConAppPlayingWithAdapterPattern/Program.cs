@@ -21,7 +21,10 @@ public class Program
 
 public abstract class Target 
 {
-	public virtual void Request() { }
+	public virtual void Request() 
+	{
+		WriteLine("Called Target Request()");
+	}
 }
 
 public class Adapter : Target 
