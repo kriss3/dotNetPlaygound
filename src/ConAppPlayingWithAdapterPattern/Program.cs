@@ -29,5 +29,18 @@ public abstract class Target
 
 public class Adapter : Target 
 {
-	public override void Request() { }
+	private readonly Adaptee _adaptee = new();
+	public override void Request() 
+	{
+		_adaptee.SpecificRequest();
+	}
+}
+
+public class Adaptee
+{
+
+	public void SpecificRequest()
+	{
+		WriteLine("Called SpecificRequest()");
+	}
 }
