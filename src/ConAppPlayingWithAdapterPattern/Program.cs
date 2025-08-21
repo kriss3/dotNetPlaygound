@@ -4,7 +4,7 @@ namespace ConAppPlayingWithAdapterPattern;
 
 public class Program
 {
-	static Task Main(string[] args)
+	static Task Main()
 	{
 		WriteLine("Hello, World!");
 		return Task.CompletedTask;
