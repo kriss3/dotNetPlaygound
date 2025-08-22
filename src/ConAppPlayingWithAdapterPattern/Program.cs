@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using ConAppPlayingWithAdapterPattern.Example_1;
+using static System.Console;
 
 namespace ConAppPlayingWithAdapterPattern;
 
@@ -16,14 +17,6 @@ public class Program
 		target.Request();
 		// Wait for user
 		ReadKey();
-	}
-}
-
-public abstract class Target 
-{
-	public virtual void Request() 
-	{
-		WriteLine("Called Target Request()");
 	}
 }
 
