@@ -8,10 +8,11 @@ public class Program
 	static Task Main()
 	{
 		WriteLine("Hello, World!");
+		Execute_Example_1();
 		return Task.CompletedTask;
 	}
 
-	private static void Execute() 
+	private static void Execute_Example_1() 
 	{
 		Target target = new Adapter();
 		target.Request();
