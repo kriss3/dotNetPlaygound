@@ -6,3 +6,6 @@ public sealed class LegacyGateway
 {
 	public string MakePayment(decimal money, string cc) => money > 0 ? "OK" : "ERR";
 }
+
+public sealed class CheckoutService
+{ }
