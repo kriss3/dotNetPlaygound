@@ -19,12 +19,3 @@ public class Program
 		ReadKey();
 	}
 }
-
-public class Adaptee
-{
-
-	public void SpecificRequest()
-	{
-		WriteLine("Called SpecificRequest()");
-	}
-}
