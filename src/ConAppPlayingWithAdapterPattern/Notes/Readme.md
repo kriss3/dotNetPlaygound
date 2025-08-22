@@ -17,3 +17,6 @@ adapts the interface Adaptee to the Target interface.
 defines an existing interface that needs adapting.
 4. Client   (AdapterApp)
 collaborates with objects conforming to the Target interface.
+
+### Diagram
+[Adapter Pattern Diagram]("./Notes/AdapterPatternDiagram.md")
