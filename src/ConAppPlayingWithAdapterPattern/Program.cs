@@ -1,5 +1,6 @@
 ﻿using ConAppPlayingWithAdapterPattern.Example_1;
 using ConAppPlayingWithAdapterPattern.Example_2;
+using ConAppPlayingWithAdapterPattern.Example_3;
 using static System.Console;
 
 namespace ConAppPlayingWithAdapterPattern;
@@ -30,7 +31,8 @@ public class Program
 
 	private static void Execute_Example_3()
 	{
-		
+		var service = new ReportService(new XmlLoggerAdapter());
+		service.Run();
 		WriteLine($"Example 2 — Logging: adapt an XML-only logger to ILogger ");
 	}
 }
