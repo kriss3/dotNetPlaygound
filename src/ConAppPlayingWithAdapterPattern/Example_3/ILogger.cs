@@ -8,18 +8,17 @@ public interface ILogger
 
 public sealed class XmlAuditLogger
 {
-	public void WriteXml(string xml) { /* writes to audit sink */ }
-}
-
-public sealed class XmlLoggerAdapter(XmlAuditLogger logger) : ILogger
-{
-	private readonly XmlAuditLogger _logger = logger;
-
-	public void Log(string message)
+	public static void WriteXml(string xml) 
 	{
-		var xml = $"<log><timestamp>{DateTime.UtcNow:o}</timestamp><msg>{SecurityElement.Escape(message)}</msg></log>";
-		_logger.WriteXml(xml);
+		var x = $"Adding log including message in {xml}";
 	}
 }
 
-
+public sealed class XmlLoggerAdapter() : ILogger
+{
+	public void Log(string message)
+	{
+		var xml = $"<log><timestamp>{DateTime.UtcNow:o}</timestamp><msg>{SecurityElement.Escape(message)}</msg></log>";
+		XmlAuditLogger.WriteXml(xml);
+	}
+}
