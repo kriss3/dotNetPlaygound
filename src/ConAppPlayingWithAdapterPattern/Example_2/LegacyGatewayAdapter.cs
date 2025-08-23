@@ -7,6 +7,7 @@ public sealed class LegacyGatewayAdapter(LegacyGateway legacyGateway) : IPayment
 
 	public bool Charge(string cardNumber, decimal amount)
 	{
-		throw new NotImplementedException();
+		var status = _legacy.MakePayment(amount, cardNumber);
+		return string.Equals(status, "OK", StringComparison.Ordinal);
 	}
 }
