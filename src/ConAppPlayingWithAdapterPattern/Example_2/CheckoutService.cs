@@ -2,4 +2,6 @@
 
 // Client
 public sealed class CheckoutService
-{ }
+{
+	private readonly IPaymentProcessor _payments;
+}
