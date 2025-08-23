@@ -19,4 +19,5 @@ defines an existing interface that needs adapting.
 collaborates with objects conforming to the Target interface.
 
 ### Diagram
-[Adapter Pattern Diagram]("./Notes/AdapterPatternDiagram.md")
+- [Adapter Pattern Diagram](./Notes/AdapterPatternDiagram.md)
+- [Adapter Pattern Diagram - Payment Processing](./Notes/Adapter_Ptrn_Example2.md)
