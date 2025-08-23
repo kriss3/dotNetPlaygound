@@ -27,4 +27,27 @@ public class Program
 		var ok = checkout.PayOrder("4111111111111111", 49.99m);
 		WriteLine($"The payment via Payment Adapter went: {ok}");
 	}
+	//start with example 3.(Logging: adapt an XML-only logger to ILogger)
+
+/*
+ * 
+ * 
+ classDiagram
+Client --> Target : calls
+Adapter ..|> Target : implements
+Adapter o--> Adaptee : wraps
+class Client
+class Target{
+	<<interface>>
+	+request()
+}
+class Adaptee{
+	+specificRequest()
+}
+class Adapter{
+	-Adaptee adaptee
+	+request()
+}
+//Diagram.
+*/ 
 }
