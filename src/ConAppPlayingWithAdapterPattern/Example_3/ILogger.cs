@@ -19,7 +19,8 @@ public sealed class XmlLoggerAdapter : ILogger
 
 	public void Log(string message)
 	{
-		throw new NotImplementedException();
+		var xml = $"<log><timestamp>{DateTime.UtcNow:o}</timestamp><msg>{System.Security.SecurityElement.Escape(message)}</msg></log>";
+		_logger.WriteXml(xml);
 	}
 }
 
