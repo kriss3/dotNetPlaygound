@@ -22,3 +22,5 @@ public sealed class XmlLoggerAdapter() : ILogger
 		XmlAuditLogger.WriteXml(xml);
 	}
 }
+
+public sealed class ReportService { }
