@@ -24,5 +24,7 @@ public class Program
 	private static void Execute_Example_2() 
 	{
 		var checkout = new CheckoutService(new LegacyGatewayAdapter(new LegacyGateway()));
+		var ok = checkout.PayOrder("4111111111111111", 49.99m);
+		WriteLine($"The payment via Payment Adapter went: {ok}");
 	}
 }
