@@ -27,12 +27,10 @@ public class Program
 		var ok = checkout.PayOrder("4111111111111111", 49.99m);
 		WriteLine($"The payment via Payment Adapter went: {ok}");
 	}
-	//start with example 3.(Logging: adapt an XML-only logger to ILogger)
 
-/*
- * 
- * 
- 
-//Diagram.
-*/ 
+	private static void Execute_Example_3()
+	{
+		
+		WriteLine($"Example 2 — Logging: adapt an XML-only logger to ILogger ");
+	}
 }
