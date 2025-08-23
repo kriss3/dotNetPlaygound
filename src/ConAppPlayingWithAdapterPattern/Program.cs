@@ -1,4 +1,5 @@
 ﻿using ConAppPlayingWithAdapterPattern.Example_1;
+using ConAppPlayingWithAdapterPattern.Example_2;
 using static System.Console;
 
 namespace ConAppPlayingWithAdapterPattern;
@@ -20,5 +21,8 @@ public class Program
 		ReadKey();
 	}
 
-	private static void Execute_Example_2() { }
+	private static void Execute_Example_2() 
+	{
+		var checkout = new CheckoutService(new LegacyGatewayAdapter(new LegacyGateway()));
+	}
 }
