@@ -19,4 +19,6 @@ public class Program
 		// Wait for user
 		ReadKey();
 	}
+
+	private static void Execute_Example_2() { }
 }
