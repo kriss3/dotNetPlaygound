@@ -11,6 +11,12 @@ public sealed class XmlAuditLogger
 
 public sealed class XmlLoggerAdapter : ILogger
 {
+	private readonly XmlAuditLogger _logger;
+	public XmlLoggerAdapter(XmlAuditLogger logger)
+	{
+		_logger = logger;
+	}
+
 	public void Log(string message)
 	{
 		throw new NotImplementedException();
