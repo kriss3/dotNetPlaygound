@@ -6,14 +6,6 @@ public interface ILogger
 	void Log(string message); 
 }
 
-public sealed class XmlAuditLogger
-{
-	public static void WriteXml(string xml) 
-	{
-		var x = $"Adding log including message in {xml}";
-	}
-}
-
 public sealed class XmlLoggerAdapter() : ILogger
 {
 	public void Log(string message)
