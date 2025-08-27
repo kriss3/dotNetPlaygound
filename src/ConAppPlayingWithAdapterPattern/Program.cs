@@ -22,6 +22,11 @@ public class Program
 			WriteLine(title);
 			Write("Press Enter to run, or 'q' + Enter to exit: ");
 			var input = ReadLine();
+
+			if (string.Equals(input, "q", StringComparison.OrdinalIgnoreCase))
+				break;
+
+			run();
 		}
 
 		
