@@ -11,6 +11,8 @@ public class Program
 	{
 		WriteLine("Hello, World!");
 		Execute_Example_1();
+		Execute_Example_2();
+		Execute_Example_3();
 		return Task.CompletedTask;
 	}
 
