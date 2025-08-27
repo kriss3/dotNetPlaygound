@@ -15,6 +15,16 @@ public class Program
 			("Example 2 — Payment Adapter", Execute_Example_2),
 			("Example 3 — Logger Adapter", Execute_Example_3),
 		};
+
+		foreach (var (title, run) in examples)
+		{
+			WriteLine("------------------------------------------------------------");
+			WriteLine(title);
+			Write("Press Enter to run, or 'q' + Enter to exit: ");
+			var input = ReadLine();
+		}
+
+		
 	}
 
 	private static void Execute_Example_1() 
