@@ -9,11 +9,12 @@ public class Program
 {
 	static Task Main()
 	{
-		WriteLine("Hello, World!");
-		Execute_Example_1();
-		Execute_Example_2();
-		Execute_Example_3();
-		return Task.CompletedTask;
+		var examples = new (string Title, Action Run)[]
+		{
+			("Example 1 — Basic Adapter", Execute_Example_1),
+			("Example 2 — Payment Adapter", Execute_Example_2),
+			("Example 3 — Logger Adapter", Execute_Example_3),
+		};
 	}
 
 	private static void Execute_Example_1() 
