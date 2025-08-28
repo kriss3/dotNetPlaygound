@@ -32,6 +32,7 @@ public class Program
 			if (string.Equals(input, "q", StringComparison.OrdinalIgnoreCase))
 				break;
 		}
+		await Task.CompletedTask;
 	}
 
 	private static void Execute_Example_1() 
