@@ -27,9 +27,9 @@ public class Program
 				break;
 
 			run();
+			Write("Press Enter for next example, or 'q' + Enter to quit: ");
+			input = ReadLine();
 		}
-
-		
 	}
 
 	private static void Execute_Example_1() 
