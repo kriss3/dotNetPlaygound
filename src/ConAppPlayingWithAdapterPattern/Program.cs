@@ -39,8 +39,6 @@ public class Program
 	{
 		Target target = new Adapter();
 		target.Request();
-		// Wait for user
-		ReadKey();
 	}
 
 	private static void Execute_Example_2() 
