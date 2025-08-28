@@ -29,6 +29,8 @@ public class Program
 			run();
 			Write("Press Enter for next example, or 'q' + Enter to quit: ");
 			input = ReadLine();
+			if (string.Equals(input, "q", StringComparison.OrdinalIgnoreCase))
+				break;
 		}
 	}
 
