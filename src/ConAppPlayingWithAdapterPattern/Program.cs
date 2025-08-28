@@ -7,7 +7,7 @@ namespace ConAppPlayingWithAdapterPattern;
 
 public class Program
 {
-	static Task Main()
+	static async Task Main()
 	{
 		var examples = new (string Title, Action Run)[]
 		{
