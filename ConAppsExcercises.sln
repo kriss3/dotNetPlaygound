@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppStrategyPattern", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithErrorHandling", "src\ConAppPlayingWithErrorHandling\ConAppPlayingWithErrorHandling.csproj", "{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppCommandPattern", "src\ConAppCommandPattern\ConAppCommandPattern.csproj", "{FA88D218-E099-4EB8-89C0-6086BCF64E33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithAdapterPattern", "src\ConAppPlayingWithCommandPattern\ConAppPlayingWithCommandPattern.csproj", "{FA88D218-E099-4EB8-89C0-6086BCF64E33}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithResultPattern", "src\ConAppPlayingWithResultPattern\ConAppPlayingWithResultPattern.csproj", "{A6CE3212-B63C-466C-A53F-EE8365085AF5}"
 EndProject
