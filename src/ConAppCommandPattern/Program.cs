@@ -18,7 +18,7 @@ public class Program
             //this is my driver function. 
             //I need: Receiver, Command, Invoker
             Receiver receiver = new();
-            Command commad = new ConcreteCommand(rc);
+            Command command = new ConcreteCommand(receiver);
             Invoker invoker = new();
 
             // now that I have infra ready make a setup:
