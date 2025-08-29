@@ -5,13 +5,14 @@ namespace ConAppCommandPattern;
 
 public class Program
 {
-    static async Task Main()
+    static void Main()
     {
-        WriteLine("Hello, World!");
-        await Run();
+        WriteLine("Executing Command Pattern!");
+
+     
     }
 
-    private static async Task Run() 
+    private string Run() 
     {
         await Task.Run(() =>
         {
@@ -21,10 +22,9 @@ public class Program
             Command command = new ConcreteCommand(receiver);
             Invoker invoker = new();
 
-            // now that I have infra ready make a setup:
-
-            inv.SetCommand(cmd);
-            inv.ExecuteCommand();
+            // now that I have base infrastructure ready make a setup:
+            invoker.SetCommand(command);
+            invoker.ExecuteCommand();
 
             ReadKey();
         });
