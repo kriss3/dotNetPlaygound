@@ -9,6 +9,7 @@ public class Program
     {
         WriteLine("Executing Command Pattern!");
         var result = Execute();
+        WriteLine($"Finished executing the Driver method with status: {result}");
     }
 
     private static string Execute() 
