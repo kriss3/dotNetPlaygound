@@ -1,9 +1,14 @@
 ﻿namespace ConAppFunctional.Helpers;
 
-public class Maybe<T> : IEquatable<Maybe<T>>
-				where T : class
+public class Maybe<T> : IEquatable<Maybe<T>> where T : class
 {
 	private readonly T? _value;
+
+	public Maybe(T? value)
+	{
+		_value = value;
+	}
+
 	public T Value
 	{
 		get
