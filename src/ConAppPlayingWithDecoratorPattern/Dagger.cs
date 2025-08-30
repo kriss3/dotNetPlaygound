@@ -1,7 +1,6 @@
-﻿using ConAppPlayingWithDecoratorPattern;
-using static System.Console;
+﻿using static System.Console;
 
-namespace DecoratorPattern;
+namespace ConAppPlayingWithDecoratorPattern;
 
 public class Dagger : CharacterDecorator
 {
