@@ -1,6 +1,7 @@
-﻿using static System.Console;
+﻿using DecoratorPattern;
+using static System.Console;
 
-namespace DecoratorPattern;
+namespace ConAppPlayingWithDecoratorPattern;
 
 public class Sword : CharacterDecorator
 {
