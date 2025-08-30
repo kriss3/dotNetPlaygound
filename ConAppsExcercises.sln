@@ -43,7 +43,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteStatus", "src\Websit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithFiles", "src\ConAppPlayingWithFiles\ConAppPlayingWithFiles.csproj", "{56DAE696-EA3F-47EC-8284-6F19FE468086}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppMediatorPattern", "src\ConAppMediatorPattern\ConAppMediatorPattern.csproj", "{28D4543B-9F38-447C-AA83-6B2B0524E84C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithMediatorPattern", "src\ConAppPlayingWithMediatorPattern\ConAppPlayingWithMediatorPattern.csproj", "{28D4543B-9F38-447C-AA83-6B2B0524E84C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithRestSharp", "src\ConAppPlayingWithRestSharp\ConAppPlayingWithRestSharp.csproj", "{11BD80FB-BB92-4A14-AD02-B8B0A5DEC862}"
 EndProject
