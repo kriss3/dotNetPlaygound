@@ -1,5 +1,4 @@
-﻿
-namespace DecoratorPattern;
+﻿namespace ConAppPlayingWithDecoratorPattern;
 
 public class BaseCharacter : ICharacter
 {

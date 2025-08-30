@@ -1,4 +1,4 @@
-﻿namespace DecoratorPattern;
+﻿namespace ConAppPlayingWithDecoratorPattern;
 
 public interface ICharacter
 {
