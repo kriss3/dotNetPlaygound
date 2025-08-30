@@ -83,7 +83,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithObservable
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithAsb_Part2", "src\PlayingWithAsb_Part2\PlayingWithAsb_Part2.csproj", "{51A2A57A-3F04-43AA-9F34-0AE64DD006EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppModernDotNetTips", "ConAppModernDotNetTips\ConAppModernDotNetTips.csproj", "{8E85767D-1DA8-42B8-9F61-6C53AE8CEE81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppModernDotNetTips", "src\ConAppModernDotNetTips\ConAppModernDotNetTips.csproj", "{8E85767D-1DA8-42B8-9F61-6C53AE8CEE81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureKeyVaultHelper", "AzureKeyVaultHelper\AzureKeyVaultHelper.csproj", "{14526BCF-B413-4B21-BD66-CF02355FF028}"
 EndProject
