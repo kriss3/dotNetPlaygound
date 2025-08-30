@@ -1,4 +1,3 @@
-using DecoratorPattern;
 using static System.Console;
 
 namespace ConAppPlayingWithDecoratorPattern;

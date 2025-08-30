@@ -2,7 +2,6 @@
 
 namespace ConAppPlayingWithDecoratorPattern;
 
-
 public class Spear : CharacterDecorator
 {
     private readonly int spearAddedImpactLevel = 50;
