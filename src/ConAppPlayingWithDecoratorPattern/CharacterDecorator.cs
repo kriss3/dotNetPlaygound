@@ -1,6 +1,4 @@
-﻿using ConAppPlayingWithDecoratorPattern;
-
-namespace DecoratorPattern;
+﻿namespace ConAppPlayingWithDecoratorPattern;
 
 public abstract class CharacterDecorator(ICharacter newCharacter) : ICharacter
 {
