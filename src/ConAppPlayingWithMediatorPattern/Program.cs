@@ -1,7 +1,8 @@
-﻿using ConAppMediatorPattern.Structural;
+﻿using ConAppMediatorPattern;
+using ConAppMediatorPattern.Structural;
 using static System.Console;
 
-namespace ConAppMediatorPattern;
+namespace ConAppPlayingWithMediatorPattern;
 
 public class Program
 {
