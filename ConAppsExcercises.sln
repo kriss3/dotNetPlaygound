@@ -85,7 +85,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithAsb_Part2", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppModernDotNetTips", "src\ConAppModernDotNetTips\ConAppModernDotNetTips.csproj", "{8E85767D-1DA8-42B8-9F61-6C53AE8CEE81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureKeyVaultHelper", "AzureKeyVaultHelper\AzureKeyVaultHelper.csproj", "{14526BCF-B413-4B21-BD66-CF02355FF028}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureKeyVaultHelper", "src\AzureKeyVaultHelper\AzureKeyVaultHelper.csproj", "{14526BCF-B413-4B21-BD66-CF02355FF028}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargePrSimulation.Console", "LargePrSimulation.Console\LargePrSimulation.Console.csproj", "{3F7A36D1-D44E-403E-B907-F77AF6FF351D}"
 EndProject
