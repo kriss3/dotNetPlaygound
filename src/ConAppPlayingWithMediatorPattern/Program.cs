@@ -7,7 +7,7 @@ public class Program
 {
 	static void Main()
 	{
-		
+		WriteLine("Implementation of Mediator Pattern in C# based on PluralSight.");
 	}
 
 
