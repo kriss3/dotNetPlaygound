@@ -1,4 +1,4 @@
-﻿namespace ConAppCommandPattern.Model;
+﻿namespace ConAppPlayingWithCommandPattern.Model;
 
 public class Invoker
 {

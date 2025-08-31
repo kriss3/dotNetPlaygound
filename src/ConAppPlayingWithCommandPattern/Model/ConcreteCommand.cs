@@ -1,6 +1,4 @@
-﻿using ConAppPlayingWithCommandPattern.Model;
-
-namespace ConAppCommandPattern.Model;
+﻿namespace ConAppPlayingWithCommandPattern.Model;
 
 public class ConcreteCommand(Receiver receiver) : Command(receiver ?? new Receiver())
 {
