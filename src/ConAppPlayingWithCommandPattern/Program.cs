@@ -1,7 +1,7 @@
 ﻿using ConAppCommandPattern.Model;
 using static System.Console;
 
-namespace ConAppCommandPattern;
+namespace ConAppPlayingWithCommandPattern;
 
 public class Program
 {
