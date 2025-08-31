@@ -79,7 +79,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithJson", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "src\Models\Models.csproj", "{1B44FF3E-4284-4DE2-A21C-8F5030074CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithObservablePattern", "ConAppPlayingWithObservablePattern\ConAppPlayingWithObservablePattern.csproj", "{9C00FCB5-9C72-4B41-ADC2-2AC0AA60B90F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithObservablePattern", "src\ConAppPlayingWithObservablePattern\ConAppPlayingWithObservablePattern.csproj", "{9C00FCB5-9C72-4B41-ADC2-2AC0AA60B90F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithAsb_Part2", "src\PlayingWithAsb_Part2\PlayingWithAsb_Part2.csproj", "{51A2A57A-3F04-43AA-9F34-0AE64DD006EB}"
 EndProject
