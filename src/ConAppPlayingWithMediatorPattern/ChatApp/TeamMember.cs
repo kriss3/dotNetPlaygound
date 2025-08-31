@@ -1,31 +1,21 @@
-﻿using ConAppPlayingWithMediatorPattern.ChatApp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConAppMediatorPattern.ChatApp;
-public abstract class TeamMember
+﻿namespace ConAppPlayingWithMediatorPattern.ChatApp;
+public abstract class TeamMember(string name)
 {
-    public string Name { get; }
-    private ChatRoom? _chatRoom;
-    public TeamMember(string name)
-    {
-        this.Name = name;
-    }
+	private ChatRoom? _chatRoom;
+	public string Name { get; } = name;
+	
 
-    internal void SetChatRoom(ChatRoom chatRoom)
+	internal void SetChatRoom(ChatRoom chatRoom)
     {
         _chatRoom = chatRoom;
     }
 
     public void Send(string message)
     {
-        this._chatRoom?.Send(this.Name, message);
+        _chatRoom?.Send(Name, message);
     }
 
-    public void Receive(string from, string message) 
+    public static void Receive(string from, string message) 
     {
         Console.WriteLine($"From: {from}: `{message}`");
     }

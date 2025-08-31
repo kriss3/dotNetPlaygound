@@ -1,6 +1,4 @@
-﻿using ConAppMediatorPattern.ChatApp;
-
-namespace ConAppPlayingWithMediatorPattern.ChatApp;
+﻿namespace ConAppPlayingWithMediatorPattern.ChatApp;
 public abstract class ChatRoom
 {
 	public abstract void Register(TeamMember member);
