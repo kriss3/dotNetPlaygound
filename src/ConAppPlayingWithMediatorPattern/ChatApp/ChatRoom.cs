@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConAppMediatorPattern.ChatApp;
 
-namespace ConAppMediatorPattern.ChatApp;
+namespace ConAppPlayingWithMediatorPattern.ChatApp;
 public abstract class ChatRoom
 {
 	public abstract void Register(TeamMember member);
