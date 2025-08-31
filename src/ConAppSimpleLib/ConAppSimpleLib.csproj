@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AzureKeyVaultHelper\AzureKeyVaultHelper.csproj" />
+    <ProjectReference Include="..\AzureKeyVaultHelper\AzureKeyVaultHelper.csproj" />
   </ItemGroup>
 
   <ItemGroup>
