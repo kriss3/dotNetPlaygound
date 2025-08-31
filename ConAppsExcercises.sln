@@ -75,7 +75,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithProxyPatte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithStrategyPattern", "src\ConAppPlayingWithStrategyPattern\ConAppPlayingWithStrategyPattern.csproj", "{5A5B8C8F-B781-484A-8676-6CDD023C6809}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithJson", "ConAppPlayingWithJson\ConAppPlayingWithJson.csproj", "{F79CF3C5-3CDF-48E0-B30E-A19504E7B563}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithJson", "src\ConAppPlayingWithJson\ConAppPlayingWithJson.csproj", "{F79CF3C5-3CDF-48E0-B30E-A19504E7B563}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "src\Models\Models.csproj", "{1B44FF3E-4284-4DE2-A21C-8F5030074CDD}"
 EndProject
