@@ -1,5 +1,4 @@
-﻿using ConAppMediatorPattern.Structural;
-using ConAppPlayingWithMediatorPattern.Structural;
+﻿using ConAppPlayingWithMediatorPattern.Structural;
 
 namespace ConAppPlayingWithMediatorPattern; 
 public class ConcreteMediator: Mediator

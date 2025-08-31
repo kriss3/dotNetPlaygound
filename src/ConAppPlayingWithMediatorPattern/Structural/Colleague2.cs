@@ -1,6 +1,5 @@
-﻿using ConAppPlayingWithMediatorPattern.Structural;
-using static System.Console;
-namespace ConAppMediatorPattern.Structural;
+﻿using static System.Console;
+namespace ConAppPlayingWithMediatorPattern.Structural;
 
 public class Colleague2() : Colleague
 {

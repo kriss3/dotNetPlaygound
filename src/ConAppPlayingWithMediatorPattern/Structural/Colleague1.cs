@@ -1,6 +1,5 @@
-﻿using ConAppPlayingWithMediatorPattern.Structural;
-using static System.Console;
-namespace ConAppMediatorPattern.Structural;
+﻿using static System.Console;
+namespace ConAppPlayingWithMediatorPattern.Structural;
 public class Colleague1() : Colleague
 {
     public override void HandleNotification(string message)

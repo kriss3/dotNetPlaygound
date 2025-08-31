@@ -1,6 +1,4 @@
-﻿using ConAppMediatorPattern.Structural;
-
-namespace ConAppPlayingWithMediatorPattern.Structural;
+﻿namespace ConAppPlayingWithMediatorPattern.Structural;
 public abstract class Colleague()
 {
 	protected Mediator? mediator;
