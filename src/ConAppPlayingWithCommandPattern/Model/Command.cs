@@ -1,4 +1,6 @@
-﻿namespace ConAppCommandPattern.Model;
+﻿using ConAppPlayingWithCommandPattern.Model;
+
+namespace ConAppCommandPattern.Model;
 
 public abstract class Command(Receiver receiver)
 {

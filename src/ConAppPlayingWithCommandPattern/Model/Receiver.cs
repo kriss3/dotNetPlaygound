@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-namespace ConAppCommandPattern.Model;
+namespace ConAppPlayingWithCommandPattern.Model;
 
 public class Receiver
 {

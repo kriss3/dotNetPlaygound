@@ -1,4 +1,5 @@
 ﻿using ConAppCommandPattern.Model;
+using ConAppPlayingWithCommandPattern.Model;
 using static System.Console;
 
 namespace ConAppPlayingWithCommandPattern;
