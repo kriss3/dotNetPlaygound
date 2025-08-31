@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConAppMediatorPattern.Structural;
 
-namespace ConAppMediatorPattern.Structural;
+namespace ConAppPlayingWithMediatorPattern.Structural;
 public abstract class Colleague()
 {
 	protected Mediator? mediator;

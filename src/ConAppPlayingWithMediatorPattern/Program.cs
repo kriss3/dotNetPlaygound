@@ -1,5 +1,4 @@
-﻿using ConAppMediatorPattern;
-using ConAppMediatorPattern.Structural;
+﻿using ConAppMediatorPattern.Structural;
 using static System.Console;
 
 namespace ConAppPlayingWithMediatorPattern;
