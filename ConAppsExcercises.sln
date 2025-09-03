@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppStrategyPattern", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithErrorHandling", "src\ConAppPlayingWithErrorHandling\ConAppPlayingWithErrorHandling.csproj", "{CD38D9A1-13F1-4B0D-822C-A0F9B385D21D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithAdapterPattern", "src\ConAppPlayingWithCommandPattern\ConAppPlayingWithCommandPattern.csproj", "{FA88D218-E099-4EB8-89C0-6086BCF64E33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithCommandPattern", "src\ConAppPlayingWithCommandPattern\ConAppPlayingWithCommandPattern.csproj", "{FA88D218-E099-4EB8-89C0-6086BCF64E33}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConAppPlayingWithResultPattern", "src\ConAppPlayingWithResultPattern\ConAppPlayingWithResultPattern.csproj", "{A6CE3212-B63C-466C-A53F-EE8365085AF5}"
 EndProject
@@ -94,6 +94,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithMementoPattern", "src\ConAppPlayingWithMementoPattern\ConAppPlayingWithMementoPattern.csproj", "{06C73655-3AA6-4268-85FE-C6038A712EB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithAdapterPattern", "src\ConAppPlayingWithAdapterPattern\ConAppPlayingWithAdapterPattern.csproj", "{DFECE9DF-8EF0-4485-92EB-9F94BB2F7719}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -288,6 +290,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9CFFCB0-E201-4DB6-9889-A5FCD65F08F8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{687B7E59-9850-4935-B223-A259E270B140} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{28D4543B-9F38-447C-AA83-6B2B0524E84C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{FA88D218-E099-4EB8-89C0-6086BCF64E33} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9C00FCB5-9C72-4B41-ADC2-2AC0AA60B90F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DFECE9DF-8EF0-4485-92EB-9F94BB2F7719} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FFE1B78-0DB7-4F9A-9E29-D3C224DE2204}
