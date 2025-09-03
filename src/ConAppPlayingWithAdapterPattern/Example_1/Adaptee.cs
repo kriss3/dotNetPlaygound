@@ -4,7 +4,7 @@ namespace ConAppPlayingWithAdapterPattern.Example_1;
 
 public class Adaptee
 {
-	public void SpecificRequest()
+	public static void SpecificRequest()
 	{
 		WriteLine("Called SpecificRequest()");
 	}
