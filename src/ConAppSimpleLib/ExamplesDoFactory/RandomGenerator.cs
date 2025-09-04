@@ -18,12 +18,22 @@ public class RandomGenerator
 
 		Random random = new();
 
+		var res = switch
+		{
+			// number between 1 .. 12
+			numberType.month => random.Next(1, 13), 
+			// number between 1 .. 6
+			numberType.dice => random.Next(1, 7),
+			numberType.card => random.Next(0, 52)
+			_ => throw new ArgumentOutOfRangeException(nameof(numberType), "Unsupported number Type.");
+			Rand
+		};
 
 
-		// number between 1 .. 12
+		
 		var month = random.Next(1, 13);
 
-		// number between 1 .. 6
+		
 		var dice = random.Next(1, 7);
 
 		// number between 0 .. 51
