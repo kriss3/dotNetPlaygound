@@ -18,7 +18,6 @@ public class RandomGenerator
 			RandomNumberType.card  => random.Next(0, 52), // 0..51
 			_ => throw new ArgumentOutOfRangeException(
 				nameof(numberType), numberType, "Unsupported number type.")
-
 		};
 
 		return res;
