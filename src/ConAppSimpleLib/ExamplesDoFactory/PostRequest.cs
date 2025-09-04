@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Http;
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
-internal class PostRequest
+public class PostRequest
 {
+	private static readonly HttpClient client = new();
+
+	public async Task PostViaHttp() 
+	{
+		
+	}
 }
