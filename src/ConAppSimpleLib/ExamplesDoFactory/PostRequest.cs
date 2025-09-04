@@ -5,7 +5,7 @@ public class PostRequest
 {
 	private static readonly HttpClient client = new();
 
-	public async Task PostViaHttp() 
+	public static async Task<string> PostViaHttp() 
 	{
 		var values = new Dictionary<string, string>
 		{
@@ -18,5 +18,6 @@ public class PostRequest
 		var response = await client.PostAsync("http://www.example.com/postable.aspx", content);
 
 		var result = await response.Content.ReadAsStringAsync();
+		return result;
 	}
 }
