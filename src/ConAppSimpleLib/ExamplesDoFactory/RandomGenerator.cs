@@ -17,7 +17,14 @@ public class RandomGenerator
 	{
 		Random random = new();
 
-		var result = 0;
+		var res = numberType switch
+		{
+			RandomNumberType.month => random.Next(1, 13), // 1..12
+			RandomNumberType.dice  => Random.Shared.Next(1, 7),  // 1..6
+			RandomNumberType.card  => Random.Shared.Next(0, 52), // 0..51
+			_ => throw new ArgumentOutOfRangeException(nameof(numberType), numberType, "Unsupported number type.")
+
+		};
 
 		return result;
 	}
