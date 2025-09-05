@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using Microsoft.VisualBasic;
+using System.Text.Json;
 
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
@@ -34,6 +35,17 @@ public class MySerializer
 		var result  = -1;
 
 		var mySerializer = JsonSerializer.Serialize<Person>(person);
+		return result;
+	}
+
+	public static int DoSerialize(string firstName, string lastName, string email, int year, int, month, int day) 
+	{
+		var result = -1;
+		var personObj = new Person 
+		{
+			FirstName = firstName,
+		}
+
 		return result;
 	}
 }
