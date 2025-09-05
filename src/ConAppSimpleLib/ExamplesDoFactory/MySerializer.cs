@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConAppSimpleLib.ExamplesDoFactory;
 public class MySerializer
 {
-	public int DoSerializae() 
+	public static int DoSerialize() 
 	{
 		var result = -1;
 
@@ -34,6 +34,13 @@ public class Person
 	public string? LastName { get; set; }
 	public string? Email { get; set; }
 
+	public MyDate? DateOfBirth { get; set; }
+
 }
 
-public class MyDate { }
+public class MyDate 
+{
+	public int Year { get; set; }
+	public int Month { get; set; }
+	public int Day { get; set; }
+}
