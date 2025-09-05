@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 
+
 namespace ConAppSimpleLib.ExamplesDoFactory;
 public class MySerializer
 {
@@ -24,6 +25,15 @@ public class MySerializer
 		if (myJson is not null)
 			result = 1;
 
+		return result;
+	}
+
+	public static int DoDeserialize(Person person)
+	{
+		ArgumentNullException.ThrowIfNullOrEmpty(nameof(person));
+		var result  = -1;
+
+		var mySerializer = JsonSerializer.Serialize<Person>(person);
 		return result;
 	}
 }
