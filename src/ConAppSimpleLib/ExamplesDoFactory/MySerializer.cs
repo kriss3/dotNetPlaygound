@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
@@ -23,6 +24,10 @@ public class MySerializer
 				Day = 30
 			}
 		};
+
+		var myJson = JsonSerializer.Serialize(obj);
+		if (myJson is not null)
+			result = 1;
 
 		return result;
 	}
