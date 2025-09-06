@@ -2,6 +2,7 @@
 using Cova.ServiceErrors.Errors;
 using Microsoft.VisualBasic;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
@@ -101,22 +102,26 @@ public class PersonName
 	}
 }
 
-public class Email 
+public partial class Email
 {
 	public string? Value { get; }
 
 	Email(string value) => Value = value;
 
-	public static Result<Email, ServiceError> Create(string email) 
+	private static readonly System.Text.RegularExpressions.Regex EmailRegex =
+		new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+			RegexOptions.Compiled | 
+			RegexOptions.CultureInvariant | 
+			RegexOptions.IgnoreCase);
+
+
+	public static Result<Email, ServiceError> Create(string email)
 	{
 		// additional validation needed for email (regex)
 		return Result.Create(!string.IsNullOrEmpty(email),
 			() => new Email(email),
 			() => ValidationError.Create("Invalid email address."));
 	}
-
-
-
 }
 
 public class MyDate 
