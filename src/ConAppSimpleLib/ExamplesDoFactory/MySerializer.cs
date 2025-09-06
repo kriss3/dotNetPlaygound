@@ -3,6 +3,8 @@ using System.Text.Json;
 
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
+
+/// How would I go about changing return signature to Result<TSuccess, TFailure>?
 public class MySerializer
 {
 	public static int DoSerialize() 
