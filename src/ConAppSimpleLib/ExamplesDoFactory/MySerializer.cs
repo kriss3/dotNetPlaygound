@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using Cova.Functional;
+using Cova.ServiceErrors.Errors;
+using Microsoft.VisualBasic;
 using System.Text.Json;
 
 
@@ -7,7 +9,7 @@ namespace ConAppSimpleLib.ExamplesDoFactory;
 /// How would I go about changing return signature to Result<TSuccess, TFailure>?
 public class MySerializer
 {
-	public static int DoSerialize() 
+	public static Result<int, ServiceError> DoSerialize() 
 	{
 		var result = -1;
 
