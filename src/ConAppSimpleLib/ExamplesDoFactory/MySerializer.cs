@@ -71,11 +71,32 @@ public class MySerializer
 
 public class Person 
 {
-	public string? FirstName { get; set; }
-	public string? LastName { get; set; }
-	public string? Email { get; set; }
+	public FirstName? FName { get; }
+	public string? LastName { get; }
+	public string? Email { get; }
 
-	public MyDate? DateOfBirth { get; set; }
+	public MyDate? DateOfBirth { get; }
+
+	public Person Create(string FName, string LName, string Email, int year, int month, int day) 
+	{
+		FirstName = FName;
+	}
+
+}
+
+public class FirstName 
+{
+	public string Value { get; }
+	FirstName(string value) => Value = value;
+
+	public static Result<FirstName, ServiceError> Create(string firstName) 
+	{
+		return
+		Result.Create(
+			!string.IsNullOrEmpty(firstName),
+			() => new FirstName(firstName),
+			() => ValidationError.Create(""));
+	}
 
 }
 
