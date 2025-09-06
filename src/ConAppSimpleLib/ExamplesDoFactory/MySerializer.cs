@@ -108,7 +108,7 @@ public partial class Email
 
 	Email(string value) => Value = value;
 
-	private static readonly System.Text.RegularExpressions.Regex EmailRegex =
+	private static readonly Regex EmailRegex =
 		new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
 			RegexOptions.Compiled | 
 			RegexOptions.CultureInvariant | 
@@ -117,9 +117,10 @@ public partial class Email
 
 	public static Result<Email, ServiceError> Create(string email)
 	{
+		var emailCandidate = (email ?? string.Empty).Trim();
 		// additional validation needed for email (regex)
-		return Result.Create(!string.IsNullOrEmpty(email),
-			() => new Email(email),
+		return Result.Create(EmailRegex.IsMatch(emailCandidate),
+			() => new Email(emailCandidate),
 			() => ValidationError.Create("Invalid email address."));
 	}
 }
