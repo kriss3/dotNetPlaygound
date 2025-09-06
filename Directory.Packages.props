@@ -40,7 +40,7 @@
     <PackageVersion Include="xunit.extensibility.execution" Version="2.9.2" />
     <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.0" />
     <PackageVersion Include="StackExchange.Redis" Version="2.8.24" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.7" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.8" />
     <PackageVersion Include="LanguageExt.Core" Version="4.4.9" />
     <PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.18.2" />
