@@ -61,7 +61,7 @@ public class MySerializer
 		var dobMonth = Month.Create(month);	
 		var dobDay = Day.Create(day);
 
-		var personObj = new Person(fName, lName, emailAddress);
+		var personObj = new Person(fName, lName, emailAddress, );
 		//var personObj = new Person
 		//{
 		//	FirstName = firstName,
@@ -118,7 +118,20 @@ public class Email
 	}
 }
 
-public record MyDate(Year Year, Month Month, Day Day);
+public class MyDate 
+{
+	public Year Year { get; }
+	public Month Month { get; }
+	public Day Day { get; }
+	public MyDate? Value { get; }
+
+	private MyDate(Year year, Month month, Day day) 
+	{
+
+	}
+
+	public static Result<MyDate, ServiceError> Create(MyDate value) => Valu
+}
 
 public class Year(int value)
 {
