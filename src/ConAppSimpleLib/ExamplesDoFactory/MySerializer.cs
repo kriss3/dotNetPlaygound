@@ -89,21 +89,33 @@ public class Person
 
 public class PersonName 
 {
-	public string Value { get; }
+	public string? Value { get; }
 	PersonName(string value) => Value = value;
 
 	public static Result<PersonName, ServiceError> Create(string name) 
 	{
-		return
-		Result.Create(
+		return Result.Create(
 			!string.IsNullOrEmpty(name),
 			() => new PersonName(name),
-			() => ValidationError.Create(""));
+			() => ValidationError.Create("Name must be provided."));
 	}
 }
 
 public class Email 
 {
+	public string? Value { get; }
+
+	Email(string value) => Value = value;
+
+	public static Result<Email, ServiceError> Create(string email) 
+	{
+		// additional validation needed for email (regex)
+		return Result.Create(!string.IsNullOrEmpty(email),
+			() => new Email(email),
+			() => ValidationError.Create("Invalid email address."));
+	}
+
+
 
 }
 
