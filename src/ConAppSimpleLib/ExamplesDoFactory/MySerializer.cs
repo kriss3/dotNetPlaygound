@@ -1,5 +1,6 @@
 ﻿using Cova.Functional;
 using Cova.ServiceErrors.Errors;
+using Microsoft.VisualBasic;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -114,9 +115,17 @@ public class Email
 	}
 }
 
-public class MyDate 
+public record MyDate(Year Year, Month month, Day day);
+
+public class Year(int value)
 {
-	public int Year { get; set; }
-	public int Month { get; set; }
-	public int Day { get; set; }
+	public int Value { get; } = value;
+
+	public Result<Year, ServiceError> Create(int year) 
+	{
+		return Result.Create(
+			year > 1900,
+			() => new Year(year),
+			() => ValidationError.Create("Invalid Year for Date of Birth."));
+	}
 }
