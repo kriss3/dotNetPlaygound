@@ -1,6 +1,8 @@
 ﻿using Cova.Functional;
 using Cova.ServiceErrors.Errors;
 using Microsoft.VisualBasic;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.AccessControl;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -13,12 +15,14 @@ public class MySerializer
 	public static Result<int, ServiceError> DoSerialize() 
 	{
 		var result = -1;
+		var firstName = PersonName.Create("Sander");
+		var lastName = PersonName.Create("Chaney");
+		var emailAddress = Email.Create("schaney@gmail.com");
+
+		var myDob = MyDate.Create(1988, 4, 30);
 
 		var obj = new Person
 		{
-			FirstName = "Sander",
-			LastName = "Chaney",
-			Email = "schaney@gmail.com",
 			DateOfBirth = new MyDate
 			{
 				Year = 1988,
@@ -57,11 +61,13 @@ public class MySerializer
 		var fName = PersonName.Create(firstName);
 		var lName = PersonName.Create(lastName);
 		var emailAddress = Email.Create(email);
-		var dobYear = Year.Create(year);
-		var dobMonth = Month.Create(month);	
-		var dobDay = Day.Create(day);
 
-		var personObj = new Person(fName, lName, emailAddress, );
+
+
+		var personObj = new Person(
+			fName, 
+			lName, 
+			emailAddress);
 		//var personObj = new Person
 		//{
 		//	FirstName = firstName,
@@ -78,8 +84,10 @@ public class MySerializer
 	}
 }
 
-public record Person(Result<PersonName, ServiceError> FirstName, 
-	Result<PersonName, ServiceError> LastName, Result<Email, ServiceError> EmailAddress, MyDate MyDate);
+public record Person(
+	Result<PersonName, ServiceError> FirstName, 
+	Result<PersonName, ServiceError> LastName, 
+	Result<Email, ServiceError> EmailAddress);
 
 public class PersonName 
 {
@@ -118,21 +126,6 @@ public class Email
 	}
 }
 
-public class MyDate 
-{
-	public Year Year { get; }
-	public Month Month { get; }
-	public Day Day { get; }
-	public MyDate? Value { get; }
-
-	private MyDate(Year year, Month month, Day day) 
-	{
-
-	}
-
-	public static Result<MyDate, ServiceError> Create(MyDate value) => Valu
-}
-
 public class Year(int value)
 {
 	public int Value { get; } = value;
@@ -169,5 +162,29 @@ public class Day(int value)
 			(day > 0 && day < 31),
 			() => new Day(day),
 			() => ValidationError.Create("Invalid Day value for Date of Birth."));
+	}
+}
+
+public class MyDate
+{
+	public int DobYear { get; }
+	public int DobMonth { get; }
+	public int DobDay { get; }
+
+	public MyDate(int dobYear, int dobMonth, int dobDay)
+	{
+		DobYear = dobYear;
+		DobMonth = dobMonth;
+		DobDay = dobDay;
+	}
+
+	public static Result<MyDate, ServiceError> Create(int year, int month, int day)
+	{
+		bool valid = ((year > 1920 && year < 2100) && (month > 1 && month <= 12) && (day > 1 && day <= 31));
+
+		return Result.Create<MyDate, ServiceError>(
+			valid,
+			() => new MyDate(year, month, day),
+			() => UnexpectedError.Create(""));
 	}
 }
