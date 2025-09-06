@@ -57,7 +57,9 @@ public class MySerializer
 		var fName = PersonName.Create(firstName);
 		var lName = PersonName.Create(lastName);
 		var emailAddress = Email.Create(email);
-		var dobYear = Year.
+		var dobYear = Year.Create(year);
+		var dobMonth = Month.Create(month);	
+		var dobDay = Day.Create(day);
 
 		var personObj = new Person(fName, lName, emailAddress);
 		//var personObj = new Person
@@ -77,7 +79,7 @@ public class MySerializer
 }
 
 public record Person(Result<PersonName, ServiceError> FirstName, 
-	Result<PersonName, ServiceError> LastName, Result<Email, ServiceError> EmailAddress);
+	Result<PersonName, ServiceError> LastName, Result<Email, ServiceError> EmailAddress, MyDate MyDate);
 
 public class PersonName 
 {
@@ -116,7 +118,7 @@ public class Email
 	}
 }
 
-public record MyDate(Year Year, Month month, Day day);
+public record MyDate(Year Year, Month Month, Day Day);
 
 public class Year(int value)
 {
