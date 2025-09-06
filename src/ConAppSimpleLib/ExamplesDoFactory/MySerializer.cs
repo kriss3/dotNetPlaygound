@@ -79,7 +79,10 @@ public class Person
 
 	public Person Create(string FName, string LName, string Email, int year, int month, int day) 
 	{
-		var fName = PersonName.Create(FName);
+		var firstName = PersonName.Create(FName);
+		var lastName = PersonName.Create(LName);
+		var email = Email.Create(Email);
+
 	}
 
 }
@@ -97,7 +100,6 @@ public class PersonName
 			() => new PersonName(name),
 			() => ValidationError.Create(""));
 	}
-
 }
 
 public class MyDate 
