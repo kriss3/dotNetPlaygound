@@ -57,6 +57,7 @@ public class MySerializer
 		var fName = PersonName.Create(firstName);
 		var lName = PersonName.Create(lastName);
 		var emailAddress = Email.Create(email);
+		var dobYear = Year.
 
 		var personObj = new Person(fName, lName, emailAddress);
 		//var personObj = new Person
@@ -121,7 +122,7 @@ public class Year(int value)
 {
 	public int Value { get; } = value;
 
-	public Result<Year, ServiceError> Create(int year) 
+	public static Result<Year, ServiceError> Create(int year) 
 	{
 		return Result.Create(
 			year > 1900,
@@ -134,7 +135,7 @@ public class Month(int value)
 {
 	public int Value { get; } = value;
 
-	public Result<Month, ServiceError> Create(int month)
+	public static Result<Month, ServiceError> Create(int month)
 	{
 		return Result.Create(
 			(month > 1 && month <= 12),
@@ -147,7 +148,7 @@ public class Day(int value)
 {
 	public int Value { get; } = value;
 
-	public Result<Day, ServiceError> Create(int day)
+	public static Result<Day, ServiceError> Create(int day)
 	{
 		return Result.Create(
 			(day > 0 && day < 31),
