@@ -38,13 +38,17 @@ public class MySerializer
 		return result;
 	}
 
-	public static int DoSerialize(string firstName, string lastName, string email, int year, int, month, int day) 
+	public static int DoSerialize(string firstName, string lastName,
+		string email, int year, int month, int day) 
 	{
 		var result = -1;
-		var personObj = new Person 
+		var personObj = new Person
 		{
 			FirstName = firstName,
-		}
+			LastName=lastName,
+			Email = email,
+			DateOfBirth = new MyDate { Day = day, Month = month, Year = year }
+		};
 
 		return result;
 	}
