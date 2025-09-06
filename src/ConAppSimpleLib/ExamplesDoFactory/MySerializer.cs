@@ -102,6 +102,11 @@ public class PersonName
 	}
 }
 
+public class Email 
+{
+
+}
+
 public class MyDate 
 {
 	public int Year { get; set; }
