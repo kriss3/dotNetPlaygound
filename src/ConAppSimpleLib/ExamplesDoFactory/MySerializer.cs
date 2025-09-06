@@ -58,8 +58,10 @@ public class MySerializer
 		};
 
 		var mySerializer = JsonSerializer.Serialize(personObj);
+		if (mySerializer is not null)	
+			result = 1;
 
-		return my
+		return result;
 	}
 }
 
