@@ -126,6 +126,19 @@ public class Year(int value)
 		return Result.Create(
 			year > 1900,
 			() => new Year(year),
-			() => ValidationError.Create("Invalid Year for Date of Birth."));
+			() => ValidationError.Create("Invalid Year value for Date of Birth."));
+	}
+}
+
+public class Month(int value)
+{
+	public int Value { get; } = value;
+
+	public Result<Month, ServiceError> Create(int month)
+	{
+		return Result.Create(
+			(month > 0 && month <31),
+			() => new Month(month),
+			() => ValidationError.Create("Invalid Month value for Date of Birth."));
 	}
 }
