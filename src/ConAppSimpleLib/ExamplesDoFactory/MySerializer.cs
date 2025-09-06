@@ -35,11 +35,18 @@ public class MySerializer
 		var result  = -1;
 
 		var mySerializer = JsonSerializer.Serialize<Person>(person);
+		if (mySerializer is not null) 
+			result = 1;
 		return result;
 	}
 
-	public static int DoSerialize(string firstName, string lastName,
-		string email, int year, int month, int day) 
+	public static int DoSerialize(
+		string firstName, 
+		string lastName,
+		string email,
+		int year, 
+		int month, 
+		int day) 
 	{
 		var result = -1;
 		var personObj = new Person
@@ -50,7 +57,9 @@ public class MySerializer
 			DateOfBirth = new MyDate { Day = day, Month = month, Year = year }
 		};
 
-		return result;
+		var mySerializer = JsonSerializer.Serialize(personObj);
+
+		return my
 	}
 }
 
