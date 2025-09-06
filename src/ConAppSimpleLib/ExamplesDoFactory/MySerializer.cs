@@ -1,6 +1,5 @@
 ﻿using Cova.Functional;
 using Cova.ServiceErrors.Errors;
-using Microsoft.VisualBasic;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -54,13 +53,18 @@ public class MySerializer
 		int day) 
 	{
 		var result = -1;
-		var personObj = new Person
-		{
-			FirstName = firstName,
-			LastName=lastName,
-			Email = email,
-			DateOfBirth = new MyDate { Day = day, Month = month, Year = year }
-		};
+		var fName = PersonName.Create(firstName);
+		var lName = PersonName.Create(lastName);
+		var emailAddress = Email.Create(email);
+
+		var personObj = new Person(fName, lName, emailAddress);
+		//var personObj = new Person
+		//{
+		//	FirstName = firstName,
+		//	LastName=lastName,
+		//	Email = email,
+		//	DateOfBirth = new MyDate { Day = day, Month = month, Year = year }
+		//};
 
 		var mySerializer = JsonSerializer.Serialize(personObj);
 		if (mySerializer is not null)	
@@ -70,23 +74,8 @@ public class MySerializer
 	}
 }
 
-public class Person 
-{
-	public PersonName? FName { get; }
-	public string? LastName { get; }
-	public string? Email { get; }
-
-	public MyDate? DateOfBirth { get; }
-
-	public Person Create(string FName, string LName, string Email, int year, int month, int day) 
-	{
-		var firstName = PersonName.Create(FName);
-		var lastName = PersonName.Create(LName);
-		var email = Email.Create(Email);
-
-	}
-
-}
+public record Person(Result<PersonName, ServiceError> FirstName, 
+	Result<PersonName, ServiceError> LastName, Result<Email, ServiceError> EmailAddress);
 
 public class PersonName 
 {
@@ -102,7 +91,7 @@ public class PersonName
 	}
 }
 
-public partial class Email
+public class Email
 {
 	public string? Value { get; }
 
