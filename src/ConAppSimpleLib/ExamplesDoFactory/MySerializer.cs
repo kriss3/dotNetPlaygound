@@ -137,8 +137,21 @@ public class Month(int value)
 	public Result<Month, ServiceError> Create(int month)
 	{
 		return Result.Create(
-			(month > 0 && month <31),
+			(month > 1 && month <= 12),
 			() => new Month(month),
 			() => ValidationError.Create("Invalid Month value for Date of Birth."));
+	}
+}
+
+public class Day(int value)
+{
+	public int Value { get; } = value;
+
+	public Result<Day, ServiceError> Create(int day)
+	{
+		return Result.Create(
+			(day > 0 && day < 31),
+			() => new Day(day),
+			() => ValidationError.Create("Invalid Day value for Date of Birth."));
 	}
 }
