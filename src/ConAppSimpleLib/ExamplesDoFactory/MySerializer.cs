@@ -30,7 +30,7 @@ public class MySerializer
 		if (myJson is not null)
 			result = 1;
 
-		return result;
+		return Result.Create(myJson is not null, result, UnexpectedError.Create("The serialization was not successful."));
 	}
 
 	public static int DoDeserialize(Person person)
