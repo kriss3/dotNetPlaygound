@@ -157,18 +157,11 @@ public class Day(int value)
 	}
 }
 
-public class MyDate
+public class MyDate(int dobYear, int dobMonth, int dobDay)
 {
-	public int DobYear { get; }
-	public int DobMonth { get; }
-	public int DobDay { get; }
-
-	public MyDate(int dobYear, int dobMonth, int dobDay)
-	{
-		DobYear = dobYear;
-		DobMonth = dobMonth;
-		DobDay = dobDay;
-	}
+	public int DobYear { get; } = dobYear;
+	public int DobMonth { get; } = dobMonth;
+	public int DobDay { get; } = dobDay;
 
 	public static Result<MyDate, ServiceError> Create(int year, int month, int day)
 	{
