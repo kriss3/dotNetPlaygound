@@ -28,13 +28,30 @@ public class MySerializer
 
 	public static Result<int, ServiceError> DoSerialize(Person person)
 	{
-		ArgumentException.ThrowIfNullOrEmpty(nameof(person));
-		var result  = -1;
+		if (person is null)
+			return Result.Create(false, 0, ValidationError.Create("Person object must be provided."));
 
-		var mySerializer = JsonSerializer.Serialize<Person>(person);
-		if (mySerializer is not null) 
-			result = 1;
-		return result;
+		try
+		{
+			var json = JsonSerializer.Serialize(person);
+			var ok = !string.IsNullOrEmpty(json);
+
+			//What is Success What is Failure:
+			//success => 1, failure => 0
+			return Result.Create(
+				ok, 
+				ok ? 1 : 0, 
+				UnexpectedError.Create("The serialization was not successful."));
+
+
+			
+		}
+		catch (Exception)
+		{
+
+			throw;
+		}
+
 	}
 
 	public static int DoSerialize(
