@@ -15,18 +15,9 @@ public class MySerializer
 		var firstName = PersonName.Create("Sander");
 		var lastName = PersonName.Create("Chaney");
 		var emailAddress = Email.Create("schaney@gmail.com");
-
 		var myDob = MyDate.Create(1988, 4, 30);
 
-		var obj = new Person
-		{
-			DateOfBirth = new MyDate
-			{
-				Year = 1988,
-				Month = 4,
-				Day = 30
-			}
-		};
+		var obj = new Person(firstName, lastName, emailAddress, myDob);
 
 		var myJson = JsonSerializer.Serialize(obj);
 		if (myJson is not null)
@@ -84,7 +75,8 @@ public class MySerializer
 public record Person(
 	Result<PersonName, ServiceError> FirstName, 
 	Result<PersonName, ServiceError> LastName, 
-	Result<Email, ServiceError> EmailAddress);
+	Result<Email, ServiceError> EmailAddress, 
+	Result<MyDate, ServiceError> Dob);
 
 public class PersonName 
 {
