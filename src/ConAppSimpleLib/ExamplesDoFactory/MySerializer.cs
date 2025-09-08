@@ -42,14 +42,10 @@ public class MySerializer
 				ok, 
 				ok ? 1 : 0, 
 				UnexpectedError.Create("The serialization was not successful."));
-
-
-			
 		}
-		catch (Exception)
+		catch (JsonException ex)
 		{
-
-			throw;
+			return Result.Create(false, 0, ValidationError.Create($"Invalid JSON for Person DTO: {ex.Message}"));
 		}
 
 	}
