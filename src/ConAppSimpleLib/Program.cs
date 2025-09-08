@@ -4,7 +4,16 @@ using static System.Console;
 namespace ConAppSimpleLib;
 public class Program
 {
-	public static async Task Main() 
+	public static async Task Main()
+	{
+		bool flowControl = await GetAzureConfigurationValue();
+		if (!flowControl)
+		{
+			return;
+		}
+	}
+
+	private static async Task<bool> GetAzureConfigurationValue()
 	{
 		WriteLine("My attempt to work with Az Key Vault.");
 		// Load configuration from appsettings.json
@@ -14,10 +23,10 @@ public class Program
 
 		string vaultUrl = config["Configuration:AzureVaultUrl"]!;
 
-		if (string.IsNullOrEmpty(vaultUrl)) 
+		if (string.IsNullOrEmpty(vaultUrl))
 		{
 			WriteLine("Vault URL not found in configuration.");
-			return;
+			return false;
 		}
 
 		// Capture errors correctly when DefaultAuthentication did not work due to:
@@ -35,5 +44,7 @@ public class Program
 		{
 			WriteLine("Failed to retrieve secret.");
 		}
+
+		return true;
 	}
 }
