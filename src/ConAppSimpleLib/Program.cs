@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ConAppSimpleLib.ExamplesDoFactory;
+using Microsoft.Extensions.Configuration;
 using static System.Console;
 
 namespace ConAppSimpleLib;

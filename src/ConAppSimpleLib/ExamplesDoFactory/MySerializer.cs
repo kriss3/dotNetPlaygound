@@ -26,7 +26,7 @@ public class MySerializer
 		return Result.Create(myJson is not null, result, UnexpectedError.Create("The serialization was not successful."));
 	}
 
-	public static int DoDeserialize(Person person)
+	public static int DoSerialize(Person person)
 	{
 		ArgumentNullException.ThrowIfNullOrEmpty(nameof(person));
 		var result  = -1;
