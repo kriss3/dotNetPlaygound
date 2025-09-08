@@ -8,8 +8,8 @@ public class Program
 	public static async Task Main()
 	{
 		
-		var res = MySerializer.DoSerialize();
-
+		MySerializer.DoSerialize();
+		MySerializer.DoSerialize(CreatePersonInstance());
 
 		// Need to make below execution optional.
 		bool flowControl = await GetAzureConfigurationValue();
@@ -17,6 +17,17 @@ public class Program
 		{
 			return;
 		}
+	}
+
+	private static PersonObj CreatePersonInstance() 
+	{
+		var firstName = "Jack";
+		var lastName = "Black";
+		var emailAddress = "JackB@no_email.com";
+		var year = 1977;
+		var month = 1;
+		var day = 1;
+		return new PersonObj(firstName, lastName, emailAddress, year, month, day);
 	}
 
 	private static async Task<bool> GetAzureConfigurationValue()

@@ -26,7 +26,7 @@ public class MySerializer
 		return Result.Create(myJson is not null, result, UnexpectedError.Create("The serialization was not successful."));
 	}
 
-	public static Result<int, ServiceError> DoSerialize(Person person)
+	public static Result<int, ServiceError> DoSerialize(PersonObj person)
 	{
 		if (person is null)
 			return Result.Create(false, 0, ValidationError.Create("Person object must be provided."));
@@ -89,6 +89,8 @@ public record Person(
 	Result<PersonName, ServiceError> LastName, 
 	Result<Email, ServiceError> EmailAddress, 
 	Result<MyDate, ServiceError> Dob);
+
+public record PersonObj(string FirstName, string LastName, string EmailAddress, int Year, int Month, int Day);
 
 
 #region Primitives
