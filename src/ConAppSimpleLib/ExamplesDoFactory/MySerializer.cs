@@ -28,7 +28,7 @@ public class MySerializer
 
 	public static int DoSerialize(Person person)
 	{
-		ArgumentNullException.ThrowIfNullOrEmpty(nameof(person));
+		ArgumentException.ThrowIfNullOrEmpty(nameof(person));
 		var result  = -1;
 
 		var mySerializer = JsonSerializer.Serialize<Person>(person);
