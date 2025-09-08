@@ -8,7 +8,7 @@ namespace ConAppSimpleLib.ExamplesDoFactory;
 
 //Lesson learnt: You generally don’t want to serialize the Result wrappers.
 //Unwrap them (short-circuiting on failure) and serialize a flat DTO.
-// This is where I stop this excercise.
+// This is where I stop this exercise.
 public class MySerializer
 {
 	public static Result<int, ServiceError> DoSerialize() 
@@ -73,6 +73,9 @@ public record Person(
 	Result<PersonName, ServiceError> LastName, 
 	Result<Email, ServiceError> EmailAddress, 
 	Result<MyDate, ServiceError> Dob);
+
+
+#region Primitives
 
 public class PersonName 
 {
@@ -166,3 +169,5 @@ public class MyDate(int dobYear, int dobMonth, int dobDay)
 			() => UnexpectedError.Create(""));
 	}
 }
+
+#endregion
