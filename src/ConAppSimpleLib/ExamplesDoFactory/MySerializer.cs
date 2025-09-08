@@ -59,13 +59,6 @@ public class MySerializer
 			lName, 
 			emailAddress,
 			myDob);
-		//var personObj = new Person
-		//{
-		//	FirstName = firstName,
-		//	LastName=lastName,
-		//	Email = email,
-		//	DateOfBirth = new MyDate { Day = day, Month = month, Year = year }
-		//};
 
 		var mySerializer = JsonSerializer.Serialize(personObj);
 		if (mySerializer is not null)	
