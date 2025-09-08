@@ -6,7 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
 
-/// How would I go about changing return signature to Result<TSuccess, TFailure>?
+//Lesson learnt: You generally don’t want to serialize the Result wrappers.
+//Unwrap them (short-circuiting on failure) and serialize a flat DTO.
+// This is where I stop this excercise.
 public class MySerializer
 {
 	public static Result<int, ServiceError> DoSerialize() 
@@ -20,9 +22,7 @@ public class MySerializer
 		var obj = new Person(firstName, lastName, emailAddress, myDob);
 
 		var myJson = JsonSerializer.Serialize(obj);
-		if (myJson is not null)
-			result = 1;
-
+		
 		return Result.Create(myJson is not null, result, UnexpectedError.Create("The serialization was not successful."));
 	}
 

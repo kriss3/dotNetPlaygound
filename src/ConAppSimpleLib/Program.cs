@@ -7,6 +7,11 @@ public class Program
 {
 	public static async Task Main()
 	{
+		
+		var res = MySerializer.DoSerialize();
+
+
+		// Need to make below execution optional.
 		bool flowControl = await GetAzureConfigurationValue();
 		if (!flowControl)
 		{
