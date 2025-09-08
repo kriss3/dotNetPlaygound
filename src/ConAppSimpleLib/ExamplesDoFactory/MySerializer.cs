@@ -50,12 +50,15 @@ public class MySerializer
 		var lName = PersonName.Create(lastName);
 		var emailAddress = Email.Create(email);
 
+		var myDob = MyDate.Create(year, month, day);
+
 
 
 		var personObj = new Person(
 			fName, 
 			lName, 
-			emailAddress);
+			emailAddress,
+			myDob);
 		//var personObj = new Person
 		//{
 		//	FirstName = firstName,
