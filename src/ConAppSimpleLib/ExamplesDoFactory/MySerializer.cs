@@ -47,7 +47,10 @@ public class MySerializer
 		{
 			return Result.Create(false, 0, ValidationError.Create($"Invalid JSON for Person DTO: {ex.Message}"));
 		}
-
+		catch (Exception ex)
+		{
+			return Result.Create(false, 0, UnexpectedError.Create($"Unexpected error during serialization: {ex.Message}"));
+		}
 	}
 
 	public static int DoSerialize(
