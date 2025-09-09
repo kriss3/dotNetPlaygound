@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using static System.Console;
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
 public class Linq4EachIterator
@@ -15,7 +10,7 @@ public class Linq4EachIterator
 
 		foreach (var item in numbers)
 		{
-			Console.WriteLine($"Index: {index}. Value: {item}");
+			WriteLine($"Index: {index}. Value: {item}");
 			index++;
 		}
 	}
