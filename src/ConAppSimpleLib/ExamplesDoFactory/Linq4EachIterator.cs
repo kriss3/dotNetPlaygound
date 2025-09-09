@@ -17,10 +17,9 @@ public class Linq4EachIterator
 
 	public static void DriveUsingLinq() 
 	{
-		GetNumbers()
-			.Select((index, item) => WriteLine($"Index: {index} and Value: {item}"));
+		var numbers = GetNumbers().Select((index, item) => new { item, index}).ToList();
 
-
+		numbers.ForEach(x => WriteLine($"Index: {x.index} and Value: {x.item}."));
 
 		//foreach (var x in numbers) 
 		//{
