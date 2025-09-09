@@ -17,12 +17,15 @@ public class Linq4EachIterator
 
 	public static void DriveUsingLinq() 
 	{
-		var numbers = GetNumbers().Select((index, item) => new { item, index});
+		GetNumbers()
+			.Select((index, item) => WriteLine($"Index: {index} and Value: {item}"));
 
-		foreach (var x in numbers) 
-		{
-			WriteLine($"{x.index} and {x.item}");
-		}
+
+
+		//foreach (var x in numbers) 
+		//{
+		//	WriteLine($"{x.index} and {x.item}");
+		//}
 	}
 
 
