@@ -15,6 +15,16 @@ public class Linq4EachIterator
 		}
 	}
 
+	public static void DriveUsingLinq() 
+	{
+		var numbers = GetNumbers().Select((index, item) => new { item, index});
+
+		foreach (var x in numbers) 
+		{
+			WriteLine($"{x.index} and {x.item}");
+		}
+	}
+
 
 	private static IEnumerable<int> GetNumbers()
 	{
