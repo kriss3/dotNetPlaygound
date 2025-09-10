@@ -19,6 +19,12 @@ public static class OptionDemo
 	// Example of getting an environment variable as Option<string>
 	public static Option<string> TryGetEnv(string variable) 
 	{
-		throw new NotImplementedException();
+		if (string.IsNullOrWhiteSpace(variable))
+			return Option.None<string>();
+
+		var value = Environment.GetEnvironmentVariable(variable);
+		return string.IsNullOrEmpty(value) 
+			? Option.None<string>() 
+			: Option.Some(value);
 	}
 }
