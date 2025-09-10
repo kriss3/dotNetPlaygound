@@ -11,7 +11,9 @@ public static class OptionDemo
 	// Returns Some(n) when input is a positive int; otherwise None<int>()
 	public static Option<int> TryParsePositiveInt(string input) 
 	{
-		throw new NotImplementedException();
+		var x = int.TryParse(input, out int result) && result > 0
+			? Option.Some(result) : Option.None<int>();
+		return x;
 	}
 
 	// Example of getting an environment variable as Option<string>
