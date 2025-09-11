@@ -7,4 +7,7 @@ using System.Threading.Tasks;
 namespace ConAppSimpleLib.ExamplesDoFactory;
 public class CollectionService
 {
+	// Combine two collections using collection expressions
+
+	//Filter a collection using LINQ and return a collection expression
 }
