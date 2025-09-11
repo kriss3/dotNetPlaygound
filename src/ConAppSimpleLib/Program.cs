@@ -74,6 +74,12 @@ public class Program
 		var list1 = new List<int> { 1, 2, 3 };
 		var list2 = new List<int> { 4, 5, 6 };
 
+		var collService = new CollectionService();
+
+		// Combine
+		var combined = collService.CombineCollections(list1, list2);
+		WriteLine("Combined: " + string.Join(", ", combined));
+
 
 
 		return Task.CompletedTask;
