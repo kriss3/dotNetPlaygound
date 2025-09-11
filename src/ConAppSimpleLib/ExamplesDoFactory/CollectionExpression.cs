@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConAppSimpleLib.ExamplesDoFactory;
-internal class CollectionExpresion
+public class CollectionExpression
 {
 }
