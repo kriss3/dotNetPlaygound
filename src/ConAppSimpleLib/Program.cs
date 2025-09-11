@@ -80,7 +80,8 @@ public class Program
 		var combined = collService.CombineCollections(list1, list2);
 		WriteLine("Combined: " + string.Join(", ", combined));
 
-
+		var evenNumb = collService.GetEvenNumbers(list1);
+		WriteLine("Even numbers: " + string.Join(", ", evenNumb));
 
 		return Task.CompletedTask;
 	}

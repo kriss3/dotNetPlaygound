@@ -6,6 +6,6 @@ public class CollectionService
 		[.. firstList, .. secondCollection];
 
 	//Filter a collection using LINQ and return a collection expression
-	public IEnumerable<int> GetEvenNumber(List<int> numbers) =>
+	public IEnumerable<int> GetEvenNumbers(List<int> numbers) =>
 		[.. numbers.Where(n => n % 2 == 0)];
 }
