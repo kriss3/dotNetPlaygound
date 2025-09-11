@@ -8,8 +8,11 @@ public class Program
 	public static async Task Main()
 	{
 		
+
 		MySerializer.DoSerialize();
 		MySerializer.DoSerialize(CreatePersonInstance());
+
+
 
 		// Need to make below execution optional.
 		bool flowControl = await GetAzureConfigurationValue();
@@ -63,5 +66,16 @@ public class Program
 		}
 
 		return true;
+	}
+
+	private static Task ExploreCollections() 
+	{
+		// Example collections
+		var list1 = new List<int> { 1, 2, 3 };
+		var list2 = new List<int> { 4, 5, 6 };
+
+
+
+		return Task.CompletedTask;
 	}
 }
