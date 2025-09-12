@@ -10,5 +10,14 @@ public class CollectionService
 		[.. numbers.Where(n => n % 2 == 0)];
 
 	// 3: Reverse numbers using Span<T>
+	public bool ReverseInPlace(List<int> numbers) 
+	{
+		return false;
+	}
+
 	// 4: Get a substring using ReadOnlySpan<T>
+	public string ExtractWord(string text, int start, int length) 
+	{
+		return string.Empty;
+	}
 }
