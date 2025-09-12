@@ -12,7 +12,9 @@ public class CollectionService
 	// 3: Reverse numbers using Span<T>
 	public bool ReverseInPlace(List<int> numbers) 
 	{
-		return false;
+		Span<int> mySpan = numbers.ToArray();
+		mySpan.Reverse();
+		return true;
 	}
 
 	// 4: Get a substring using ReadOnlySpan<T>
