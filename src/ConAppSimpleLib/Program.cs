@@ -98,6 +98,7 @@ public class Program
 		WriteLine("After reverse:  " + string.Join(", ", numbers));
 
 		// Extract word
+		string sentence = "Hello C# Span!";
 
 
 
