@@ -88,9 +88,11 @@ public class Program
 
 	private static Task ExpoloreSpans() 
 	{
-		Console.WriteLine("\n=== SpanService demo ===");
-		// Reverse numbers
-
+		WriteLine("\n=== SpanService demo ===");
 		var collService = new CollectionService();
+
+		// Reverse numbers
+		int[] numbers = [ 1, 2, 3, 4, 5 ];
+		Console.WriteLine("Before reverse: " + string.Join(", ", numbers));
 	}
 }
