@@ -95,5 +95,11 @@ public class Program
 		int[] numbers = [ 1, 2, 3, 4, 5 ];
 		WriteLine("Before reverse: " + string.Join(", ", numbers));
 		collService.ReverseInPlace([.. numbers]);
+		WriteLine("After reverse:  " + string.Join(", ", numbers));
+
+		// Extract word
+
+
+
 	}
 }
