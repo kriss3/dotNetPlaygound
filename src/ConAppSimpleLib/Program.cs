@@ -99,8 +99,9 @@ public class Program
 
 		// Extract word
 		string sentence = "Hello C# Span!";
+		string word = collService.ExtractWord(sentence, 6, 2); // "C#"
+		WriteLine($"Extracted word: {word}");
 
-
-
+		return Task.CompletedTask;
 	}
 }
