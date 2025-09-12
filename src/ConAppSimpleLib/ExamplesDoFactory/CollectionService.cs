@@ -20,6 +20,8 @@ public class CollectionService
 	// 4: Get a substring using ReadOnlySpan<T>
 	public string ExtractWord(string text, int start, int length) 
 	{
-		return string.Empty;
+		ReadOnlySpan<char> textSpan = text;
+		var slice = textSpan.Slice(start, length);
+		return slice.ToString();
 	}
 }
