@@ -9,6 +9,7 @@ public class Program
 	{
 		
 		await ExploreCollections();
+		await ExpoloreSpans();
 		MySerializer.DoSerialize();
 		MySerializer.DoSerialize(CreatePersonInstance());
 
