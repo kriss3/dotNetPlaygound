@@ -93,6 +93,7 @@ public class Program
 
 		// Reverse numbers
 		int[] numbers = [ 1, 2, 3, 4, 5 ];
-		Console.WriteLine("Before reverse: " + string.Join(", ", numbers));
+		WriteLine("Before reverse: " + string.Join(", ", numbers));
+		collService.ReverseInPlace([.. numbers]);
 	}
 }
