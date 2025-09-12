@@ -85,4 +85,12 @@ public class Program
 
 		return Task.CompletedTask;
 	}
+
+	private static Task ExpoloreSpans() 
+	{
+		Console.WriteLine("\n=== SpanService demo ===");
+		// Reverse numbers
+
+		var collService = new CollectionService();
+	}
 }
