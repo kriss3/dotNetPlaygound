@@ -1,4 +1,11 @@
-﻿using static System.Console;
+﻿
+using MassTransit;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+
+using static System.Console;
 
 namespace ConAppPlayingWithMassTransit;
 
