@@ -9,8 +9,6 @@ using static System.Console;
 
 namespace ConAppPlayingWithMassTransit;
 
-public record Hello(string Name);
-
 public class Program
 {
 	static void Main(string[] args)
@@ -18,6 +16,8 @@ public class Program
 		WriteLine("This is MassTransit - library for abstracting exchanging messages between systems.");
 	}
 }
+
+public record Hello(string Name);
 
 public class PublisherService(IBus bus, ILogger<PublisherService> log) : BackgroundService
 {
@@ -38,6 +38,7 @@ public class PublisherService(IBus bus, ILogger<PublisherService> log) : Backgro
 			await Task.Delay(1000, stoppingToken);
 
 	}
+}
 
 public class HelloConsumer(ILogger<HelloConsumer> log) : IConsumer<Hello>
 {
