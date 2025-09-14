@@ -21,7 +21,7 @@ public class Program
 
 	private static IHostBuilder CreateHostBuilder() 
 	{
-		var host = new HostBuilder().
+		var host = Host.CreateDefaultBuilder()// continue here...
 	}
 }
 
