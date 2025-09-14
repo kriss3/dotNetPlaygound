@@ -33,6 +33,10 @@ public class PublisherService(IBus bus, ILogger<PublisherService> log) : Backgro
 			await Task.Delay(TimeSpan.FromSeconds(2), stoppingToken);
 		}
 
+		// No-op loop to keep the process running so consumption can be seen.
+		while (!stoppingToken.IsCancellationRequested)
+			await Task.Delay(1000, stoppingToken);
+
 	}
 
 public class HelloConsumer(ILogger<HelloConsumer> log) : IConsumer<Hello>
