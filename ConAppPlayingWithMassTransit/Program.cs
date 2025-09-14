@@ -18,7 +18,11 @@ public class Program
 }
 
 public class PublisherService(IBus bus, ILogger<PublisherService> log) : BackgroundService
-{ }
+{
+	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+	{
+
+	}
 
 public class HelloConsumer(ILogger<HelloConsumer> log) : IConsumer<Hello>
 {
