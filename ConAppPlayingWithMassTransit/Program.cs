@@ -17,39 +17,12 @@ public class Program
 	public static async Task Main(string[] args)
 	{
 		WriteLine("This is MassTransit - library for abstracting exchanging messages between systems.");
-		var host = CreateHostBuilder(args).Build();
 	}
 
-	private static IHostBuilder CreateHostBuilder(string[] args)  =>
-
-
-
-
-			Host.CreateDefaultBuilder(args)
-				.ConfigureServices((ctx, services) =>
-				{
-					services.AddLogging(b => b.AddSimpleConsole(o =>
-					{
-						o.TimestampFormat = "HH:mm:ss ";
-						o.SingleLine = true;
-					}));
-
-					services.AddMassTransit(x =>
-					{
-						x.AddConsumer<HelloConsumer>();
-
-						x.UsingAzureServiceBus((context, cfg) =>
-						{
-							var cs = ctx.Configuration["AzureServiceBus:ConnectionString"]
-									 ?? Environment.GetEnvironmentVariable("AzureServiceBus__ConnectionString")
-									 ?? throw new InvalidOperationException("ASB connection string not set.");
-							cfg.Host(cs);
-							cfg.ConfigureEndpoints(context);
-						});
-					});
-
-					services.AddHostedService<PublisherService>();
-				});
+	private static IHostBuilder CreateHostBuilder() 
+	{
+		var host = new HostBuilder().
+	}
 }
 
 public record Hello(string Name);
