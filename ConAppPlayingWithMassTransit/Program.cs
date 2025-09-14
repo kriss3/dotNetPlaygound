@@ -3,6 +3,8 @@ using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using static MassTransit.Monitoring.Performance.BuiltInCounters;
+using static MassTransit.Util.ChartTable;
 using static System.Console;
 
 namespace ConAppPlayingWithMassTransit;
@@ -21,6 +23,15 @@ public class PublisherService(IBus bus, ILogger<PublisherService> log) : Backgro
 {
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
+		// Publish a few messages, then keep the host alive
+
+		for (var i = 1; i <= 5 && !stoppingToken.IsCancellationRequested; i++)
+		{
+			var name = $"Kris #{i}";
+			await bus.Publish(new Hello(name), stoppingToken);
+			log.LogInformation("📤 Published Hello({Name})", name);
+			await Task.Delay(TimeSpan.FromSeconds(2), stoppingToken);
+		}
 
 	}
 
