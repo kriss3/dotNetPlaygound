@@ -3,11 +3,11 @@ using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
-
 using static System.Console;
 
 namespace ConAppPlayingWithMassTransit;
+
+public record Hello(string Name);
 
 public class Program
 {
@@ -21,4 +21,10 @@ public class PublisherService(IBus bus, ILogger<PublisherService> log) : Backgro
 { }
 
 public class HelloConsumer(ILogger<HelloConsumer> log) : IConsumer<Hello>
-{ }
+{
+	public Task Consume(ConsumeContext<Hello> ctx)
+	{
+		log.LogInformation("✅ Consumed Hello for {Name}", ctx.Message.Name);
+		return Task.CompletedTask;
+	}
+}
