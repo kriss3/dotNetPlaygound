@@ -25,8 +25,9 @@ public class Program
 		WriteLine("This is MassTransit - library for abstracting exchanging messages between systems.");
 	}
 
-	private static MsIHostBuilder CreateHostBuilder(string[] args) =>
-		MsHost.CreateDefaultBuilder(args)
+	private static MsIHostBuilder CreateHostBuilder() 
+	{
+		var result  = MsHost.CreateDefaultBuilder()
 			.ConfigureServices((ctx, services) =>
 			{
 				services.AddLogging(b => b.AddConsole());
@@ -43,7 +44,8 @@ public class Program
 
 				services.AddHostedService<PublisherService>();
 			});
-
+		return result;
+	}
 }
 
 public record Hello(string Name);
