@@ -7,6 +7,12 @@ using static MassTransit.MessageHeaders;
 using static MassTransit.Monitoring.Performance.BuiltInCounters;
 using static MassTransit.Util.ChartTable;
 
+//Adding Aliases:
+using MsHost = Microsoft.Extensions.Hosting.Host;
+using MsIHost = Microsoft.Extensions.Hosting.IHost;
+using MsIHostBuilder = Microsoft.Extensions.Hosting.IHostBuilder;
+
+
 using static System.Console;
 
 
@@ -19,13 +25,25 @@ public class Program
 		WriteLine("This is MassTransit - library for abstracting exchanging messages between systems.");
 	}
 
-	private static IHostBuilder CreateHostBuilder()
-	{
-		var host = Host.CreateDefaultBuilder().ConfigureServices((ctx, services) =>
-		{
+	private static MsIHostBuilder CreateHostBuilder(string[] args) =>
+		MsHost.CreateDefaultBuilder(args)
+			.ConfigureServices((ctx, services) =>
+			{
+				services.AddLogging(b => b.AddConsole());
 
-		}).RunConsoleAsync();
-	}
+				services.AddMassTransit(x =>
+				{
+					x.AddConsumer<HelloConsumer>();
+
+					x.UsingInMemory((context, cfg) =>
+					{
+						cfg.ConfigureEndpoints(context);
+					});
+				});
+
+				services.AddHostedService<PublisherService>();
+			});
+
 }
 
 public record Hello(string Name);
