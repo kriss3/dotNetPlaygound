@@ -23,6 +23,7 @@ public class Program
 	public static async Task Main(string[] args)
 	{
 		WriteLine("This is MassTransit - library for abstracting exchanging messages between systems.");
+		var res = CreateHostBuilder();
 	}
 
 	private static MsIHostBuilder CreateHostBuilder() 
