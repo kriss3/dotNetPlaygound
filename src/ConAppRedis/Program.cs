@@ -4,7 +4,6 @@ using static System.Console;
 using ConAppRedis.Extensions;
 using ConAppRedis.ApiOperations.Data;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Distributed;
 
