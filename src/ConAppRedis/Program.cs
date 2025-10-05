@@ -5,6 +5,7 @@ using ConAppRedis.ApiOperations.Data;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Caching.Distributed;
+using ConAppPlayingWithRedisCache.ApiOperations.Data;
 
 WriteLine("Hello, World!");
 WriteLine("Getting Configuration");
@@ -15,19 +16,19 @@ configuration.SetBasePath(Directory.GetCurrentDirectory())
 
 var config = configuration.Build();
 
-var builder = Host.CreateDefaultBuilder();
+var Microsoft.Extensions.Hosting.HostApplicationBuilder CreateApplicationBuilder();
 
-//using MsIHost host = MsHost.CreateDefaultBuilder()
-//	.ConfigureServices((context, services) =>
-//	{
-//		services.AddSingleton<CharacterService>();
-//		services.AddStackExchangeRedisCache(opt =>
-//		{
-//			opt.InstanceName = "ConAppRedis_";
-//			opt.Configuration = config.GetConnectionString("Redis");
-//		});
-//	})
-//	.Build();
+var applicationBuilder = Host.CreateApplicationBuilder();
+	.ConfigureServices((context, services) =>
+	{
+		services.AddSingleton<CharacterService>();
+		services.AddStackExchangeRedisCache(opt =>
+		{
+			opt.InstanceName = "ConAppRedis_";
+			opt.Configuration = config.GetConnectionString("Redis");
+		});
+	})
+	.Build();
 
 await LoadData(host.Services);
 

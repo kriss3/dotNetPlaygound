@@ -1,4 +1,6 @@
-﻿namespace ConAppRedis.ApiOperations.Data;
+﻿using ConAppRedis.ApiOperations.Data;
+
+namespace ConAppPlayingWithRedisCache.ApiOperations.Data;
 
 public class CharacterService
 {
