@@ -95,7 +95,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithAdapterPat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithMassTransit", "ConAppPlayingWithMassTransit\ConAppPlayingWithMassTransit.csproj", "{AB7BA5D7-6300-44D7-A3E0-ADDC2B7D89E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithMassTransit", "src\ConAppPlayingWithMassTransit\ConAppPlayingWithMassTransit.csproj", "{AB7BA5D7-6300-44D7-A3E0-ADDC2B7D89E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
