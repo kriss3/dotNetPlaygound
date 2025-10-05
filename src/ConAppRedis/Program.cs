@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using static System.Console;
-
 using ConAppRedis.Extensions;
 using ConAppRedis.ApiOperations.Data;
 using Microsoft.Extensions.Hosting;
@@ -12,20 +11,23 @@ WriteLine("Getting Configuration");
 
 ConfigurationBuilder configuration = new();
 configuration.SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json");
+	.AddJsonFile("appsettings.json");
 
 var config = configuration.Build();
 
-using IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices((_, services) =>
-    {
-        services.AddSingleton<CharacterService>();
-        services.AddStackExchangeRedisCache(opt => {
-            opt.InstanceName = "ConAppRedis_";
-            opt.Configuration = config.GetConnectionString("Redis");
-        });
-    })
-    .Build();
+var builder = Host.CreateDefaultBuilder();
+
+//using MsIHost host = MsHost.CreateDefaultBuilder()
+//	.ConfigureServices((context, services) =>
+//	{
+//		services.AddSingleton<CharacterService>();
+//		services.AddStackExchangeRedisCache(opt =>
+//		{
+//			opt.InstanceName = "ConAppRedis_";
+//			opt.Configuration = config.GetConnectionString("Redis");
+//		});
+//	})
+//	.Build();
 
 await LoadData(host.Services);
 
@@ -36,30 +38,27 @@ WriteLine("Load Data...");
 
 ReadLine();
 
-static async Task LoadData(IServiceProvider services) 
+static async Task LoadData(IServiceProvider services)
 {
-    using IServiceScope serviceScope = services.CreateScope();
-    IServiceProvider provider = serviceScope.ServiceProvider;
+	using IServiceScope serviceScope = services.CreateScope();
+	IServiceProvider provider = serviceScope.ServiceProvider;
 
-    IEnumerable<Character>? data;
-    //Get Array of Peope from API
+	IEnumerable<Character>? data;
+	string recordKey = $"DataKey_{DateTime.Now:yyyyMMdd_hhmm}";
 
-    string recordKey = $"DataKey_{DateTime.Now.ToString("yyyyMMdd_hhmm")}";
+	IDistributedCache cache = provider.GetRequiredService<IDistributedCache>();
+	CharacterService svc = provider.GetRequiredService<CharacterService>();
 
-    IDistributedCache cache = provider.GetRequiredService<IDistributedCache>();
-    CharacterService svc = provider.GetRequiredService<CharacterService>();
+	data = await cache.GetRecordAsync<Character[]>(recordKey);
 
-
-    data = await cache.GetRecordAsync<Character[]>(recordKey);
-
-    if (data is null)
-    {
-        WriteLine($"Getting data from from the service.");
-        data = await svc.GetCharacterAsync();
-        await cache.SetRecordAsync(recordKey, data);
-    }
-    else { 
-        //get data from Cache
-    }
-
+	if (data is null)
+	{
+		WriteLine("Getting data from the service.");
+		data = await svc.GetCharacterAsync();
+		await cache.SetRecordAsync(recordKey, data);
+	}
+	else
+	{
+		WriteLine("Data retrieved from cache.");
+	}
 }
