@@ -1,6 +1,7 @@
-﻿using static System.Console;
+﻿using ConApp_Exercises_2;
+using static System.Console;
 
-namespace ConApp_Exercises_2;
+namespace ConAppPlayingWithFactoryMethod;
 
 /// <summary>
 /// A 'ConcreteProduct' class
