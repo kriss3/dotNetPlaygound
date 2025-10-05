@@ -1,4 +1,4 @@
-﻿namespace ConAppPlayingWithFactoryMethod;
+﻿namespace ConAppPlayingWithFactoryMethod.Model;
 
 /// <summary>
 /// The 'Product' abstract class

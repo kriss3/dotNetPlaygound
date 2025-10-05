@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using ConAppPlayingWithFactoryMethod.Model;
+using static System.Console;
 
 namespace ConAppPlayingWithFactoryMethod;
 

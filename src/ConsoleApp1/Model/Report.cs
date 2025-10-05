@@ -1,4 +1,4 @@
-﻿namespace ConAppPlayingWithFactoryMethod;
+﻿namespace ConAppPlayingWithFactoryMethod.Model;
 
 internal class Report : Document
 {

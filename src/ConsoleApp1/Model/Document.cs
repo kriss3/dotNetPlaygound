@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ConAppPlayingWithFactoryMethod;
+namespace ConAppPlayingWithFactoryMethod.Model;
 
 /// <summary>
 /// The 'Creator' abstract class

@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-namespace ConAppPlayingWithFactoryMethod;
+namespace ConAppPlayingWithFactoryMethod.Model;
 
 /// <summary>
 /// A 'ConcreteProduct' class
