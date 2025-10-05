@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-namespace ConApp_Exercises_2;
+namespace ConAppPlayingWithFactoryMethod;
 
 class Program
 {

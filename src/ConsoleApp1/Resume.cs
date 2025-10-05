@@ -1,6 +1,4 @@
-﻿using ConApp_Exercises_2;
-
-namespace ConAppPlayingWithFactoryMethod;
+﻿namespace ConAppPlayingWithFactoryMethod;
 
 internal class Resume : Document
 {

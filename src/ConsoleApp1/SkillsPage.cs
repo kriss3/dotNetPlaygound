@@ -1,5 +1,4 @@
-﻿using ConApp_Exercises_2;
-using static System.Console;
+﻿using static System.Console;
 
 namespace ConAppPlayingWithFactoryMethod;
 

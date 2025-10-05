@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ConApp_Exercises_2;
+namespace ConAppPlayingWithFactoryMethod;
 
 /// <summary>
 /// The 'Creator' abstract class
@@ -12,7 +12,7 @@ abstract class Document
 	// Constructor calls abstract Factory method
 	public Document()
 	{
-		this.CreatePages();
+		CreatePages();
 	}
 
 	public List<Page> Pages

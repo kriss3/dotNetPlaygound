@@ -1,4 +1,4 @@
-﻿namespace ConApp_Exercises_2;
+﻿namespace ConAppPlayingWithFactoryMethod;
 
 /// <summary>
 /// The 'Product' abstract class
