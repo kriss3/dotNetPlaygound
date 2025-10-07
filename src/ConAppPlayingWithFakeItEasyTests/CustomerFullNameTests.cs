@@ -101,11 +101,10 @@ public class CustomerFullNameTests
 	public void ForCustomerWithAddressShippingCondition(
 		int age,
 		bool expected,
-		CustomerWithAddress customer,
-		CustomerShippingCondition sut) 
+		CustomerWithAddress customer)
 	{
 
-		Assert.True(customer.AddressList.Any());
+		Assert.NotEmpty(customer.AddressList);
 		customer.Age = age;
 		var actual = CustomerShippingCondition.Check(customer);
 
