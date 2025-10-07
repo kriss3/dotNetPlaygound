@@ -107,7 +107,7 @@ public class CustomerFullNameTests
 
 		Assert.True(customer.AddressList.Any());
 		customer.Age = age;
-		var actual = sut.Check(customer);
+		var actual = CustomerShippingCondition.Check(customer);
 
 		Assert.Equal(expected, actual);
 	}
@@ -126,7 +126,7 @@ public class CustomerFullNameTests
 
 		Assert.True(customer.AddressList.Any());
 		customer.Age = age;
-		var actual = sut.Check(customer);
+		var actual = CustomerShippingCondition.Check(customer);
 
 		Assert.Equal(expected, actual);
 	}
