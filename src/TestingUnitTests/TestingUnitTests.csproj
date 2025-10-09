@@ -19,8 +19,5 @@
     <PackageReference Include="xunit.extensibility.core" />
     <PackageReference Include="xunit.extensibility.execution" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConAppPlayingWithFundamentals\ConAppPlayingWithFundamentals.csproj" />
-  </ItemGroup>
   <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" />
 </Project>
