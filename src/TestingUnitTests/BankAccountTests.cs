@@ -30,5 +30,3 @@ public class BankAccountTests
         Assert.Fail("No exception was thrown.");
     }
 }
-
-
