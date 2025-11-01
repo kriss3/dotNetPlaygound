@@ -74,8 +74,8 @@ public class Program
             new() { Id = 7, Name = "Billy Cruz", Department = "Marketing" },
             new() { Id = 8, Name = "Sally Jane", Department = "Software" },
             new() { Id = 9, Name = "John Kane", Department = "Sales" },
-            new() { Id = 10, Name = "Jon Bullock", Department = null },
-            new() { Id = 11, Name = null, Department = "" }
+            new() { Id = 10, Name = "Jon Bullock", Department = "" },
+            new() { Id = 11, Name = "null", Department = "" }
         };
 
         var company = new Company() { CompanyId = 0, Name = "Dell", Employees = dellEmployees };

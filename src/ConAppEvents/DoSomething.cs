@@ -3,7 +3,7 @@
 public delegate void Notify();
 public class DoSomething
 {
-    public event Notify DoSomethingCompleted;
+    public event Notify? DoSomethingCompleted;
 
     public void StartDoSomething() 
     {

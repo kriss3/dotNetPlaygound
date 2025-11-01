@@ -125,7 +125,7 @@ public static class StringOperations
             List<string> ls = item.Value;
             var temp = new List<string>();
             ls.ForEach(w => {
-                var x = w.OrderBy(l => l).ToString();
+                var x = new string([.. w.OrderBy(l => l)]);
                 temp.Add(x);
             });
             if (temp[0].SequenceEqual(temp[1])) 
