@@ -41,7 +41,11 @@ class Program
         Log.Warning("This is warning Message");
 
         // Get normal file path of this assembly's permanent directory
-        var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).LocalPath;
+        var dirPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        string path = dirPath is not null 
+            ? new Uri(dirPath).LocalPath 
+            : string.Empty;
+
         var user = Environment.UserName;
         Log.Information("Current user is: {UserName}", user);
         Log.Information("Current app path is: {0}", path);
