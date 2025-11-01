@@ -394,7 +394,7 @@ class Program
 		IConfiguration config = new ConfigurationBuilder()
 			.AddJsonFile("appsettings.json").Build();
 		IEnumerable<KeyValuePair<string, string>> keyValuePairs = config.AsEnumerable();
-		return keyValuePairs.ToList();
+		return [.. keyValuePairs];
 	}
 
 	private static async Task LongProcess()

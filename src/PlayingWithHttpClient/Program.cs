@@ -1,4 +1,3 @@
-
 namespace PlayingWithHttpClient;
 
 public class Program

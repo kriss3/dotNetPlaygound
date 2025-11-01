@@ -5,7 +5,7 @@ public class SingletonExample
 	private static SingletonExample? mySingleton;
 	protected SingletonExample() { }
 
-	private static readonly object syncLock = new();
+	private static readonly Lock syncLock = new();
 
 	public static SingletonExample Instance()
 	{

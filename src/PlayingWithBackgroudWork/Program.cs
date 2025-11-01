@@ -1,6 +1,3 @@
-
-using Microsoft.OpenApi.Models;
-using PlayingWithBackgroudWork;
 using PlayingWithBackgroudWork.Services;
 
 namespace PlayingWithBackgroudWork;
