@@ -1,4 +1,4 @@
-namespace PlayingWithHttpClient;
+namespace PlayingWithHttpClient.Models;
 
 public class WeatherForecast
 {

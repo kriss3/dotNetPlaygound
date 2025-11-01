@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PlayingWithHttpClient.Models;
 
 namespace PlayingWithHttpClient.Controllers;
 [ApiController]
