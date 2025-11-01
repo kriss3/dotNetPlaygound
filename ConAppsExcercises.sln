@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithMassTransi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConAppPlayingWithFacadePattern", "src\ConAppPlayingWithFacadePattern\ConAppPlayingWithFacadePattern.csproj", "{EB5D852B-C2E5-4C15-AF9E-95C7BEFB0442}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithHttpClient", "src\PlayingWithHttpClient\PlayingWithHttpClient.csproj", "{C18B842F-2677-4225-86BC-9AAB5B43F403}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -287,6 +289,10 @@ Global
 		{EB5D852B-C2E5-4C15-AF9E-95C7BEFB0442}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB5D852B-C2E5-4C15-AF9E-95C7BEFB0442}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB5D852B-C2E5-4C15-AF9E-95C7BEFB0442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18B842F-2677-4225-86BC-9AAB5B43F403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18B842F-2677-4225-86BC-9AAB5B43F403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18B842F-2677-4225-86BC-9AAB5B43F403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18B842F-2677-4225-86BC-9AAB5B43F403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

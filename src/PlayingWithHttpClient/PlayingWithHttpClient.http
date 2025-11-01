@@ -1,0 +1,6 @@
+@PlayingWithHttpClient_HostAddress = http://localhost:5067
+
+GET {{PlayingWithHttpClient_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
