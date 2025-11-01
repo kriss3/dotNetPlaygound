@@ -181,16 +181,14 @@ public static class StringOperations
 
     public static string ObfString(string val) 
     {
-        string result = string.Empty;
-
-        var sth = val[..^4];
+        //var sth = val[..^4];
         //var astrx = sth.Replace()
 
         //var regEx = new Regex(".{4}(?=\\s|$)");
         //var x = Regex.Replace("1002945", @"#(.4)", "*");
-        result = val[^4..].PadLeft(val.Length, '*');
+        var result = val[^4..].PadLeft(val.Length, '*');
 
-        var res2 = val.ToMask(4);
+        //var res2 = val.ToMask(4);
 
         return result; 
     }

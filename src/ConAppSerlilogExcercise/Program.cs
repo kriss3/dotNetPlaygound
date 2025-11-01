@@ -9,7 +9,7 @@ namespace ConAppSerlilogExcercise;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         WriteLine("Start !");
         SerilogConfigure();
