@@ -24,10 +24,9 @@ class Program
     }
 }
 
-
 internal class DoAsync
 {
-    public static async Task<IEnumerable<Monkey>> GetMonkeysAsync()
+    public static async Task<IEnumerable<Monkey>?> GetMonkeysAsync()
     {
 		return await LocalData.GetLocalMonkeys();
 	}
@@ -79,7 +78,7 @@ internal class DoAsync
 
 public static class LocalData
 {
-    public static async ValueTask<IEnumerable<Monkey>> GetLocalMonkeys()
+    public static async ValueTask<IEnumerable<Monkey>?> GetLocalMonkeys()
     {
         var baseUrl = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/";
         var options = new RestClientOptions(baseUrl);
@@ -89,12 +88,9 @@ public static class LocalData
         var response = await client.ExecuteAsync<List<Monkey>>(request, default);
 
         IEnumerable<Monkey> result = [];
-        if (response.IsSuccessful) 
-        {
-            result = response.Data;
-        }
-
-        return result;
+        return response.IsSuccessful 
+            ? response.Data
+            : result;
     }
 }
 
