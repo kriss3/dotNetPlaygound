@@ -47,10 +47,9 @@ public class Program
     }
 
     private static List<Employee> BuildEmployees(IList<Employee> employees) =>
-        employees
+        [.. employees
         .Where(e => !(string.IsNullOrWhiteSpace(e.Name) || string.IsNullOrWhiteSpace(e.Department)))
-        .Select(x => new Employee() { Id = x.Id, Name = x.Name, Department = x.Department })
-        .ToList();
+        .Select(x => new Employee() { Id = x.Id, Name = x.Name, Department = x.Department })];
 
     //{
     //    var retData = employees.Where(
