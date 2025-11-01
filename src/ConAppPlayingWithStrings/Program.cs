@@ -24,8 +24,8 @@ public class Program
     private static List<int> MotoRace()
     {
         var res = "10,0,4,1,0,10,3,4,6";
-        List<int> x = new(res.Split(',')
-            .Select(x => int.Parse(x)).OrderBy(x => x));
+        List<int> x = [.. res.Split(',')
+            .Select(x => int.Parse(x)).OrderBy(x => x)];
 
         x.RemoveRange(0, 3);
 
