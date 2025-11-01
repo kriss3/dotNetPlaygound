@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ConAppPlayingWithStrings.Models;
+﻿namespace ConAppPlayingWithStrings.Models;
 
 public class Company
 {
