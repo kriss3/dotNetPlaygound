@@ -1,7 +1,7 @@
 ﻿namespace PlayingWithHttpClient.Models;
 
 public record GitHubUser(
-    string login,
+    string Login,
     int id,
     string node_id,
     string avatar_url,
