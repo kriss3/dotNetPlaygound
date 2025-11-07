@@ -1,3 +1,5 @@
+using PlayingWithHttpClient.Models;
+
 namespace PlayingWithHttpClient;
 
 public class Program
@@ -8,6 +10,11 @@ public class Program
 
 		builder.Services.AddControllers();
 		builder.Services.AddOpenApi();
+
+		builder.Services.AddOptions<GitHubSettings>()
+			.BindConfiguration(GitHubSettings.ConfigurationSection)
+			.ValidateDataAnnotations()
+			.ValidateOnStart();
 
 		var app = builder.Build();
 
