@@ -1,10 +1,14 @@
 @PlayingWithHttpClient_HostAddress = http://localhost:5067
 
-@Secure_HostAddress = https://localhost:7051
+@Secure_HostAddress = https://localhost:7100
 
 GET {{PlayingWithHttpClient_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
 GET {{Secure_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+GET {{Secure_HostAddress}}/api/github/users/v1/kriss3
 Accept: application/json
