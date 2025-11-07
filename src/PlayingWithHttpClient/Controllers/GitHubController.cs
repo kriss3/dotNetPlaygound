@@ -23,4 +23,8 @@ public class GitHubController : ControllerBase
 		_httpClient.DefaultRequestHeaders.Add("User-Agent", _settings.UserAgent);
 	}
 
+	[HttpGet("users/v1/{username}")]
+	public async Task<IActionResult> GetUserAsync(string username) 
+	{
+	}
 }
