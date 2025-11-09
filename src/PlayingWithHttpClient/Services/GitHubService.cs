@@ -8,6 +8,8 @@ public sealed class GitHubService(HttpClient client)
 
 	public async Task<GitHubUser?> GetByUsernameAsync(string username) 
 	{
+		var content = await _client.GetFromJsonAsync<GitHubUser>($"users/{username}");
 
+		return content;
 	}
 }
