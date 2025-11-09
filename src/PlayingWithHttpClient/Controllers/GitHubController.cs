@@ -24,19 +24,25 @@ public class GitHubController : ControllerBase
 	}
 
 	[HttpGet("users/v1/{username}")]
-	public async Task<IActionResult> GetUserAsync(string username) 
+	public async Task<IActionResult> GetUserAsync(string userName) 
 	{
 		try
 		{
-			var user = await _httpClient.GetFromJsonAsync<GitHubUser>($"users/{username}");
+			var user = await _httpClient.GetFromJsonAsync<GitHubUser>($"users/{userName}");
 			if (user is null)
-				return NotFound($"User '{username}' not found on GitHub.");
+				return NotFound($"User '{userName}' not found on GitHub.");
 
 			return Ok(user);
 		}
 		catch (HttpRequestException ex)
 		{
-			return StatusCode(500, $"Error retrieving user '{username}': {ex.Message}");
+			return StatusCode(500, $"Error retrieving user '{userName}': {ex.Message}");
 		}
+	}
+
+	[HttpGet("users/v2/{username}")]
+	public async Task<IActionResult> GetUserV2Async(string userName) 
+	{
+		return Ok();
 	}
 }
