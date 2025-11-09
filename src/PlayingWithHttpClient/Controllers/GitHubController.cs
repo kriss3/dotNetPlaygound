@@ -46,6 +46,10 @@ public class GitHubController : ControllerBase
 		}
 	}
 
+	/*
+	 *  Both v1 and v2 implemention suffer from an issue where details of the clinet 
+	 *  have to be configured per request. I'll address this after finished v2 endpoint. 
+	*/
 	[HttpGet("users/v2/{username}")]
 	public async Task<IActionResult> GetUserV2Async(string userName) 
 	{
