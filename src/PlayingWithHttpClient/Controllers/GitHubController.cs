@@ -9,7 +9,6 @@ namespace PlayingWithHttpClient.Controllers;
 public class GitHubController : ControllerBase
 {
 	private readonly HttpClient _httpClient;
-	private readonly IHttpClientFactory _clientFactory;
 	private readonly GitHubSettings _settings;
 
 	public GitHubController(IHttpClientFactory clientFactory, IOptions<GitHubSettings> settings)
@@ -22,7 +21,8 @@ public class GitHubController : ControllerBase
 		//	BaseAddress = new Uri("https://api.github.com")
 		//};
 
-		_httpClient = _clientFactory.CreateClient();
+		_httpClient = clientFactory.CreateClient() ??
+			throw new InvalidOperationException("Http Client, for some reason is not instantiated.");
 
 		_httpClient.DefaultRequestHeaders.Add("Authorization", _settings.AccessToken);
 		_httpClient.DefaultRequestHeaders.Add("User-Agent", _settings.UserAgent);
