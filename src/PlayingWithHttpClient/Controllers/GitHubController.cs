@@ -26,6 +26,7 @@ public class GitHubController : ControllerBase
 
 		_httpClient.DefaultRequestHeaders.Add("Authorization", _settings.AccessToken);
 		_httpClient.DefaultRequestHeaders.Add("User-Agent", _settings.UserAgent);
+		_httpClient.BaseAddress = new Uri("https://api.github.com");
 	}
 
 	[HttpGet("users/v1/{username}")]
@@ -48,6 +49,17 @@ public class GitHubController : ControllerBase
 	[HttpGet("users/v2/{username}")]
 	public async Task<IActionResult> GetUserV2Async(string userName) 
 	{
-		return Ok();
+		try
+		{
+			var user = await _httpClient.GetFromJsonAsync<GitHubUser>($"users/{userName}");
+			if (user is null)
+				return NotFound($"User '{userName}' not found on GitHub.");
+
+			return Ok(user);
+		}
+		catch (HttpRequestException ex)
+		{
+			return StatusCode(500, $"Error retrieving user '{userName}': {ex.Message}");
+		}
 	}
 }
