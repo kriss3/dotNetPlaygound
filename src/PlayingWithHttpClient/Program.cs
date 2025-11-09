@@ -12,14 +12,16 @@ public class Program
 		if (builder.Environment.IsDevelopment())
 			builder.Configuration.AddUserSecrets<Program>();
 
-		builder.Services.AddHttpClient("github", (serviceProvider, httpClient) =>
-		{
-			var gitHubSettings = serviceProvider.GetRequiredService<IOptions<GitHubSettings>>().Value;
+		builder.Services.AddHttpClient();
 
-			httpClient.DefaultRequestHeaders.Add("Authorization", gitHubSettings.AccessToken);
-			httpClient.DefaultRequestHeaders.Add("User-Agent", gitHubSettings.UserAgent);
-			httpClient.BaseAddress = new Uri("https://api.github.com");
-		});
+		//builder.Services.AddHttpClient("github", (serviceProvider, httpClient) =>
+		//{
+		//	var gitHubSettings = serviceProvider.GetRequiredService<IOptions<GitHubSettings>>().Value;
+
+		//	httpClient.DefaultRequestHeaders.Add("Authorization", gitHubSettings.AccessToken);
+		//	httpClient.DefaultRequestHeaders.Add("User-Agent", gitHubSettings.UserAgent);
+		//	httpClient.BaseAddress = new Uri("https://api.github.com");
+		//});
 
 		builder.Services.AddControllers();
 		builder.Services.AddOpenApi();

@@ -9,16 +9,21 @@ namespace PlayingWithHttpClient.Controllers;
 public class GitHubController : ControllerBase
 {
 	private readonly HttpClient _httpClient;
+	private readonly IHttpClientFactory _clientFactory;
 	private readonly GitHubSettings _settings;
 
-	public GitHubController(IOptions<GitHubSettings> settings)
+	public GitHubController(IHttpClientFactory clientFactory, IOptions<GitHubSettings> settings)
 	{
 		_settings = settings.Value;
 
-		_httpClient = new HttpClient
-		{
-			BaseAddress = new Uri("https://api.github.com")
-		};
+		// By adding _httpClientFactory I change the way HttpClient is instantiated.
+		//_httpClient = new HttpClient
+		//{
+		//	BaseAddress = new Uri("https://api.github.com")
+		//};
+
+		_httpClient = _clientFactory.CreateClient();
+
 		_httpClient.DefaultRequestHeaders.Add("Authorization", _settings.AccessToken);
 		_httpClient.DefaultRequestHeaders.Add("User-Agent", _settings.UserAgent);
 	}
