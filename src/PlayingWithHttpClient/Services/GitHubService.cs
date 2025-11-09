@@ -1,12 +1,13 @@
-﻿namespace PlayingWithHttpClient.Services;
+﻿using PlayingWithHttpClient.Models;
 
-public sealed class GitHubService
+namespace PlayingWithHttpClient.Services;
+
+public sealed class GitHubService(HttpClient client)
 {
-	private readonly HttpClient _client;
+	private readonly HttpClient _client = client;
 
-	public GitHubService(HttpClient client)
+	public async Task<GitHubUser?> GetByUsernameAsync(string username) 
 	{
-		_client = client;
-	}
 
+	}
 }
