@@ -8,6 +8,9 @@ public class Program
 	{
 		var builder = WebApplication.CreateBuilder(args);
 
+		if (builder.Environment.IsDevelopment())
+			builder.Configuration.AddUserSecrets<Program>();
+
 		builder.Services.AddControllers();
 		builder.Services.AddOpenApi();
 
