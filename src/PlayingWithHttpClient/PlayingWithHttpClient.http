@@ -12,3 +12,7 @@ Accept: application/json
 ###
 GET {{Secure_HostAddress}}/api/github/users/v1/kriss3
 Accept: application/json
+
+###
+GET {{Secure_HostAddress}}/api/github/users/v2/kriss3
+Accept: application/json
