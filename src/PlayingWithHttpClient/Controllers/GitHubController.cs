@@ -20,7 +20,15 @@ public class GitHubController : ControllerBase
 	}
 
 	[HttpGet("users/v1/{username}")]
-	public async Task<IActionResult> GetUserAsync(
+	public async Task<IActionResult> GetUserV1Async(
+		string userName,
+		IOptions<GitHubSettings> settings)
+	{ 
+	
+	}
+	
+	[HttpGet("users/v2/{username}")]
+	public async Task<IActionResult> GetUserV2Async(
 		string userName,
 		IHttpClientFactory factory,
 		IOptions<GitHubSettings> settings) 
@@ -50,8 +58,8 @@ public class GitHubController : ControllerBase
 	 *  Both v1 and v2 implemention suffer from an issue where details of the clinet 
 	 *  have to be configured per request. I'll address this after finished v2 endpoint. 
 	*/
-	[HttpGet("users/v2/{username}")]
-	public async Task<IActionResult> GetUserV2Async(
+	[HttpGet("users/v3/{username}")]
+	public async Task<IActionResult> GetUserV3Async(
 		string userName,
 		IHttpClientFactory factory) 
 	{
@@ -68,5 +76,13 @@ public class GitHubController : ControllerBase
 		{
 			return StatusCode(500, $"Error retrieving user '{userName}': {ex.Message}");
 		}
+	}
+
+	[HttpGet("users/v3/{username}")]
+	public async Task<IActionResult> GetUserV3Async(
+		string userName,
+		IHttpClientFactory factory)
+	{ 
+	
 	}
 }
