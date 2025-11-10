@@ -31,14 +31,14 @@ public class GitHubController : ControllerBase
 
 
 		var content = await client.GetFromJsonAsync<GitHubUser>($"users/{userName}");
-		return Ok(content);	
+		return Ok(content);
 	}
-	
+
 	[HttpGet("users/v2/{username}")]
 	public async Task<IActionResult> GetUserV2Async(
 		string userName,
 		IHttpClientFactory factory,
-		IOptions<GitHubSettings> settings) 
+		IOptions<GitHubSettings> settings)
 	{
 		try
 		{
@@ -68,7 +68,7 @@ public class GitHubController : ControllerBase
 	[HttpGet("users/v3/{username}")]
 	public async Task<IActionResult> GetUserV3Async(
 		string userName,
-		IHttpClientFactory factory) 
+		IHttpClientFactory factory)
 	{
 		try
 		{
@@ -83,5 +83,15 @@ public class GitHubController : ControllerBase
 		{
 			return StatusCode(500, $"Error retrieving user '{userName}': {ex.Message}");
 		}
+	}
+
+
+	// Typed HttpClient. For this we use GitHubService. HttpClient is tight to the GitHubService type.
+	[HttpGet("users/v4/{username}")]
+	public async Task<IActionResult> GetUserV4Async(
+		string userName,
+		IHttpClientFactory factory)
+	{
+		return Ok();
 	}
 }
