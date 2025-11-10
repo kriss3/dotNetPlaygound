@@ -2,24 +2,12 @@
 using Microsoft.Extensions.Options;
 using PlayingWithHttpClient.Models;
 using PlayingWithHttpClient.Services;
-using System.Net.Http;
 
 namespace PlayingWithHttpClient.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class GitHubController : ControllerBase
 {
-	//private readonly HttpClient _httpClient;
-	//private readonly GitHubSettings _settings;
-
-	public GitHubController(IHttpClientFactory clientFactory, IOptions<GitHubSettings> settings)
-	{
-		//_settings = settings.Value;
-
-		//_httpClient = clientFactory.CreateClient("gitHub") ??
-		//	throw new InvalidOperationException("Http Client, for some reason is not instantiated.");
-	}
-
 	[HttpGet("users/v1/{username}")]
 	public async Task<IActionResult> GetUserV1Async(
 		string userName,
