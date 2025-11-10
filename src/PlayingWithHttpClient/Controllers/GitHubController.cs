@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlayingWithHttpClient.Models;
+using PlayingWithHttpClient.Services;
 using System.Net.Http;
 
 namespace PlayingWithHttpClient.Controllers;
@@ -89,10 +90,11 @@ public class GitHubController : ControllerBase
 	// Typed HttpClient. For this we use GitHubService. HttpClient is tight to the GitHubService type.
 	[HttpGet("users/v4/{username}")]
 	public async Task<IActionResult> GetUserV4Async(
-		string userName,
-		IHttpClientFactory factory)
+		string userName, 
+		GitHubService gitHubService)
 	{
 		// Registration of the typed HttpClient via DI.
-		return Ok();
+		var content = await gitHubService.GetByUsernameAsync(userName);
+		return Ok(content);
 	}
 }
