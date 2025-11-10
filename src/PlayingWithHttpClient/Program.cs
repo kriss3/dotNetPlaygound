@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using PlayingWithHttpClient.Models;
+using PlayingWithHttpClient.Services;
 
 namespace PlayingWithHttpClient;
 
@@ -16,6 +17,16 @@ public class Program
 		builder.Services.AddHttpClient();
 
 		builder.Services.AddHttpClient("gitHub", (serviceProvider, httpClient) =>
+		{
+			var gitHubSettings = serviceProvider.GetRequiredService<IOptions<GitHubSettings>>().Value;
+
+			httpClient.DefaultRequestHeaders.Add("Authorization", gitHubSettings.AccessToken);
+			httpClient.DefaultRequestHeaders.Add("User-Agent", gitHubSettings.UserAgent);
+			httpClient.BaseAddress = new Uri("https://api.github.com");
+		});
+
+		// Typed HttpClient, HttpClient tight to the GitHubService.
+		builder.Services.AddHttpClient<GitHubService>((serviceProvider, httpClient) => 
 		{
 			var gitHubSettings = serviceProvider.GetRequiredService<IOptions<GitHubSettings>>().Value;
 

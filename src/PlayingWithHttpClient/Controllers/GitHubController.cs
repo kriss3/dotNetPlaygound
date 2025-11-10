@@ -92,6 +92,7 @@ public class GitHubController : ControllerBase
 		string userName,
 		IHttpClientFactory factory)
 	{
+		// Registration of the typed HttpClient via DI.
 		return Ok();
 	}
 }
