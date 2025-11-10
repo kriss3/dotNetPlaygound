@@ -1,35 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlayingWithHttpClient.Models;
+using System.Net.Http;
 
 namespace PlayingWithHttpClient.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class GitHubController : ControllerBase
 {
-	private readonly HttpClient _httpClient;
-	private readonly GitHubSettings _settings;
+	//private readonly HttpClient _httpClient;
+	//private readonly GitHubSettings _settings;
 
 	public GitHubController(IHttpClientFactory clientFactory, IOptions<GitHubSettings> settings)
 	{
-		_settings = settings.Value;
+		//_settings = settings.Value;
 
-		// By adding _httpClientFactory I change the way HttpClient is instantiated.
-		//_httpClient = new HttpClient
-		//{
-		//	BaseAddress = new Uri("https://api.github.com")
-		//};
-
-		_httpClient = clientFactory.CreateClient("gitHub") ??
-			throw new InvalidOperationException("Http Client, for some reason is not instantiated.");
+		//_httpClient = clientFactory.CreateClient("gitHub") ??
+		//	throw new InvalidOperationException("Http Client, for some reason is not instantiated.");
 	}
 
 	[HttpGet("users/v1/{username}")]
-	public async Task<IActionResult> GetUserAsync(string userName) 
+	public async Task<IActionResult> GetUserAsync(
+		string userName,
+		IHttpClientFactory factory,
+		IOptions<GitHubSettings> settings) 
 	{
 		try
 		{
-			var user = await _httpClient.GetFromJsonAsync<GitHubUser>($"users/{userName}");
+			var httpClient = factory.CreateClient();
+
+			httpClient.DefaultRequestHeaders.Add("Authorization", settings.Value.AccessToken);
+			httpClient.DefaultRequestHeaders.Add("User-Agent", settings.Value.UserAgent);
+			httpClient.BaseAddress = new Uri("https://api.github.com");
+
+
+			var user = await httpClient.GetFromJsonAsync<GitHubUser>($"users/{userName}");
 			if (user is null)
 				return NotFound($"User '{userName}' not found on GitHub.");
 
@@ -46,11 +51,15 @@ public class GitHubController : ControllerBase
 	 *  have to be configured per request. I'll address this after finished v2 endpoint. 
 	*/
 	[HttpGet("users/v2/{username}")]
-	public async Task<IActionResult> GetUserV2Async(string userName) 
+	public async Task<IActionResult> GetUserV2Async(
+		string userName,
+		IHttpClientFactory factory,
+		IOptions<GitHubSettings> settings) 
 	{
 		try
 		{
-			var user = await _httpClient.GetFromJsonAsync<GitHubUser>($"users/{userName}");
+			var httpClient = factory.CreateClient("gitHub");
+			var user = await httpClient.GetFromJsonAsync<GitHubUser>($"users/{userName}");
 			if (user is null)
 				return NotFound($"User '{userName}' not found on GitHub.");
 
