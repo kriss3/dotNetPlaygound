@@ -23,8 +23,15 @@ public class GitHubController : ControllerBase
 	public async Task<IActionResult> GetUserV1Async(
 		string userName,
 		IOptions<GitHubSettings> settings)
-	{ 
-	
+	{
+		var client = new HttpClient();
+		client.DefaultRequestHeaders.Add("Authorization", settings.Value.AccessToken);
+		client.DefaultRequestHeaders.Add("User-Agent", settings.Value.UserAgent);
+		client.BaseAddress = new Uri("https://api.github.com");
+
+
+		var content = await client.GetFromJsonAsync<GitHubUser>($"users/{userName}");
+		return Ok(content);	
 	}
 	
 	[HttpGet("users/v2/{username}")]
@@ -76,13 +83,5 @@ public class GitHubController : ControllerBase
 		{
 			return StatusCode(500, $"Error retrieving user '{userName}': {ex.Message}");
 		}
-	}
-
-	[HttpGet("users/v3/{username}")]
-	public async Task<IActionResult> GetUserV3Async(
-		string userName,
-		IHttpClientFactory factory)
-	{ 
-	
 	}
 }
