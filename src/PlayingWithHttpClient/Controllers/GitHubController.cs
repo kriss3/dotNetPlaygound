@@ -53,8 +53,7 @@ public class GitHubController : ControllerBase
 	[HttpGet("users/v2/{username}")]
 	public async Task<IActionResult> GetUserV2Async(
 		string userName,
-		IHttpClientFactory factory,
-		IOptions<GitHubSettings> settings) 
+		IHttpClientFactory factory) 
 	{
 		try
 		{
