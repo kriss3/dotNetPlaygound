@@ -4,7 +4,7 @@ namespace ConAppDelegates;
 
 public class PhotoFilters 
 {
-    public void ApplyBrightness(Photo photo) => Console.WriteLine("Applying brightness.");
+    public static void ApplyBrightness(Photo photo) => Console.WriteLine($"Applying brightness.{photo.Brightness} ");
 
     public void ApplyingContrast(Photo photo) => Console.WriteLine("Applying contrast.");
 
