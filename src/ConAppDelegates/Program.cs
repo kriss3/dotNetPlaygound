@@ -2,6 +2,7 @@
 using ConAppDelegates.v2;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using static System.Console;
 
 namespace ConAppDelegates;
@@ -26,9 +27,13 @@ class Program
 		// Connect GetNumbersDeleate with MyCustomDelegate:
 		GetNumbersDelegate numberGetter = myCustomDelegates.GetBigNumbers;
 
-		//Invoke the delegage
-		
+		//Invoke the delegage, this is where call happes.
+		var bigNumbers = numberGetter();
 
+		WriteLine($"Big numbers found:");
+		WriteLine(() => bigNumbers
+		.Select(number => number.ToString())
+		.ToArray());
 	}
 
 	private static void PhotoProcessingDelegates()
