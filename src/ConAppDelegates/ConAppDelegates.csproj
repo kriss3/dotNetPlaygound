@@ -9,4 +9,8 @@
     <PackageReference Include="Microsoft.CSharp" />
     <PackageReference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="v3\" />
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
 </Project>

@@ -16,6 +16,7 @@ class Program
 	{
 		PhotoProcessingDelegates();
 		CustomDelegateExample();
+		AdvancedDelegateExamples();
 
 		ReadLine();
 	}
@@ -48,8 +49,13 @@ class Program
 		PhotoProcessor.Process("photo.jpg", filterHandler);
 	}
 
-	private static void RemoveRedEye(Photo photo) 
-    {
-        WriteLine("Removing Red Eye from the photo.");
-    }
+	private static void RemoveRedEye(Photo photo)
+	{
+		WriteLine("Removing Red Eye from the photo.");
+	}
+
+	private static void AdvancedDelegateExamples()
+	{
+		var delegates = new AdvancedDelegates();
+	}
 }
