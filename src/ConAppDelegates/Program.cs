@@ -15,7 +15,7 @@ class Program
         filterHandler += filters.ApplyingContrast;
         filterHandler += filters.Resize;
         filterHandler += RemoveRedEye;
-        processor.Process("photo.jpg", filterHandler); 
+		PhotoProcessor.Process("photo.jpg", filterHandler); 
 
         ReadLine();
     }
