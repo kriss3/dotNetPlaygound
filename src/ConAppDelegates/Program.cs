@@ -15,6 +15,7 @@ class Program
 	static void Main()
 	{
 		PhotoProcessingDelegates();
+		CustomDelegateExample();
 
 		ReadLine();
 	}
