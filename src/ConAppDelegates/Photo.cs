@@ -2,7 +2,7 @@
 
 public class Photo 
 {
-	public static Photo Load(string path) => new();
+	public static Photo Load() => new();
 
 	public static void Save() 
     {
