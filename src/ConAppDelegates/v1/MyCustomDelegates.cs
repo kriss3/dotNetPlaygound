@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ConAppDelegates;
+namespace ConAppDelegates.v1;
 
 public class MyCustomDelegates
 {

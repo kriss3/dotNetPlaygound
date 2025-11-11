@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConAppDelegates;
+namespace ConAppDelegates.v2;
 
 public class PhotoFilters 
 {

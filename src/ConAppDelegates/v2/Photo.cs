@@ -1,5 +1,5 @@
 ﻿using static System.Console;
-namespace ConAppDelegates;
+namespace ConAppDelegates.v2;
 
 public class Photo(string photoPath)
 {
