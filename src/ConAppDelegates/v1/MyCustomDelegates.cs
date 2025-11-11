@@ -3,13 +3,14 @@ using System.Linq;
 
 namespace ConAppDelegates.v1;
 
+// this is NOT a delegate this is just a type
 public class MyCustomDelegates
 {
 	private readonly int[] numbers = [1, 2, 3, 4, 5, 6, 1000];
     
     public IEnumerable<int> GetBigNumbers() 
     {
-        return numbers.Where(x => x > 1000);
+        return numbers.Where(x => x >= 100);
     }
 }
 

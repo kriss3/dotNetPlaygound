@@ -1,5 +1,7 @@
-﻿using ConAppDelegates.v2;
+﻿using ConAppDelegates.v1;
+using ConAppDelegates.v2;
 using System;
+using System.Collections.Generic;
 using static System.Console;
 
 namespace ConAppDelegates;
@@ -7,7 +9,9 @@ namespace ConAppDelegates;
 
 class Program
 {
-    static void Main()
+	// This is a delegate definision. This acts as a C# type.
+	public delegate IEnumerable<int> GetNumbersDelegate();
+	static void Main()
 	{
 		PhotoProcessingDelegates();
 
@@ -15,8 +19,16 @@ class Program
 	}
 
 	private static void CustomDelegateExample()
-	{ 
-	
+	{
+		// Delegate instance.
+		var myCustomDelegates = new MyCustomDelegates();
+
+		// Connect GetNumbersDeleate with MyCustomDelegate:
+		GetNumbersDelegate numberGetter = myCustomDelegates.GetBigNumbers;
+
+		//Invoke the delegage
+		
+
 	}
 
 	private static void PhotoProcessingDelegates()
