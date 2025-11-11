@@ -8,20 +8,24 @@ namespace ConAppDelegates;
 class Program
 {
     static void Main()
-    {
+	{
+		PhotoProcessingDelegates();
 
-        var processor = new PhotoProcessor();
-        var filters = new PhotoFilters();
-        Action<Photo> filterHandler = PhotoFilters.ApplyBrightness;
-        filterHandler += filters.ApplyingContrast;
-        filterHandler += filters.Resize;
-        filterHandler += RemoveRedEye;
-		PhotoProcessor.Process("photo.jpg", filterHandler); 
+		ReadLine();
+	}
 
-        ReadLine();
-    }
+	private static void PhotoProcessingDelegates()
+	{
+		var processor = new PhotoProcessor();
+		var filters = new PhotoFilters();
+		Action<Photo> filterHandler = PhotoFilters.ApplyBrightness;
+		filterHandler += filters.ApplyingContrast;
+		filterHandler += filters.Resize;
+		filterHandler += RemoveRedEye;
+		PhotoProcessor.Process("photo.jpg", filterHandler);
+	}
 
-    static void RemoveRedEye(Photo photo) 
+	private static void RemoveRedEye(Photo photo) 
     {
         WriteLine("Removing Red Eye from the photo.");
     }
