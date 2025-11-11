@@ -14,6 +14,11 @@ class Program
 		ReadLine();
 	}
 
+	private static void CustomDelegateExample()
+	{ 
+	
+	}
+
 	private static void PhotoProcessingDelegates()
 	{
 		var processor = new PhotoProcessor();
