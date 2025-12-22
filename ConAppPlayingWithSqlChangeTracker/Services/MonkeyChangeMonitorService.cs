@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ConAppPlayingWithSqlChangeTracker.Services;
 
-pubkuc class MonkeyChangeMonitorService
+public class MonkeyChangeMonitorService
 {
+	private readonly string _connectionString;
+	private SqlConnection _connection;
+	private bool _monitoring;
 }
