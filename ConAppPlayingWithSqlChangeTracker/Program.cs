@@ -6,6 +6,6 @@ public class Program
 {
     static void Main()
     {
-        WriteLine("Hello, World!");
+        WriteLine("Change Monitor for SQL Table dbo.Monkeys");
     }
 }
