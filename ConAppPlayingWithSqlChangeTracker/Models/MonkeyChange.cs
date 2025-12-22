@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConAppPlayingWithSqlChangeTracker.Models;
+﻿namespace ConAppPlayingWithSqlChangeTracker.Models;
 
 public class MonkeyChange
 {
+	public int MonkeyId { get; set; }
+	public string? Operation { get; set; } // I, U, D
+	public long ChangeVersion { get; set; }
+	public string? ChangedColumns { get; set; }
+	public Monkey? CurrentData { get; set; }
 }
