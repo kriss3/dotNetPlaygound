@@ -89,4 +89,83 @@ public class MonkeyChangeMonitorService(string connectionString)
 			await EstablishDependency();
 		}
 	}
+
+	private async Task ProcessChanges()
+	{
+		try
+		{
+			using var connection = new SqlConnection(_connectionString);
+			await connection.OpenAsync();
+
+			// Get the last processed version
+			var lastVersion = await GetLastProcessedVersion(connection);
+
+			// Query change tracking for new changes
+			using var command = new SqlCommand(@"
+                    SELECT 
+                        CT.MonkeyId,
+                        CT.SYS_CHANGE_VERSION,
+                        CT.SYS_CHANGE_OPERATION,
+                        CT.SYS_CHANGE_COLUMNS,
+                        M.Name,
+                        M.Location,
+                        M.Details,
+                        M.Image,
+                        M.Population,
+                        M.Latitude,
+                        M.Longitude,
+                        M.CreatedDate
+                    FROM CHANGETABLE(CHANGES dbo.Monkeys, @lastVersion) AS CT
+                    LEFT OUTER JOIN dbo.Monkeys AS M ON M.MonkeyId = CT.MonkeyId
+                    ORDER BY CT.SYS_CHANGE_VERSION", connection);
+
+			command.Parameters.AddWithValue("@lastVersion", lastVersion);
+
+			using var reader = await command.ExecuteReaderAsync();
+			long maxVersion = lastVersion;
+
+			while (await reader.ReadAsync())
+			{
+				var change = new MonkeyChange
+				{
+					MonkeyId = reader.GetInt32("MonkeyId"),
+					Operation = reader.GetString("SYS_CHANGE_OPERATION"),
+					ChangeVersion = reader.GetInt64("SYS_CHANGE_VERSION"),
+					ChangedColumns = reader.IsDBNull("SYS_CHANGE_COLUMNS") ? null : reader.GetString("SYS_CHANGE_COLUMNS")
+				};
+
+				// For non-deleted records, get current data
+				if (change.Operation != "D" && !reader.IsDBNull("Name"))
+				{
+					change.CurrentData = new Monkey
+					{
+						MonkeyId = change.MonkeyId,
+						Name = reader.GetString("Name"),
+						Location = reader.GetString("Location"),
+						Details = reader.GetString("Details"),
+						Image = reader.GetString("Image"),
+						Population = reader.GetInt32("Population"),
+						Latitude = reader.GetDecimal("Latitude"),
+						Longitude = reader.GetDecimal("Longitude"),
+						CreatedDate = reader.GetDateTime("CreatedDate")
+					};
+				}
+
+				maxVersion = Math.Max(maxVersion, change.ChangeVersion);
+
+				// Raise the event
+				ChangeDetected?.Invoke(this, change);
+			}
+
+			// Update the last processed version
+			if (maxVersion > lastVersion)
+			{
+				await UpdateLastProcessedVersion(connection, maxVersion);
+			}
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"❌ Error processing changes: {ex.Message}");
+		}
+	}
 }
