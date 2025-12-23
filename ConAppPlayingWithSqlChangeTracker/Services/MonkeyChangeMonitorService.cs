@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Console;
 
 namespace ConAppPlayingWithSqlChangeTracker.Services;
 
@@ -39,6 +40,33 @@ public class MonkeyChangeMonitorService(string connectionString)
 		SqlDependency.Stop(_connectionString);
 
 		Console.WriteLine("🛑 Monitoring stopped.");
+	}
+
+	private async Task EstablishDependency()
+	{
+		try
+		{
+			_connection?.Close();
+			_connection = new SqlConnection(_connectionString);
+
+			// Simple query that SqlDependency can monitor
+			var command = new SqlCommand(
+				"SELECT MonkeyId, Name FROM dbo.Monkeys",
+				_connection);
+
+			var dependency = new SqlDependency(command);
+			dependency.OnChange += OnDependencyChange;
+
+			await _connection.OpenAsync();
+			await command.ExecuteReaderAsync();
+
+			WriteLine($"🔄 Dependency established at {DateTime.Now:HH:mm:ss}");
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"❌ Error establishing dependency: {ex.Message}");
+			throw;
+		}
 	}
 
 }
