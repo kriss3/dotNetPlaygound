@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 
 namespace ConAppPlayingWithSqlChangeTracker.Services;
 
@@ -28,6 +27,18 @@ public class MonkeyChangeMonitorService(string connectionString)
 		Console.WriteLine("✅ Monkey change monitoring started!");
 		Console.WriteLine("Monitoring for INSERT, UPDATE, DELETE operations on dbo.Monkeys...");
 		Console.WriteLine();
+	}
+
+	public void StopMonitoring()
+	{
+		if (!_monitoring)
+			return;
+
+		_monitoring = false;
+		_connection?.Close();
+		SqlDependency.Stop(_connectionString);
+
+		Console.WriteLine("🛑 Monitoring stopped.");
 	}
 
 }
