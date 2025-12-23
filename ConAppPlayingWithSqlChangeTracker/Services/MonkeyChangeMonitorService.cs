@@ -168,4 +168,14 @@ public class MonkeyChangeMonitorService(string connectionString)
 			Console.WriteLine($"❌ Error processing changes: {ex.Message}");
 		}
 	}
+
+	private async Task<long> GetLastProcessedVersion(SqlConnection connection)
+	{
+		using var command = new SqlCommand(
+			"SELECT LastProcessedVersion FROM dbo.ChangeTrackingVersions WHERE TableName = 'Monkeys'",
+			connection);
+
+		var result = await command.ExecuteScalarAsync();
+		return result != null ? (long)result : 0;
+	}
 }
