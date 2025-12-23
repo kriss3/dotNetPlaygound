@@ -69,4 +69,24 @@ public class MonkeyChangeMonitorService(string connectionString)
 		}
 	}
 
+	private async void OnDependencyChange(object sender, SqlNotificationEventArgs e)
+	{
+		Console.WriteLine($"🔔 Change notification received at {DateTime.Now:HH:mm:ss}");
+		Console.WriteLine($"   Info: {e.Info}, Source: {e.Source}, Type: {e.Type}");
+
+		if (e.Info == SqlNotificationInfo.Insert ||
+			e.Info == SqlNotificationInfo.Update ||
+			e.Info == SqlNotificationInfo.Delete ||
+			e.Info == SqlNotificationInfo.Invalid) // Invalid often means data changed
+		{
+			await ProcessChanges();
+		}
+
+		// Re-establish the dependency for continued monitoring
+		if (_monitoring)
+		{
+			await Task.Delay(1000); // Small delay to avoid rapid re-establishment
+			await EstablishDependency();
+		}
+	}
 }
