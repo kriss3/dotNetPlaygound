@@ -178,4 +178,15 @@ public class MonkeyChangeMonitorService(string connectionString)
 		var result = await command.ExecuteScalarAsync();
 		return result != null ? (long)result : 0;
 	}
+
+	private async Task UpdateLastProcessedVersion(SqlConnection connection, long version)
+	{
+		using var command = new SqlCommand(@"
+                UPDATE dbo.ChangeTrackingVersions 
+                SET LastProcessedVersion = @version, LastUpdated = GETDATE() 
+                WHERE TableName = 'Monkeys'", connection);
+
+		command.Parameters.AddWithValue("@version", version);
+		await command.ExecuteNonQueryAsync();
+	}
 }
