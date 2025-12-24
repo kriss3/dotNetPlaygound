@@ -39,7 +39,7 @@ public class MonkeyChangeMonitorService(string connectionString)
 		_connection?.Close();
 		SqlDependency.Stop(_connectionString);
 
-		Console.WriteLine("🛑 Monitoring stopped.");
+		WriteLine("🛑 Monitoring stopped.");
 	}
 
 	private async Task EstablishDependency()
@@ -64,15 +64,15 @@ public class MonkeyChangeMonitorService(string connectionString)
 		}
 		catch (Exception ex)
 		{
-			Console.WriteLine($"❌ Error establishing dependency: {ex.Message}");
+			WriteLine($"❌ Error establishing dependency: {ex.Message}");
 			throw;
 		}
 	}
 
 	private async void OnDependencyChange(object sender, SqlNotificationEventArgs e)
 	{
-		Console.WriteLine($"🔔 Change notification received at {DateTime.Now:HH:mm:ss}");
-		Console.WriteLine($"   Info: {e.Info}, Source: {e.Source}, Type: {e.Type}");
+		WriteLine($"🔔 Change notification received at {DateTime.Now:HH:mm:ss}");
+		WriteLine($"   Info: {e.Info}, Source: {e.Source}, Type: {e.Type}");
 
 		if (e.Info == SqlNotificationInfo.Insert ||
 			e.Info == SqlNotificationInfo.Update ||
@@ -165,7 +165,7 @@ public class MonkeyChangeMonitorService(string connectionString)
 		}
 		catch (Exception ex)
 		{
-			Console.WriteLine($"❌ Error processing changes: {ex.Message}");
+			WriteLine($"❌ Error processing changes: {ex.Message}");
 		}
 	}
 
