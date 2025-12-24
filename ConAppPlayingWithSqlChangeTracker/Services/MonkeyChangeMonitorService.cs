@@ -176,7 +176,9 @@ public class MonkeyChangeMonitorService(string connectionString)
 			connection);
 
 		var result = await command.ExecuteScalarAsync();
-		return result != null ? (long)result : 0;
+		return result != null
+            ? (long)result
+            : 0;
 	}
 
 	private static async Task UpdateLastProcessedVersion(SqlConnection connection, long version)
