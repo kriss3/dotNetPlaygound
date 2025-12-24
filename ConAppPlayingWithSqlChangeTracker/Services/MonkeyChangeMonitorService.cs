@@ -179,7 +179,7 @@ public class MonkeyChangeMonitorService(string connectionString)
 		return result != null ? (long)result : 0;
 	}
 
-	private async Task UpdateLastProcessedVersion(SqlConnection connection, long version)
+	private static async Task UpdateLastProcessedVersion(SqlConnection connection, long version)
 	{
 		using var command = new SqlCommand(@"
                 UPDATE dbo.ChangeTrackingVersions 
