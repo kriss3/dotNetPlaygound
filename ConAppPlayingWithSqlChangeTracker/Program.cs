@@ -23,30 +23,30 @@ public class Program
 
 	private static void OnMonkeyChanged(object sender, MonkeyChange change)
 	{
-		Console.WriteLine();
-		Console.WriteLine("🔥 CHANGE DETECTED!");
-		Console.WriteLine($"   Operation: {GetOperationName(change.Operation)}");
-		Console.WriteLine($"   MonkeyId: {change.MonkeyId}");
-		Console.WriteLine($"   Version: {change.ChangeVersion}");
-		Console.WriteLine($"   Time: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+		WriteLine();
+		WriteLine("🔥 CHANGE DETECTED!");
+		WriteLine($"   Operation: {GetOperationName(change.Operation)}");
+		WriteLine($"   MonkeyId: {change.MonkeyId}");
+		WriteLine($"   Version: {change.ChangeVersion}");
+		WriteLine($"   Time: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
 
 		if (!string.IsNullOrEmpty(change.ChangedColumns))
 		{
-			Console.WriteLine($"   Changed Columns: {change.ChangedColumns}");
+			WriteLine($"   Changed Columns: {change.ChangedColumns}");
 		}
 
 		if (change.CurrentData != null)
 		{
-			Console.WriteLine($"   Current Data: {change.CurrentData.Name} - {change.CurrentData.Location}");
+			WriteLine($"   Current Data: {change.CurrentData.Name} - {change.CurrentData.Location}");
 		}
 		else if (change.Operation == "D")
 		{
 			Console.WriteLine($"   Record was deleted");
 		}
 
-		Console.WriteLine();
+		WriteLine();
 
-		// Here you can add your custom logic to handle the change
+		// Place to add your custom logic to handle the change
 		// For example: send notifications, update caches, trigger workflows, etc.
 		HandleChange(change);
 	}
