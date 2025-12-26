@@ -20,7 +20,29 @@ public class Program
 		// Subscribe to change events
 		monitor.ChangeDetected += OnMonkeyChanged;
 
+		try
+		{
+			await monitor.StartMonitoringAsync();
 
+			Console.WriteLine("Press 'q' to quit, or any other key to see status...");
+
+			while (true)
+			{
+				var key = Console.ReadKey(true);
+				if (key.KeyChar == 'q' || key.KeyChar == 'Q')
+					break;
+
+				Console.WriteLine($"🟢 Monitoring active - {DateTime.Now:HH:mm:ss}");
+			}
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"❌ Error: {ex.Message}");
+		}
+		finally
+		{
+			monitor.StopMonitoring();
+		}
 	}
 
 	private static void OnMonkeyChanged(object? sender, MonkeyChange change)
