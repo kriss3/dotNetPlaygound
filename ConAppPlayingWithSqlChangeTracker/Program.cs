@@ -24,7 +24,7 @@ public class Program
 		{
 			await monitor.StartMonitoringAsync();
 
-			Console.WriteLine("Press 'q' to quit, or any other key to see status...");
+			WriteLine("Press 'q' to quit, or any other key to see status...");
 
 			while (true)
 			{
@@ -32,12 +32,12 @@ public class Program
 				if (key.KeyChar == 'q' || key.KeyChar == 'Q')
 					break;
 
-				Console.WriteLine($"🟢 Monitoring active - {DateTime.Now:HH:mm:ss}");
+				WriteLine($"🟢 Monitoring active - {DateTime.Now:HH:mm:ss}");
 			}
 		}
 		catch (Exception ex)
 		{
-			Console.WriteLine($"❌ Error: {ex.Message}");
+			WriteLine($"❌ Error: {ex.Message}");
 		}
 		finally
 		{
