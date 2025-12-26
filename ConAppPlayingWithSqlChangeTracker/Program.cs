@@ -17,15 +17,17 @@ public class Program
 
 		var monitor = new MonkeyChangeMonitorService(ConnectionString);
 
+		// Subscribe to change events
+		monitor.ChangeDetected += OnMonkeyChanged;
 
 
 	}
 
-	private static void OnMonkeyChanged(object sender, MonkeyChange change)
+	private static void OnMonkeyChanged(object? sender, MonkeyChange change)
 	{
 		WriteLine();
 		WriteLine("🔥 CHANGE DETECTED!");
-		WriteLine($"   Operation: {GetOperationName(change.Operation)}");
+		WriteLine($"   Operation: {GetOperationName(change.Operation ?? string.Empty)}");
 		WriteLine($"   MonkeyId: {change.MonkeyId}");
 		WriteLine($"   Version: {change.ChangeVersion}");
 		WriteLine($"   Time: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
@@ -41,7 +43,7 @@ public class Program
 		}
 		else if (change.Operation == "D")
 		{
-			Console.WriteLine($"   Record was deleted");
+			WriteLine($"   Record was deleted");
 		}
 
 		WriteLine();
