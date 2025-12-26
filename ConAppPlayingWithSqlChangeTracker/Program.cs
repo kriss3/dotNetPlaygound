@@ -1,5 +1,6 @@
 ﻿namespace ConAppPlayingWithSqlChangeTracker;
 
+using ConAppPlayingWithSqlChangeTracker.Models;
 using ConAppPlayingWithSqlChangeTracker.Services;
 using Microsoft.Extensions.Configuration;
 using static System.Console;
@@ -36,5 +37,22 @@ public class Program
 		}
 
 		return cs;
+	}
+
+	private static void HandleChange(MonkeyChange change)
+	{
+		// Your custom change handling logic here
+		switch (change.Operation)
+		{
+			case "I": // Insert
+				Console.WriteLine($"   👉 Custom Handler: New monkey added - {change.CurrentData?.Name}");
+				break;
+			case "U": // Update
+				Console.WriteLine($"   👉 Custom Handler: Monkey updated - {change.CurrentData?.Name}");
+				break;
+			case "D": // Delete
+				Console.WriteLine($"   👉 Custom Handler: Monkey deleted - ID {change.MonkeyId}");
+				break;
+		}
 	}
 }
