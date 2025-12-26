@@ -55,4 +55,15 @@ public class Program
 				break;
 		}
 	}
+
+	private static string GetOperationName(string operation)
+	{
+		return operation switch
+		{
+			"I" => "INSERT",
+			"U" => "UPDATE",
+			"D" => "DELETE",
+			_ => operation
+		};
+	}
 }
