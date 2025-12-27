@@ -28,7 +28,7 @@ public class Program
 
 			while (true)
 			{
-				var key = Console.ReadKey(true);
+				var key = ReadKey(true);
 				if (key.KeyChar == 'q' || key.KeyChar == 'Q')
 					break;
 
