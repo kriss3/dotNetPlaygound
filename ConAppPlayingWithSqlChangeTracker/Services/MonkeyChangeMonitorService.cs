@@ -46,10 +46,13 @@ public class MonkeyChangeMonitorService(string connectionString)
 	{
 		try
 		{
+			// Close previous connection
 			_connection?.Close();
+			_connection?.Dispose();
+
+			// Create new connection for dependency
 			_connection = new SqlConnection(_connectionString);
 
-			// Simple query that SqlDependency can monitor
 			var command = new SqlCommand(
 				"SELECT MonkeyId, Name FROM dbo.Monkeys",
 				_connection);
@@ -58,13 +61,19 @@ public class MonkeyChangeMonitorService(string connectionString)
 			dependency.OnChange += OnDependencyChange;
 
 			await _connection.OpenAsync();
-			await command.ExecuteReaderAsync();
 
-			WriteLine($"🔄 Dependency established at {DateTime.Now:HH:mm:ss}");
+			// Execute and immediately dispose reader
+			using (var reader = await command.ExecuteReaderAsync())
+			{
+				// Reader execution triggers the dependency setup
+				// No need to actually read the data
+			}
+
+			Console.WriteLine($"🔄 Dependency established at {DateTime.Now:HH:mm:ss}");
 		}
 		catch (Exception ex)
 		{
-			WriteLine($"❌ Error establishing dependency: {ex.Message}");
+			Console.WriteLine($"❌ Error establishing dependency: {ex.Message}");
 			throw;
 		}
 	}
