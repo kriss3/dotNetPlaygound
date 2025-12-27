@@ -99,13 +99,13 @@ public class Program
 		switch (change.Operation)
 		{
 			case "I": // Insert
-				Console.WriteLine($"   👉 Custom Handler: New monkey added - {change.CurrentData?.Name}");
+				WriteLine($"   👉 Custom Handler: New monkey added - {change.CurrentData?.Name}");
 				break;
 			case "U": // Update
-				Console.WriteLine($"   👉 Custom Handler: Monkey updated - {change.CurrentData?.Name}");
+				WriteLine($"   👉 Custom Handler: Monkey updated - {change.CurrentData?.Name}");
 				break;
 			case "D": // Delete
-				Console.WriteLine($"   👉 Custom Handler: Monkey deleted - ID {change.MonkeyId}");
+				WriteLine($"   👉 Custom Handler: Monkey deleted - ID {change.MonkeyId}");
 				break;
 		}
 	}
