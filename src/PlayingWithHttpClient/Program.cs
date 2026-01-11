@@ -43,7 +43,6 @@ public class Program
 		.SetHandlerLifetime(Timeout.InfiniteTimeSpan);
 
 		builder.Services.AddControllers();
-		builder.Services.AddOpenApi();
 
 		builder.Services.AddOptions<GitHubSettings>()
 			.BindConfiguration(GitHubSettings.ConfigurationSection)
@@ -54,7 +53,8 @@ public class Program
 
 		if (app.Environment.IsDevelopment())
 		{
-			app.MapOpenApi();
+			app.UseSwagger();
+			app.UseSwaggerUI();
 		}
 
 		app.UseHttpsRedirection();
