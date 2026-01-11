@@ -7,9 +7,7 @@ public class Program
 	public static void Main()
 	{
 		var builder = WebApplication.CreateBuilder();
-
 		builder.Services.AddControllers();
-		builder.Services.AddOpenApi();
 		builder.Services.AddSwaggerGen();
 		builder.Services.AddSingleton<SampleData>();
 		builder.Services.AddHostedService<BackgroundRefresh>();
@@ -18,7 +16,6 @@ public class Program
 
 		if (app.Environment.IsDevelopment())
 		{
-			app.MapOpenApi();
 			app.UseSwagger();
 			app.UseSwaggerUI();
 		}

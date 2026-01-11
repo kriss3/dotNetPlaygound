@@ -1,5 +1,4 @@
-﻿
-namespace PlayingWithBackgroudWork.Services;
+﻿namespace PlayingWithBackgroudWork.Services;
 
 public class BackgroundRefresh(SampleData data) : IHostedService, IDisposable
 {
@@ -23,8 +22,9 @@ public class BackgroundRefresh(SampleData data) : IHostedService, IDisposable
 		return Task.CompletedTask;
 	}
 
-	public void Dispose()
-	{
-		_timer?.Dispose();
-	}
+    public void Dispose()
+    {
+        _timer?.Dispose();
+        GC.SuppressFinalize(this);
+    }
 }
