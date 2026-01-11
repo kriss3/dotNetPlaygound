@@ -7,9 +7,4 @@
     <UserSecretsId>1d4f737f-5ae9-43a3-befa-12139ca84ab6</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
-    <PackageReference Include="Swashbuckle.AspNetCore" />
-  </ItemGroup>
-
 </Project>
