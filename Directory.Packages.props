@@ -20,7 +20,7 @@
     <PackageVersion Include="System.Text.Json" Version="10.0.2" />
     <PackageVersion Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
     <PackageVersion Include="System.ValueTuple" Version="4.6.1" />
-    <PackageVersion Include="RestSharp" Version="113.0.0" />
+    <PackageVersion Include="RestSharp" Version="113.1.0" />
     <PackageVersion Include="Serilog" Version="4.3.0" />
     <PackageVersion Include="Serilog.AspNetCore" Version="10.0.0" />
     <PackageVersion Include="Serilog.Sinks.File" Version="7.0.0" />
