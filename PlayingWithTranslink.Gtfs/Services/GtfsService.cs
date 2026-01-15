@@ -4,6 +4,12 @@ using System.Text;
 
 namespace PlayingWithTranslink.Gtfs.Services;
 
-internal class GtfsService
+public sealed class GtfsService
 {
+	private readonly string _gtfsFolder;
+
+	public GtfsService(string gtfsFolder)
+	{
+		_gtfsFolder = gtfsFolder ?? throw new ArgumentNullException(nameof(gtfsFolder));
+	}
 }
