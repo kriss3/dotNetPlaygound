@@ -4,6 +4,10 @@ using System.Text;
 
 namespace PlayingWithTranslink.Gtfs.Infrastructure;
 
-public class GtfsTime
+public static class GtfsTime
 {
+	public static TimeSpan? ParseGtfsTime(string hhmmss)
+	{ 
+	
+	}
 }
