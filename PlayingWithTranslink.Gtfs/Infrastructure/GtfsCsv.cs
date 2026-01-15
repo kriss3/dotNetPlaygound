@@ -2,7 +2,7 @@
 using CsvHelper.Configuration;
 using System.Globalization;
 
-namespace PlayingWithTranslink.Gtfs.Services;
+namespace PlayingWithTranslink.Gtfs.Infrastructure;
 
 public static class GtfsCsv
 {
