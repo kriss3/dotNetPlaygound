@@ -1,0 +1,9 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PlayingWithTranslink.Gtfs.Services;
+
+internal class GtfsService
+{
+}
