@@ -33,7 +33,7 @@ public class Program
 					Console.WriteLine();
 					Console.WriteLine($"Matches ({matches.Count}):");
 					foreach (var s in matches)
-						Console.WriteLine($"{s.stop_id} | {s.stop_name} | {s.stop_lat},{s.stop_lon}");
+						Console.WriteLine($"{s.StopId} | {s.StopName} | {s.StopLatitude},{s.StopLongitute}");
 					break;
 				}
 			default:
