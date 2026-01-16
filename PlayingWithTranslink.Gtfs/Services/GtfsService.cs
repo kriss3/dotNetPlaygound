@@ -38,5 +38,8 @@ public sealed class GtfsService(string gtfsFolder)
 
 	public IReadOnlyList<string> GetNextDeparturesWithRoute(string stopId, TimeSpan now, int take = 10)
 	{
+		var routesPath = Path.Combine(_gtfsFolder, "routes.txt");
+		var tripsPath = Path.Combine(_gtfsFolder, "trips.txt");
+		var stopTimesPath = Path.Combine(_gtfsFolder, "stop_times.txt");
 	}
 }
