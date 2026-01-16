@@ -44,5 +44,25 @@ public sealed class GtfsService(string gtfsFolder)
 
 		var routes = GtfsCsv.LoadSmall<Route>(routesPath).ToDictionary(r => r.route_id);
 		var trips = GtfsCsv.LoadSmall<Trip>(tripsPath).ToDictionary(t => t.trip_id);
+
+		var results = new List<(TimeSpan time, string line)>(200);
+
+		foreach (var st in GtfsCsv.StreamBig<StopTime>(stopTimesPath))
+		{
+			if (st.stop_id != stopId) continue;
+
+			var t = GtfsTime.ParseGtfsTime(st.departure_time);
+			if (t is null || t.Value < now) continue;
+
+			if (!trips.TryGetValue(st.trip_id, out var trip)) continue;
+			if (!routes.TryGetValue(trip.route_id, out var route)) continue;
+
+			results.Add((t.Value, $"{st.departure_time}  {route.route_short_name}  {trip.trip_headsign}"));
+		}
+
+		return [.. results
+			.OrderBy(r => r.time)
+			.Take(take)
+			.Select(r => r.line)];
 	}
 }
