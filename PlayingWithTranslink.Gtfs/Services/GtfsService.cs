@@ -41,5 +41,8 @@ public sealed class GtfsService(string gtfsFolder)
 		var routesPath = Path.Combine(_gtfsFolder, "routes.txt");
 		var tripsPath = Path.Combine(_gtfsFolder, "trips.txt");
 		var stopTimesPath = Path.Combine(_gtfsFolder, "stop_times.txt");
+
+		var routes = GtfsCsv.LoadSmall<Route>(routesPath).ToDictionary(r => r.route_id);
+		var trips = GtfsCsv.LoadSmall<Trip>(tripsPath).ToDictionary(t => t.trip_id);
 	}
 }
