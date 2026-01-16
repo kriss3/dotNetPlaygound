@@ -25,15 +25,29 @@ public class Program
 		{
 			case "1":
 				{
-					Console.Write("Search text (e.g. 'commercial'): ");
-					var query = Console.ReadLine() ?? "";
+					Write("Search text (e.g. 'commercial'): ");
+					var query = ReadLine() ?? "";
 
 					var matches = svc.SearchStops(query);
 
-					Console.WriteLine();
-					Console.WriteLine($"Matches ({matches.Count}):");
+					WriteLine();
+					WriteLine($"Matches ({matches.Count}):");
 					foreach (var s in matches)
-						Console.WriteLine($"{s.StopId} | {s.StopName} | {s.StopLatitude},{s.StopLongitute}");
+						WriteLine($"{s.StopId} | {s.StopName} | {s.StopLatitude},{s.StopLongitute}");
+					break;
+				}
+			case "2":
+				{
+					var stopId = args.ElementAtOrDefault(1) ?? "60980";
+					var now = DateTime.Now.TimeOfDay;
+
+					var next = svc.GetNextScheduledDepartures(stopId, now);
+
+					WriteLine($"Next scheduled departures for stop {stopId}:");
+					foreach (var t in next) WriteLine(t);
+
+					if (next.Count == 0)
+						WriteLine("No upcoming departures found. Try a different stop_id or run at a different time.");
 					break;
 				}
 			default:
