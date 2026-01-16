@@ -25,6 +25,15 @@ public sealed class GtfsService(string gtfsFolder)
 
 	public IReadOnlyList<string> GetNextScheduledDepartures(string stopId, TimeSpan now, int take = 10)
 	{
+		var stopTimesPath = Path.Combine(_gtfsFolder, "stop_times.txt");
+
+		return [.. GtfsCsv.StreamBig<StopTime>(stopTimesPath)
+			.Where(st => st.stop_id == stopId)
+			.Select(st => (raw: st.departure_time, time: GtfsTime.ParseGtfsTime(st.departure_time)))
+			.Where(x => x.time is not null && x.time.Value >= now)
+			.OrderBy(x => x.time)
+			.Take(take)
+			.Select(x => x.raw)];
 	}
 
 	public IReadOnlyList<string> GetNextDeparturesWithRoute(string stopId, TimeSpan now, int take = 10)
