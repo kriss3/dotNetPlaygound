@@ -5,7 +5,7 @@ using static System.Console;
 
 public class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         WriteLine("Playing with BC Translink GTFS system API.");
 		var gtfsFolder = Path.Combine(AppContext.BaseDirectory, "Gtfs");
@@ -18,5 +18,26 @@ public class Program
 		}
 
 		var svc = new GtfsService(gtfsFolder);
+
+		var mode = args.Length > 0 ? args[0] : "1";
+
+		switch (mode)
+		{
+			case "1":
+				{
+					Console.Write("Search text (e.g. 'commercial'): ");
+					var query = Console.ReadLine() ?? "";
+
+					var matches = svc.SearchStops(query);
+
+					Console.WriteLine();
+					Console.WriteLine($"Matches ({matches.Count}):");
+					foreach (var s in matches)
+						Console.WriteLine($"{s.stop_id} | {s.stop_name} | {s.stop_lat},{s.stop_lon}");
+					break;
+				}
+			default:
+				break;
+		}
 	}
 }
