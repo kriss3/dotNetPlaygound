@@ -51,6 +51,10 @@ public class Program
 					break;
 				}
 			default:
+				WriteLine("Usage:");
+				WriteLine("  dotnet run -- 1");
+				WriteLine("  dotnet run -- 2 <stopId>");
+				WriteLine("  dotnet run -- 3 <stopId>");
 				break;
 		}
 	}
