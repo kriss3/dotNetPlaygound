@@ -44,7 +44,23 @@ public class Program
 					var next = svc.GetNextScheduledDepartures(stopId, now);
 
 					WriteLine($"Next scheduled departures for stop {stopId}:");
-					foreach (var t in next) WriteLine(t);
+					foreach (var t in next) 
+						WriteLine(t);
+
+					if (next.Count == 0)
+						WriteLine("No upcoming departures found. Try a different stop_id or run at a different time.");
+					break;
+				}
+			case "3":
+				{
+					var stopId = args.ElementAtOrDefault(1) ?? "60980";
+					var now = DateTime.Now.TimeOfDay;
+
+					var next = svc.GetNextDeparturesWithRoute(stopId, now);
+
+					WriteLine($"Next scheduled departures for stop {stopId}:");
+					foreach (var line in next) 
+						WriteLine(line);
 
 					if (next.Count == 0)
 						WriteLine("No upcoming departures found. Try a different stop_id or run at a different time.");
