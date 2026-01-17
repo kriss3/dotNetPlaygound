@@ -75,7 +75,52 @@ public class Program
 		}
 	}
 
+	// ------------------------------------------------
+	// Simple menu
+	// ------------------------------------------------
+	private static void RunMenu(GtfsService service)
+	{
+		while (true)
+		{
+			WriteLine();
+			WriteLine("GTFS Experiment Menu");
+			WriteLine("--------------------");
+			WriteLine("1 - Search stops by name");
+			WriteLine("2 - Next scheduled departures (static)");
+			WriteLine("3 - Next departures with route & headsign");
+			WriteLine("Q - Quit");
+			WriteLine();
+			Write("Choose an option: ");
 
+			var choice = Console.ReadLine()?.Trim();
+
+			WriteLine();
+
+			switch (choice)
+			{
+				case "1":
+					Experiment_SearchStops(service);
+					break;
+
+				case "2":
+					Experiment_NextDepartures(service);
+					break;
+
+				case "3":
+					Experiment_NextDeparturesWithRoutes(service);
+					break;
+
+				case "q":
+				case "Q":
+					WriteLine("Goodbye 👋");
+					return;
+
+				default:
+					WriteLine("Unknown option. Please choose 1, 2, 3, or Q.");
+					break;
+			}
+		}
+	}
 
 	// ------------------------------------------------
 	// Experiment 1
