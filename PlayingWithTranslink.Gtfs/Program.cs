@@ -55,7 +55,6 @@ public class Program
 				{
 					var stopId = args.ElementAtOrDefault(1) ?? "60980";
 					var now = DateTime.Now.TimeOfDay;
-
 					var next = svc.GetNextDeparturesWithRoute(stopId, now);
 
 					WriteLine($"Next scheduled departures for stop {stopId}:");
