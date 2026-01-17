@@ -141,19 +141,19 @@ public class Program
 		var now = GtfsHelper.PromptTime("Current time (HH:mm)", DateTime.Now.TimeOfDay);
 		var take = GtfsHelper.PromptInt("Max departures", 10);
 
-		Console.WriteLine();
-		Console.WriteLine($"Next scheduled departures for stop {stopId}");
-		Console.WriteLine();
+		WriteLine();
+		WriteLine($"Next scheduled departures for stop {stopId}");
+		WriteLine();
 
 		var departures = service.GetNextDeparturesWithRoute(stopId, now, take);
 
 		if (departures.Count == 0)
 		{
-			Console.WriteLine("No upcoming departures found.");
+			WriteLine("No upcoming departures found.");
 			return;
 		}
 
 		foreach (var line in departures)
-			Console.WriteLine(line);
+			WriteLine(line);
 	}
 }
