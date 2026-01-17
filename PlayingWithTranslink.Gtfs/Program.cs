@@ -82,7 +82,7 @@ public class Program
 	private static void Experiment_SearchStops(GtfsService service)
 	{
 		Write("Enter stop search text: ");
-		var query = Console.ReadLine() ?? string.Empty;
+		var query = ReadLine() ?? string.Empty;
 
 		Write("Max results (default 10): ");
 		var takeInput = ReadLine();
@@ -96,13 +96,13 @@ public class Program
 
 		if (stops.Count == 0)
 		{
-			Console.WriteLine("No stops found.");
+			WriteLine("No stops found.");
 			return;
 		}
 
 		foreach (var s in stops)
 		{
-			Console.WriteLine($"{s.StopId} | {s.StopName}");
+			WriteLine($"{s.StopId} | {s.StopName}");
 		}
 	}
 }
