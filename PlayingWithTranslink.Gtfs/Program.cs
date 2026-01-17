@@ -131,4 +131,29 @@ public class Program
 		foreach (var d in departures)
 			WriteLine(d);
 	}
+
+	// ------------------------------------------------
+	// Experiment 3
+	// ------------------------------------------------
+	private static void Experiment_NextDeparturesWithRoutes(GtfsService service)
+	{
+		var stopId = Prompt("Enter stop_id", "60980");
+		var now = PromptTime("Current time (HH:mm)", DateTime.Now.TimeOfDay);
+		var take = PromptInt("Max departures", 10);
+
+		Console.WriteLine();
+		Console.WriteLine($"Next scheduled departures for stop {stopId}");
+		Console.WriteLine();
+
+		var departures = service.GetNextDeparturesWithRoute(stopId, now, take);
+
+		if (departures.Count == 0)
+		{
+			Console.WriteLine("No upcoming departures found.");
+			return;
+		}
+
+		foreach (var line in departures)
+			Console.WriteLine(line);
+	}
 }
