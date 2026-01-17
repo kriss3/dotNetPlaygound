@@ -21,7 +21,6 @@ public sealed class GtfsService(string gtfsFolder)
 		return [.. stops
 			.Where(s => s.StopName.Contains(query, StringComparison.OrdinalIgnoreCase))
 			.Take(take)];
-			
 	}
 
 	public IReadOnlyList<string> GetNextScheduledDepartures(string stopId, TimeSpan now, int take = 10)
@@ -48,17 +47,17 @@ public sealed class GtfsService(string gtfsFolder)
 
 		var results = new List<(TimeSpan time, string line)>(200);
 
-		foreach (var st in GtfsCsv.StreamBig<StopTime>(stopTimesPath))
+		foreach (var st in GtfsCsv.StreamBig<StopTime, StopTimeMap>(stopTimesPath))
 		{
-			if (st.stop_id != stopId) continue;
+			if (st.StopId != stopId) continue;
 
-			var t = GtfsTime.ParseGtfsTime(st.departure_time);
+			var t = GtfsTime.ParseGtfsTime(st.DepartureTime);
 			if (t is null || t.Value < now) continue;
 
-			if (!trips.TryGetValue(st.trip_id, out var trip)) continue;
-			if (!routes.TryGetValue(trip.route_id, out var route)) continue;
+			if (!trips.TryGetValue(st.TripId, out var trip)) continue;
+			if (!routes.TryGetValue(trip.RouteId, out var route)) continue;
 
-			results.Add((t.Value, $"{st.departure_time}  {route.route_short_name}  {trip.trip_headsign}"));
+			results.Add((t.Value, $"{st.DepartureTime}  {route.RouteShortName}  {trip.TripHeadSign}"));
 		}
 
 		return [.. results
