@@ -15,10 +15,12 @@ public static class GtfsCsv
 		return [.. csv.GetRecords<T>()];
 	}
 
-	public static IEnumerable<T> StreamBig<T>(string path)
+	public static IEnumerable<T> StreamBig<T, TMap>(string path) where TMap : ClassMap
 	{
 		using var reader = new StreamReader(path);
 		using var csv = Create(reader);
+
+		csv.Context.RegisterClassMap<TMap>();
 
 		foreach (var row in csv.GetRecords<T>())
 			yield return row;
