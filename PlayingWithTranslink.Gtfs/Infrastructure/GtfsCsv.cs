@@ -6,10 +6,12 @@ namespace PlayingWithTranslink.Gtfs.Infrastructure;
 
 public static class GtfsCsv
 {
-	public static List<T> LoadSmall<T>(string path)
+	public static List<T> LoadSmall<T, TMap>(string path) where TMap : ClassMap
 	{
 		using var reader = new StreamReader(path);
 		using var csv = Create(reader);
+
+		csv.Context.RegisterClassMap<TMap>();
 		return [.. csv.GetRecords<T>()];
 	}
 
