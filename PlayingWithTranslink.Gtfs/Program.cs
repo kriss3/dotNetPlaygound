@@ -1,7 +1,8 @@
-﻿namespace PlayingWithTranslink.Gtfs;
-
-using PlayingWithTranslink.Gtfs.Services;
+﻿using PlayingWithTranslink.Gtfs.Services;
+using PlayingWithTranslink.Gtfs.Infrastructure.Helpers;
 using static System.Console;
+
+namespace PlayingWithTranslink.Gtfs;
 
 public class Program
 {
