@@ -6,7 +6,7 @@ namespace PlayingWithTranslink.Gtfs;
 
 public class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         WriteLine("Playing with BC Translink GTFS system API.");
 		var gtfsFolder = Path.Combine(AppContext.BaseDirectory, "Gtfs");
