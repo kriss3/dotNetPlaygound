@@ -1,4 +1,5 @@
 ﻿using PlayingWithTranslink.Gtfs.Infrastructure;
+using PlayingWithTranslink.Gtfs.Infrastructure.Maps;
 using PlayingWithTranslink.Gtfs.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ public sealed class GtfsService(string gtfsFolder)
 	public IReadOnlyList<Stop> SearchStops(string query, int take = 20)
 	{
 		var stopsPath = Path.Combine(_gtfsFolder, "stops.txt");
-		var stops = GtfsCsv.LoadSmall<Stop>(stopsPath);
+		var stops = GtfsCsv.LoadSmall<Stop, StopMap>(stopsPath);
 
 		query ??= string.Empty;
 
@@ -27,9 +28,9 @@ public sealed class GtfsService(string gtfsFolder)
 	{
 		var stopTimesPath = Path.Combine(_gtfsFolder, "stop_times.txt");
 
-		return [.. GtfsCsv.StreamBig<StopTime>(stopTimesPath)
-			.Where(st => st.stop_id == stopId)
-			.Select(st => (raw: st.departure_time, time: GtfsTime.ParseGtfsTime(st.departure_time)))
+		return [.. GtfsCsv.StreamBig<StopTime, StopTimeMap>(stopTimesPath)
+			.Where(st => st.StopId == stopId)
+			.Select(st => (raw: st.DepartureTime, time: GtfsTime.ParseGtfsTime(st.DepartureTime)))
 			.Where(x => x.time is not null && x.time.Value >= now)
 			.OrderBy(x => x.time)
 			.Take(take)
