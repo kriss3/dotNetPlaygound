@@ -137,9 +137,9 @@ public class Program
 	// ------------------------------------------------
 	private static void Experiment_NextDeparturesWithRoutes(GtfsService service)
 	{
-		var stopId = Prompt("Enter stop_id", "60980");
-		var now = PromptTime("Current time (HH:mm)", DateTime.Now.TimeOfDay);
-		var take = PromptInt("Max departures", 10);
+		var stopId = GtfsHelper.Prompt("Enter stop_id", "60980");
+		var now = GtfsHelper.PromptTime("Current time (HH:mm)", DateTime.Now.TimeOfDay);
+		var take = GtfsHelper.PromptInt("Max departures", 10);
 
 		Console.WriteLine();
 		Console.WriteLine($"Next scheduled departures for stop {stopId}");
