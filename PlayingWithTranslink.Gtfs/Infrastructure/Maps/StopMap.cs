@@ -10,6 +10,6 @@ public sealed class StopMap: ClassMap<Stop>
         Map(m => m.StopId).Name("stop_id");
 		Map(m => m.StopName).Name("stop_name");
 		Map(m => m.StopLatitude).Name("stop_lat");
-		Map(m => m.StopLongitute).Name("stop_lon");
+		Map(m => m.StopLongitude).Name("stop_lon");
 	}
 }
