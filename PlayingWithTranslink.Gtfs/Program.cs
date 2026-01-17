@@ -73,4 +73,36 @@ public class Program
 				break;
 		}
 	}
+
+
+
+	// ------------------------------------------------
+	// Experiment 1
+	// ------------------------------------------------
+	private static void Experiment_SearchStops(GtfsService service)
+	{
+		Write("Enter stop search text: ");
+		var query = Console.ReadLine() ?? string.Empty;
+
+		Write("Max results (default 10): ");
+		var takeInput = ReadLine();
+		var take = int.TryParse(takeInput, out var t) ? t : 10;
+
+		WriteLine();
+		WriteLine($"Searching stops for '{query}'");
+		WriteLine();
+
+		var stops = service.SearchStops(query, take);
+
+		if (stops.Count == 0)
+		{
+			Console.WriteLine("No stops found.");
+			return;
+		}
+
+		foreach (var s in stops)
+		{
+			Console.WriteLine($"{s.StopId} | {s.StopName}");
+		}
+	}
 }
