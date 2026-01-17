@@ -43,8 +43,8 @@ public sealed class GtfsService(string gtfsFolder)
 		var tripsPath = Path.Combine(_gtfsFolder, "trips.txt");
 		var stopTimesPath = Path.Combine(_gtfsFolder, "stop_times.txt");
 
-		var routes = GtfsCsv.LoadSmall<Route>(routesPath).ToDictionary(r => r.route_id);
-		var trips = GtfsCsv.LoadSmall<Trip>(tripsPath).ToDictionary(t => t.trip_id);
+		var routes = GtfsCsv.LoadSmall<Route, RouteMap>(routesPath).ToDictionary(r => r.RouteId);
+		var trips = GtfsCsv.LoadSmall<Trip, TripMap>(tripsPath).ToDictionary(t => t.TripId);
 
 		var results = new List<(TimeSpan time, string line)>(200);
 
