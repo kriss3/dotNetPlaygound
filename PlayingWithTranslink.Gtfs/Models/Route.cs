@@ -1,3 +1,8 @@
 ﻿namespace PlayingWithTranslink.Gtfs.Models;
 
-public sealed record Route(string RouteId, string RouteShortName, 	string RouteLongName);
+public sealed record Route
+{
+	public required string RouteId { get; init; }
+	public required string RouteShortName { get; init; }
+	public required string RouteLongName { get; init; }
+}
