@@ -38,7 +38,7 @@ public class Program
 			WriteLine();
 			Write("Choose an option: ");
 
-			var choice = Console.ReadLine()?.Trim();
+			var choice = ReadLine()?.Trim();
 
 			WriteLine();
 
