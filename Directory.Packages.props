@@ -22,14 +22,14 @@
     <PackageVersion Include="System.Text.Json" Version="10.0.13" />
     <PackageVersion Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
     <PackageVersion Include="System.ValueTuple" Version="4.6.2" />
-    <PackageVersion Include="RestSharp" Version="114.0.0" />
+    <PackageVersion Include="RestSharp" Version="114.1.0" />
     <PackageVersion Include="Serilog" Version="4.4.0" />
     <PackageVersion Include="Serilog.AspNetCore" Version="10.0.0" />
     <PackageVersion Include="Serilog.Sinks.File" Version="7.0.0" />
     <PackageVersion Include="Serilog.Sinks.MSSqlServer" Version="10.0.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.1.1" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
-    <PackageVersion Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageVersion Include="System.Data.DataSetExtensions" Version="4.6.0-preview3.19128.7" />
     <PackageVersion Include="Cova.Functional" Version="4.3.2" />
     <PackageVersion Include="Cova.ServiceErrors" Version="3.0.2" />
     <PackageVersion Include="Ardalis.GuardClauses" Version="5.0.0" />
